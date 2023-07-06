@@ -2,6 +2,7 @@ namespace FinalProject_Winform
 {
     internal static class Program
     {
+        //¿Ã∞«¡æ
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
