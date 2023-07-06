@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FinalProject_Winform.Migrations
 {
     [DbContext(typeof(FinalDbContext))]
-    [Migration("20230706064038_init")]
+    [Migration("20230706082301_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -25,7 +25,7 @@ namespace FinalProject_Winform.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("FinalProject_Winform.Models.Check", b =>
+            modelBuilder.Entity("FinalProject_Winform.Models.domain.Check", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -51,7 +51,7 @@ namespace FinalProject_Winform.Migrations
                     b.ToTable("Check");
                 });
 
-            modelBuilder.Entity("FinalProject_Winform.Models.Item", b =>
+            modelBuilder.Entity("FinalProject_Winform.Models.domain.Item", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -86,7 +86,7 @@ namespace FinalProject_Winform.Migrations
                     b.ToTable("Item");
                 });
 
-            modelBuilder.Entity("FinalProject_Winform.Models.Lot", b =>
+            modelBuilder.Entity("FinalProject_Winform.Models.domain.Lot", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -121,7 +121,7 @@ namespace FinalProject_Winform.Migrations
                     b.ToTable("Lot");
                 });
 
-            modelBuilder.Entity("FinalProject_Winform.Models.LotHistory", b =>
+            modelBuilder.Entity("FinalProject_Winform.Models.domain.LotHistory", b =>
                 {
                     b.Property<long>("LotHistoryId")
                         .ValueGeneratedOnAdd()
@@ -150,7 +150,7 @@ namespace FinalProject_Winform.Migrations
                     b.ToTable("LotHistory");
                 });
 
-            modelBuilder.Entity("FinalProject_Winform.Models.Order", b =>
+            modelBuilder.Entity("FinalProject_Winform.Models.domain.Order", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -188,7 +188,7 @@ namespace FinalProject_Winform.Migrations
                     b.ToTable("Order");
                 });
 
-            modelBuilder.Entity("FinalProject_Winform.Models.Process", b =>
+            modelBuilder.Entity("FinalProject_Winform.Models.domain.Process", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -211,7 +211,7 @@ namespace FinalProject_Winform.Migrations
                     b.ToTable("Process");
                 });
 
-            modelBuilder.Entity("FinalProject_Winform.Models.Stock", b =>
+            modelBuilder.Entity("FinalProject_Winform.Models.domain.Stock", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -239,7 +239,7 @@ namespace FinalProject_Winform.Migrations
                     b.ToTable("Stock");
                 });
 
-            modelBuilder.Entity("FinalProject_Winform.Models.User", b =>
+            modelBuilder.Entity("FinalProject_Winform.Models.domain.User", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -265,36 +265,36 @@ namespace FinalProject_Winform.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("User");
+                    b.ToTable("PUser");
                 });
 
-            modelBuilder.Entity("FinalProject_Winform.Models.Check", b =>
+            modelBuilder.Entity("FinalProject_Winform.Models.domain.Check", b =>
                 {
-                    b.HasOne("FinalProject_Winform.Models.Process", "Process")
+                    b.HasOne("FinalProject_Winform.Models.domain.Process", "Process")
                         .WithMany()
                         .HasForeignKey("ProcessId");
 
                     b.Navigation("Process");
                 });
 
-            modelBuilder.Entity("FinalProject_Winform.Models.Lot", b =>
+            modelBuilder.Entity("FinalProject_Winform.Models.domain.Lot", b =>
                 {
-                    b.HasOne("FinalProject_Winform.Models.Item", "Item")
+                    b.HasOne("FinalProject_Winform.Models.domain.Item", "Item")
                         .WithMany()
                         .HasForeignKey("ItemId");
 
                     b.Navigation("Item");
                 });
 
-            modelBuilder.Entity("FinalProject_Winform.Models.LotHistory", b =>
+            modelBuilder.Entity("FinalProject_Winform.Models.domain.LotHistory", b =>
                 {
-                    b.HasOne("FinalProject_Winform.Models.Lot", "Lot")
+                    b.HasOne("FinalProject_Winform.Models.domain.Lot", "Lot")
                         .WithMany()
                         .HasForeignKey("LotId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("FinalProject_Winform.Models.Process", "Process")
+                    b.HasOne("FinalProject_Winform.Models.domain.Process", "Process")
                         .WithMany()
                         .HasForeignKey("ProcessId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -305,18 +305,18 @@ namespace FinalProject_Winform.Migrations
                     b.Navigation("Process");
                 });
 
-            modelBuilder.Entity("FinalProject_Winform.Models.Order", b =>
+            modelBuilder.Entity("FinalProject_Winform.Models.domain.Order", b =>
                 {
-                    b.HasOne("FinalProject_Winform.Models.Item", "Item")
+                    b.HasOne("FinalProject_Winform.Models.domain.Item", "Item")
                         .WithMany()
                         .HasForeignKey("ItemId");
 
                     b.Navigation("Item");
                 });
 
-            modelBuilder.Entity("FinalProject_Winform.Models.Stock", b =>
+            modelBuilder.Entity("FinalProject_Winform.Models.domain.Stock", b =>
                 {
-                    b.HasOne("FinalProject_Winform.Models.Item", "Item")
+                    b.HasOne("FinalProject_Winform.Models.domain.Item", "Item")
                         .WithMany()
                         .HasForeignKey("ItemId");
 

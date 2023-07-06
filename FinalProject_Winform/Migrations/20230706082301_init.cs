@@ -45,7 +45,7 @@ namespace FinalProject_Winform.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "User",
+                name: "PUser",
                 columns: table => new
                 {
                     Id = table.Column<long>(type: "bigint", nullable: false)
@@ -57,7 +57,7 @@ namespace FinalProject_Winform.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_User", x => x.Id);
+                    table.PrimaryKey("PK_PUser", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -220,10 +220,10 @@ namespace FinalProject_Winform.Migrations
                 name: "Order");
 
             migrationBuilder.DropTable(
-                name: "Stock");
+                name: "PUser");
 
             migrationBuilder.DropTable(
-                name: "User");
+                name: "Stock");
 
             migrationBuilder.DropTable(
                 name: "Lot");

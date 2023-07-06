@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FinalProject_Winform.Models.domain
 {
-    [Table("User")]
+    [Table("PUser")]
     public class User
     {
         public long Id { get; set; }
