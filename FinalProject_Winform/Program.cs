@@ -13,8 +13,8 @@ namespace FinalProject_Winform
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new Form1());
+            // 나도 바쁘다고!
         }
     }
 }
-
 //ㅎㅇ
