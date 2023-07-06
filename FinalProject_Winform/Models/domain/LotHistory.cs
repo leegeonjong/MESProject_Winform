@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FinalProject_Winform.Models
+namespace FinalProject_Winform.Models.domain
 {
     [Table("LotHistory")]
     public class LotHistory

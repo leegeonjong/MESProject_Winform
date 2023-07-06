@@ -5,14 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FinalProject_Winform.Models
+namespace FinalProject_Winform.Models.domain
 {
     [Table("Stock")]
     public class Stock
     {
         public long Id { get; set; }    // PK
 
-        public Item? Item { get; set; } 
+        public Item? Item { get; set; }
 
         public long Stock_amount { get; set; } // 입/출고 수량
 
@@ -20,7 +20,7 @@ namespace FinalProject_Winform.Models
 
         public string Stock_status { get; set; } // 입고인지 출고인지
 
-        
+
 
 
     }

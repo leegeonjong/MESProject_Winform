@@ -5,15 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FinalProject_Winform.Models
+namespace FinalProject_Winform.Models.domain
 {
     [Table("User")]
     public class User
     {
-        public long Id { get; set; }    
+        public long Id { get; set; }
 
         public string User_id { get; set; }  // 유저 아이디
-         
+
         public string User_password { get; set; } // 유저 패스워드
 
         public string User_name { get; set; } // 유저 이름

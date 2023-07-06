@@ -5,14 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FinalProject_Winform.Models
+namespace FinalProject_Winform.Models.domain
 {
     [Table("Lot")]
     public class Lot
     {
         public long Id { get; set; }  //PK
 
-        public Item? Item { get; set; } 
+        public Item? Item { get; set; }
 
         public string Lot_barcode { get; set; } // LOT 바코드
 
@@ -21,12 +21,12 @@ namespace FinalProject_Winform.Models
         public string Lot_status { get; set; }  // LOT 상태
 
         public bool Lot_break { get; set; } // 불량 여부
-         
-        public DateTime? Lot_regDate {get ; set; }  // LOT 생성 날짜 
+
+        public DateTime? Lot_regDate { get; set; }  // LOT 생성 날짜 
 
 
 
-    
+
 
     }
 }

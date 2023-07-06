@@ -1,4 +1,4 @@
-﻿using FinalProject_Winform.Models;
+﻿using FinalProject_Winform.Models.domain;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -26,9 +26,9 @@ namespace FinalProject_Winform.Data
         public DbSet<Item> Items { get; set; }
         public DbSet<Lot> Lots { get; set; }
         public DbSet<LotHistory> LotHistorys { get; set; }
-        public DbSet<Models.Order> Orders { get; set; }
-        public DbSet<Models.Process> Processes { get; set; }
-        public DbSet<Models.Stock> Stocks { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<Models.domain.Process> Processes { get; set; }
+        public DbSet<Stock> Stocks { get; set; }
         public DbSet<User> Users { get; set; }
         
 
