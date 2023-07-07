@@ -10,9 +10,14 @@ namespace FinalProject_Winform.Repositories
 {
     internal class LotRepository : ILotRepository
     {
-        public Task<Lot> AddAsync(Lot Lot)
+       
+        public async Task<Lot> AddAsync(Lot Lot)
         {
-            throw new NotImplementedException();
+            using FinalDbContext db = new();
+            await db.Lots.AddAsync(Lot);
+            await db.SaveChangesAsync();    
+            return Lot;
+
         }
 
         public Task<IEnumerable<Lot>> GetAllAsync()
