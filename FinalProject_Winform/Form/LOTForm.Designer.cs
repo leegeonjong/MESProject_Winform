@@ -62,6 +62,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.comboBox_item = new System.Windows.Forms.ComboBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label5 = new System.Windows.Forms.Label();
+            this.panel8 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -72,6 +75,8 @@
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picture_Barcode)).BeginInit();
             this.panel3.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -230,7 +235,7 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage1.Size = new System.Drawing.Size(1411, 847);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1asdfadfasdfafa";
+            this.tabPage1.Text = "Lot 생성";
             // 
             // label9
             // 
@@ -464,14 +469,44 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.BackColor = System.Drawing.Color.LightGray;
+            this.tabPage2.Controls.Add(this.label5);
+            this.tabPage2.Controls.Add(this.panel8);
+            this.tabPage2.Controls.Add(this.dataGridView1);
             this.tabPage2.Location = new System.Drawing.Point(4, 44);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage2.Size = new System.Drawing.Size(1411, 847);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabPage2.Text = "LOT 검색";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(26, 433);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 29;
+            this.dataGridView1.Size = new System.Drawing.Size(1323, 381);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("맑은 고딕", 31.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.Location = new System.Drawing.Point(26, 23);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(246, 72);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "로트번호";
+            // 
+            // panel8
+            // 
+            this.panel8.Location = new System.Drawing.Point(26, 23);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(1323, 390);
+            this.panel8.TabIndex = 2;
             // 
             // LOTForm
             // 
@@ -501,6 +536,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.picture_Barcode)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -541,5 +579,8 @@
         private Label lbl_count1;
         private Label lbl_text_count;
         private Label lbl_text_item;
+        private Label label5;
+        private Panel panel8;
+        private DataGridView dataGridView1;
     }
 }
