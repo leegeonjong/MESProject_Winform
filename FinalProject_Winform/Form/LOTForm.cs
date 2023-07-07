@@ -57,6 +57,7 @@ namespace FinalProject_Winform
                     );
 
                 picture_Barcode.Image = Image.FromStream(img.Encode().AsStream());
+            //
             
         }
     }
