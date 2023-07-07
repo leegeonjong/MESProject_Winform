@@ -12,7 +12,7 @@ namespace FinalProject_Winform
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new ProcessForm());
+            Application.Run(new StockForm());
             // 나도 바쁘다고!
         }
     }
