@@ -22,6 +22,7 @@ namespace FinalProject_Winform
             InitializeComponent();
             lotRepository = new LotRepository();
         }
+        //
 
 
 
