@@ -84,5 +84,10 @@ namespace FinalProject_Winform
 
             return sb.ToString();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -49,6 +49,7 @@
             this.lbl_barcode = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.lbl_text_item = new System.Windows.Forms.Label();
             this.lbl_count1 = new System.Windows.Forms.Label();
             this.lbl_item = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -61,7 +62,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.comboBox_item = new System.Windows.Forms.ComboBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.lbl_text_item = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -255,6 +255,7 @@
             this.button2.TabIndex = 5;
             this.button2.Text = "LOT 생성";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // panel7
             // 
@@ -336,6 +337,16 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(614, 98);
             this.panel5.TabIndex = 6;
+            // 
+            // lbl_text_item
+            // 
+            this.lbl_text_item.AutoSize = true;
+            this.lbl_text_item.Font = new System.Drawing.Font("맑은 고딕", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbl_text_item.Location = new System.Drawing.Point(173, 21);
+            this.lbl_text_item.Name = "lbl_text_item";
+            this.lbl_text_item.Size = new System.Drawing.Size(154, 50);
+            this.lbl_text_item.TabIndex = 9;
+            this.lbl_text_item.Text = "제품명: ";
             // 
             // lbl_count1
             // 
@@ -461,16 +472,6 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // lbl_text_item
-            // 
-            this.lbl_text_item.AutoSize = true;
-            this.lbl_text_item.Font = new System.Drawing.Font("맑은 고딕", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_text_item.Location = new System.Drawing.Point(173, 21);
-            this.lbl_text_item.Name = "lbl_text_item";
-            this.lbl_text_item.Size = new System.Drawing.Size(154, 50);
-            this.lbl_text_item.TabIndex = 9;
-            this.lbl_text_item.Text = "제품명: ";
             // 
             // LOTForm
             // 
