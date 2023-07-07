@@ -27,7 +27,7 @@ namespace FinalProject_Winform
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+
             if (comboBox_item.Text == "제품선택" || textBox_count.Text.IsNullOrEmpty())
             {
                 MessageBox.Show("제품과 수량을 입력해주세요");
@@ -43,9 +43,9 @@ namespace FinalProject_Winform
                         break;
                     }
                 }
-               lbl_barcode.Text = bartext;
+                lbl_barcode.Text = bartext;
                 lbl_text_item.Text = comboBox_item.Text;
-               lbl_text_count.Text = textBox_count.Text;
+                lbl_text_count.Text = textBox_count.Text;
 
             }
 

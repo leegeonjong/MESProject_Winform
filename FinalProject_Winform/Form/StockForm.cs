@@ -66,10 +66,8 @@ namespace FinalProject_Winform
             {
                 MessageBox.Show("성공");
             }
-            
-            
-
         }
+
         private void Button_Click(object sender, EventArgs e)
         {
             Button button = sender as Button;

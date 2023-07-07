@@ -28,51 +28,51 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btn_ChartForm = new System.Windows.Forms.Button();
-            this.btn_OrderForm = new System.Windows.Forms.Button();
-            this.btn_StockForm = new System.Windows.Forms.Button();
-            this.btn_TestForm = new System.Windows.Forms.Button();
-            this.btn_ProcessForm = new System.Windows.Forms.Button();
-            this.btn_LOTForm = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.label9 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.lbl_text_count = new System.Windows.Forms.Label();
-            this.lbl_count = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.lbl_barcode = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.lbl_text_item = new System.Windows.Forms.Label();
-            this.lbl_count1 = new System.Windows.Forms.Label();
-            this.lbl_item = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.picture_Barcode = new System.Windows.Forms.PictureBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.lbl_stockname = new System.Windows.Forms.Label();
-            this.textBox_count = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.comboBox_item = new System.Windows.Forms.ComboBox();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.panel7.SuspendLayout();
-            this.panel6.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picture_Barcode)).BeginInit();
-            this.panel3.SuspendLayout();
-            this.SuspendLayout();
+            panel1 = new Panel();
+            btn_ChartForm = new Button();
+            btn_OrderForm = new Button();
+            btn_StockForm = new Button();
+            btn_TestForm = new Button();
+            btn_ProcessForm = new Button();
+            btn_LOTForm = new Button();
+            panel2 = new Panel();
+            label1 = new Label();
+            tabControl1 = new TabControl();
+            tabPage1 = new TabPage();
+            label9 = new Label();
+            button2 = new Button();
+            panel7 = new Panel();
+            lbl_text_count = new Label();
+            lbl_count = new Label();
+            label8 = new Label();
+            panel6 = new Panel();
+            lbl_barcode = new Label();
+            label4 = new Label();
+            panel5 = new Panel();
+            lbl_text_item = new Label();
+            lbl_count1 = new Label();
+            lbl_item = new Label();
+            label3 = new Label();
+            panel4 = new Panel();
+            picture_Barcode = new PictureBox();
+            panel3 = new Panel();
+            button1 = new Button();
+            lbl_stockname = new Label();
+            textBox_count = new TextBox();
+            label2 = new Label();
+            comboBox_item = new ComboBox();
+            tabPage2 = new TabPage();
+            panel1.SuspendLayout();
+            panel2.SuspendLayout();
+            tabControl1.SuspendLayout();
+            tabPage1.SuspendLayout();
+            panel7.SuspendLayout();
+            panel6.SuspendLayout();
+            panel5.SuspendLayout();
+            panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picture_Barcode).BeginInit();
+            panel3.SuspendLayout();
+            SuspendLayout();
             // 
             // panel1
             // 
@@ -216,7 +216,7 @@
             tabPage1.Controls.Add(panel3);
             tabPage1.Location = new Point(4, 44);
             tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3, 3, 3, 3);
+            tabPage1.Padding = new Padding(3);
             tabPage1.Size = new Size(1096, 623);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "tabPage1asdfadfasdfafa";
@@ -234,39 +234,39 @@
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            this.button2.FlatAppearance.BorderSize = 2;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("맑은 고딕", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button2.Location = new System.Drawing.Point(1145, 694);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(207, 62);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "LOT 생성";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            button2.BackColor = Color.FromArgb(52, 152, 219);
+            button2.FlatAppearance.BorderColor = Color.FromArgb(52, 152, 219);
+            button2.FlatAppearance.BorderSize = 2;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("맑은 고딕", 22.2F, FontStyle.Regular, GraphicsUnit.Point);
+            button2.Location = new Point(1145, 694);
+            button2.Name = "button2";
+            button2.Size = new Size(207, 62);
+            button2.TabIndex = 5;
+            button2.Text = "LOT 생성";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // panel7
             // 
-            this.panel7.BackColor = System.Drawing.Color.White;
-            this.panel7.Controls.Add(this.lbl_text_count);
-            this.panel7.Controls.Add(this.lbl_count);
-            this.panel7.Controls.Add(this.label8);
-            this.panel7.Location = new System.Drawing.Point(738, 538);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(614, 98);
-            this.panel7.TabIndex = 8;
+            panel7.BackColor = Color.White;
+            panel7.Controls.Add(lbl_text_count);
+            panel7.Controls.Add(lbl_count);
+            panel7.Controls.Add(label8);
+            panel7.Location = new Point(574, 416);
+            panel7.Name = "panel7";
+            panel7.Size = new Size(478, 87);
+            panel7.TabIndex = 8;
             // 
             // lbl_text_count
             // 
-            this.lbl_text_count.AutoSize = true;
-            this.lbl_text_count.Font = new System.Drawing.Font("맑은 고딕", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_text_count.Location = new System.Drawing.Point(197, 25);
-            this.lbl_text_count.Name = "lbl_text_count";
-            this.lbl_text_count.Size = new System.Drawing.Size(154, 50);
-            this.lbl_text_count.TabIndex = 8;
-            this.lbl_text_count.Text = "제품명: ";
+            lbl_text_count.AutoSize = true;
+            lbl_text_count.Font = new Font("맑은 고딕", 22.2F, FontStyle.Regular, GraphicsUnit.Point);
+            lbl_text_count.Location = new Point(197, 25);
+            lbl_text_count.Name = "lbl_text_count";
+            lbl_text_count.Size = new Size(126, 41);
+            lbl_text_count.TabIndex = 8;
+            lbl_text_count.Text = "제품명: ";
             // 
             // lbl_count
             // 
@@ -294,8 +294,8 @@
             panel6.BackColor = Color.White;
             panel6.Controls.Add(lbl_barcode);
             panel6.Controls.Add(label4);
-            panel6.Location = new Point(574, 310);
-            panel6.Margin = new Padding(2, 2, 2, 2);
+            panel6.Location = new Point(574, 325);
+            panel6.Margin = new Padding(2);
             panel6.Name = "panel6";
             panel6.Size = new Size(478, 74);
             panel6.TabIndex = 7;
@@ -314,7 +314,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("맑은 고딕", 22.2F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(18, 20);
+            label4.Location = new Point(10, 20);
             label4.Margin = new Padding(2, 0, 2, 0);
             label4.Name = "label4";
             label4.Size = new Size(149, 41);
@@ -323,34 +323,34 @@
             // 
             // panel5
             // 
-            this.panel5.BackColor = System.Drawing.Color.White;
-            this.panel5.Controls.Add(this.lbl_text_item);
-            this.panel5.Controls.Add(this.lbl_count1);
-            this.panel5.Controls.Add(this.lbl_item);
-            this.panel5.Controls.Add(this.label3);
-            this.panel5.Location = new System.Drawing.Point(738, 295);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(614, 98);
-            this.panel5.TabIndex = 6;
+            panel5.BackColor = Color.White;
+            panel5.Controls.Add(lbl_text_item);
+            panel5.Controls.Add(lbl_count1);
+            panel5.Controls.Add(lbl_item);
+            panel5.Controls.Add(label3);
+            panel5.Location = new Point(574, 221);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(477, 84);
+            panel5.TabIndex = 6;
             // 
             // lbl_text_item
             // 
-            this.lbl_text_item.AutoSize = true;
-            this.lbl_text_item.Font = new System.Drawing.Font("맑은 고딕", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_text_item.Location = new System.Drawing.Point(173, 21);
-            this.lbl_text_item.Name = "lbl_text_item";
-            this.lbl_text_item.Size = new System.Drawing.Size(154, 50);
-            this.lbl_text_item.TabIndex = 9;
-            this.lbl_text_item.Text = "제품명: ";
+            lbl_text_item.AutoSize = true;
+            lbl_text_item.Font = new Font("맑은 고딕", 22.2F, FontStyle.Regular, GraphicsUnit.Point);
+            lbl_text_item.Location = new Point(173, 21);
+            lbl_text_item.Name = "lbl_text_item";
+            lbl_text_item.Size = new Size(126, 41);
+            lbl_text_item.TabIndex = 9;
+            lbl_text_item.Text = "제품명: ";
             // 
             // lbl_count1
             // 
-            this.lbl_count1.AutoSize = true;
-            this.lbl_count1.Font = new System.Drawing.Font("맑은 고딕", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_count1.Location = new System.Drawing.Point(173, 21);
-            this.lbl_count1.Name = "lbl_count1";
-            this.lbl_count1.Size = new System.Drawing.Size(0, 50);
-            this.lbl_count1.TabIndex = 7;
+            lbl_count1.AutoSize = true;
+            lbl_count1.Font = new Font("맑은 고딕", 22.2F, FontStyle.Regular, GraphicsUnit.Point);
+            lbl_count1.Location = new Point(173, 21);
+            lbl_count1.Name = "lbl_count1";
+            lbl_count1.Size = new Size(0, 41);
+            lbl_count1.TabIndex = 7;
             // 
             // lbl_item
             // 
@@ -364,20 +364,20 @@
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("맑은 고딕", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(23, 21);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(154, 50);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "제품명: ";
+            label3.AutoSize = true;
+            label3.Font = new Font("맑은 고딕", 22.2F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Location = new Point(23, 21);
+            label3.Name = "label3";
+            label3.Size = new Size(126, 41);
+            label3.TabIndex = 5;
+            label3.Text = "제품명: ";
             // 
             // panel4
             // 
             panel4.BackColor = Color.White;
             panel4.Controls.Add(picture_Barcode);
             panel4.Location = new Point(31, 221);
-            panel4.Margin = new Padding(2, 2, 2, 2);
+            panel4.Margin = new Padding(2);
             panel4.Name = "panel4";
             panel4.Size = new Size(518, 354);
             panel4.TabIndex = 4;
@@ -385,7 +385,7 @@
             // picture_Barcode
             // 
             picture_Barcode.Location = new Point(19, 16);
-            picture_Barcode.Margin = new Padding(2, 2, 2, 2);
+            picture_Barcode.Margin = new Padding(2);
             picture_Barcode.Name = "picture_Barcode";
             picture_Barcode.Size = new Size(479, 319);
             picture_Barcode.TabIndex = 3;
@@ -400,7 +400,7 @@
             panel3.Controls.Add(label2);
             panel3.Controls.Add(comboBox_item);
             panel3.Location = new Point(31, 96);
-            panel3.Margin = new Padding(2, 2, 2, 2);
+            panel3.Margin = new Padding(2);
             panel3.Name = "panel3";
             panel3.Size = new Size(1020, 94);
             panel3.TabIndex = 2;
@@ -413,7 +413,7 @@
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("맑은 고딕", 22.2F, FontStyle.Regular, GraphicsUnit.Point);
             button1.Location = new Point(859, 22);
-            button1.Margin = new Padding(2, 2, 2, 2);
+            button1.Margin = new Padding(2);
             button1.Name = "button1";
             button1.Size = new Size(138, 46);
             button1.TabIndex = 4;
@@ -436,7 +436,7 @@
             // 
             textBox_count.Font = new Font("맑은 고딕", 28.2F, FontStyle.Regular, GraphicsUnit.Point);
             textBox_count.Location = new Point(561, 20);
-            textBox_count.Margin = new Padding(2, 2, 2, 2);
+            textBox_count.Margin = new Padding(2);
             textBox_count.Name = "textBox_count";
             textBox_count.Size = new Size(282, 58);
             textBox_count.TabIndex = 3;
@@ -459,7 +459,7 @@
             comboBox_item.ItemHeight = 51;
             comboBox_item.Items.AddRange(new object[] { "밀가루" });
             comboBox_item.Location = new Point(167, 20);
-            comboBox_item.Margin = new Padding(2, 2, 2, 2);
+            comboBox_item.Margin = new Padding(2);
             comboBox_item.Name = "comboBox_item";
             comboBox_item.Size = new Size(210, 59);
             comboBox_item.TabIndex = 1;
@@ -469,7 +469,7 @@
             // 
             tabPage2.Location = new Point(4, 44);
             tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3, 3, 3, 3);
+            tabPage2.Padding = new Padding(3);
             tabPage2.Size = new Size(1096, 623);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "tabPage2";
