@@ -16,12 +16,6 @@ namespace FinalProject_Winform.Repositories
         {
         }
 
-        public async Task<Item?> GetByNameAsync(string name)
-        {
-            using FinalDbContext db = new();
-           var item = await db.Items.FirstOrDefaultAsync(i => i.Item_name == name);
-            return item;
-        }
 
         public Task<Item> UpdateAsync(Item item)
         {
