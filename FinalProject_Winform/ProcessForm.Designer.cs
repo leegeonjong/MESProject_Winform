@@ -1,6 +1,6 @@
 ﻿namespace FinalProject_Winform
 {
-    partial class Form3
+    partial class ProcessForm
     {
         /// <summary>
         /// Required designer variable.

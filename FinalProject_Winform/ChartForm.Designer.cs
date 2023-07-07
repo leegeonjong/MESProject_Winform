@@ -1,6 +1,6 @@
 ﻿namespace FinalProject_Winform
 {
-    partial class Form4
+    partial class ChartForm
     {
         /// <summary>
         /// Required designer variable.
@@ -159,15 +159,16 @@
             btn_LOT.TextAlign = ContentAlignment.MiddleLeft;
             btn_LOT.UseVisualStyleBackColor = true;
             // 
-            // Form4
+            // Form5
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1264, 761);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Name = "Form4";
-            Text = "Form4";
+            Name = "Form5";
+            Text = "Form5";
+            Load += Form5_Load;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel1.ResumeLayout(false);

@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace FinalProject_Winform
 {
-    public partial class Form3 : Form
+    public partial class LOTForm : Form
     {
-        public Form3()
+        public LOTForm()
         {
             InitializeComponent();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

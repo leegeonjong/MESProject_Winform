@@ -1,6 +1,6 @@
 ﻿namespace FinalProject_Winform
 {
-    partial class Form2
+    partial class OrderForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            panel2 = new Panel();
+            label1 = new Label();
             panel1 = new Panel();
             btn_chart = new Button();
             btn_order = new Button();
@@ -35,11 +37,28 @@
             btn_check = new Button();
             btn_process = new Button();
             btn_LOT = new Button();
-            panel2 = new Panel();
-            label1 = new Label();
-            panel1.SuspendLayout();
             panel2.SuspendLayout();
+            panel1.SuspendLayout();
             SuspendLayout();
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.FromArgb(52, 152, 219);
+            panel2.Controls.Add(label1);
+            panel2.Location = new Point(0, 0);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(1264, 88);
+            panel2.TabIndex = 5;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("맑은 고딕", 27.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(550, 18);
+            label1.Name = "label1";
+            label1.Size = new Size(170, 50);
+            label1.TabIndex = 0;
+            label1.Text = "아무거나";
             // 
             // panel1
             // 
@@ -54,7 +73,7 @@
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(160, 761);
-            panel1.TabIndex = 0;
+            panel1.TabIndex = 4;
             // 
             // btn_chart
             // 
@@ -140,52 +159,31 @@
             btn_LOT.TextAlign = ContentAlignment.MiddleLeft;
             btn_LOT.UseVisualStyleBackColor = true;
             // 
-            // panel2
-            // 
-            panel2.BackColor = Color.FromArgb(52, 152, 219);
-            panel2.Controls.Add(label1);
-            panel2.Location = new Point(0, 0);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(1264, 88);
-            panel2.TabIndex = 1;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("맑은 고딕", 27.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(550, 18);
-            label1.Name = "label1";
-            label1.Size = new Size(170, 50);
-            label1.TabIndex = 0;
-            label1.Text = "아무거나";
-            label1.Click += label1_Click;
-            // 
-            // Form2
+            // Form7
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1264, 761);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Name = "Form2";
-            StartPosition = FormStartPosition.CenterParent;
-            Text = "Form2";
-            panel1.ResumeLayout(false);
+            Name = "Form7";
+            Text = "Form7";
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            panel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Panel panel1;
-        private Button btn_LOT;
         private Panel panel2;
-        private Button btn_process;
+        private Label label1;
+        private Panel panel1;
         private Button btn_chart;
         private Button btn_order;
         private Button btn_stock;
         private Button btn_check;
-        private Label label1;
+        private Button btn_process;
+        private Button btn_LOT;
     }
 }

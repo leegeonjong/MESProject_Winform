@@ -1,6 +1,6 @@
 ﻿namespace FinalProject_Winform
 {
-    partial class Form1
+    partial class LoginForm
     {
         /// <summary>
         ///  Required designer variable.

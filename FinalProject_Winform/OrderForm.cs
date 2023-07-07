@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace FinalProject_Winform
 {
-    public partial class Form5 : Form
+    public partial class OrderForm : Form
     {
-        public Form5()
+        public OrderForm()
         {
             InitializeComponent();
-        }
-
-        private void Form5_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

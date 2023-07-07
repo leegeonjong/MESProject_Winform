@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace FinalProject_Winform
 {
-    public partial class Form8 : Form
+    public partial class ProcessForm : Form
     {
-        public Form8()
+        public ProcessForm()
         {
             InitializeComponent();
         }

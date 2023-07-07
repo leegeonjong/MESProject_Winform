@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace FinalProject_Winform
 {
-    public partial class Form2 : Form
+    public partial class StockForm : Form
     {
-        public Form2()
+        public StockForm()
         {
             InitializeComponent();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

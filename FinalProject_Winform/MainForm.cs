@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace FinalProject_Winform
 {
-    public partial class Form4 : Form
+    public partial class MainForm : Form
     {
-        public Form4()
+        public MainForm()
         {
             InitializeComponent();
         }

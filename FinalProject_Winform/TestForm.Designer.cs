@@ -1,6 +1,6 @@
 ﻿namespace FinalProject_Winform
 {
-    partial class Form6
+    partial class TestForm
     {
         /// <summary>
         /// Required designer variable.

@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace FinalProject_Winform
 {
-    public partial class Form7 : Form
+    public partial class TestForm : Form
     {
-        public Form7()
+        public TestForm()
         {
             InitializeComponent();
+        }
+
+        private void Form6_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace FinalProject_Winform
 {
-    partial class Form7
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -159,15 +159,15 @@
             btn_LOT.TextAlign = ContentAlignment.MiddleLeft;
             btn_LOT.UseVisualStyleBackColor = true;
             // 
-            // Form7
+            // Form8
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1264, 761);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Name = "Form7";
-            Text = "Form7";
+            Name = "Form8";
+            Text = "Form8";
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel1.ResumeLayout(false);

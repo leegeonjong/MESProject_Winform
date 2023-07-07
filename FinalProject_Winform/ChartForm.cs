@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace FinalProject_Winform
 {
-    public partial class Form6 : Form
+    public partial class ChartForm : Form
     {
-        public Form6()
+        public ChartForm()
         {
             InitializeComponent();
         }
 
-        private void Form6_Load(object sender, EventArgs e)
+        private void Form5_Load(object sender, EventArgs e)
         {
 
         }

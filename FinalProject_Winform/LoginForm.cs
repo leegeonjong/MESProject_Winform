@@ -3,12 +3,12 @@ using FinalProject_Winform.Models.domain;
 
 namespace FinalProject_Winform
 {
-    public partial class Form1 : Form
+    public partial class LoginForm : Form
     {
         private readonly FinalDbContext db;
         TextBox idbox;
         TextBox pwbox;
-        public Form1()
+        public LoginForm()
         {
             InitializeComponent();
             idbox = textBox1;

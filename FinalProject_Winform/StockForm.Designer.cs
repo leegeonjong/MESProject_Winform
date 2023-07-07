@@ -1,6 +1,6 @@
 ﻿namespace FinalProject_Winform
 {
-    partial class Form5
+    partial class StockForm
     {
         /// <summary>
         /// Required designer variable.
@@ -159,16 +159,15 @@
             btn_LOT.TextAlign = ContentAlignment.MiddleLeft;
             btn_LOT.UseVisualStyleBackColor = true;
             // 
-            // Form5
+            // Form4
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1264, 761);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Name = "Form5";
-            Text = "Form5";
-            Load += Form5_Load;
+            Name = "Form4";
+            Text = "Form4";
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel1.ResumeLayout(false);
