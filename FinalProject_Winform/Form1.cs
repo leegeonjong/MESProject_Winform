@@ -18,7 +18,7 @@ namespace FinalProject_Winform
         private void button1_Click(object sender, EventArgs e)
         {
             var b = Login(idbox.Text);
-            MessageBox.Show(b.User_id);
+            MessageBox.Show(b.PUser_id);
         }
 
         private User Login(string id)

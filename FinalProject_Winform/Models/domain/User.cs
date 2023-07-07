@@ -12,13 +12,13 @@ namespace FinalProject_Winform.Models.domain
     {
         public long Id { get; set; }
 
-        public string User_id { get; set; }  // 유저 아이디
+        public string PUser_id { get; set; }  // 유저 아이디
 
-        public string User_password { get; set; } // 유저 패스워드
+        public string PUser_password { get; set; } // 유저 패스워드
 
-        public string User_name { get; set; } // 유저 이름
+        public string PUser_name { get; set; } // 유저 이름
 
-        public string User_phoneNum { get; set; } // 유저 핸드폰번호
+        public string PUser_phoneNum { get; set; } // 유저 핸드폰번호
 
     }
 }
