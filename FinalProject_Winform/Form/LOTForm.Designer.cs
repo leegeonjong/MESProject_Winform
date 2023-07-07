@@ -42,12 +42,14 @@
             this.label9 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.lbl_text_count = new System.Windows.Forms.Label();
             this.lbl_count = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.lbl_barcode = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.lbl_count1 = new System.Windows.Forms.Label();
             this.lbl_item = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -59,6 +61,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.comboBox_item = new System.Windows.Forms.ComboBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.lbl_text_item = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -256,12 +259,23 @@
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.White;
+            this.panel7.Controls.Add(this.lbl_text_count);
             this.panel7.Controls.Add(this.lbl_count);
             this.panel7.Controls.Add(this.label8);
             this.panel7.Location = new System.Drawing.Point(738, 538);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(614, 98);
             this.panel7.TabIndex = 8;
+            // 
+            // lbl_text_count
+            // 
+            this.lbl_text_count.AutoSize = true;
+            this.lbl_text_count.Font = new System.Drawing.Font("맑은 고딕", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbl_text_count.Location = new System.Drawing.Point(197, 25);
+            this.lbl_text_count.Name = "lbl_text_count";
+            this.lbl_text_count.Size = new System.Drawing.Size(154, 50);
+            this.lbl_text_count.TabIndex = 8;
+            this.lbl_text_count.Text = "제품명: ";
             // 
             // lbl_count
             // 
@@ -314,12 +328,23 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.White;
+            this.panel5.Controls.Add(this.lbl_text_item);
+            this.panel5.Controls.Add(this.lbl_count1);
             this.panel5.Controls.Add(this.lbl_item);
             this.panel5.Controls.Add(this.label3);
             this.panel5.Location = new System.Drawing.Point(738, 295);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(614, 98);
             this.panel5.TabIndex = 6;
+            // 
+            // lbl_count1
+            // 
+            this.lbl_count1.AutoSize = true;
+            this.lbl_count1.Font = new System.Drawing.Font("맑은 고딕", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbl_count1.Location = new System.Drawing.Point(173, 21);
+            this.lbl_count1.Name = "lbl_count1";
+            this.lbl_count1.Size = new System.Drawing.Size(0, 50);
+            this.lbl_count1.TabIndex = 7;
             // 
             // lbl_item
             // 
@@ -339,7 +364,6 @@
             this.label3.Size = new System.Drawing.Size(154, 50);
             this.label3.TabIndex = 5;
             this.label3.Text = "제품명: ";
-  
             // 
             // panel4
             // 
@@ -438,6 +462,16 @@
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // lbl_text_item
+            // 
+            this.lbl_text_item.AutoSize = true;
+            this.lbl_text_item.Font = new System.Drawing.Font("맑은 고딕", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbl_text_item.Location = new System.Drawing.Point(173, 21);
+            this.lbl_text_item.Name = "lbl_text_item";
+            this.lbl_text_item.Size = new System.Drawing.Size(154, 50);
+            this.lbl_text_item.TabIndex = 9;
+            this.lbl_text_item.Text = "제품명: ";
+            // 
             // LOTForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -503,5 +537,8 @@
         private Label label4;
         private Label lbl_item;
         private Label label9;
+        private Label lbl_count1;
+        private Label lbl_text_count;
+        private Label lbl_text_item;
     }
 }

@@ -7,9 +7,11 @@ using System.Threading.Tasks;
 
 namespace FinalProject_Winform.Repositories
 {
-    internal interface ILotRepository
+    public interface ILotRepository
     {
         Task<Lot> AddAsync(Lot Lot);
         Task<IEnumerable<Lot>> GetAllAsync();
+
+        bool FindAsync(string barcode);
     }
 }
