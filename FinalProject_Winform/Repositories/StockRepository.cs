@@ -13,6 +13,9 @@ namespace FinalProject_Winform.Repositories
     public class StockRepository : IStockRepository
     {
         private readonly IItemRepository itemRepository;
+        public StockRepository() { 
+        
+        }
       
         public async Task<Stock> AddAsync(Item itemname,long amount)
         {

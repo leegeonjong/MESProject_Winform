@@ -16,3 +16,8 @@ VALUES
 ,('스프', 'EA', '8801110000010', '반제품',0,100)
 ,('포장지', 'EA', '8801110000011', '반제품',0,100)
 ,('라면', 'EA', '8801110000012', '완제품',0,100)
+
+
+INSERT INTO Stock (ItemId, Stock_Amount, Stock_regDate, Stock_status)
+VALUES
+(1,300,GETDATE(),'입고')
