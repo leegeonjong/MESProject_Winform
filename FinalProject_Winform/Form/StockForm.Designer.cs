@@ -41,7 +41,8 @@
             tabImport = new TabPage();
             dataGridView1 = new DataGridView();
             panel3 = new Panel();
-            textBox1 = new TextBox();
+            button1 = new Button();
+            txtAmount = new TextBox();
             label3 = new Label();
             comboBox1 = new ComboBox();
             label2 = new Label();
@@ -53,10 +54,9 @@
             label5 = new Label();
             tabStock = new TabPage();
             panel5 = new Panel();
+            button3 = new Button();
             comboBox2 = new ComboBox();
             label6 = new Label();
-            button3 = new Button();
-            button1 = new Button();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             tabControl1.SuspendLayout();
@@ -200,6 +200,7 @@
             tabControl1.SelectedIndex = 0;
             tabControl1.Size = new Size(1104, 671);
             tabControl1.TabIndex = 6;
+            tabControl1.Selected += tabControl1_Selected;
             // 
             // tabImport
             // 
@@ -227,7 +228,7 @@
             // 
             panel3.BackColor = Color.White;
             panel3.Controls.Add(button1);
-            panel3.Controls.Add(textBox1);
+            panel3.Controls.Add(txtAmount);
             panel3.Controls.Add(label3);
             panel3.Controls.Add(comboBox1);
             panel3.Controls.Add(label2);
@@ -236,13 +237,27 @@
             panel3.Size = new Size(1086, 91);
             panel3.TabIndex = 0;
             // 
-            // textBox1
+            // button1
             // 
-            textBox1.Font = new Font("맑은 고딕", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            textBox1.Location = new Point(618, 26);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(206, 39);
-            textBox1.TabIndex = 3;
+            button1.BackColor = Color.FromArgb(52, 152, 219);
+            button1.FlatAppearance.BorderColor = Color.White;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("맑은 고딕", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            button1.Location = new Point(922, 22);
+            button1.Name = "button1";
+            button1.Size = new Size(132, 46);
+            button1.TabIndex = 5;
+            button1.Text = "입고";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += btn_Import;
+            // 
+            // txtAmount
+            // 
+            txtAmount.Font = new Font("맑은 고딕", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            txtAmount.Location = new Point(618, 26);
+            txtAmount.Name = "txtAmount";
+            txtAmount.Size = new Size(206, 39);
+            txtAmount.TabIndex = 3;
             // 
             // label3
             // 
@@ -258,6 +273,7 @@
             // 
             comboBox1.Font = new Font("맑은 고딕", 18F, FontStyle.Bold, GraphicsUnit.Point);
             comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "밀가루", "물", "반죽", "면", "팜유", "찐 면", "튀긴 면 ", "냉동 면", "후레이크 ", "스프", "포장지", "라면" });
             comboBox1.Location = new Point(122, 22);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(197, 40);
@@ -359,6 +375,19 @@
             panel5.Size = new Size(1086, 91);
             panel5.TabIndex = 1;
             // 
+            // button3
+            // 
+            button3.BackColor = Color.FromArgb(52, 152, 219);
+            button3.FlatAppearance.BorderColor = Color.White;
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.Font = new Font("맑은 고딕", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            button3.Location = new Point(922, 22);
+            button3.Name = "button3";
+            button3.Size = new Size(132, 46);
+            button3.TabIndex = 5;
+            button3.Text = "이력조회";
+            button3.UseVisualStyleBackColor = false;
+            // 
             // comboBox2
             // 
             comboBox2.Font = new Font("맑은 고딕", 18F, FontStyle.Bold, GraphicsUnit.Point);
@@ -377,32 +406,6 @@
             label6.Size = new Size(90, 47);
             label6.TabIndex = 0;
             label6.Text = "물품";
-            // 
-            // button3
-            // 
-            button3.BackColor = Color.FromArgb(52, 152, 219);
-            button3.FlatAppearance.BorderColor = Color.White;
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Font = new Font("맑은 고딕", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            button3.Location = new Point(922, 22);
-            button3.Name = "button3";
-            button3.Size = new Size(132, 46);
-            button3.TabIndex = 5;
-            button3.Text = "이력조회";
-            button3.UseVisualStyleBackColor = false;
-            // 
-            // button1
-            // 
-            button1.BackColor = Color.FromArgb(52, 152, 219);
-            button1.FlatAppearance.BorderColor = Color.White;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("맑은 고딕", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.Location = new Point(922, 22);
-            button1.Name = "button1";
-            button1.Size = new Size(132, 46);
-            button1.TabIndex = 5;
-            button1.Text = "입고";
-            button1.UseVisualStyleBackColor = false;
             // 
             // StockForm
             // 
@@ -451,7 +454,7 @@
         private Label label2;
         private ComboBox comboBox1;
         private DataGridView dataGridView1;
-        private TextBox textBox1;
+        private TextBox txtAmount;
         private Label label3;
         private Panel panel4;
         private Button button2;

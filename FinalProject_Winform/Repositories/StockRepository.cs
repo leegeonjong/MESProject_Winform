@@ -1,4 +1,5 @@
-﻿using FinalProject_Winform.Data;
+﻿using BarcodeStandard;
+using FinalProject_Winform.Data;
 using FinalProject_Winform.Models.domain;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -11,9 +12,24 @@ namespace FinalProject_Winform.Repositories
 {
     public class StockRepository : IStockRepository
     {
-        public Task<Stock> AddAsync(Stock stock)
+        private readonly IItemRepository itemRepository;
+      
+        public async Task<Stock> AddAsync(Item itemname,long amount)
         {
-            throw new NotImplementedException();
+            using FinalDbContext db = new();
+
+            Stock stock = new()
+            {
+                Item = itemname,
+                Stock_amount = amount,
+               Stock_regDate = DateTime.Now, 
+               Stock_status =  "입고",
+
+            };
+
+            await db.Stocks.AddAsync(stock);
+            await db.SaveChangesAsync();
+            return stock;
         }
 
         public async Task<IEnumerable<Item>> GetAllAsync()

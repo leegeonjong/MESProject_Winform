@@ -12,6 +12,8 @@ namespace FinalProject_Winform.Repositories
 
         Task<Item> UpdateAsync(Item item); // 수정
 
+        Task<Item?> GetByNameAsync(string name); // 특정 이름 Item
+
 
     }
 }

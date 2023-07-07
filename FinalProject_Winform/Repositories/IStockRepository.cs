@@ -11,6 +11,6 @@ namespace FinalProject_Winform.Repositories
     {
         Task<IEnumerable<Item>> GetAllAsync(); // 아이템 목록 불러오기
 
-        Task<Stock> AddAsync (Stock stock); // 입출고 추가
+        Task<Stock> AddAsync (Item item, long amount); // 입출고 추가
     }
 }
