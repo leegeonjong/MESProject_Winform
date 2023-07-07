@@ -361,3 +361,9 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/FinalProject_Winform/Form/AddUserForm.cs
+/FinalProject_Winform/Form/AddUserForm.Designer.cs
+/FinalProject_Winform/Form/AddUserForm.resx
+/FinalProject_Winform/Form/LoginForm.cs
+/FinalProject_Winform/Form/LoginForm.Designer.cs
+/FinalProject_Winform/Program.cs

@@ -117,6 +117,7 @@
             btn_chart.Text = "현황판";
             btn_chart.TextAlign = ContentAlignment.MiddleLeft;
             btn_chart.UseVisualStyleBackColor = true;
+            btn_chart.Click += Button_Click;
             // 
             // btn_order
             // 
@@ -131,6 +132,7 @@
             btn_order.Text = "주문";
             btn_order.TextAlign = ContentAlignment.MiddleLeft;
             btn_order.UseVisualStyleBackColor = true;
+            btn_order.Click += Button_Click;
             // 
             // btn_stock
             // 
@@ -145,6 +147,7 @@
             btn_stock.Text = "재고관리";
             btn_stock.TextAlign = ContentAlignment.MiddleLeft;
             btn_stock.UseVisualStyleBackColor = true;
+            btn_stock.Click += Button_Click;
             // 
             // btn_check
             // 
@@ -159,6 +162,7 @@
             btn_check.Text = "검사";
             btn_check.TextAlign = ContentAlignment.MiddleLeft;
             btn_check.UseVisualStyleBackColor = true;
+            btn_check.Click += Button_Click;
             // 
             // btn_process
             // 
@@ -173,6 +177,7 @@
             btn_process.Text = "공정";
             btn_process.TextAlign = ContentAlignment.MiddleLeft;
             btn_process.UseVisualStyleBackColor = true;
+            btn_process.Click += Button_Click;
             // 
             // btn_LOT
             // 
@@ -187,6 +192,7 @@
             btn_LOT.Text = "LOT";
             btn_LOT.TextAlign = ContentAlignment.MiddleLeft;
             btn_LOT.UseVisualStyleBackColor = true;
+            btn_LOT.Click += Button_Click;
             // 
             // tabControl1
             // 

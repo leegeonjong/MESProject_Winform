@@ -64,5 +64,14 @@ namespace FinalProject_Winform
 
             stockRepository.AddAsync(selectedItem,amount);
         }
+        private void Button_Click(object sender, EventArgs e)
+        {
+            Button button = sender as Button;
+            if (button != null)
+            {
+                string formName = button.Name.Replace("btn_", "");
+                FormUtility.OpenForm(formName, this);
+            }
+        }
     }
 }

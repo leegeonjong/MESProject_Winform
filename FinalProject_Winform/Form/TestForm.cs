@@ -17,6 +17,15 @@ namespace FinalProject_Winform
             InitializeComponent();
         }
 
+        private void Button_Click(object sender, EventArgs e)
+        {
+            Button button = sender as Button;
+            if (button != null)
+            {
+                string formName = button.Name.Replace("btn_", "");
+                FormUtility.OpenForm(formName, this);
+            }
+        }
         private void Form6_Load(object sender, EventArgs e)
         {
 

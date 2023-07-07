@@ -296,7 +296,7 @@
             // 
             this.lbl_barcode.AutoSize = true;
             this.lbl_barcode.Font = new System.Drawing.Font("맑은 고딕", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_barcode.Location = new System.Drawing.Point(197, 25);
+            this.lbl_barcode.Location = new System.Drawing.Point(197, 26);
             this.lbl_barcode.Name = "lbl_barcode";
             this.lbl_barcode.Size = new System.Drawing.Size(0, 50);
             this.lbl_barcode.TabIndex = 7;
@@ -305,7 +305,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("맑은 고딕", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(23, 25);
+            this.label4.Location = new System.Drawing.Point(23, 26);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(184, 50);
             this.label4.TabIndex = 5;
@@ -339,7 +339,7 @@
             this.label3.Size = new System.Drawing.Size(154, 50);
             this.label3.TabIndex = 5;
             this.label3.Text = "제품명: ";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+  
             // 
             // panel4
             // 
