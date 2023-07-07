@@ -17,7 +17,12 @@ VALUES
 ,('포장지', 'EA', '8801110000011', '반제품',0,100)
 ,('라면', 'EA', '8801110000012', '완제품',0,100)
 
+DELETE FROM Stock
+
+DBCC CHECKIDENT(Stock, reseed, 0);
 
 INSERT INTO Stock (ItemId, Stock_Amount, Stock_regDate, Stock_status)
 VALUES
 (1,300,GETDATE(),'입고')
+
+
