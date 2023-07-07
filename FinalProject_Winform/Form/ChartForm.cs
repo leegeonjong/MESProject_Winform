@@ -33,7 +33,6 @@ namespace FinalProject_Winform
             }
         }
 
-
         //메인폼으로 돌아가기
         private void ChartForm_FormClosed(object sender, FormClosedEventArgs e)
         {

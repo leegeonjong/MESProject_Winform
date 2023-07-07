@@ -13,7 +13,7 @@ namespace FinalProject_Winform
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
 
-            Application.Run(new StockForm());
+            Application.Run(new MainForm());
 
 
             // 나도 바쁘다고!

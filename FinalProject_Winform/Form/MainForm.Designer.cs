@@ -31,15 +31,15 @@
             panel2 = new Panel();
             label1 = new Label();
             panel1 = new Panel();
-            btn_chart = new Button();
-            btn_order = new Button();
-            btn_stock = new Button();
-            btn_check = new Button();
-            btn_process = new Button();
-            btn_LOT = new Button();
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
             tabPage2 = new TabPage();
+            btn_ChartForm = new Button();
+            btn_OrderForm = new Button();
+            btn_StockForm = new Button();
+            btn_TestForm = new Button();
+            btn_ProcessForm = new Button();
+            btn_LOTForm = new Button();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             tabControl1.SuspendLayout();
@@ -67,107 +67,17 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(180, 210, 230);
-            panel1.Controls.Add(btn_chart);
-            panel1.Controls.Add(btn_order);
-            panel1.Controls.Add(btn_stock);
-            panel1.Controls.Add(btn_check);
-            panel1.Controls.Add(btn_process);
-            panel1.Controls.Add(btn_LOT);
+            panel1.Controls.Add(btn_ChartForm);
+            panel1.Controls.Add(btn_OrderForm);
+            panel1.Controls.Add(btn_StockForm);
+            panel1.Controls.Add(btn_TestForm);
+            panel1.Controls.Add(btn_ProcessForm);
+            panel1.Controls.Add(btn_LOTForm);
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(160, 761);
             panel1.TabIndex = 4;
-            // 
-            // btn_chart
-            // 
-            btn_chart.FlatAppearance.BorderColor = Color.Gray;
-            btn_chart.FlatAppearance.BorderSize = 2;
-            btn_chart.FlatStyle = FlatStyle.Flat;
-            btn_chart.Font = new Font("맑은 고딕", 24F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_chart.Location = new Point(-3, 586);
-            btn_chart.Name = "btn_chart";
-            btn_chart.Size = new Size(168, 104);
-            btn_chart.TabIndex = 3;
-            btn_chart.Text = "현황판";
-            btn_chart.TextAlign = ContentAlignment.MiddleLeft;
-            btn_chart.UseVisualStyleBackColor = true;
-            btn_chart.Click += Button_Click;
-            // 
-            // btn_order
-            // 
-            btn_order.FlatAppearance.BorderColor = Color.Gray;
-            btn_order.FlatAppearance.BorderSize = 2;
-            btn_order.FlatStyle = FlatStyle.Flat;
-            btn_order.Font = new Font("맑은 고딕", 24F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_order.Location = new Point(-3, 486);
-            btn_order.Name = "btn_order";
-            btn_order.Size = new Size(168, 104);
-            btn_order.TabIndex = 3;
-            btn_order.Text = "주문";
-            btn_order.TextAlign = ContentAlignment.MiddleLeft;
-            btn_order.UseVisualStyleBackColor = true;
-            btn_order.Click += Button_Click;
-            // 
-            // btn_stock
-            // 
-            btn_stock.FlatAppearance.BorderColor = Color.Gray;
-            btn_stock.FlatAppearance.BorderSize = 2;
-            btn_stock.FlatStyle = FlatStyle.Flat;
-            btn_stock.Font = new Font("맑은 고딕", 24F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_stock.Location = new Point(-3, 386);
-            btn_stock.Name = "btn_stock";
-            btn_stock.Size = new Size(168, 104);
-            btn_stock.TabIndex = 3;
-            btn_stock.Text = "재고관리";
-            btn_stock.TextAlign = ContentAlignment.MiddleLeft;
-            btn_stock.UseVisualStyleBackColor = true;
-            btn_stock.Click += Button_Click;
-            // 
-            // btn_check
-            // 
-            btn_check.FlatAppearance.BorderColor = Color.Gray;
-            btn_check.FlatAppearance.BorderSize = 2;
-            btn_check.FlatStyle = FlatStyle.Flat;
-            btn_check.Font = new Font("맑은 고딕", 24F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_check.Location = new Point(-3, 285);
-            btn_check.Name = "btn_check";
-            btn_check.Size = new Size(168, 104);
-            btn_check.TabIndex = 3;
-            btn_check.Text = "검사";
-            btn_check.TextAlign = ContentAlignment.MiddleLeft;
-            btn_check.UseVisualStyleBackColor = true;
-            btn_check.Click += Button_Click;
-            // 
-            // btn_process
-            // 
-            btn_process.FlatAppearance.BorderColor = Color.Gray;
-            btn_process.FlatAppearance.BorderSize = 2;
-            btn_process.FlatStyle = FlatStyle.Flat;
-            btn_process.Font = new Font("맑은 고딕", 24F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_process.Location = new Point(-3, 184);
-            btn_process.Name = "btn_process";
-            btn_process.Size = new Size(168, 104);
-            btn_process.TabIndex = 2;
-            btn_process.Text = "공정";
-            btn_process.TextAlign = ContentAlignment.MiddleLeft;
-            btn_process.UseVisualStyleBackColor = true;
-            btn_process.Click += Button_Click;
-            // 
-            // btn_LOT
-            // 
-            btn_LOT.FlatAppearance.BorderColor = Color.Gray;
-            btn_LOT.FlatAppearance.BorderSize = 2;
-            btn_LOT.FlatStyle = FlatStyle.Flat;
-            btn_LOT.Font = new Font("맑은 고딕", 24F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_LOT.Location = new Point(-3, 83);
-            btn_LOT.Name = "btn_LOT";
-            btn_LOT.Size = new Size(168, 104);
-            btn_LOT.TabIndex = 1;
-            btn_LOT.Text = "LOT";
-            btn_LOT.TextAlign = ContentAlignment.MiddleLeft;
-            btn_LOT.UseVisualStyleBackColor = true;
-            btn_LOT.Click += Button_Click;
             // 
             // tabControl1
             // 
@@ -201,6 +111,96 @@
             tabPage2.Text = "tabPage2";
             tabPage2.UseVisualStyleBackColor = true;
             // 
+            // btn_ChartForm
+            // 
+            btn_ChartForm.FlatAppearance.BorderColor = Color.Gray;
+            btn_ChartForm.FlatAppearance.BorderSize = 2;
+            btn_ChartForm.FlatStyle = FlatStyle.Flat;
+            btn_ChartForm.Font = new Font("맑은 고딕", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_ChartForm.Location = new Point(-4, 580);
+            btn_ChartForm.Name = "btn_ChartForm";
+            btn_ChartForm.Size = new Size(168, 104);
+            btn_ChartForm.TabIndex = 12;
+            btn_ChartForm.Text = "현황판";
+            btn_ChartForm.TextAlign = ContentAlignment.MiddleLeft;
+            btn_ChartForm.UseVisualStyleBackColor = true;
+            btn_ChartForm.Click += Button_Click;
+            // 
+            // btn_OrderForm
+            // 
+            btn_OrderForm.FlatAppearance.BorderColor = Color.Gray;
+            btn_OrderForm.FlatAppearance.BorderSize = 2;
+            btn_OrderForm.FlatStyle = FlatStyle.Flat;
+            btn_OrderForm.Font = new Font("맑은 고딕", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_OrderForm.Location = new Point(-4, 480);
+            btn_OrderForm.Name = "btn_OrderForm";
+            btn_OrderForm.Size = new Size(168, 104);
+            btn_OrderForm.TabIndex = 13;
+            btn_OrderForm.Text = "주문";
+            btn_OrderForm.TextAlign = ContentAlignment.MiddleLeft;
+            btn_OrderForm.UseVisualStyleBackColor = true;
+            btn_OrderForm.Click += Button_Click;
+            // 
+            // btn_StockForm
+            // 
+            btn_StockForm.FlatAppearance.BorderColor = Color.Gray;
+            btn_StockForm.FlatAppearance.BorderSize = 2;
+            btn_StockForm.FlatStyle = FlatStyle.Flat;
+            btn_StockForm.Font = new Font("맑은 고딕", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_StockForm.Location = new Point(-4, 380);
+            btn_StockForm.Name = "btn_StockForm";
+            btn_StockForm.Size = new Size(168, 104);
+            btn_StockForm.TabIndex = 14;
+            btn_StockForm.Text = "재고관리";
+            btn_StockForm.TextAlign = ContentAlignment.MiddleLeft;
+            btn_StockForm.UseVisualStyleBackColor = true;
+            btn_StockForm.Click += Button_Click;
+            // 
+            // btn_TestForm
+            // 
+            btn_TestForm.FlatAppearance.BorderColor = Color.Gray;
+            btn_TestForm.FlatAppearance.BorderSize = 2;
+            btn_TestForm.FlatStyle = FlatStyle.Flat;
+            btn_TestForm.Font = new Font("맑은 고딕", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_TestForm.Location = new Point(-4, 279);
+            btn_TestForm.Name = "btn_TestForm";
+            btn_TestForm.Size = new Size(168, 104);
+            btn_TestForm.TabIndex = 15;
+            btn_TestForm.Text = "검사";
+            btn_TestForm.TextAlign = ContentAlignment.MiddleLeft;
+            btn_TestForm.UseVisualStyleBackColor = true;
+            btn_TestForm.Click += Button_Click;
+            // 
+            // btn_ProcessForm
+            // 
+            btn_ProcessForm.FlatAppearance.BorderColor = Color.Gray;
+            btn_ProcessForm.FlatAppearance.BorderSize = 2;
+            btn_ProcessForm.FlatStyle = FlatStyle.Flat;
+            btn_ProcessForm.Font = new Font("맑은 고딕", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_ProcessForm.Location = new Point(-4, 178);
+            btn_ProcessForm.Name = "btn_ProcessForm";
+            btn_ProcessForm.Size = new Size(168, 104);
+            btn_ProcessForm.TabIndex = 11;
+            btn_ProcessForm.Text = "공정";
+            btn_ProcessForm.TextAlign = ContentAlignment.MiddleLeft;
+            btn_ProcessForm.UseVisualStyleBackColor = true;
+            btn_ProcessForm.Click += Button_Click;
+            // 
+            // btn_LOTForm
+            // 
+            btn_LOTForm.FlatAppearance.BorderColor = Color.Gray;
+            btn_LOTForm.FlatAppearance.BorderSize = 2;
+            btn_LOTForm.FlatStyle = FlatStyle.Flat;
+            btn_LOTForm.Font = new Font("맑은 고딕", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_LOTForm.Location = new Point(-4, 77);
+            btn_LOTForm.Name = "btn_LOTForm";
+            btn_LOTForm.Size = new Size(168, 104);
+            btn_LOTForm.TabIndex = 10;
+            btn_LOTForm.Text = "LOT";
+            btn_LOTForm.TextAlign = ContentAlignment.MiddleLeft;
+            btn_LOTForm.UseVisualStyleBackColor = true;
+            btn_LOTForm.Click += Button_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -225,14 +225,14 @@
         private Panel panel2;
         private Label label1;
         private Panel panel1;
-        private Button btn_chart;
-        private Button btn_order;
-        private Button btn_stock;
-        private Button btn_check;
-        private Button btn_process;
-        private Button btn_LOT;
         private TabControl tabControl1;
         private TabPage tabPage1;
         private TabPage tabPage2;
+        private Button btn_ChartForm;
+        private Button btn_OrderForm;
+        private Button btn_StockForm;
+        private Button btn_TestForm;
+        private Button btn_ProcessForm;
+        private Button btn_LOTForm;
     }
 }
