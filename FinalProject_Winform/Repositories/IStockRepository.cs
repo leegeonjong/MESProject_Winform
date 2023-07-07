@@ -7,13 +7,10 @@ using System.Threading.Tasks;
 
 namespace FinalProject_Winform.Repositories
 {
-    internal interface IItemRepository
+    internal interface IStockRepository
     {
+        Task<IEnumerable<Item>> GetAllAsync(); // 아이템 목록 불러오기
 
-        Task<Item> UpdateAsync(Item item); // 수정
-
-        Task<Item?> GetByNameAsync(string name); // 특정 이름 Item
-
-
+        Task<Stock> AddAsync (Item item, long amount); // 입출고 추가
     }
 }

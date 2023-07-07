@@ -205,6 +205,7 @@
             Controls.Add(panel1);
             Name = "OrderForm";
             Text = "OrderForm";
+            FormClosed += OrderForm_FormClosed;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel1.ResumeLayout(false);
