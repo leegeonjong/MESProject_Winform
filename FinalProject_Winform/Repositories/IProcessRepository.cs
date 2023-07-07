@@ -7,11 +7,8 @@ using System.Threading.Tasks;
 
 namespace FinalProject_Winform.Repositories
 {
-    public interface ILotRepository
+    internal interface IProcessRepository
     {
-        Task<Lot> AddLotAsync(string itemname, string barcode, long amount);
-        Task<IEnumerable<Lot>> GetAllAsync();
-
-        bool FindAsync(string barcode);
+        Task<IEnumerable<Process>> GetAllAsync();
     }
 }

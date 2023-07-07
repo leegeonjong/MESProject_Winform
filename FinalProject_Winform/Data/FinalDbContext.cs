@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Process = FinalProject_Winform.Models.domain.Process;
 
 namespace FinalProject_Winform.Data
 {
@@ -27,7 +28,7 @@ namespace FinalProject_Winform.Data
         public DbSet<Lot> Lots { get; set; }
         public DbSet<LotHistory> LotHistorys { get; set; }
         public DbSet<Order> Orders { get; set; }
-        public DbSet<Models.domain.Process> Processes { get; set; }
+        public DbSet<Process> Processes { get; set; }
         public DbSet<Stock> Stocks { get; set; }
         public DbSet<User> Users { get; set; }
         

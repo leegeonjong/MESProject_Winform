@@ -28,493 +28,633 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btn_chart = new System.Windows.Forms.Button();
-            this.btn_order = new System.Windows.Forms.Button();
-            this.btn_stock = new System.Windows.Forms.Button();
-            this.btn_check = new System.Windows.Forms.Button();
-            this.btn_process = new System.Windows.Forms.Button();
-            this.btn_LOT = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.label9 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.lbl_text_count = new System.Windows.Forms.Label();
-            this.lbl_count = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.lbl_barcode = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.lbl_text_item = new System.Windows.Forms.Label();
-            this.lbl_count1 = new System.Windows.Forms.Label();
-            this.lbl_item = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.picture_Barcode = new System.Windows.Forms.PictureBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.lbl_stockname = new System.Windows.Forms.Label();
-            this.textBox_count = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.comboBox_item = new System.Windows.Forms.ComboBox();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.panel7.SuspendLayout();
-            this.panel6.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picture_Barcode)).BeginInit();
-            this.panel3.SuspendLayout();
-            this.SuspendLayout();
+            btn_ChartForm = new Button();
+            btn_OrderForm = new Button();
+            btn_StockForm = new Button();
+            btn_TestForm = new Button();
+            btn_ProcessForm = new Button();
+            btn_LOTForm = new Button();
+            panel2 = new Panel();
+            label1 = new Label();
+            tabControl1 = new TabControl();
+            tabPage1 = new TabPage();
+            label9 = new Label();
+            button2 = new Button();
+            panel7 = new Panel();
+            lbl_text_count = new Label();
+            lbl_count = new Label();
+            label8 = new Label();
+            panel6 = new Panel();
+            lbl_barcode = new Label();
+            label4 = new Label();
+            panel5 = new Panel();
+            lbl_text_item = new Label();
+            lbl_count1 = new Label();
+            lbl_item = new Label();
+            label3 = new Label();
+            panel4 = new Panel();
+            picture_Barcode = new PictureBox();
+            panel3 = new Panel();
+            button1 = new Button();
+            lbl_stockname = new Label();
+            textBox_count = new TextBox();
+            label2 = new Label();
+            comboBox_item = new ComboBox();
+            tabPage2 = new TabPage();
+            label5 = new Label();
+            panel8 = new Panel();
+            dataGridView1 = new DataGridView();
+            panel1 = new Panel();
+            button3 = new Button();
+            button4 = new Button();
+            button5 = new Button();
+            button6 = new Button();
+            button7 = new Button();
+            button8 = new Button();
+            panel2.SuspendLayout();
+            tabControl1.SuspendLayout();
+            tabPage1.SuspendLayout();
+            panel7.SuspendLayout();
+            panel6.SuspendLayout();
+            panel5.SuspendLayout();
+            panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picture_Barcode).BeginInit();
+            panel3.SuspendLayout();
+            tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            panel1.SuspendLayout();
+            SuspendLayout();
             // 
-            // panel1
+            // btn_ChartForm
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(210)))), ((int)(((byte)(230)))));
-            this.panel1.Controls.Add(this.btn_chart);
-            this.panel1.Controls.Add(this.btn_order);
-            this.panel1.Controls.Add(this.btn_stock);
-            this.panel1.Controls.Add(this.btn_check);
-            this.panel1.Controls.Add(this.btn_process);
-            this.panel1.Controls.Add(this.btn_LOT);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(206, 1015);
-            this.panel1.TabIndex = 0;
+            btn_ChartForm.FlatAppearance.BorderColor = Color.Gray;
+            btn_ChartForm.FlatAppearance.BorderSize = 2;
+            btn_ChartForm.FlatStyle = FlatStyle.Flat;
+            btn_ChartForm.Font = new Font("맑은 고딕", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_ChartForm.Location = new Point(-3, 586);
+            btn_ChartForm.Name = "btn_ChartForm";
+            btn_ChartForm.Size = new Size(168, 104);
+            btn_ChartForm.TabIndex = 3;
+            btn_ChartForm.Text = "현황판";
+            btn_ChartForm.TextAlign = ContentAlignment.MiddleLeft;
+            btn_ChartForm.UseVisualStyleBackColor = true;
             // 
-            // btn_chart
+            // btn_OrderForm
             // 
-            this.btn_chart.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.btn_chart.FlatAppearance.BorderSize = 2;
-            this.btn_chart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_chart.Font = new System.Drawing.Font("맑은 고딕", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_chart.Location = new System.Drawing.Point(-4, 781);
-            this.btn_chart.Margin = new System.Windows.Forms.Padding(4);
-            this.btn_chart.Name = "btn_chart";
-            this.btn_chart.Size = new System.Drawing.Size(216, 139);
-            this.btn_chart.TabIndex = 3;
-            this.btn_chart.Text = "현황판";
-            this.btn_chart.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_chart.UseVisualStyleBackColor = true;
+            btn_OrderForm.FlatAppearance.BorderColor = Color.Gray;
+            btn_OrderForm.FlatAppearance.BorderSize = 2;
+            btn_OrderForm.FlatStyle = FlatStyle.Flat;
+            btn_OrderForm.Font = new Font("맑은 고딕", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_OrderForm.Location = new Point(-3, 486);
+            btn_OrderForm.Name = "btn_OrderForm";
+            btn_OrderForm.Size = new Size(168, 104);
+            btn_OrderForm.TabIndex = 3;
+            btn_OrderForm.Text = "주문";
+            btn_OrderForm.TextAlign = ContentAlignment.MiddleLeft;
+            btn_OrderForm.UseVisualStyleBackColor = true;
             // 
-            // btn_order
+            // btn_StockForm
             // 
-            this.btn_order.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.btn_order.FlatAppearance.BorderSize = 2;
-            this.btn_order.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_order.Font = new System.Drawing.Font("맑은 고딕", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_order.Location = new System.Drawing.Point(-4, 648);
-            this.btn_order.Margin = new System.Windows.Forms.Padding(4);
-            this.btn_order.Name = "btn_order";
-            this.btn_order.Size = new System.Drawing.Size(216, 139);
-            this.btn_order.TabIndex = 3;
-            this.btn_order.Text = "주문";
-            this.btn_order.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_order.UseVisualStyleBackColor = true;
+            btn_StockForm.FlatAppearance.BorderColor = Color.Gray;
+            btn_StockForm.FlatAppearance.BorderSize = 2;
+            btn_StockForm.FlatStyle = FlatStyle.Flat;
+            btn_StockForm.Font = new Font("맑은 고딕", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_StockForm.Location = new Point(-3, 386);
+            btn_StockForm.Name = "btn_StockForm";
+            btn_StockForm.Size = new Size(168, 104);
+            btn_StockForm.TabIndex = 3;
+            btn_StockForm.Text = "재고관리";
+            btn_StockForm.TextAlign = ContentAlignment.MiddleLeft;
+            btn_StockForm.UseVisualStyleBackColor = true;
             // 
-            // btn_stock
+            // btn_TestForm
             // 
-            this.btn_stock.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.btn_stock.FlatAppearance.BorderSize = 2;
-            this.btn_stock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_stock.Font = new System.Drawing.Font("맑은 고딕", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_stock.Location = new System.Drawing.Point(-4, 515);
-            this.btn_stock.Margin = new System.Windows.Forms.Padding(4);
-            this.btn_stock.Name = "btn_stock";
-            this.btn_stock.Size = new System.Drawing.Size(216, 139);
-            this.btn_stock.TabIndex = 3;
-            this.btn_stock.Text = "재고관리";
-            this.btn_stock.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_stock.UseVisualStyleBackColor = true;
+            btn_TestForm.FlatAppearance.BorderColor = Color.Gray;
+            btn_TestForm.FlatAppearance.BorderSize = 2;
+            btn_TestForm.FlatStyle = FlatStyle.Flat;
+            btn_TestForm.Font = new Font("맑은 고딕", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_TestForm.Location = new Point(-3, 285);
+            btn_TestForm.Name = "btn_TestForm";
+            btn_TestForm.Size = new Size(168, 104);
+            btn_TestForm.TabIndex = 3;
+            btn_TestForm.Text = "검사";
+            btn_TestForm.TextAlign = ContentAlignment.MiddleLeft;
+            btn_TestForm.UseVisualStyleBackColor = true;
             // 
-            // btn_check
+            // btn_ProcessForm
             // 
-            this.btn_check.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.btn_check.FlatAppearance.BorderSize = 2;
-            this.btn_check.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_check.Font = new System.Drawing.Font("맑은 고딕", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_check.Location = new System.Drawing.Point(-4, 380);
-            this.btn_check.Margin = new System.Windows.Forms.Padding(4);
-            this.btn_check.Name = "btn_check";
-            this.btn_check.Size = new System.Drawing.Size(216, 139);
-            this.btn_check.TabIndex = 3;
-            this.btn_check.Text = "검사";
-            this.btn_check.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_check.UseVisualStyleBackColor = true;
+            btn_ProcessForm.FlatAppearance.BorderColor = Color.Gray;
+            btn_ProcessForm.FlatAppearance.BorderSize = 2;
+            btn_ProcessForm.FlatStyle = FlatStyle.Flat;
+            btn_ProcessForm.Font = new Font("맑은 고딕", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_ProcessForm.Location = new Point(-3, 184);
+            btn_ProcessForm.Name = "btn_ProcessForm";
+            btn_ProcessForm.Size = new Size(168, 104);
+            btn_ProcessForm.TabIndex = 2;
+            btn_ProcessForm.Text = "공정";
+            btn_ProcessForm.TextAlign = ContentAlignment.MiddleLeft;
+            btn_ProcessForm.UseVisualStyleBackColor = true;
             // 
-            // btn_process
+            // btn_LOTForm
             // 
-            this.btn_process.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.btn_process.FlatAppearance.BorderSize = 2;
-            this.btn_process.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_process.Font = new System.Drawing.Font("맑은 고딕", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_process.Location = new System.Drawing.Point(-4, 245);
-            this.btn_process.Margin = new System.Windows.Forms.Padding(4);
-            this.btn_process.Name = "btn_process";
-            this.btn_process.Size = new System.Drawing.Size(216, 139);
-            this.btn_process.TabIndex = 2;
-            this.btn_process.Text = "공정";
-            this.btn_process.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_process.UseVisualStyleBackColor = true;
-            // 
-            // btn_LOT
-            // 
-            this.btn_LOT.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.btn_LOT.FlatAppearance.BorderSize = 2;
-            this.btn_LOT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_LOT.Font = new System.Drawing.Font("맑은 고딕", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_LOT.Location = new System.Drawing.Point(-4, 111);
-            this.btn_LOT.Margin = new System.Windows.Forms.Padding(4);
-            this.btn_LOT.Name = "btn_LOT";
-            this.btn_LOT.Size = new System.Drawing.Size(216, 139);
-            this.btn_LOT.TabIndex = 1;
-            this.btn_LOT.Text = "LOT";
-            this.btn_LOT.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_LOT.UseVisualStyleBackColor = true;
+            btn_LOTForm.FlatAppearance.BorderColor = Color.Gray;
+            btn_LOTForm.FlatAppearance.BorderSize = 2;
+            btn_LOTForm.FlatStyle = FlatStyle.Flat;
+            btn_LOTForm.Font = new Font("맑은 고딕", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_LOTForm.Location = new Point(-3, 83);
+            btn_LOTForm.Name = "btn_LOTForm";
+            btn_LOTForm.Size = new Size(168, 104);
+            btn_LOTForm.TabIndex = 1;
+            btn_LOTForm.Text = "LOT";
+            btn_LOTForm.TextAlign = ContentAlignment.MiddleLeft;
+            btn_LOTForm.UseVisualStyleBackColor = true;
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1625, 117);
-            this.panel2.TabIndex = 1;
+            panel2.BackColor = Color.FromArgb(52, 152, 219);
+            panel2.Controls.Add(label1);
+            panel2.Location = new Point(2, 2);
+            panel2.Margin = new Padding(2);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(1270, 80);
+            panel2.TabIndex = 1;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("맑은 고딕", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(707, 24);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(215, 62);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "아무거나";
+            label1.AutoSize = true;
+            label1.Font = new Font("맑은 고딕", 27.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(428, 14);
+            label1.Margin = new Padding(2, 0, 2, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(170, 50);
+            label1.TabIndex = 0;
+            label1.Text = "아무거나";
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tabControl1.ItemSize = new System.Drawing.Size(200, 40);
-            this.tabControl1.Location = new System.Drawing.Point(206, 120);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1419, 895);
-            this.tabControl1.TabIndex = 5;
+            tabControl1.Controls.Add(tabPage1);
+            tabControl1.Controls.Add(tabPage2);
+            tabControl1.ItemSize = new Size(200, 40);
+            tabControl1.Location = new Point(227, 98);
+            tabControl1.Margin = new Padding(2);
+            tabControl1.Name = "tabControl1";
+            tabControl1.SelectedIndex = 0;
+            tabControl1.Size = new Size(838, 652);
+            tabControl1.TabIndex = 5;
             // 
             // tabPage1
             // 
-            this.tabPage1.BackColor = System.Drawing.Color.Gainsboro;
-            this.tabPage1.Controls.Add(this.label9);
-            this.tabPage1.Controls.Add(this.button2);
-            this.tabPage1.Controls.Add(this.panel7);
-            this.tabPage1.Controls.Add(this.panel6);
-            this.tabPage1.Controls.Add(this.panel5);
-            this.tabPage1.Controls.Add(this.panel4);
-            this.tabPage1.Controls.Add(this.panel3);
-            this.tabPage1.Location = new System.Drawing.Point(4, 44);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage1.Size = new System.Drawing.Size(1411, 847);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1asdfadfasdfafa";
+            tabPage1.BackColor = Color.Gainsboro;
+            tabPage1.Controls.Add(label9);
+            tabPage1.Controls.Add(button2);
+            tabPage1.Controls.Add(panel7);
+            tabPage1.Controls.Add(panel6);
+            tabPage1.Controls.Add(panel5);
+            tabPage1.Controls.Add(panel4);
+            tabPage1.Controls.Add(panel3);
+            tabPage1.Location = new Point(4, 44);
+            tabPage1.Name = "tabPage1";
+            tabPage1.Padding = new Padding(3);
+            tabPage1.Size = new Size(830, 604);
+            tabPage1.TabIndex = 0;
+            tabPage1.Text = "Lot 생성";
             // 
             // label9
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("맑은 고딕", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label9.Location = new System.Drawing.Point(54, 24);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(279, 62);
-            this.label9.TabIndex = 5;
-            this.label9.Text = "바코드 생성";
+            label9.AutoSize = true;
+            label9.Font = new Font("맑은 고딕", 28.2F, FontStyle.Regular, GraphicsUnit.Point);
+            label9.Location = new Point(33, 3);
+            label9.Margin = new Padding(2, 0, 2, 0);
+            label9.Name = "label9";
+            label9.Size = new Size(225, 51);
+            label9.TabIndex = 5;
+            label9.Text = "바코드 생성";
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            this.button2.FlatAppearance.BorderSize = 2;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("맑은 고딕", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button2.Location = new System.Drawing.Point(1145, 694);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(207, 62);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "LOT 생성";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            button2.BackColor = Color.FromArgb(52, 152, 219);
+            button2.FlatAppearance.BorderColor = Color.FromArgb(52, 152, 219);
+            button2.FlatAppearance.BorderSize = 2;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("맑은 고딕", 22.2F, FontStyle.Regular, GraphicsUnit.Point);
+            button2.Location = new Point(654, 407);
+            button2.Margin = new Padding(2);
+            button2.Name = "button2";
+            button2.Size = new Size(161, 46);
+            button2.TabIndex = 5;
+            button2.Text = "LOT 생성";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // panel7
             // 
-            this.panel7.BackColor = System.Drawing.Color.White;
-            this.panel7.Controls.Add(this.lbl_text_count);
-            this.panel7.Controls.Add(this.lbl_count);
-            this.panel7.Controls.Add(this.label8);
-            this.panel7.Location = new System.Drawing.Point(738, 538);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(614, 98);
-            this.panel7.TabIndex = 8;
+            panel7.BackColor = Color.White;
+            panel7.Controls.Add(lbl_text_count);
+            panel7.Controls.Add(lbl_count);
+            panel7.Controls.Add(label8);
+            panel7.Location = new Point(446, 312);
+            panel7.Margin = new Padding(2);
+            panel7.Name = "panel7";
+            panel7.Size = new Size(372, 65);
+            panel7.TabIndex = 8;
             // 
             // lbl_text_count
             // 
-            this.lbl_text_count.AutoSize = true;
-            this.lbl_text_count.Font = new System.Drawing.Font("맑은 고딕", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_text_count.Location = new System.Drawing.Point(197, 25);
-            this.lbl_text_count.Name = "lbl_text_count";
-            this.lbl_text_count.Size = new System.Drawing.Size(154, 50);
-            this.lbl_text_count.TabIndex = 8;
-            this.lbl_text_count.Text = "제품명: ";
+            lbl_text_count.AutoSize = true;
+            lbl_text_count.Font = new Font("맑은 고딕", 22.2F, FontStyle.Regular, GraphicsUnit.Point);
+            lbl_text_count.Location = new Point(153, 19);
+            lbl_text_count.Margin = new Padding(2, 0, 2, 0);
+            lbl_text_count.Name = "lbl_text_count";
+            lbl_text_count.Size = new Size(126, 41);
+            lbl_text_count.TabIndex = 8;
+            lbl_text_count.Text = "제품명: ";
             // 
             // lbl_count
             // 
-            this.lbl_count.AutoSize = true;
-            this.lbl_count.Font = new System.Drawing.Font("맑은 고딕", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_count.Location = new System.Drawing.Point(197, 25);
-            this.lbl_count.Name = "lbl_count";
-            this.lbl_count.Size = new System.Drawing.Size(0, 50);
-            this.lbl_count.TabIndex = 7;
+            lbl_count.AutoSize = true;
+            lbl_count.Font = new Font("맑은 고딕", 22.2F, FontStyle.Regular, GraphicsUnit.Point);
+            lbl_count.Location = new Point(119, 14);
+            lbl_count.Margin = new Padding(2, 0, 2, 0);
+            lbl_count.Name = "lbl_count";
+            lbl_count.Size = new Size(0, 41);
+            lbl_count.TabIndex = 7;
             // 
             // label8
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("맑은 고딕", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(23, 25);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(104, 50);
-            this.label8.TabIndex = 5;
-            this.label8.Text = "수량:";
+            label8.AutoSize = true;
+            label8.Font = new Font("맑은 고딕", 22.2F, FontStyle.Regular, GraphicsUnit.Point);
+            label8.Location = new Point(14, 14);
+            label8.Margin = new Padding(2, 0, 2, 0);
+            label8.Name = "label8";
+            label8.Size = new Size(85, 41);
+            label8.TabIndex = 5;
+            label8.Text = "수량:";
             // 
             // panel6
             // 
-            this.panel6.BackColor = System.Drawing.Color.White;
-            this.panel6.Controls.Add(this.lbl_barcode);
-            this.panel6.Controls.Add(this.label4);
-            this.panel6.Location = new System.Drawing.Point(738, 414);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(614, 98);
-            this.panel6.TabIndex = 7;
+            panel6.BackColor = Color.White;
+            panel6.Controls.Add(lbl_barcode);
+            panel6.Controls.Add(label4);
+            panel6.Location = new Point(446, 244);
+            panel6.Margin = new Padding(2);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(372, 56);
+            panel6.TabIndex = 7;
             // 
             // lbl_barcode
             // 
-            this.lbl_barcode.AutoSize = true;
-            this.lbl_barcode.Font = new System.Drawing.Font("맑은 고딕", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_barcode.Location = new System.Drawing.Point(197, 26);
-            this.lbl_barcode.Name = "lbl_barcode";
-            this.lbl_barcode.Size = new System.Drawing.Size(0, 50);
-            this.lbl_barcode.TabIndex = 7;
+            lbl_barcode.AutoSize = true;
+            lbl_barcode.Font = new Font("맑은 고딕", 22.2F, FontStyle.Regular, GraphicsUnit.Point);
+            lbl_barcode.Location = new Point(119, 15);
+            lbl_barcode.Margin = new Padding(2, 0, 2, 0);
+            lbl_barcode.Name = "lbl_barcode";
+            lbl_barcode.Size = new Size(0, 41);
+            lbl_barcode.TabIndex = 7;
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("맑은 고딕", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(23, 26);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(184, 50);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "LOT번호: ";
+            label4.AutoSize = true;
+            label4.Font = new Font("맑은 고딕", 22.2F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.Location = new Point(8, 15);
+            label4.Margin = new Padding(2, 0, 2, 0);
+            label4.Name = "label4";
+            label4.Size = new Size(149, 41);
+            label4.TabIndex = 5;
+            label4.Text = "LOT번호: ";
             // 
             // panel5
             // 
-            this.panel5.BackColor = System.Drawing.Color.White;
-            this.panel5.Controls.Add(this.lbl_text_item);
-            this.panel5.Controls.Add(this.lbl_count1);
-            this.panel5.Controls.Add(this.lbl_item);
-            this.panel5.Controls.Add(this.label3);
-            this.panel5.Location = new System.Drawing.Point(738, 295);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(614, 98);
-            this.panel5.TabIndex = 6;
+            panel5.BackColor = Color.White;
+            panel5.Controls.Add(lbl_text_item);
+            panel5.Controls.Add(lbl_count1);
+            panel5.Controls.Add(lbl_item);
+            panel5.Controls.Add(label3);
+            panel5.Location = new Point(446, 166);
+            panel5.Margin = new Padding(2);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(371, 63);
+            panel5.TabIndex = 6;
             // 
             // lbl_text_item
             // 
-            this.lbl_text_item.AutoSize = true;
-            this.lbl_text_item.Font = new System.Drawing.Font("맑은 고딕", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_text_item.Location = new System.Drawing.Point(173, 21);
-            this.lbl_text_item.Name = "lbl_text_item";
-            this.lbl_text_item.Size = new System.Drawing.Size(154, 50);
-            this.lbl_text_item.TabIndex = 9;
-            this.lbl_text_item.Text = "제품명: ";
+            lbl_text_item.AutoSize = true;
+            lbl_text_item.Font = new Font("맑은 고딕", 22.2F, FontStyle.Regular, GraphicsUnit.Point);
+            lbl_text_item.Location = new Point(135, 16);
+            lbl_text_item.Margin = new Padding(2, 0, 2, 0);
+            lbl_text_item.Name = "lbl_text_item";
+            lbl_text_item.Size = new Size(126, 41);
+            lbl_text_item.TabIndex = 9;
+            lbl_text_item.Text = "제품명: ";
             // 
             // lbl_count1
             // 
-            this.lbl_count1.AutoSize = true;
-            this.lbl_count1.Font = new System.Drawing.Font("맑은 고딕", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_count1.Location = new System.Drawing.Point(173, 21);
-            this.lbl_count1.Name = "lbl_count1";
-            this.lbl_count1.Size = new System.Drawing.Size(0, 50);
-            this.lbl_count1.TabIndex = 7;
+            lbl_count1.AutoSize = true;
+            lbl_count1.Font = new Font("맑은 고딕", 22.2F, FontStyle.Regular, GraphicsUnit.Point);
+            lbl_count1.Location = new Point(135, 16);
+            lbl_count1.Margin = new Padding(2, 0, 2, 0);
+            lbl_count1.Name = "lbl_count1";
+            lbl_count1.Size = new Size(0, 41);
+            lbl_count1.TabIndex = 7;
             // 
             // lbl_item
             // 
-            this.lbl_item.AutoSize = true;
-            this.lbl_item.Font = new System.Drawing.Font("맑은 고딕", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_item.Location = new System.Drawing.Point(197, 21);
-            this.lbl_item.Name = "lbl_item";
-            this.lbl_item.Size = new System.Drawing.Size(0, 50);
-            this.lbl_item.TabIndex = 6;
+            lbl_item.AutoSize = true;
+            lbl_item.Font = new Font("맑은 고딕", 22.2F, FontStyle.Regular, GraphicsUnit.Point);
+            lbl_item.Location = new Point(119, 12);
+            lbl_item.Margin = new Padding(2, 0, 2, 0);
+            lbl_item.Name = "lbl_item";
+            lbl_item.Size = new Size(0, 41);
+            lbl_item.TabIndex = 6;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("맑은 고딕", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(23, 21);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(154, 50);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "제품명: ";
+            label3.AutoSize = true;
+            label3.Font = new Font("맑은 고딕", 22.2F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Location = new Point(18, 16);
+            label3.Margin = new Padding(2, 0, 2, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(126, 41);
+            label3.TabIndex = 5;
+            label3.Text = "제품명: ";
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.Color.White;
-            this.panel4.Controls.Add(this.picture_Barcode);
-            this.panel4.Location = new System.Drawing.Point(40, 295);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(666, 472);
-            this.panel4.TabIndex = 4;
+            panel4.BackColor = Color.White;
+            panel4.Controls.Add(picture_Barcode);
+            panel4.Location = new Point(24, 166);
+            panel4.Margin = new Padding(2);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(403, 266);
+            panel4.TabIndex = 4;
             // 
             // picture_Barcode
             // 
-            this.picture_Barcode.Location = new System.Drawing.Point(25, 21);
-            this.picture_Barcode.Name = "picture_Barcode";
-            this.picture_Barcode.Size = new System.Drawing.Size(616, 425);
-            this.picture_Barcode.TabIndex = 3;
-            this.picture_Barcode.TabStop = false;
+            picture_Barcode.Location = new Point(15, 12);
+            picture_Barcode.Margin = new Padding(2);
+            picture_Barcode.Name = "picture_Barcode";
+            picture_Barcode.Size = new Size(373, 239);
+            picture_Barcode.TabIndex = 3;
+            picture_Barcode.TabStop = false;
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Controls.Add(this.button1);
-            this.panel3.Controls.Add(this.lbl_stockname);
-            this.panel3.Controls.Add(this.textBox_count);
-            this.panel3.Controls.Add(this.label2);
-            this.panel3.Controls.Add(this.comboBox_item);
-            this.panel3.Location = new System.Drawing.Point(40, 128);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1312, 125);
-            this.panel3.TabIndex = 2;
+            panel3.BackColor = Color.White;
+            panel3.Controls.Add(button1);
+            panel3.Controls.Add(lbl_stockname);
+            panel3.Controls.Add(textBox_count);
+            panel3.Controls.Add(label2);
+            panel3.Controls.Add(comboBox_item);
+            panel3.Location = new Point(24, 72);
+            panel3.Margin = new Padding(2);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(793, 70);
+            panel3.TabIndex = 2;
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            this.button1.FlatAppearance.BorderSize = 2;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("맑은 고딕", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(1105, 30);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(178, 62);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "생성";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            button1.BackColor = Color.FromArgb(52, 152, 219);
+            button1.FlatAppearance.BorderColor = Color.FromArgb(52, 152, 219);
+            button1.FlatAppearance.BorderSize = 2;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("맑은 고딕", 22.2F, FontStyle.Regular, GraphicsUnit.Point);
+            button1.Location = new Point(684, 16);
+            button1.Margin = new Padding(2);
+            button1.Name = "button1";
+            button1.Size = new Size(107, 51);
+            button1.TabIndex = 4;
+            button1.Text = "생성";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // lbl_stockname
             // 
-            this.lbl_stockname.AutoSize = true;
-            this.lbl_stockname.Font = new System.Drawing.Font("맑은 고딕", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_stockname.Location = new System.Drawing.Point(14, 30);
-            this.lbl_stockname.Name = "lbl_stockname";
-            this.lbl_stockname.Size = new System.Drawing.Size(195, 62);
-            this.lbl_stockname.TabIndex = 0;
-            this.lbl_stockname.Text = "제품명: ";
+            lbl_stockname.AutoSize = true;
+            lbl_stockname.Font = new Font("맑은 고딕", 28.2F, FontStyle.Regular, GraphicsUnit.Point);
+            lbl_stockname.Location = new Point(9, 16);
+            lbl_stockname.Margin = new Padding(2, 0, 2, 0);
+            lbl_stockname.Name = "lbl_stockname";
+            lbl_stockname.Size = new Size(157, 51);
+            lbl_stockname.TabIndex = 0;
+            lbl_stockname.Text = "제품명: ";
             // 
             // textBox_count
             // 
-            this.textBox_count.Font = new System.Drawing.Font("맑은 고딕", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox_count.Location = new System.Drawing.Point(721, 27);
-            this.textBox_count.Name = "textBox_count";
-            this.textBox_count.Size = new System.Drawing.Size(362, 70);
-            this.textBox_count.TabIndex = 3;
+            textBox_count.Font = new Font("맑은 고딕", 28.2F, FontStyle.Regular, GraphicsUnit.Point);
+            textBox_count.Location = new Point(463, 10);
+            textBox_count.Margin = new Padding(2);
+            textBox_count.Name = "textBox_count";
+            textBox_count.Size = new Size(220, 58);
+            textBox_count.TabIndex = 3;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("맑은 고딕", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(490, 30);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(225, 62);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "수량입력:";
+            label2.AutoSize = true;
+            label2.Font = new Font("맑은 고딕", 28.2F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Location = new Point(296, 16);
+            label2.Margin = new Padding(2, 0, 2, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(182, 51);
+            label2.TabIndex = 3;
+            label2.Text = "수량입력:";
             // 
             // comboBox_item
             // 
-            this.comboBox_item.Font = new System.Drawing.Font("맑은 고딕", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox_item.FormattingEnabled = true;
-            this.comboBox_item.ItemHeight = 62;
-            this.comboBox_item.Items.AddRange(new object[] {
-            "밀가루"});
-            this.comboBox_item.Location = new System.Drawing.Point(215, 27);
-            this.comboBox_item.Name = "comboBox_item";
-            this.comboBox_item.Size = new System.Drawing.Size(269, 70);
-            this.comboBox_item.TabIndex = 1;
-            this.comboBox_item.Text = "제품선택";
+            comboBox_item.Font = new Font("맑은 고딕", 28.2F, FontStyle.Regular, GraphicsUnit.Point);
+            comboBox_item.FormattingEnabled = true;
+            comboBox_item.ItemHeight = 51;
+            comboBox_item.Items.AddRange(new object[] { "밀가루" });
+            comboBox_item.Location = new Point(130, 15);
+            comboBox_item.Margin = new Padding(2);
+            comboBox_item.Name = "comboBox_item";
+            comboBox_item.Size = new Size(164, 59);
+            comboBox_item.TabIndex = 1;
+            comboBox_item.Text = "제품선택";
             // 
             // tabPage2
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 44);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage2.Size = new System.Drawing.Size(1411, 847);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            tabPage2.BackColor = Color.LightGray;
+            tabPage2.Controls.Add(label5);
+            tabPage2.Controls.Add(panel8);
+            tabPage2.Controls.Add(dataGridView1);
+            tabPage2.Location = new Point(4, 44);
+            tabPage2.Name = "tabPage2";
+            tabPage2.Padding = new Padding(3);
+            tabPage2.Size = new Size(830, 604);
+            tabPage2.TabIndex = 1;
+            tabPage2.Text = "LOT 검색";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("맑은 고딕", 31.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.Location = new Point(20, 17);
+            label5.Margin = new Padding(2, 0, 2, 0);
+            label5.Name = "label5";
+            label5.Size = new Size(197, 59);
+            label5.TabIndex = 1;
+            label5.Text = "로트번호";
+            // 
+            // panel8
+            // 
+            panel8.Location = new Point(20, 17);
+            panel8.Margin = new Padding(2);
+            panel8.Name = "panel8";
+            panel8.Size = new Size(1029, 292);
+            panel8.TabIndex = 2;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(20, 325);
+            dataGridView1.Margin = new Padding(2);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.RowTemplate.Height = 29;
+            dataGridView1.Size = new Size(1029, 286);
+            dataGridView1.TabIndex = 0;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.FromArgb(180, 210, 230);
+            panel1.Controls.Add(panel2);
+            panel1.Controls.Add(button3);
+            panel1.Controls.Add(button4);
+            panel1.Controls.Add(button5);
+            panel1.Controls.Add(button6);
+            panel1.Controls.Add(button7);
+            panel1.Controls.Add(button8);
+            panel1.Dock = DockStyle.Left;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(160, 761);
+            panel1.TabIndex = 6;
+            // 
+            // button3
+            // 
+            button3.FlatAppearance.BorderColor = Color.Gray;
+            button3.FlatAppearance.BorderSize = 2;
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.Font = new Font("맑은 고딕", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            button3.Location = new Point(-4, 580);
+            button3.Name = "button3";
+            button3.Size = new Size(168, 104);
+            button3.TabIndex = 12;
+            button3.Text = "현황판";
+            button3.TextAlign = ContentAlignment.MiddleLeft;
+            button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            button4.FlatAppearance.BorderColor = Color.Gray;
+            button4.FlatAppearance.BorderSize = 2;
+            button4.FlatStyle = FlatStyle.Flat;
+            button4.Font = new Font("맑은 고딕", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            button4.Location = new Point(-4, 480);
+            button4.Name = "button4";
+            button4.Size = new Size(168, 104);
+            button4.TabIndex = 13;
+            button4.Text = "주문";
+            button4.TextAlign = ContentAlignment.MiddleLeft;
+            button4.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            button5.FlatAppearance.BorderColor = Color.Gray;
+            button5.FlatAppearance.BorderSize = 2;
+            button5.FlatStyle = FlatStyle.Flat;
+            button5.Font = new Font("맑은 고딕", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            button5.Location = new Point(-4, 380);
+            button5.Name = "button5";
+            button5.Size = new Size(168, 104);
+            button5.TabIndex = 14;
+            button5.Text = "재고관리";
+            button5.TextAlign = ContentAlignment.MiddleLeft;
+            button5.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            button6.FlatAppearance.BorderColor = Color.Gray;
+            button6.FlatAppearance.BorderSize = 2;
+            button6.FlatStyle = FlatStyle.Flat;
+            button6.Font = new Font("맑은 고딕", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            button6.Location = new Point(-4, 279);
+            button6.Name = "button6";
+            button6.Size = new Size(168, 104);
+            button6.TabIndex = 15;
+            button6.Text = "검사";
+            button6.TextAlign = ContentAlignment.MiddleLeft;
+            button6.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            button7.FlatAppearance.BorderColor = Color.Gray;
+            button7.FlatAppearance.BorderSize = 2;
+            button7.FlatStyle = FlatStyle.Flat;
+            button7.Font = new Font("맑은 고딕", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            button7.Location = new Point(-4, 178);
+            button7.Name = "button7";
+            button7.Size = new Size(168, 104);
+            button7.TabIndex = 11;
+            button7.Text = "공정";
+            button7.TextAlign = ContentAlignment.MiddleLeft;
+            button7.UseVisualStyleBackColor = true;
+            // 
+            // button8
+            // 
+            button8.FlatAppearance.BorderColor = Color.Gray;
+            button8.FlatAppearance.BorderSize = 2;
+            button8.FlatStyle = FlatStyle.Flat;
+            button8.Font = new Font("맑은 고딕", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            button8.Location = new Point(-4, 77);
+            button8.Name = "button8";
+            button8.Size = new Size(168, 104);
+            button8.TabIndex = 10;
+            button8.Text = "LOT";
+            button8.TextAlign = ContentAlignment.MiddleLeft;
+            button8.UseVisualStyleBackColor = true;
             // 
             // LOTForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1625, 1015);
-            this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "LOTForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "LOTForm";
-            this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.picture_Barcode)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1264, 761);
+            Controls.Add(panel1);
+            Controls.Add(tabControl1);
+            Name = "LOTForm";
+            StartPosition = FormStartPosition.CenterParent;
+            Text = "LOTForm";
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
+            tabControl1.ResumeLayout(false);
+            tabPage1.ResumeLayout(false);
+            tabPage1.PerformLayout();
+            panel7.ResumeLayout(false);
+            panel7.PerformLayout();
+            panel6.ResumeLayout(false);
+            panel6.PerformLayout();
+            panel5.ResumeLayout(false);
+            panel5.PerformLayout();
+            panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)picture_Barcode).EndInit();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
+            tabPage2.ResumeLayout(false);
+            tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            panel1.ResumeLayout(false);
+            ResumeLayout(false);
         }
 
         #endregion
 
         private Panel panel1;
-        private Button btn_LOT;
+        private Button btn_LOTForm;
         private Panel panel2;
-        private Button btn_process;
-        private Button btn_chart;
-        private Button btn_order;
-        private Button btn_stock;
-        private Button btn_check;
+        private Button btn_ProcessForm;
+        private Button btn_ChartForm;
+        private Button btn_OrderForm;
+        private Button btn_StockForm;
+        private Button btn_TestForm;
         private Label label1;
         private TabControl tabControl1;
         private TabPage tabPage1;
@@ -541,5 +681,14 @@
         private Label lbl_count1;
         private Label lbl_text_count;
         private Label lbl_text_item;
+        private Label label5;
+        private Panel panel8;
+        private DataGridView dataGridView1;
+        private Button button3;
+        private Button button4;
+        private Button button5;
+        private Button button6;
+        private Button button7;
+        private Button button8;
     }
 }

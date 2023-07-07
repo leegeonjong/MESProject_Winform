@@ -15,62 +15,57 @@ namespace FinalProject_Winform
 
             switch (formName)
             {
-                case "LOT":
+                case "LOTForm":
                     targetForm = Application.OpenForms["LOTForm"] as LOTForm;
                     if (targetForm == null)
                     {
                         targetForm = new LOTForm();
-                        targetForm.Show();
                     }
                     break;
-                case "check":
+                case "TestForm":
                     targetForm = Application.OpenForms["TestForm"] as TestForm;
                     if (targetForm == null)
                     {
                         targetForm = new TestForm();
-                        targetForm.Show();
                     }
                     break;
-                case "process":
-                    targetForm = Application.OpenForms["ChartForm"] as ChartForm;
+                case "ProcessForm":
+                    targetForm = Application.OpenForms["ProcessForm"] as ProcessForm;
                     if (targetForm == null)
                     {
-                        targetForm = new ChartForm();
-                        targetForm.Show();
+                        targetForm = new ProcessForm();
                     }
                     break;
-                case "stock":
+                case "StockForm":
                     targetForm = Application.OpenForms["StockForm"] as StockForm;
                     if (targetForm == null)
                     {
                         targetForm = new StockForm();
-                        targetForm.Show();
                     }
                     break;
-                case "order":
+                case "OrderForm":
                     targetForm = Application.OpenForms["OrderForm"] as OrderForm;
                     if (targetForm == null)
                     {
                         targetForm = new OrderForm();
-                        targetForm.Show();
                     }
                     break;
-                case "chart":
+                case "ChartForm":
                     targetForm = Application.OpenForms["ChartForm"] as ChartForm;
                     if (targetForm == null)
                     {
                         targetForm = new ChartForm();
-                        targetForm.Show();
                     }
                     break;
                 default:
                     break;
             }
 
-            if (targetForm != null)
-            {
-                currentForm.Hide();
-            }
+            currentForm.Hide(); // 현재 폼 숨기기
+
+            targetForm.Show(); // 타겟 폼 보여주기
+
+
         }
     }
 

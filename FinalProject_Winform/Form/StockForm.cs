@@ -92,6 +92,7 @@ namespace FinalProject_Winform
 
 
         }
+
         private void Button_Click(object sender, EventArgs e)
         {
             Button button = sender as Button;
@@ -100,6 +101,18 @@ namespace FinalProject_Winform
                 string formName = button.Name.Replace("btn_", "");
                 FormUtility.OpenForm(formName, this);
             }
+        }
+        //메인폼으로 돌아가기
+        private void StockForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            var MainForm = Application.OpenForms["MainForm"] as MainForm;
+
+            if (MainForm == null)
+            {
+                MainForm = new MainForm();
+                MainForm.Show();
+            }
+            this.Hide();
         }
 
     }
