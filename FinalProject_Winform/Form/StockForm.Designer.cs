@@ -31,6 +31,12 @@
             panel2 = new Panel();
             label1 = new Label();
             panel1 = new Panel();
+            btn_ChartForm = new Button();
+            btn_OrderForm = new Button();
+            btn_StockForm = new Button();
+            btn_TestForm = new Button();
+            btn_ProcessForm = new Button();
+            btn_LOTForm = new Button();
             tabControl1 = new TabControl();
             tabImport = new TabPage();
             dataGridView1 = new DataGridView();
@@ -51,12 +57,6 @@
             button3 = new Button();
             comboBox2 = new ComboBox();
             label6 = new Label();
-            btn_ChartForm = new Button();
-            btn_OrderForm = new Button();
-            btn_StockForm = new Button();
-            btn_TestForm = new Button();
-            btn_ProcessForm = new Button();
-            btn_LOTForm = new Button();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             tabControl1.SuspendLayout();
@@ -103,6 +103,96 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(160, 761);
             panel1.TabIndex = 4;
+            // 
+            // btn_ChartForm
+            // 
+            btn_ChartForm.FlatAppearance.BorderColor = Color.Gray;
+            btn_ChartForm.FlatAppearance.BorderSize = 2;
+            btn_ChartForm.FlatStyle = FlatStyle.Flat;
+            btn_ChartForm.Font = new Font("맑은 고딕", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_ChartForm.Location = new Point(-4, 580);
+            btn_ChartForm.Name = "btn_ChartForm";
+            btn_ChartForm.Size = new Size(168, 104);
+            btn_ChartForm.TabIndex = 12;
+            btn_ChartForm.Text = "현황판";
+            btn_ChartForm.TextAlign = ContentAlignment.MiddleLeft;
+            btn_ChartForm.UseVisualStyleBackColor = true;
+            btn_ChartForm.Click += Button_Click;
+            // 
+            // btn_OrderForm
+            // 
+            btn_OrderForm.FlatAppearance.BorderColor = Color.Gray;
+            btn_OrderForm.FlatAppearance.BorderSize = 2;
+            btn_OrderForm.FlatStyle = FlatStyle.Flat;
+            btn_OrderForm.Font = new Font("맑은 고딕", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_OrderForm.Location = new Point(-4, 480);
+            btn_OrderForm.Name = "btn_OrderForm";
+            btn_OrderForm.Size = new Size(168, 104);
+            btn_OrderForm.TabIndex = 13;
+            btn_OrderForm.Text = "주문";
+            btn_OrderForm.TextAlign = ContentAlignment.MiddleLeft;
+            btn_OrderForm.UseVisualStyleBackColor = true;
+            btn_OrderForm.Click += Button_Click;
+            // 
+            // btn_StockForm
+            // 
+            btn_StockForm.FlatAppearance.BorderColor = Color.Gray;
+            btn_StockForm.FlatAppearance.BorderSize = 2;
+            btn_StockForm.FlatStyle = FlatStyle.Flat;
+            btn_StockForm.Font = new Font("맑은 고딕", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_StockForm.Location = new Point(-4, 380);
+            btn_StockForm.Name = "btn_StockForm";
+            btn_StockForm.Size = new Size(168, 104);
+            btn_StockForm.TabIndex = 14;
+            btn_StockForm.Text = "재고관리";
+            btn_StockForm.TextAlign = ContentAlignment.MiddleLeft;
+            btn_StockForm.UseVisualStyleBackColor = true;
+            btn_StockForm.Click += Button_Click;
+            // 
+            // btn_TestForm
+            // 
+            btn_TestForm.FlatAppearance.BorderColor = Color.Gray;
+            btn_TestForm.FlatAppearance.BorderSize = 2;
+            btn_TestForm.FlatStyle = FlatStyle.Flat;
+            btn_TestForm.Font = new Font("맑은 고딕", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_TestForm.Location = new Point(-4, 279);
+            btn_TestForm.Name = "btn_TestForm";
+            btn_TestForm.Size = new Size(168, 104);
+            btn_TestForm.TabIndex = 15;
+            btn_TestForm.Text = "검사";
+            btn_TestForm.TextAlign = ContentAlignment.MiddleLeft;
+            btn_TestForm.UseVisualStyleBackColor = true;
+            btn_TestForm.Click += Button_Click;
+            // 
+            // btn_ProcessForm
+            // 
+            btn_ProcessForm.FlatAppearance.BorderColor = Color.Gray;
+            btn_ProcessForm.FlatAppearance.BorderSize = 2;
+            btn_ProcessForm.FlatStyle = FlatStyle.Flat;
+            btn_ProcessForm.Font = new Font("맑은 고딕", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_ProcessForm.Location = new Point(-4, 178);
+            btn_ProcessForm.Name = "btn_ProcessForm";
+            btn_ProcessForm.Size = new Size(168, 104);
+            btn_ProcessForm.TabIndex = 11;
+            btn_ProcessForm.Text = "공정";
+            btn_ProcessForm.TextAlign = ContentAlignment.MiddleLeft;
+            btn_ProcessForm.UseVisualStyleBackColor = true;
+            btn_ProcessForm.Click += Button_Click;
+            // 
+            // btn_LOTForm
+            // 
+            btn_LOTForm.FlatAppearance.BorderColor = Color.Gray;
+            btn_LOTForm.FlatAppearance.BorderSize = 2;
+            btn_LOTForm.FlatStyle = FlatStyle.Flat;
+            btn_LOTForm.Font = new Font("맑은 고딕", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_LOTForm.Location = new Point(-4, 77);
+            btn_LOTForm.Name = "btn_LOTForm";
+            btn_LOTForm.Size = new Size(168, 104);
+            btn_LOTForm.TabIndex = 10;
+            btn_LOTForm.Text = "LOT";
+            btn_LOTForm.TextAlign = ContentAlignment.MiddleLeft;
+            btn_LOTForm.UseVisualStyleBackColor = true;
+            btn_LOTForm.Click += Button_Click;
             // 
             // tabControl1
             // 
@@ -323,96 +413,6 @@
             label6.TabIndex = 0;
             label6.Text = "물품";
             // 
-            // btn_ChartForm
-            // 
-            btn_ChartForm.FlatAppearance.BorderColor = Color.Gray;
-            btn_ChartForm.FlatAppearance.BorderSize = 2;
-            btn_ChartForm.FlatStyle = FlatStyle.Flat;
-            btn_ChartForm.Font = new Font("맑은 고딕", 24F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_ChartForm.Location = new Point(-4, 580);
-            btn_ChartForm.Name = "btn_ChartForm";
-            btn_ChartForm.Size = new Size(168, 104);
-            btn_ChartForm.TabIndex = 12;
-            btn_ChartForm.Text = "현황판";
-            btn_ChartForm.TextAlign = ContentAlignment.MiddleLeft;
-            btn_ChartForm.UseVisualStyleBackColor = true;
-            btn_ChartForm.Click += Button_Click;
-            // 
-            // btn_OrderForm
-            // 
-            btn_OrderForm.FlatAppearance.BorderColor = Color.Gray;
-            btn_OrderForm.FlatAppearance.BorderSize = 2;
-            btn_OrderForm.FlatStyle = FlatStyle.Flat;
-            btn_OrderForm.Font = new Font("맑은 고딕", 24F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_OrderForm.Location = new Point(-4, 480);
-            btn_OrderForm.Name = "btn_OrderForm";
-            btn_OrderForm.Size = new Size(168, 104);
-            btn_OrderForm.TabIndex = 13;
-            btn_OrderForm.Text = "주문";
-            btn_OrderForm.TextAlign = ContentAlignment.MiddleLeft;
-            btn_OrderForm.UseVisualStyleBackColor = true;
-            btn_OrderForm.Click += Button_Click;
-            // 
-            // btn_StockForm
-            // 
-            btn_StockForm.FlatAppearance.BorderColor = Color.Gray;
-            btn_StockForm.FlatAppearance.BorderSize = 2;
-            btn_StockForm.FlatStyle = FlatStyle.Flat;
-            btn_StockForm.Font = new Font("맑은 고딕", 24F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_StockForm.Location = new Point(-4, 380);
-            btn_StockForm.Name = "btn_StockForm";
-            btn_StockForm.Size = new Size(168, 104);
-            btn_StockForm.TabIndex = 14;
-            btn_StockForm.Text = "재고관리";
-            btn_StockForm.TextAlign = ContentAlignment.MiddleLeft;
-            btn_StockForm.UseVisualStyleBackColor = true;
-            btn_StockForm.Click += Button_Click;
-            // 
-            // btn_TestForm
-            // 
-            btn_TestForm.FlatAppearance.BorderColor = Color.Gray;
-            btn_TestForm.FlatAppearance.BorderSize = 2;
-            btn_TestForm.FlatStyle = FlatStyle.Flat;
-            btn_TestForm.Font = new Font("맑은 고딕", 24F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_TestForm.Location = new Point(-4, 279);
-            btn_TestForm.Name = "btn_TestForm";
-            btn_TestForm.Size = new Size(168, 104);
-            btn_TestForm.TabIndex = 15;
-            btn_TestForm.Text = "검사";
-            btn_TestForm.TextAlign = ContentAlignment.MiddleLeft;
-            btn_TestForm.UseVisualStyleBackColor = true;
-            btn_TestForm.Click += Button_Click;
-            // 
-            // btn_ProcessForm
-            // 
-            btn_ProcessForm.FlatAppearance.BorderColor = Color.Gray;
-            btn_ProcessForm.FlatAppearance.BorderSize = 2;
-            btn_ProcessForm.FlatStyle = FlatStyle.Flat;
-            btn_ProcessForm.Font = new Font("맑은 고딕", 24F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_ProcessForm.Location = new Point(-4, 178);
-            btn_ProcessForm.Name = "btn_ProcessForm";
-            btn_ProcessForm.Size = new Size(168, 104);
-            btn_ProcessForm.TabIndex = 11;
-            btn_ProcessForm.Text = "공정";
-            btn_ProcessForm.TextAlign = ContentAlignment.MiddleLeft;
-            btn_ProcessForm.UseVisualStyleBackColor = true;
-            btn_ProcessForm.Click += Button_Click;
-            // 
-            // btn_LOTForm
-            // 
-            btn_LOTForm.FlatAppearance.BorderColor = Color.Gray;
-            btn_LOTForm.FlatAppearance.BorderSize = 2;
-            btn_LOTForm.FlatStyle = FlatStyle.Flat;
-            btn_LOTForm.Font = new Font("맑은 고딕", 24F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_LOTForm.Location = new Point(-4, 77);
-            btn_LOTForm.Name = "btn_LOTForm";
-            btn_LOTForm.Size = new Size(168, 104);
-            btn_LOTForm.TabIndex = 10;
-            btn_LOTForm.Text = "LOT";
-            btn_LOTForm.TextAlign = ContentAlignment.MiddleLeft;
-            btn_LOTForm.UseVisualStyleBackColor = true;
-            btn_LOTForm.Click += Button_Click;
-            // 
             // StockForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -423,6 +423,7 @@
             Controls.Add(panel1);
             Name = "StockForm";
             Text = "StockForm";
+            FormClosed += StockForm_FormClosed;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel1.ResumeLayout(false);

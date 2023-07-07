@@ -124,6 +124,7 @@
             btn_ChartForm.Text = "현황판";
             btn_ChartForm.TextAlign = ContentAlignment.MiddleLeft;
             btn_ChartForm.UseVisualStyleBackColor = true;
+            btn_ChartForm.Click += Button_Click;
             // 
             // btn_OrderForm
             // 
@@ -138,6 +139,7 @@
             btn_OrderForm.Text = "주문";
             btn_OrderForm.TextAlign = ContentAlignment.MiddleLeft;
             btn_OrderForm.UseVisualStyleBackColor = true;
+            btn_OrderForm.Click += Button_Click;
             // 
             // btn_StockForm
             // 
@@ -152,6 +154,7 @@
             btn_StockForm.Text = "재고관리";
             btn_StockForm.TextAlign = ContentAlignment.MiddleLeft;
             btn_StockForm.UseVisualStyleBackColor = true;
+            btn_StockForm.Click += Button_Click;
             // 
             // btn_TestForm
             // 
@@ -166,6 +169,7 @@
             btn_TestForm.Text = "검사";
             btn_TestForm.TextAlign = ContentAlignment.MiddleLeft;
             btn_TestForm.UseVisualStyleBackColor = true;
+            btn_TestForm.Click += Button_Click;
             // 
             // btn_ProcessForm
             // 
@@ -180,6 +184,7 @@
             btn_ProcessForm.Text = "공정";
             btn_ProcessForm.TextAlign = ContentAlignment.MiddleLeft;
             btn_ProcessForm.UseVisualStyleBackColor = true;
+            btn_ProcessForm.Click += Button_Click;
             // 
             // btn_LOTForm
             // 
@@ -194,6 +199,7 @@
             btn_LOTForm.Text = "LOT";
             btn_LOTForm.TextAlign = ContentAlignment.MiddleLeft;
             btn_LOTForm.UseVisualStyleBackColor = true;
+            btn_LOTForm.Click += Button_Click;
             // 
             // OrderForm
             // 
