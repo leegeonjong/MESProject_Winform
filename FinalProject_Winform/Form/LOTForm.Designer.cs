@@ -37,8 +37,12 @@
             btn_LOT = new Button();
             panel2 = new Panel();
             label1 = new Label();
+            tabControl1 = new TabControl();
+            tabPage1 = new TabPage();
+            tabPage2 = new TabPage();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
+            tabControl1.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -160,11 +164,44 @@
             label1.Text = "아무거나";
             label1.Click += label1_Click;
             // 
+            // tabControl1
+            // 
+            tabControl1.Controls.Add(tabPage1);
+            tabControl1.Controls.Add(tabPage2);
+            tabControl1.Dock = DockStyle.Bottom;
+            tabControl1.ItemSize = new Size(200, 40);
+            tabControl1.Location = new Point(160, 90);
+            tabControl1.Name = "tabControl1";
+            tabControl1.SelectedIndex = 0;
+            tabControl1.Size = new Size(1104, 671);
+            tabControl1.TabIndex = 5;
+            // 
+            // tabPage1
+            // 
+            tabPage1.Location = new Point(4, 44);
+            tabPage1.Name = "tabPage1";
+            tabPage1.Padding = new Padding(3);
+            tabPage1.Size = new Size(1096, 623);
+            tabPage1.TabIndex = 0;
+            tabPage1.Text = "tabPage1asdfadfasdfafa";
+            tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            tabPage2.Location = new Point(4, 44);
+            tabPage2.Name = "tabPage2";
+            tabPage2.Padding = new Padding(3);
+            tabPage2.Size = new Size(1096, 623);
+            tabPage2.TabIndex = 1;
+            tabPage2.Text = "tabPage2";
+            tabPage2.UseVisualStyleBackColor = true;
+            // 
             // LOTForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1264, 761);
+            Controls.Add(tabControl1);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "LOTForm";
@@ -173,6 +210,7 @@
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            tabControl1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -187,5 +225,8 @@
         private Button btn_stock;
         private Button btn_check;
         private Label label1;
+        private TabControl tabControl1;
+        private TabPage tabPage1;
+        private TabPage tabPage2;
     }
 }

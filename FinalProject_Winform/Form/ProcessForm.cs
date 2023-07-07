@@ -16,5 +16,10 @@ namespace FinalProject_Winform
         {
             InitializeComponent();
         }
+
+        private void ProcessForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
