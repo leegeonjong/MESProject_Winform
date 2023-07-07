@@ -31,15 +31,15 @@
             panel2 = new Panel();
             label1 = new Label();
             panel1 = new Panel();
-            tabControl1 = new TabControl();
-            tabPage1 = new TabPage();
-            tabPage2 = new TabPage();
             btn_ChartForm = new Button();
             btn_OrderForm = new Button();
             btn_StockForm = new Button();
             btn_TestForm = new Button();
             btn_ProcessForm = new Button();
             btn_LOTForm = new Button();
+            tabControl1 = new TabControl();
+            tabPage1 = new TabPage();
+            tabPage2 = new TabPage();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             tabControl1.SuspendLayout();
@@ -78,38 +78,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(160, 761);
             panel1.TabIndex = 4;
-            // 
-            // tabControl1
-            // 
-            tabControl1.Controls.Add(tabPage1);
-            tabControl1.Controls.Add(tabPage2);
-            tabControl1.Dock = DockStyle.Bottom;
-            tabControl1.ItemSize = new Size(200, 40);
-            tabControl1.Location = new Point(160, 90);
-            tabControl1.Name = "tabControl1";
-            tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1104, 671);
-            tabControl1.TabIndex = 6;
-            // 
-            // tabPage1
-            // 
-            tabPage1.Location = new Point(4, 44);
-            tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1096, 623);
-            tabPage1.TabIndex = 0;
-            tabPage1.Text = "tabPage1asdfadfasdfafa";
-            tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            tabPage2.Location = new Point(4, 44);
-            tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1096, 623);
-            tabPage2.TabIndex = 1;
-            tabPage2.Text = "tabPage2";
-            tabPage2.UseVisualStyleBackColor = true;
             // 
             // btn_ChartForm
             // 
@@ -200,6 +168,38 @@
             btn_LOTForm.TextAlign = ContentAlignment.MiddleLeft;
             btn_LOTForm.UseVisualStyleBackColor = true;
             btn_LOTForm.Click += Button_Click;
+            // 
+            // tabControl1
+            // 
+            tabControl1.Controls.Add(tabPage1);
+            tabControl1.Controls.Add(tabPage2);
+            tabControl1.Dock = DockStyle.Bottom;
+            tabControl1.ItemSize = new Size(200, 40);
+            tabControl1.Location = new Point(160, 90);
+            tabControl1.Name = "tabControl1";
+            tabControl1.SelectedIndex = 0;
+            tabControl1.Size = new Size(1104, 671);
+            tabControl1.TabIndex = 6;
+            // 
+            // tabPage1
+            // 
+            tabPage1.Location = new Point(4, 44);
+            tabPage1.Name = "tabPage1";
+            tabPage1.Padding = new Padding(3);
+            tabPage1.Size = new Size(1096, 623);
+            tabPage1.TabIndex = 0;
+            tabPage1.Text = "tabPage1asdfadfasdfafa";
+            tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            tabPage2.Location = new Point(4, 44);
+            tabPage2.Name = "tabPage2";
+            tabPage2.Padding = new Padding(3);
+            tabPage2.Size = new Size(1096, 623);
+            tabPage2.TabIndex = 1;
+            tabPage2.Text = "tabPage2";
+            tabPage2.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
