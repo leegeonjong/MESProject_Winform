@@ -28,51 +28,56 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panel1 = new Panel();
-            btn_ChartForm = new Button();
-            btn_OrderForm = new Button();
-            btn_StockForm = new Button();
-            btn_TestForm = new Button();
-            btn_ProcessForm = new Button();
-            btn_LOTForm = new Button();
-            panel2 = new Panel();
-            label1 = new Label();
-            tabControl1 = new TabControl();
-            tabPage1 = new TabPage();
-            label9 = new Label();
-            button2 = new Button();
-            panel7 = new Panel();
-            lbl_text_count = new Label();
-            lbl_count = new Label();
-            label8 = new Label();
-            panel6 = new Panel();
-            lbl_barcode = new Label();
-            label4 = new Label();
-            panel5 = new Panel();
-            lbl_text_item = new Label();
-            lbl_count1 = new Label();
-            lbl_item = new Label();
-            label3 = new Label();
-            panel4 = new Panel();
-            picture_Barcode = new PictureBox();
-            panel3 = new Panel();
-            button1 = new Button();
-            lbl_stockname = new Label();
-            textBox_count = new TextBox();
-            label2 = new Label();
-            comboBox_item = new ComboBox();
-            tabPage2 = new TabPage();
-            panel1.SuspendLayout();
-            panel2.SuspendLayout();
-            tabControl1.SuspendLayout();
-            tabPage1.SuspendLayout();
-            panel7.SuspendLayout();
-            panel6.SuspendLayout();
-            panel5.SuspendLayout();
-            panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)picture_Barcode).BeginInit();
-            panel3.SuspendLayout();
-            SuspendLayout();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_ChartForm = new System.Windows.Forms.Button();
+            this.btn_OrderForm = new System.Windows.Forms.Button();
+            this.btn_StockForm = new System.Windows.Forms.Button();
+            this.btn_TestForm = new System.Windows.Forms.Button();
+            this.btn_ProcessForm = new System.Windows.Forms.Button();
+            this.btn_LOTForm = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label9 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.lbl_text_count = new System.Windows.Forms.Label();
+            this.lbl_count = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.lbl_barcode = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.lbl_text_item = new System.Windows.Forms.Label();
+            this.lbl_count1 = new System.Windows.Forms.Label();
+            this.lbl_item = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.picture_Barcode = new System.Windows.Forms.PictureBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.lbl_stockname = new System.Windows.Forms.Label();
+            this.textBox_count = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.comboBox_item = new System.Windows.Forms.ComboBox();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label5 = new System.Windows.Forms.Label();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picture_Barcode)).BeginInit();
+            this.panel3.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.SuspendLayout();
             // 
             // panel1
             // 
@@ -206,20 +211,21 @@
             // 
             // tabPage1
             // 
-            tabPage1.BackColor = Color.Gainsboro;
-            tabPage1.Controls.Add(label9);
-            tabPage1.Controls.Add(button2);
-            tabPage1.Controls.Add(panel7);
-            tabPage1.Controls.Add(panel6);
-            tabPage1.Controls.Add(panel5);
-            tabPage1.Controls.Add(panel4);
-            tabPage1.Controls.Add(panel3);
-            tabPage1.Location = new Point(4, 44);
-            tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1096, 623);
-            tabPage1.TabIndex = 0;
-            tabPage1.Text = "tabPage1asdfadfasdfafa";
+            this.tabPage1.BackColor = System.Drawing.Color.Gainsboro;
+            this.tabPage1.Controls.Add(this.label9);
+            this.tabPage1.Controls.Add(this.button2);
+            this.tabPage1.Controls.Add(this.panel7);
+            this.tabPage1.Controls.Add(this.panel6);
+            this.tabPage1.Controls.Add(this.panel5);
+            this.tabPage1.Controls.Add(this.panel4);
+            this.tabPage1.Controls.Add(this.panel3);
+            this.tabPage1.Location = new System.Drawing.Point(4, 44);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPage1.Size = new System.Drawing.Size(1411, 847);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Lot 생성";
             // 
             // label9
             // 
@@ -335,22 +341,22 @@
             // 
             // lbl_text_item
             // 
-            lbl_text_item.AutoSize = true;
-            lbl_text_item.Font = new Font("맑은 고딕", 22.2F, FontStyle.Regular, GraphicsUnit.Point);
-            lbl_text_item.Location = new Point(173, 21);
-            lbl_text_item.Name = "lbl_text_item";
-            lbl_text_item.Size = new Size(126, 41);
-            lbl_text_item.TabIndex = 9;
-            lbl_text_item.Text = "제품명: ";
+            this.lbl_text_item.AutoSize = true;
+            this.lbl_text_item.Font = new System.Drawing.Font("맑은 고딕", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbl_text_item.Location = new System.Drawing.Point(173, 21);
+            this.lbl_text_item.Name = "lbl_text_item";
+            this.lbl_text_item.Size = new System.Drawing.Size(154, 50);
+            this.lbl_text_item.TabIndex = 9;
+            this.lbl_text_item.Text = "제품명: ";
             // 
             // lbl_count1
             // 
-            lbl_count1.AutoSize = true;
-            lbl_count1.Font = new Font("맑은 고딕", 22.2F, FontStyle.Regular, GraphicsUnit.Point);
-            lbl_count1.Location = new Point(173, 21);
-            lbl_count1.Name = "lbl_count1";
-            lbl_count1.Size = new Size(0, 41);
-            lbl_count1.TabIndex = 7;
+            this.lbl_count1.AutoSize = true;
+            this.lbl_count1.Font = new System.Drawing.Font("맑은 고딕", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbl_count1.Location = new System.Drawing.Point(173, 21);
+            this.lbl_count1.Name = "lbl_count1";
+            this.lbl_count1.Size = new System.Drawing.Size(0, 50);
+            this.lbl_count1.TabIndex = 7;
             // 
             // lbl_item
             // 
@@ -364,20 +370,20 @@
             // 
             // label3
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("맑은 고딕", 22.2F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(23, 21);
-            label3.Name = "label3";
-            label3.Size = new Size(126, 41);
-            label3.TabIndex = 5;
-            label3.Text = "제품명: ";
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("맑은 고딕", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(23, 21);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(154, 50);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "제품명: ";
             // 
             // panel4
             // 
             panel4.BackColor = Color.White;
             panel4.Controls.Add(picture_Barcode);
             panel4.Location = new Point(31, 221);
-            panel4.Margin = new Padding(2);
+            panel4.Margin = new Padding(2, 2, 2, 2);
             panel4.Name = "panel4";
             panel4.Size = new Size(518, 354);
             panel4.TabIndex = 4;
@@ -385,7 +391,7 @@
             // picture_Barcode
             // 
             picture_Barcode.Location = new Point(19, 16);
-            picture_Barcode.Margin = new Padding(2);
+            picture_Barcode.Margin = new Padding(2, 2, 2, 2);
             picture_Barcode.Name = "picture_Barcode";
             picture_Barcode.Size = new Size(479, 319);
             picture_Barcode.TabIndex = 3;
@@ -400,7 +406,7 @@
             panel3.Controls.Add(label2);
             panel3.Controls.Add(comboBox_item);
             panel3.Location = new Point(31, 96);
-            panel3.Margin = new Padding(2);
+            panel3.Margin = new Padding(2, 2, 2, 2);
             panel3.Name = "panel3";
             panel3.Size = new Size(1020, 94);
             panel3.TabIndex = 2;
@@ -413,7 +419,7 @@
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("맑은 고딕", 22.2F, FontStyle.Regular, GraphicsUnit.Point);
             button1.Location = new Point(859, 22);
-            button1.Margin = new Padding(2);
+            button1.Margin = new Padding(2, 2, 2, 2);
             button1.Name = "button1";
             button1.Size = new Size(138, 46);
             button1.TabIndex = 4;
@@ -436,7 +442,7 @@
             // 
             textBox_count.Font = new Font("맑은 고딕", 28.2F, FontStyle.Regular, GraphicsUnit.Point);
             textBox_count.Location = new Point(561, 20);
-            textBox_count.Margin = new Padding(2);
+            textBox_count.Margin = new Padding(2, 2, 2, 2);
             textBox_count.Name = "textBox_count";
             textBox_count.Size = new Size(282, 58);
             textBox_count.TabIndex = 3;
@@ -459,7 +465,7 @@
             comboBox_item.ItemHeight = 51;
             comboBox_item.Items.AddRange(new object[] { "밀가루" });
             comboBox_item.Location = new Point(167, 20);
-            comboBox_item.Margin = new Padding(2);
+            comboBox_item.Margin = new Padding(2, 2, 2, 2);
             comboBox_item.Name = "comboBox_item";
             comboBox_item.Size = new Size(210, 59);
             comboBox_item.TabIndex = 1;
@@ -467,42 +473,78 @@
             // 
             // tabPage2
             // 
-            tabPage2.Location = new Point(4, 44);
-            tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1096, 623);
-            tabPage2.TabIndex = 1;
-            tabPage2.Text = "tabPage2";
-            tabPage2.UseVisualStyleBackColor = true;
+            this.tabPage2.BackColor = System.Drawing.Color.LightGray;
+            this.tabPage2.Controls.Add(this.label5);
+            this.tabPage2.Controls.Add(this.panel8);
+            this.tabPage2.Controls.Add(this.dataGridView1);
+            this.tabPage2.Location = new System.Drawing.Point(4, 44);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPage2.Size = new System.Drawing.Size(1411, 847);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "LOT 검색";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(26, 433);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 29;
+            this.dataGridView1.Size = new System.Drawing.Size(1323, 381);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("맑은 고딕", 31.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.Location = new System.Drawing.Point(26, 23);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(246, 72);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "로트번호";
+            // 
+            // panel8
+            // 
+            this.panel8.Location = new System.Drawing.Point(26, 23);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(1323, 390);
+            this.panel8.TabIndex = 2;
             // 
             // LOTForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1264, 761);
-            Controls.Add(tabControl1);
-            Controls.Add(panel2);
-            Controls.Add(panel1);
-            Name = "LOTForm";
-            StartPosition = FormStartPosition.CenterParent;
-            Text = "LOTForm";
-            panel1.ResumeLayout(false);
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
-            tabControl1.ResumeLayout(false);
-            tabPage1.ResumeLayout(false);
-            tabPage1.PerformLayout();
-            panel7.ResumeLayout(false);
-            panel7.PerformLayout();
-            panel6.ResumeLayout(false);
-            panel6.PerformLayout();
-            panel5.ResumeLayout(false);
-            panel5.PerformLayout();
-            panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)picture_Barcode).EndInit();
-            panel3.ResumeLayout(false);
-            panel3.PerformLayout();
-            ResumeLayout(false);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1625, 1015);
+            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Name = "LOTForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "LOTForm";
+            this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picture_Barcode)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
@@ -541,5 +583,8 @@
         private Label lbl_count1;
         private Label lbl_text_count;
         private Label lbl_text_item;
+        private Label label5;
+        private Panel panel8;
+        private DataGridView dataGridView1;
     }
 }

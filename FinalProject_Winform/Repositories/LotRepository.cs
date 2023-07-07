@@ -1,5 +1,6 @@
 ﻿using FinalProject_Winform.Data;
 using FinalProject_Winform.Models.domain;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,12 +12,25 @@ namespace FinalProject_Winform.Repositories
     public class LotRepository : ILotRepository
     {
        
-        public async Task<Lot> AddAsync(Lot Lot)
+        public async Task<Lot> AddLotAsync(string itemname, string barcode, long amount)
         {
             using FinalDbContext db = new();
-            await db.Lots.AddAsync(Lot);
-            await db.SaveChangesAsync();    
-            return Lot;
+            var item = await db.Items.Where(x => x.Item_name == itemname).FirstAsync();
+            if (item == null) return null;
+            Lot lot = new()
+            {
+                Item = item,
+                Lot_barcode = barcode,
+                Lot_amount = amount,
+                Lot_regDate = DateTime.Now,
+                Lot_status = "created",
+                Lot_break = false
+
+            };
+
+            await db.Lots.AddAsync(lot);
+            await db.SaveChangesAsync();
+            return lot;
 
         }
 

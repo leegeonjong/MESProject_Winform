@@ -9,7 +9,7 @@ namespace FinalProject_Winform.Repositories
 {
     public interface ILotRepository
     {
-        Task<Lot> AddAsync(Lot Lot);
+        Task<Lot> AddLotAsync(string itemname, string barcode, long amount);
         Task<IEnumerable<Lot>> GetAllAsync();
 
         bool FindAsync(string barcode);
