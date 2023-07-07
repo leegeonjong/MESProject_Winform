@@ -50,14 +50,14 @@
             textBox1 = new TextBox();
             tabPage2 = new TabPage();
             panel5 = new Panel();
-            panel6 = new Panel();
-            button3 = new Button();
-            label5 = new Label();
-            panel7 = new Panel();
-            label4 = new Label();
-            label6 = new Label();
-            comboBox1 = new ComboBox();
             comboBox2 = new ComboBox();
+            comboBox1 = new ComboBox();
+            panel7 = new Panel();
+            label6 = new Label();
+            label4 = new Label();
+            button3 = new Button();
+            panel6 = new Panel();
+            label5 = new Label();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             tabControl1.SuspendLayout();
@@ -67,8 +67,8 @@
             panel3.SuspendLayout();
             tabPage2.SuspendLayout();
             panel5.SuspendLayout();
-            panel6.SuspendLayout();
             panel7.SuspendLayout();
+            panel6.SuspendLayout();
             SuspendLayout();
             // 
             // panel2
@@ -329,34 +329,23 @@
             panel5.Size = new Size(1090, 617);
             panel5.TabIndex = 9;
             // 
-            // panel6
+            // comboBox2
             // 
-            panel6.BackColor = Color.WhiteSmoke;
-            panel6.Controls.Add(label5);
-            panel6.Location = new Point(28, 24);
-            panel6.Name = "panel6";
-            panel6.Size = new Size(1037, 82);
-            panel6.TabIndex = 7;
+            comboBox2.Font = new Font("맑은 고딕", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            comboBox2.FormattingEnabled = true;
+            comboBox2.Location = new Point(565, 229);
+            comboBox2.Name = "comboBox2";
+            comboBox2.Size = new Size(500, 40);
+            comboBox2.TabIndex = 10;
             // 
-            // button3
+            // comboBox1
             // 
-            button3.BackColor = Color.FromArgb(52, 152, 219);
-            button3.Location = new Point(939, 517);
-            button3.Name = "button3";
-            button3.Size = new Size(126, 52);
-            button3.TabIndex = 8;
-            button3.Text = "검색";
-            button3.UseVisualStyleBackColor = false;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("맑은 고딕", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.Location = new Point(16, 23);
-            label5.Name = "label5";
-            label5.Size = new Size(174, 32);
-            label5.TabIndex = 6;
-            label5.Text = "설비 상태 설정";
+            comboBox1.Font = new Font("맑은 고딕", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(28, 229);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(500, 40);
+            comboBox1.TabIndex = 9;
             // 
             // panel7
             // 
@@ -368,16 +357,6 @@
             panel7.Size = new Size(1037, 49);
             panel7.TabIndex = 8;
             // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("맑은 고딕", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(15, 17);
-            label4.Name = "label4";
-            label4.Size = new Size(118, 21);
-            label4.TabIndex = 6;
-            label4.Text = "설비 진행 상황";
-            // 
             // label6
             // 
             label6.AutoSize = true;
@@ -388,21 +367,44 @@
             label6.TabIndex = 7;
             label6.Text = "설비 진행 상황";
             // 
-            // comboBox1
+            // label4
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(28, 229);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(500, 23);
-            comboBox1.TabIndex = 9;
+            label4.AutoSize = true;
+            label4.Font = new Font("맑은 고딕", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.Location = new Point(15, 17);
+            label4.Name = "label4";
+            label4.Size = new Size(118, 21);
+            label4.TabIndex = 6;
+            label4.Text = "설비 진행 상황";
             // 
-            // comboBox2
+            // button3
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(565, 229);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(500, 23);
-            comboBox2.TabIndex = 10;
+            button3.BackColor = Color.FromArgb(52, 152, 219);
+            button3.Location = new Point(939, 517);
+            button3.Name = "button3";
+            button3.Size = new Size(126, 52);
+            button3.TabIndex = 8;
+            button3.Text = "검색";
+            button3.UseVisualStyleBackColor = false;
+            // 
+            // panel6
+            // 
+            panel6.BackColor = Color.WhiteSmoke;
+            panel6.Controls.Add(label5);
+            panel6.Location = new Point(28, 24);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(1037, 82);
+            panel6.TabIndex = 7;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("맑은 고딕", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.Location = new Point(16, 23);
+            label5.Name = "label5";
+            label5.Size = new Size(174, 32);
+            label5.TabIndex = 6;
+            label5.Text = "설비 상태 설정";
             // 
             // ProcessForm
             // 
@@ -426,10 +428,10 @@
             panel3.PerformLayout();
             tabPage2.ResumeLayout(false);
             panel5.ResumeLayout(false);
-            panel6.ResumeLayout(false);
-            panel6.PerformLayout();
             panel7.ResumeLayout(false);
             panel7.PerformLayout();
+            panel6.ResumeLayout(false);
+            panel6.PerformLayout();
             ResumeLayout(false);
         }
 
