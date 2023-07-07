@@ -38,8 +38,9 @@ namespace FinalProject_Winform
             }
             else
             {
-                comboBox_item.Text = lbl_item.Text;
-                textBox_count.Text = lbl_count.Text;
+                lbl_item.Text = comboBox_item.Text;
+                lbl_count.Text = textBox_count.Text;
+            }
 
                 string barcodeText = lbl_barcode.Text.Trim();
                 if (string.IsNullOrEmpty(barcodeText)) { return; }
@@ -56,7 +57,7 @@ namespace FinalProject_Winform
                     );
 
                 picture_Barcode.Image = Image.FromStream(img.Encode().AsStream());
-            }
+            
         }
 
         private void btn_process_Click(object sender, EventArgs e)
