@@ -62,7 +62,7 @@ namespace FinalProject_Winform
             // 콤보박스에서 선택된 항목을 가져옴
             Item selectedItem = await itemRepository.GetByNameAsync(comboBox1.SelectedItem.ToString());
 
-            stockRepository.AddAsync(selectedItem,amount);
+            stockRepository.AddAsync(selectedItem, amount);
         }
         private void Button_Click(object sender, EventArgs e)
         {

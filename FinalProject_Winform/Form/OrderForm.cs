@@ -17,7 +17,15 @@ namespace FinalProject_Winform
             InitializeComponent();
         }
 
-      
+        private void Button_Click(object sender, EventArgs e)
+        {
+            Button button = sender as Button;
+            if (button != null)
+            {
+                string formName = button.Name.Replace("btn_", "");
+                FormUtility.OpenForm(formName, this);
+            }
+        }
 
         //메인폼으로 돌아가기
         private void OrderForm_FormClosed(object sender, FormClosedEventArgs e)

@@ -32,10 +32,10 @@ namespace FinalProject_Winform
                     }
                     break;
                 case "process":
-                    targetForm = Application.OpenForms["ChartForm"] as ChartForm;
+                    targetForm = Application.OpenForms["ProcessForm"] as ProcessForm;
                     if (targetForm == null)
                     {
-                        targetForm = new ChartForm();
+                        targetForm = new ProcessForm();
                         targetForm.Show();
                     }
                     break;
@@ -67,10 +67,12 @@ namespace FinalProject_Winform
                     break;
             }
 
-            if (targetForm != null)
+            if (targetForm != null && targetForm.Name != formName)
             {
                 currentForm.Hide();
             }
+
+
         }
     }
 
