@@ -57,6 +57,11 @@
             button3 = new Button();
             comboBox2 = new ComboBox();
             label6 = new Label();
+            item_name = new DataGridViewTextBoxColumn();
+            item_warehousing = new DataGridViewTextBoxColumn();
+            item_count = new DataGridViewTextBoxColumn();
+            item_regdate = new DataGridViewTextBoxColumn();
+            item_amount = new DataGridViewTextBoxColumn();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             tabControl1.SuspendLayout();
@@ -222,8 +227,10 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.AllowUserToAddRows = false;
             dataGridView1.BackgroundColor = Color.White;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { item_name, item_warehousing, item_count, item_regdate, item_amount });
             dataGridView1.Location = new Point(7, 139);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
@@ -413,6 +420,41 @@
             label6.TabIndex = 0;
             label6.Text = "물품";
             // 
+            // item_name
+            // 
+            item_name.HeaderText = "종류";
+            item_name.Name = "item_name";
+            item_name.ReadOnly = true;
+            item_name.Width = 150;
+            // 
+            // item_warehousing
+            // 
+            item_warehousing.HeaderText = "입/출고";
+            item_warehousing.Name = "item_warehousing";
+            item_warehousing.ReadOnly = true;
+            item_warehousing.Width = 150;
+            // 
+            // item_count
+            // 
+            item_count.HeaderText = "수량변화";
+            item_count.Name = "item_count";
+            item_count.ReadOnly = true;
+            item_count.Width = 150;
+            // 
+            // item_regdate
+            // 
+            item_regdate.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            item_regdate.HeaderText = "날짜";
+            item_regdate.Name = "item_regdate";
+            item_regdate.ReadOnly = true;
+            // 
+            // item_amount
+            // 
+            item_amount.HeaderText = "총 수량";
+            item_amount.Name = "item_amount";
+            item_amount.ReadOnly = true;
+            item_amount.Width = 180;
+            // 
             // StockForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -423,7 +465,7 @@
             Controls.Add(panel1);
             Name = "StockForm";
             Text = "StockForm";
-            FormClosed += StockForm_FormClosed;
+            Load += StockForm_Load;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel1.ResumeLayout(false);
@@ -467,11 +509,10 @@
         private Label label6;
         private Button button1;
         private Button button3;
-        private Button btn_ChartForm;
-        private Button btn_OrderForm;
-        private Button btn_StockForm;
-        private Button btn_TestForm;
-        private Button btn_ProcessForm;
-        private Button btn_LOTForm;
+        private DataGridViewTextBoxColumn item_name;
+        private DataGridViewTextBoxColumn item_warehousing;
+        private DataGridViewTextBoxColumn item_count;
+        private DataGridViewTextBoxColumn item_regdate;
+        private DataGridViewTextBoxColumn item_amount;
     }
 }

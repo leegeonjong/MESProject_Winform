@@ -192,7 +192,7 @@
             panel2.Location = new Point(0, 0);
             panel2.Margin = new Padding(2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1264, 88);
+            panel2.Size = new Size(1270, 80);
             panel2.TabIndex = 1;
             // 
             // label1
@@ -210,7 +210,6 @@
             // 
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
-            tabControl1.Dock = DockStyle.Bottom;
             tabControl1.ItemSize = new Size(200, 40);
             tabControl1.Location = new Point(160, 87);
             tabControl1.Margin = new Padding(2);
@@ -315,7 +314,7 @@
             panel6.Location = new Point(574, 277);
             panel6.Margin = new Padding(2);
             panel6.Name = "panel6";
-            panel6.Size = new Size(478, 74);
+            panel6.Size = new Size(372, 56);
             panel6.TabIndex = 7;
             // 
             // lbl_barcode
@@ -500,7 +499,7 @@
             tabPage2.TabIndex = 1;
             tabPage2.Text = "LOT 검색";
             // 
-            // label5
+            // button7
             // 
             label5.AutoSize = true;
             label5.Font = new Font("맑은 고딕", 31.8F, FontStyle.Regular, GraphicsUnit.Point);
@@ -511,7 +510,7 @@
             label5.TabIndex = 1;
             label5.Text = "로트번호";
             // 
-            // panel8
+            // button8
             // 
             panel8.Location = new Point(20, 17);
             panel8.Margin = new Padding(2);
@@ -602,5 +601,11 @@
         private Label label5;
         private Panel panel8;
         private DataGridView dataGridView1;
+        private Button button3;
+        private Button button4;
+        private Button button5;
+        private Button button6;
+        private Button button7;
+        private Button button8;
     }
 }
