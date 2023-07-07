@@ -58,11 +58,17 @@ namespace FinalProject_Winform
         private async void btn_Import(object sender, EventArgs e)
         {
             long amount = long.Parse(txtAmount.Text);
+            string item = comboBox1.SelectedItem.ToString();
 
             // 콤보박스에서 선택된 항목을 가져옴
-            Item selectedItem = await itemRepository.GetByNameAsync(comboBox1.SelectedItem.ToString());
+            var stock = await stockRepository.AddAsync(item, amount);
+            if(stock != null)
+            {
+                MessageBox.Show("성공");
+            }
+            
+            
 
-            stockRepository.AddAsync(selectedItem, amount);
         }
         private void Button_Click(object sender, EventArgs e)
         {

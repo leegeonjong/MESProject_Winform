@@ -13,14 +13,18 @@ namespace FinalProject_Winform.Repositories
     public class StockRepository : IStockRepository
     {
         private readonly IItemRepository itemRepository;
+        public StockRepository() {
+            itemRepository = new ItemRepository();
+        }
       
-        public async Task<Stock> AddAsync(Item itemname,long amount)
+        public async Task<Stock> AddAsync(string itemname,long amount)
         {
             using FinalDbContext db = new();
-
+            var item = await db.Items.Where(x => x.Item_name == itemname).FirstAsync();
+            if (item == null) return null;
             Stock stock = new()
             {
-                Item = itemname,
+                Item = item,
                 Stock_amount = amount,
                Stock_regDate = DateTime.Now, 
                Stock_status =  "입고",

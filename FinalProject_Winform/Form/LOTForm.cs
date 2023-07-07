@@ -1,4 +1,5 @@
 ﻿using BarcodeStandard;
+using FinalProject_Winform.Repositories;
 using Microsoft.IdentityModel.Tokens;
 using SkiaSharp;
 using System;
@@ -15,24 +16,36 @@ namespace FinalProject_Winform
 {
     public partial class LOTForm : Form
     {
+        private ILotRepository lotRepository;
         public LOTForm()
         {
             InitializeComponent();
+            lotRepository = new LotRepository();
         }
 
 
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
             if (comboBox_item.Text == "제품선택" || textBox_count.Text.IsNullOrEmpty())
             {
                 MessageBox.Show("제품과 수량을 입력해주세요");
             }
             else
             {
-                lbl_item.Text = comboBox_item.Text;
-                lbl_count.Text = textBox_count.Text;
-                lbl_barcode.Text = makebarcode();
+                string bartext = makebarcode();
+                while (true)
+                {
+                    bool result = lotRepository.FindAsync(bartext);
+                    if (result)
+                    {
+                        break;
+                    }
+                }
+               lbl_barcode.Text = bartext;
+                lbl_text_item.Text = comboBox_item.Text;
+               lbl_text_count.Text = textBox_count.Text;
 
             }
 
@@ -70,6 +83,11 @@ namespace FinalProject_Winform
             }
 
             return sb.ToString();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

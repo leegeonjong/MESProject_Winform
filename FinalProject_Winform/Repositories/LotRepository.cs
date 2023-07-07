@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FinalProject_Winform.Repositories
 {
-    internal class LotRepository : ILotRepository
+    public class LotRepository : ILotRepository
     {
        
         public async Task<Lot> AddAsync(Lot Lot)
@@ -20,9 +20,26 @@ namespace FinalProject_Winform.Repositories
 
         }
 
+        public bool FindAsync(string barcode)
+        {
+            using FinalDbContext db = new();
+
+            var jobs = db.Lots.Where(j => j.Lot_barcode == barcode);
+            if (jobs.Count() == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public Task<IEnumerable<Lot>> GetAllAsync()
         {
             throw new NotImplementedException();
         }
+
+  
     }
 }
