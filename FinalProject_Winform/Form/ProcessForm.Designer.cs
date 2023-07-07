@@ -159,15 +159,15 @@
             btn_LOT.TextAlign = ContentAlignment.MiddleLeft;
             btn_LOT.UseVisualStyleBackColor = true;
             // 
-            // Form3
+            // ProcessForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1264, 761);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Name = "Form3";
-            Text = "Form3";
+            Name = "ProcessForm";
+            Text = "ProcessForm";
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel1.ResumeLayout(false);

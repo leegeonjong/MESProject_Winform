@@ -160,16 +160,16 @@
             label1.Text = "아무거나";
             label1.Click += label1_Click;
             // 
-            // Form2
+            // LOTForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1264, 761);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Name = "Form2";
+            Name = "LOTForm";
             StartPosition = FormStartPosition.CenterParent;
-            Text = "Form2";
+            Text = "LOTForm";
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
