@@ -159,15 +159,15 @@
             btn_LOT.TextAlign = ContentAlignment.MiddleLeft;
             btn_LOT.UseVisualStyleBackColor = true;
             // 
-            // Form6
+            // TestForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1264, 761);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Name = "Form6";
-            Text = "Form6";
+            Name = "TestForm";
+            Text = "TestForm";
             Load += Form6_Load;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
