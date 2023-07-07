@@ -83,16 +83,17 @@ namespace FinalProject_Winform
         }
 
 
-        //닫으면 모든 폼 닫기 
+        //메인폼으로 돌아가기
         private void ChartForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            foreach (Form form in Application.OpenForms)
+            var MainForm = Application.OpenForms["MainForm"] as MainForm;
+
+            if (MainForm == null)
             {
-                if (form != this)
-                {
-                    form.Close();
-                }
+                MainForm = new MainForm();
+                MainForm.Show();
             }
+            this.Hide();
         }
     }
 }

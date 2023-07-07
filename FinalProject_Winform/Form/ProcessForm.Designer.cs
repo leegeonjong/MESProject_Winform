@@ -118,6 +118,7 @@
             btn_chart.Text = "현황판";
             btn_chart.TextAlign = ContentAlignment.MiddleLeft;
             btn_chart.UseVisualStyleBackColor = true;
+            btn_chart.Click += btn_chart_Click;
             // 
             // btn_order
             // 
@@ -132,6 +133,7 @@
             btn_order.Text = "주문";
             btn_order.TextAlign = ContentAlignment.MiddleLeft;
             btn_order.UseVisualStyleBackColor = true;
+            btn_order.Click += btn_order_Click;
             // 
             // btn_stock
             // 
@@ -146,6 +148,7 @@
             btn_stock.Text = "재고관리";
             btn_stock.TextAlign = ContentAlignment.MiddleLeft;
             btn_stock.UseVisualStyleBackColor = true;
+            btn_stock.Click += btn_stock_Click;
             // 
             // btn_check
             // 
@@ -160,6 +163,7 @@
             btn_check.Text = "검사";
             btn_check.TextAlign = ContentAlignment.MiddleLeft;
             btn_check.UseVisualStyleBackColor = true;
+            btn_check.Click += btn_check_Click;
             // 
             // btn_process
             // 
@@ -188,6 +192,7 @@
             btn_LOT.Text = "LOT";
             btn_LOT.TextAlign = ContentAlignment.MiddleLeft;
             btn_LOT.UseVisualStyleBackColor = true;
+            btn_LOT.Click += btn_LOT_Click;
             // 
             // tabControl1
             // 
@@ -225,7 +230,6 @@
             panel4.Name = "panel4";
             panel4.Size = new Size(1090, 617);
             panel4.TabIndex = 8;
-            panel4.Paint += panel4_Paint;
             // 
             // label3
             // 
@@ -416,6 +420,7 @@
             Controls.Add(panel1);
             Name = "ProcessForm";
             Text = "ProcessForm";
+            FormClosed += ProcessForm_FormClosed;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel1.ResumeLayout(false);
