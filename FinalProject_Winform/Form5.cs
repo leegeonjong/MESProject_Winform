@@ -16,5 +16,10 @@ namespace FinalProject_Winform
         {
             InitializeComponent();
         }
+
+        private void Form5_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
