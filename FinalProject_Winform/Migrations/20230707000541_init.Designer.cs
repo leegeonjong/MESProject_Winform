@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FinalProject_Winform.Migrations
 {
     [DbContext(typeof(FinalDbContext))]
-    [Migration("20230706084407_init")]
+    [Migration("20230707000541_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -247,19 +247,19 @@ namespace FinalProject_Winform.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
-                    b.Property<string>("User_id")
+                    b.Property<string>("PUser_id")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("User_name")
+                    b.Property<string>("PUser_name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("User_password")
+                    b.Property<string>("PUser_password")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("User_phoneNum")
+                    b.Property<string>("PUser_phoneNum")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

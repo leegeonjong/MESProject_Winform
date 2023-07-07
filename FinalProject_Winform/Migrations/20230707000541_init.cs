@@ -50,10 +50,10 @@ namespace FinalProject_Winform.Migrations
                 {
                     Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    User_id = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    User_password = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    User_name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    User_phoneNum = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    PUser_id = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PUser_password = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PUser_name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PUser_phoneNum = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {

@@ -12,8 +12,7 @@ namespace FinalProject_Winform.Repositories
     {
         public Task<Lot> AddAsync(Lot Lot)
         {
-          using FinalDbContext dbContext = new();
-            dbContext
+            throw new NotImplementedException();
         }
 
         public Task<IEnumerable<Lot>> GetAllAsync()
