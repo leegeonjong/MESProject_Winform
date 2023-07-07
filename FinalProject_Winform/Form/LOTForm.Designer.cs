@@ -101,14 +101,14 @@
             btn_ChartForm.FlatAppearance.BorderSize = 2;
             btn_ChartForm.FlatStyle = FlatStyle.Flat;
             btn_ChartForm.Font = new Font("맑은 고딕", 24F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_ChartForm.Location = new Point(-4, 580);
-            btn_ChartForm.Margin = new Padding(2);
+            btn_ChartForm.Location = new Point(-8, 576);
             btn_ChartForm.Name = "btn_ChartForm";
             btn_ChartForm.Size = new Size(168, 104);
-            btn_ChartForm.TabIndex = 3;
+            btn_ChartForm.TabIndex = 13;
             btn_ChartForm.Text = "현황판";
             btn_ChartForm.TextAlign = ContentAlignment.MiddleLeft;
             btn_ChartForm.UseVisualStyleBackColor = true;
+            btn_ChartForm.Click += Button_Click;
             // 
             // btn_OrderForm
             // 
@@ -124,6 +124,7 @@
             btn_OrderForm.Text = "주문";
             btn_OrderForm.TextAlign = ContentAlignment.MiddleLeft;
             btn_OrderForm.UseVisualStyleBackColor = true;
+            btn_OrderForm.Click += Button_Click;
             // 
             // btn_StockForm
             // 
@@ -139,6 +140,7 @@
             btn_StockForm.Text = "재고관리";
             btn_StockForm.TextAlign = ContentAlignment.MiddleLeft;
             btn_StockForm.UseVisualStyleBackColor = true;
+            btn_StockForm.Click += Button_Click;
             // 
             // btn_TestForm
             // 
@@ -154,6 +156,7 @@
             btn_TestForm.Text = "검사";
             btn_TestForm.TextAlign = ContentAlignment.MiddleLeft;
             btn_TestForm.UseVisualStyleBackColor = true;
+            btn_TestForm.Click += Button_Click;
             // 
             // btn_ProcessForm
             // 
@@ -169,6 +172,7 @@
             btn_ProcessForm.Text = "공정";
             btn_ProcessForm.TextAlign = ContentAlignment.MiddleLeft;
             btn_ProcessForm.UseVisualStyleBackColor = true;
+            btn_ProcessForm.Click += Button_Click;
             // 
             // btn_LOTForm
             // 
@@ -184,6 +188,7 @@
             btn_LOTForm.Text = "LOT";
             btn_LOTForm.TextAlign = ContentAlignment.MiddleLeft;
             btn_LOTForm.UseVisualStyleBackColor = true;
+            btn_LOTForm.Click += Button_Click;
             // 
             // panel2
             // 
@@ -499,7 +504,7 @@
             tabPage2.TabIndex = 1;
             tabPage2.Text = "LOT 검색";
             // 
-            // button7
+            // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("맑은 고딕", 31.8F, FontStyle.Regular, GraphicsUnit.Point);
@@ -510,7 +515,7 @@
             label5.TabIndex = 1;
             label5.Text = "로트번호";
             // 
-            // button8
+            // panel8
             // 
             panel8.Location = new Point(20, 17);
             panel8.Margin = new Padding(2);
@@ -540,6 +545,7 @@
             Name = "LOTForm";
             StartPosition = FormStartPosition.CenterParent;
             Text = "LOTForm";
+            FormClosed += LOTForm_FormClosed;
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
@@ -568,7 +574,6 @@
         private Button btn_LOTForm;
         private Panel panel2;
         private Button btn_ProcessForm;
-        private Button btn_ChartForm;
         private Button btn_OrderForm;
         private Button btn_StockForm;
         private Button btn_TestForm;
@@ -607,5 +612,6 @@
         private Button button6;
         private Button button7;
         private Button button8;
+        private Button btn_ChartForm;
     }
 }

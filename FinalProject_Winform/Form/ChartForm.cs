@@ -38,7 +38,7 @@ namespace FinalProject_Winform
         {
             var MainForm = Application.OpenForms["MainForm"] as MainForm;
 
-            if (MainForm == null)
+            if (MainForm != null)
             {
                 MainForm = new MainForm();
                 MainForm.Show();

@@ -31,7 +31,6 @@
             panel2 = new Panel();
             label1 = new Label();
             panel1 = new Panel();
-            btn_ChartForm = new Button();
             btn_OrderForm = new Button();
             btn_StockForm = new Button();
             btn_TestForm = new Button();
@@ -97,7 +96,6 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(180, 210, 230);
-            panel1.Controls.Add(btn_ChartForm);
             panel1.Controls.Add(btn_OrderForm);
             panel1.Controls.Add(btn_StockForm);
             panel1.Controls.Add(btn_TestForm);
@@ -111,18 +109,7 @@
             // 
             // btn_ChartForm
             // 
-            btn_ChartForm.FlatAppearance.BorderColor = Color.Gray;
-            btn_ChartForm.FlatAppearance.BorderSize = 2;
-            btn_ChartForm.FlatStyle = FlatStyle.Flat;
-            btn_ChartForm.Font = new Font("맑은 고딕", 24F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_ChartForm.Location = new Point(-4, 580);
-            btn_ChartForm.Name = "btn_ChartForm";
-            btn_ChartForm.Size = new Size(168, 104);
-            btn_ChartForm.TabIndex = 12;
-            btn_ChartForm.Text = "현황판";
-            btn_ChartForm.TextAlign = ContentAlignment.MiddleLeft;
-            btn_ChartForm.UseVisualStyleBackColor = true;
-            btn_ChartForm.Click += Button_Click;
+           
             // 
             // btn_OrderForm
             // 
@@ -514,5 +501,10 @@
         private DataGridViewTextBoxColumn item_count;
         private DataGridViewTextBoxColumn item_regdate;
         private DataGridViewTextBoxColumn item_amount;
+        private Button btn_OrderForm;
+        private Button btn_StockForm;
+        private Button btn_TestForm;
+        private Button btn_ProcessForm;
+        private Button btn_LOTForm;
     }
 }

@@ -39,9 +39,13 @@ namespace FinalProject_Winform
         //닫으면 모든 폼 닫기 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
+            // 메인 폼 닫기
+            this.Close();
+
+            // 숨겨진 모든 폼 닫기
             foreach (Form form in Application.OpenForms)
             {
-                if (form != this)
+                if (form != this && form.Visible == false)
                 {
                     form.Close();
                 }
