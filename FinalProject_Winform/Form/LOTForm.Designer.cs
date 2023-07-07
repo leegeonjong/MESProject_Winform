@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btn_chart = new System.Windows.Forms.Button();
-            this.btn_order = new System.Windows.Forms.Button();
-            this.btn_stock = new System.Windows.Forms.Button();
-            this.btn_check = new System.Windows.Forms.Button();
-            this.btn_process = new System.Windows.Forms.Button();
-            this.btn_LOT = new System.Windows.Forms.Button();
+            this.btn_ChartForm = new System.Windows.Forms.Button();
+            this.btn_OrderForm = new System.Windows.Forms.Button();
+            this.btn_StockForm = new System.Windows.Forms.Button();
+            this.btn_TestForm = new System.Windows.Forms.Button();
+            this.btn_ProcessForm = new System.Windows.Forms.Button();
+            this.btn_LOTForm = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
