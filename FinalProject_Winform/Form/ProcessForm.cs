@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FinalProject_Winform.Models.domain;
+using FinalProject_Winform.Repositories;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,12 +14,18 @@ namespace FinalProject_Winform
 {
     public partial class ProcessForm : Form
     {
+        private IProcessRepository processRepository;
         public ProcessForm()
         {
             InitializeComponent();
+            processRepository = new ProcessRepository();
         }
-
-
+        DataGridView dgvImport; 
+        private void ProcessForm_Load(object sender, EventArgs e)
+        {
+            dgvImport = dataGridView1;
+            LoadProcessAsync();
+        }
         private void Button_Click(object sender, EventArgs e)
         {
             Button button = sender as Button;
@@ -27,7 +35,6 @@ namespace FinalProject_Winform
                 FormUtility.OpenForm(formName, this);
             }
         }
-
         //메인폼으로 돌아가기
         private void ProcessForm_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -40,12 +47,46 @@ namespace FinalProject_Winform
             }
             this.Hide();
         }
-
-        private void panel4_Paint(object sender, PaintEventArgs e)
+        private void tabControl1_Selected(object sender, TabControlEventArgs e)
         {
+            switch (e.TabPageIndex)
+            {
+                case 0:  // 공정 조회
+                    LoadProcessAsync();
+                    break;
+                case 1:  // 설비 설정
+                    SetProcess();
+                    break;
 
+            }
         }
 
+        private void SetProcess()
+        {
+            throw new NotImplementedException();
+        }
 
+        private async Task LoadProcessAsync()
+        {
+            var processes = await processRepository.GetAllAsync();
+
+            // DataGridView 전체 clear
+            dgvImport.Rows.Clear();
+            dgvImport.Refresh();
+
+            int i = 0;
+            foreach (var process in processes)
+            {
+                dgvImport.Rows.Add();  // 새로운 row 추가
+                dgvImport.Rows[i].Cells["lot_barcode"].Value = process.lot.Lot_barcode;
+                dgvImport.Rows[i].Cells["lot_status"].Value = process.lot.Lot_status;
+                dgvImport.Rows[i].Cells["lothistory_datetime_Start"].Value = "+" + process.lotHistory.LotHistory_startDate;
+                dgvImport.Rows[i].Cells["lothistory_datetime_End"].Value = process.lotHistory.LotHistory_endDate;
+
+                i++;
+            }
+        }
+
+       
     }
 }
