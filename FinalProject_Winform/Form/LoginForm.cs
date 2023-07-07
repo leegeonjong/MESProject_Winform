@@ -47,7 +47,7 @@ namespace FinalProject_Winform
 
         private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(e.KeyChar == 13)
+            if (e.KeyChar == 13)
             {
                 var login = Login(idbox.Text, pwbox.Text);
                 if (login != null)
@@ -64,4 +64,5 @@ namespace FinalProject_Winform
             }
         }
     }
-    //
+}
+    
