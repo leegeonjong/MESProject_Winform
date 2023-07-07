@@ -10,9 +10,9 @@ namespace FinalProject_Winform.Repositories
     internal interface IItemRepository
     {
 
-        Task<Item> UpdateAsync(Item item); // 수정
+        Task<Item> UpdateAsync(string name,long amount); // 수정
 
-        
+        Task<IEnumerable<Item>> GetAllAsync();
 
 
     }

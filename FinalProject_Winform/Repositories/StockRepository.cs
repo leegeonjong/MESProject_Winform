@@ -22,6 +22,7 @@ namespace FinalProject_Winform.Repositories
             using FinalDbContext db = new();
             var item = await db.Items.Where(x => x.Item_name == itemname).FirstAsync();
             if (item == null) return null;
+            
             Stock stock = new()
             {
                 Item = item,
@@ -36,11 +37,15 @@ namespace FinalProject_Winform.Repositories
             return stock;
         }
 
-        public async Task<IEnumerable<Item>> GetAllAsync()
+        public async Task<IEnumerable<Stock>> GetAllAsync()
         {
             using FinalDbContext db = new();
-            var items = await db.Items.ToListAsync();
-            return items.OrderBy(x => x.Id).ToList();
+            var stocks = await db.Stocks
+                .Include(s=>s.Item)
+                .ToListAsync();
+            return stocks.OrderByDescending(x => x.Id).ToList();
+
+
         }
     }
 }

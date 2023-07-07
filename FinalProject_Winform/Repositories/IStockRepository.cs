@@ -9,7 +9,7 @@ namespace FinalProject_Winform.Repositories
 {
     internal interface IStockRepository
     {
-        Task<IEnumerable<Item>> GetAllAsync(); // 아이템 목록 불러오기
+        Task<IEnumerable<Stock>> GetAllAsync(); // 아이템 목록 불러오기
 
         Task<Stock> AddAsync (string item, long amount); // 입출고 추가
     }
