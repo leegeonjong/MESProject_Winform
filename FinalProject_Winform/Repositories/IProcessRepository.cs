@@ -10,5 +10,7 @@ namespace FinalProject_Winform.Repositories
     internal interface IProcessRepository
     {
         Task<IEnumerable<Process>> GetAllAsync();
+
+        Task<string> GetSelectedProcessStatus(string selectedProcessName);
     }
 }

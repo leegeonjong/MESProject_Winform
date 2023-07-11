@@ -47,6 +47,7 @@ namespace FinalProject_Winform
             }
             this.Hide();
         }
+
         private void tabControl1_Selected(object sender, TabControlEventArgs e)
         {
             switch (e.TabPageIndex)
@@ -61,12 +62,10 @@ namespace FinalProject_Winform
             }
         }
 
-        private void SetProcess()
-        {
-            throw new NotImplementedException();
-        }
-
-        private async Task LoadProcessAsync()
+        //----------------------------------------------------------------------------
+        //첫번째 탭
+        //----------------------------------------------------------------------------
+        private async void LoadProcessAsync()
         {
             var processes = await processRepository.GetAllAsync();
 
@@ -87,6 +86,23 @@ namespace FinalProject_Winform
             }
         }
 
-       
+        //----------------------------------------------------------------------------
+        //두번째 탭
+        //----------------------------------------------------------------------------
+
+        private async void SetProcess()
+        {
+            var processes = await processRepository.GetAllAsync();
+
+          
+        }
+
+        private void combo_process_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // combo_process에서 선택한 값 가져오기
+            string selectedProcess = combo_process.SelectedItem.ToString();
+            var processesStatus = processRepository.GetSelectedProcessStatus(selectedProcess);
+            label6.Text = processesStatus.ToString();
+        }
     }
 }

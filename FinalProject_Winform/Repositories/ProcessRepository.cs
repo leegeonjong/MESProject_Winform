@@ -20,5 +20,24 @@ namespace FinalProject_Winform.Repositories
                 .ToListAsync();
             return process.OrderByDescending(x => x.Id).ToList();
         }
+
+        public async Task<string> GetSelectedProcessStatus(string selectedProcessName)
+        {
+            using (FinalDbContext db = new FinalDbContext())
+            {
+                var process = await db.Processes
+                    .FirstOrDefaultAsync(p => p.Process_name == selectedProcessName);
+
+                if (process != null)
+                {
+                    return process.Process_status.ToString();
+                }
+                else
+                {
+                    return "해당하는 Process가 없습니다.";
+                }
+            }
+        }
+
     }
 }

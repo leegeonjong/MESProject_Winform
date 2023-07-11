@@ -44,6 +44,10 @@
             this.btn_next = new System.Windows.Forms.Button();
             this.btn_prev = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.LOT_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Process_Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LOT_StartDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LOT_EndDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnSearchProcess = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -58,10 +62,6 @@
             this.button3 = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
-            this.LOT_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Process_Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LOT_StartDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LOT_EndDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -122,6 +122,7 @@
             this.btn_ChartForm.Text = "현황판";
             this.btn_ChartForm.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_ChartForm.UseVisualStyleBackColor = true;
+            this.btn_ChartForm.Click += new System.EventHandler(this.Button_Click);
             // 
             // btn_OrderForm
             // 
@@ -136,6 +137,7 @@
             this.btn_OrderForm.Text = "주문";
             this.btn_OrderForm.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_OrderForm.UseVisualStyleBackColor = true;
+            this.btn_OrderForm.Click += new System.EventHandler(this.Button_Click);
             // 
             // btn_StockForm
             // 
@@ -150,6 +152,7 @@
             this.btn_StockForm.Text = "재고관리";
             this.btn_StockForm.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_StockForm.UseVisualStyleBackColor = true;
+            this.btn_StockForm.Click += new System.EventHandler(this.Button_Click);
             // 
             // btn_TestForm
             // 
@@ -164,6 +167,7 @@
             this.btn_TestForm.Text = "검사";
             this.btn_TestForm.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_TestForm.UseVisualStyleBackColor = true;
+            this.btn_TestForm.Click += new System.EventHandler(this.Button_Click);
             // 
             // btn_ProcessForm
             // 
@@ -178,6 +182,7 @@
             this.btn_ProcessForm.Text = "공정";
             this.btn_ProcessForm.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_ProcessForm.UseVisualStyleBackColor = true;
+            this.btn_ProcessForm.Click += new System.EventHandler(this.Button_Click);
             // 
             // btn_LOTForm
             // 
@@ -192,6 +197,7 @@
             this.btn_LOTForm.Text = "LOT";
             this.btn_LOTForm.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_LOTForm.UseVisualStyleBackColor = true;
+            this.btn_LOTForm.Click += new System.EventHandler(this.Button_Click);
             // 
             // tabControl1
             // 
@@ -204,6 +210,7 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1104, 671);
             this.tabControl1.TabIndex = 4;
+            this.tabControl1.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl1_Selected);
             // 
             // tabPage1
             // 
@@ -271,6 +278,33 @@
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(1037, 431);
             this.dataGridView1.TabIndex = 8;
+            // 
+            // LOT_ID
+            // 
+            this.LOT_ID.HeaderText = "LOT";
+            this.LOT_ID.Name = "LOT_ID";
+            this.LOT_ID.ReadOnly = true;
+            // 
+            // Process_Status
+            // 
+            this.Process_Status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Process_Status.HeaderText = "상태";
+            this.Process_Status.Name = "Process_Status";
+            this.Process_Status.ReadOnly = true;
+            // 
+            // LOT_StartDate
+            // 
+            this.LOT_StartDate.HeaderText = "시작시간";
+            this.LOT_StartDate.Name = "LOT_StartDate";
+            this.LOT_StartDate.ReadOnly = true;
+            this.LOT_StartDate.Width = 300;
+            // 
+            // LOT_EndDate
+            // 
+            this.LOT_EndDate.HeaderText = "종료시간";
+            this.LOT_EndDate.Name = "LOT_EndDate";
+            this.LOT_EndDate.ReadOnly = true;
+            this.LOT_EndDate.Width = 300;
             // 
             // panel3
             // 
@@ -350,10 +384,18 @@
             // 
             this.combo_process.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.combo_process.FormattingEnabled = true;
+            this.combo_process.Items.AddRange(new object[] {
+            "배합",
+            "형태화",
+            "찌기",
+            "잘 튀기기",
+            "냉동",
+            "포장"});
             this.combo_process.Location = new System.Drawing.Point(28, 229);
             this.combo_process.Name = "combo_process";
             this.combo_process.Size = new System.Drawing.Size(500, 40);
             this.combo_process.TabIndex = 9;
+            this.combo_process.SelectedIndexChanged += new System.EventHandler(this.combo_process_SelectedIndexChanged);
             // 
             // panel7
             // 
@@ -414,33 +456,6 @@
             this.label5.TabIndex = 6;
             this.label5.Text = "설비 상태 설정";
             // 
-            // LOT_ID
-            // 
-            this.LOT_ID.HeaderText = "LOT";
-            this.LOT_ID.Name = "LOT_ID";
-            this.LOT_ID.ReadOnly = true;
-            // 
-            // Process_Status
-            // 
-            this.Process_Status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Process_Status.HeaderText = "상태";
-            this.Process_Status.Name = "Process_Status";
-            this.Process_Status.ReadOnly = true;
-            // 
-            // LOT_StartDate
-            // 
-            this.LOT_StartDate.HeaderText = "시작시간";
-            this.LOT_StartDate.Name = "LOT_StartDate";
-            this.LOT_StartDate.ReadOnly = true;
-            this.LOT_StartDate.Width = 300;
-            // 
-            // LOT_EndDate
-            // 
-            this.LOT_EndDate.HeaderText = "종료시간";
-            this.LOT_EndDate.Name = "LOT_EndDate";
-            this.LOT_EndDate.ReadOnly = true;
-            this.LOT_EndDate.Width = 300;
-            // 
             // ProcessForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -451,6 +466,8 @@
             this.Controls.Add(this.panel1);
             this.Name = "ProcessForm";
             this.Text = "ProcessForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ProcessForm_FormClosed);
+            this.Load += new System.EventHandler(this.ProcessForm_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
