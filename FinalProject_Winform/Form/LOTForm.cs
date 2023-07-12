@@ -112,13 +112,7 @@ namespace FinalProject_Winform
         //메인폼으로 돌아가기
         private void LOTForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            var MainForm = System.Windows.Forms.Application.OpenForms["MainForm"] as MainForm;
-
-            if (MainForm != null)
-            {
-                MainForm = new MainForm();
-                MainForm.Show();
-            }
+            mainForm.Show();
             this.Hide();
         }
 
