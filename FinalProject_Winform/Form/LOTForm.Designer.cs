@@ -733,7 +733,7 @@
             // 
             comboBox1.Font = new Font("맑은 고딕", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
             comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "배합", "형태화", "찌기", "잘 튀기기", "냉동", "포장" });
+            comboBox1.Items.AddRange(new object[] { "배합", "형태화", "찌기", "튀기기", "냉동", "포장" });
             comboBox1.Location = new Point(112, 29);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(352, 48);

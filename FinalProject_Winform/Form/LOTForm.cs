@@ -234,6 +234,7 @@ namespace FinalProject_Winform
 
         private void btn_Start_Click(object sender, EventArgs e)
         {
+
             mainForm.serialPort.WriteLine("$Run");
         }
     }
