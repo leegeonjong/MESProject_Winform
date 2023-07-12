@@ -19,42 +19,42 @@ namespace FinalProject_Winform
                     targetForm = Application.OpenForms["LOTForm"] as LOTForm;
                     if (targetForm == null)
                     {
-                        targetForm = new LOTForm();
+                        targetForm = new LOTForm(currentForm as MainForm);
                     }
                     break;
                 case "TestForm":
                     targetForm = Application.OpenForms["TestForm"] as TestForm;
                     if (targetForm == null)
                     {
-                        targetForm = new TestForm();
+                        targetForm = new TestForm(currentForm as MainForm);
                     }
                     break;
                 case "ProcessForm":
                     targetForm = Application.OpenForms["ProcessForm"] as ProcessForm;
                     if (targetForm == null)
                     {
-                        targetForm = new ProcessForm();
+                        targetForm = new ProcessForm(currentForm as MainForm); // MainForm의 인스턴스 전달
                     }
                     break;
                 case "StockForm":
                     targetForm = Application.OpenForms["StockForm"] as StockForm;
                     if (targetForm == null)
                     {
-                        targetForm = new StockForm();
+                        targetForm = new StockForm(currentForm as MainForm);
                     }
                     break;
                 case "OrderForm":
                     targetForm = Application.OpenForms["OrderForm"] as OrderForm;
                     if (targetForm == null)
                     {
-                        targetForm = new OrderForm();
+                        targetForm = new OrderForm(currentForm as MainForm);
                     }
                     break;
                 case "ChartForm":
                     targetForm = Application.OpenForms["ChartForm"] as ChartForm;
                     if (targetForm == null)
                     {
-                        targetForm = new ChartForm();
+                        targetForm = new ChartForm(currentForm as MainForm);
                     }
                     break;
                 default:
