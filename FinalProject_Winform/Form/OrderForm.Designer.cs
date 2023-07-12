@@ -40,16 +40,18 @@
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
             panel4 = new Panel();
+            txtOrderCount = new TextBox();
             dateTimePicker2 = new DateTimePicker();
             dateTimePicker1 = new DateTimePicker();
             label7 = new Label();
-            comboBox2 = new ComboBox();
             label6 = new Label();
             comboBox1 = new ComboBox();
             label5 = new Label();
             label4 = new Label();
             button2 = new Button();
             panel3 = new Panel();
+            txtOrderName = new TextBox();
+            label3 = new Label();
             txtAccount = new TextBox();
             label2 = new Label();
             tabPage2 = new TabPage();
@@ -60,8 +62,6 @@
             order_item = new DataGridViewTextBoxColumn();
             order_count = new DataGridViewTextBoxColumn();
             order_end = new DataGridViewTextBoxColumn();
-            label3 = new Label();
-            txtOrderName = new TextBox();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             tabControl1.SuspendLayout();
@@ -224,10 +224,10 @@
             // panel4
             // 
             panel4.BackColor = Color.White;
+            panel4.Controls.Add(txtOrderCount);
             panel4.Controls.Add(dateTimePicker2);
             panel4.Controls.Add(dateTimePicker1);
             panel4.Controls.Add(label7);
-            panel4.Controls.Add(comboBox2);
             panel4.Controls.Add(label6);
             panel4.Controls.Add(comboBox1);
             panel4.Controls.Add(label5);
@@ -237,6 +237,14 @@
             panel4.Name = "panel4";
             panel4.Size = new Size(1086, 457);
             panel4.TabIndex = 6;
+            // 
+            // txtOrderCount
+            // 
+            txtOrderCount.Font = new Font("맑은 고딕", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            txtOrderCount.Location = new Point(676, 250);
+            txtOrderCount.Name = "txtOrderCount";
+            txtOrderCount.Size = new Size(265, 39);
+            txtOrderCount.TabIndex = 17;
             // 
             // dateTimePicker2
             // 
@@ -261,16 +269,6 @@
             label7.Size = new Size(125, 37);
             label7.TabIndex = 13;
             label7.Text = "주문수량";
-            // 
-            // comboBox2
-            // 
-            comboBox2.Font = new Font("맑은 고딕", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Items.AddRange(new object[] { "밀가루", "물", "반죽", "면", "팜유", "찐 면", "튀긴 면 ", "냉동 면", "후레이크 ", "스프", "포장지", "라면" });
-            comboBox2.Location = new Point(676, 249);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(197, 40);
-            comboBox2.TabIndex = 12;
             // 
             // label6
             // 
@@ -337,6 +335,24 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(1086, 91);
             panel3.TabIndex = 1;
+            // 
+            // txtOrderName
+            // 
+            txtOrderName.Font = new Font("맑은 고딕", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            txtOrderName.Location = new Point(726, 21);
+            txtOrderName.Name = "txtOrderName";
+            txtOrderName.Size = new Size(265, 39);
+            txtOrderName.TabIndex = 5;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("맑은 고딕", 26.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.Location = new Point(581, 16);
+            label3.Name = "label3";
+            label3.Size = new Size(125, 47);
+            label3.TabIndex = 4;
+            label3.Text = "주문명";
             // 
             // txtAccount
             // 
@@ -421,24 +437,6 @@
             order_end.Name = "order_end";
             order_end.ReadOnly = true;
             // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("맑은 고딕", 26.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(581, 16);
-            label3.Name = "label3";
-            label3.Size = new Size(125, 47);
-            label3.TabIndex = 4;
-            label3.Text = "주문명";
-            // 
-            // txtOrderName
-            // 
-            txtOrderName.Font = new Font("맑은 고딕", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            txtOrderName.Location = new Point(726, 21);
-            txtOrderName.Name = "txtOrderName";
-            txtOrderName.Size = new Size(265, 39);
-            txtOrderName.TabIndex = 5;
-            // 
             // OrderForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -487,7 +485,6 @@
         private Label label5;
         private Label label4;
         private Label label7;
-        private ComboBox comboBox2;
         private Label label6;
         private ComboBox comboBox1;
         private DateTimePicker dateTimePicker2;
@@ -501,5 +498,6 @@
         private DataGridViewTextBoxColumn order_end;
         private TextBox txtOrderName;
         private Label label3;
+        private TextBox txtOrderCount;
     }
 }
