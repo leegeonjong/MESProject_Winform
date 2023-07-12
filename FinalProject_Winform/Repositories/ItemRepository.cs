@@ -16,7 +16,6 @@ namespace FinalProject_Winform.Repositories
         {
 
         }
-
         public async Task<IEnumerable<Item>> GetAllAsync()
         {
             using FinalDbContext db = new();

@@ -12,6 +12,10 @@ namespace FinalProject_Winform.Repositories
         Task<Lot> AddLotAsync(string itemname, string barcode, long amount);
         Task<IEnumerable<Lot>> GetAllAsync();
 
+        Task<IEnumerable<Lot>> GetByBarcode(string Barcode);
+        Task<IEnumerable<Lot>> GetByItem(string Item);
+        Task<IEnumerable<Lot>> GetByCount(int count);
+
         bool FindAsync(string barcode);
     }
 }

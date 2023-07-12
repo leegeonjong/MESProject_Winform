@@ -62,9 +62,17 @@
             label2 = new Label();
             comboBox_item = new ComboBox();
             tabPage2 = new TabPage();
-            label5 = new Label();
-            panel8 = new Panel();
-            dataGridView1 = new DataGridView();
+            ComboSearch = new ComboBox();
+            button3 = new Button();
+            txt_text = new TextBox();
+            Dgv_Lot = new DataGridView();
+            Lot_Id = new DataGridViewTextBoxColumn();
+            Lot_Barcode = new DataGridViewTextBoxColumn();
+            Lot_Itemid = new DataGridViewTextBoxColumn();
+            Lot_amount = new DataGridViewTextBoxColumn();
+            Lot_status = new DataGridViewTextBoxColumn();
+            Lot_break = new DataGridViewTextBoxColumn();
+            Lot_regdata = new DataGridViewTextBoxColumn();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             tabControl1.SuspendLayout();
@@ -76,7 +84,7 @@
             ((System.ComponentModel.ISupportInitialize)picture_Barcode).BeginInit();
             panel3.SuspendLayout();
             tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Dgv_Lot).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -101,7 +109,7 @@
             btn_ChartForm.FlatAppearance.BorderSize = 2;
             btn_ChartForm.FlatStyle = FlatStyle.Flat;
             btn_ChartForm.Font = new Font("맑은 고딕", 24F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_ChartForm.Location = new Point(-8, 576);
+            btn_ChartForm.Location = new Point(-4, 576);
             btn_ChartForm.Name = "btn_ChartForm";
             btn_ChartForm.Size = new Size(168, 104);
             btn_ChartForm.TabIndex = 13;
@@ -204,12 +212,12 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("맑은 고딕", 27.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(428, 14);
+            label1.Location = new Point(629, 18);
             label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(170, 50);
+            label1.Size = new Size(92, 50);
             label1.TabIndex = 0;
-            label1.Text = "아무거나";
+            label1.Text = "LOT";
             // 
             // tabControl1
             // 
@@ -319,7 +327,7 @@
             panel6.Location = new Point(574, 277);
             panel6.Margin = new Padding(2);
             panel6.Name = "panel6";
-            panel6.Size = new Size(372, 56);
+            panel6.Size = new Size(478, 76);
             panel6.TabIndex = 7;
             // 
             // lbl_barcode
@@ -494,9 +502,10 @@
             // tabPage2
             // 
             tabPage2.BackColor = Color.LightGray;
-            tabPage2.Controls.Add(label5);
-            tabPage2.Controls.Add(panel8);
-            tabPage2.Controls.Add(dataGridView1);
+            tabPage2.Controls.Add(ComboSearch);
+            tabPage2.Controls.Add(button3);
+            tabPage2.Controls.Add(txt_text);
+            tabPage2.Controls.Add(Dgv_Lot);
             tabPage2.Location = new Point(4, 44);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
@@ -504,35 +513,88 @@
             tabPage2.TabIndex = 1;
             tabPage2.Text = "LOT 검색";
             // 
-            // label5
+            // ComboSearch
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("맑은 고딕", 31.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(20, 17);
-            label5.Margin = new Padding(2, 0, 2, 0);
-            label5.Name = "label5";
-            label5.Size = new Size(197, 59);
-            label5.TabIndex = 1;
-            label5.Text = "로트번호";
+            ComboSearch.Font = new Font("맑은 고딕", 24F, FontStyle.Regular, GraphicsUnit.Point);
+            ComboSearch.FormattingEnabled = true;
+            ComboSearch.Items.AddRange(new object[] { "LOT 바코드", "품명", "전체검색" });
+            ComboSearch.Location = new Point(20, 28);
+            ComboSearch.Name = "ComboSearch";
+            ComboSearch.Size = new Size(198, 53);
+            ComboSearch.TabIndex = 13;
             // 
-            // panel8
+            // button3
             // 
-            panel8.Location = new Point(20, 17);
-            panel8.Margin = new Padding(2);
-            panel8.Name = "panel8";
-            panel8.Size = new Size(1029, 292);
-            panel8.TabIndex = 2;
+            button3.Location = new Point(921, 87);
+            button3.Name = "button3";
+            button3.Size = new Size(128, 44);
+            button3.TabIndex = 12;
+            button3.Text = "검색";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
-            // dataGridView1
+            // txt_text
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(20, 325);
-            dataGridView1.Margin = new Padding(2);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(1029, 286);
-            dataGridView1.TabIndex = 0;
+            txt_text.Font = new Font("맑은 고딕", 24F, FontStyle.Regular, GraphicsUnit.Point);
+            txt_text.Location = new Point(224, 31);
+            txt_text.Name = "txt_text";
+            txt_text.Size = new Size(825, 50);
+            txt_text.TabIndex = 8;
+            // 
+            // Dgv_Lot
+            // 
+            Dgv_Lot.AllowUserToAddRows = false;
+            Dgv_Lot.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            Dgv_Lot.Columns.AddRange(new DataGridViewColumn[] { Lot_Id, Lot_Barcode, Lot_Itemid, Lot_amount, Lot_status, Lot_break, Lot_regdata });
+            Dgv_Lot.Location = new Point(20, 148);
+            Dgv_Lot.Margin = new Padding(2);
+            Dgv_Lot.Name = "Dgv_Lot";
+            Dgv_Lot.RowHeadersWidth = 51;
+            Dgv_Lot.RowTemplate.Height = 29;
+            Dgv_Lot.Size = new Size(1029, 401);
+            Dgv_Lot.TabIndex = 0;
+            // 
+            // Lot_Id
+            // 
+            Lot_Id.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Lot_Id.HeaderText = "LOT번호";
+            Lot_Id.Name = "Lot_Id";
+            // 
+            // Lot_Barcode
+            // 
+            Lot_Barcode.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Lot_Barcode.HeaderText = "LOT바코드";
+            Lot_Barcode.Name = "Lot_Barcode";
+            // 
+            // Lot_Itemid
+            // 
+            Lot_Itemid.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Lot_Itemid.HeaderText = "품명";
+            Lot_Itemid.Name = "Lot_Itemid";
+            // 
+            // Lot_amount
+            // 
+            Lot_amount.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Lot_amount.HeaderText = "수량";
+            Lot_amount.Name = "Lot_amount";
+            // 
+            // Lot_status
+            // 
+            Lot_status.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Lot_status.HeaderText = "Lot상태";
+            Lot_status.Name = "Lot_status";
+            // 
+            // Lot_break
+            // 
+            Lot_break.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Lot_break.HeaderText = "불량";
+            Lot_break.Name = "Lot_break";
+            // 
+            // Lot_regdata
+            // 
+            Lot_regdata.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Lot_regdata.HeaderText = "생성일자";
+            Lot_regdata.Name = "Lot_regdata";
             // 
             // LOTForm
             // 
@@ -546,6 +608,7 @@
             StartPosition = FormStartPosition.CenterParent;
             Text = "LOTForm";
             FormClosed += LOTForm_FormClosed;
+            Load += LOTForm_Load;
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
@@ -564,7 +627,7 @@
             panel3.PerformLayout();
             tabPage2.ResumeLayout(false);
             tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Dgv_Lot).EndInit();
             ResumeLayout(false);
         }
 
@@ -603,15 +666,22 @@
         private Label lbl_count1;
         private Label lbl_text_count;
         private Label lbl_text_item;
-        private Label label5;
-        private Panel panel8;
-        private DataGridView dataGridView1;
-        private Button button3;
+        private DataGridView Dgv_Lot;
         private Button button4;
         private Button button5;
         private Button button6;
         private Button button7;
         private Button button8;
         private Button btn_ChartForm;
+        private TextBox txt_text;
+        private Button button3;
+        private DataGridViewTextBoxColumn Lot_Id;
+        private DataGridViewTextBoxColumn Lot_Barcode;
+        private DataGridViewTextBoxColumn Lot_Itemid;
+        private DataGridViewTextBoxColumn Lot_amount;
+        private DataGridViewTextBoxColumn Lot_status;
+        private DataGridViewTextBoxColumn Lot_break;
+        private DataGridViewTextBoxColumn Lot_regdata;
+        private ComboBox ComboSearch;
     }
 }
