@@ -17,4 +17,7 @@ void loop() {
   //  WaterSenser();
 
   Process1(Process1Led1, Process1Led2, Process1Motor, Process1Sw);
+void loop(){
+
+ UltrasonicSensor();
 }
