@@ -40,10 +40,10 @@
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
             panel4 = new Panel();
+            txtOrderCount = new TextBox();
             dateTimePicker2 = new DateTimePicker();
             dateTimePicker1 = new DateTimePicker();
             label7 = new Label();
-            comboBox2 = new ComboBox();
             label6 = new Label();
             comboBox1 = new ComboBox();
             label5 = new Label();
@@ -54,14 +54,22 @@
             label2 = new Label();
             tabPage2 = new TabPage();
             panel5 = new Panel();
+            button4 = new Button();
+            button3 = new Button();
+            dateTimePicker4 = new DateTimePicker();
+            label9 = new Label();
+            dateTimePicker3 = new DateTimePicker();
+            label8 = new Label();
             dataGridView1 = new DataGridView();
-            order_start = new DataGridViewTextBoxColumn();
-            order_account = new DataGridViewTextBoxColumn();
             order_item = new DataGridViewTextBoxColumn();
             order_count = new DataGridViewTextBoxColumn();
+            order_start = new DataGridViewTextBoxColumn();
             order_end = new DataGridViewTextBoxColumn();
-            label3 = new Label();
+            order_account = new DataGridViewTextBoxColumn();
             txtOrderName = new TextBox();
+            label3 = new Label();
+            label10 = new Label();
+            textBox1 = new TextBox();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             tabControl1.SuspendLayout();
@@ -224,10 +232,10 @@
             // panel4
             // 
             panel4.BackColor = Color.White;
+            panel4.Controls.Add(txtOrderCount);
             panel4.Controls.Add(dateTimePicker2);
             panel4.Controls.Add(dateTimePicker1);
             panel4.Controls.Add(label7);
-            panel4.Controls.Add(comboBox2);
             panel4.Controls.Add(label6);
             panel4.Controls.Add(comboBox1);
             panel4.Controls.Add(label5);
@@ -237,6 +245,14 @@
             panel4.Name = "panel4";
             panel4.Size = new Size(1086, 457);
             panel4.TabIndex = 6;
+            // 
+            // txtOrderCount
+            // 
+            txtOrderCount.Font = new Font("맑은 고딕", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            txtOrderCount.Location = new Point(676, 250);
+            txtOrderCount.Name = "txtOrderCount";
+            txtOrderCount.Size = new Size(265, 39);
+            txtOrderCount.TabIndex = 17;
             // 
             // dateTimePicker2
             // 
@@ -261,16 +277,6 @@
             label7.Size = new Size(125, 37);
             label7.TabIndex = 13;
             label7.Text = "주문수량";
-            // 
-            // comboBox2
-            // 
-            comboBox2.Font = new Font("맑은 고딕", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Items.AddRange(new object[] { "밀가루", "물", "반죽", "면", "팜유", "찐 면", "튀긴 면 ", "냉동 면", "후레이크 ", "스프", "포장지", "라면" });
-            comboBox2.Location = new Point(676, 249);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(197, 40);
-            comboBox2.TabIndex = 12;
             // 
             // label6
             // 
@@ -329,8 +335,8 @@
             // panel3
             // 
             panel3.BackColor = Color.White;
-            panel3.Controls.Add(txtOrderName);
-            panel3.Controls.Add(label3);
+            panel3.Controls.Add(textBox1);
+            panel3.Controls.Add(label10);
             panel3.Controls.Add(txtAccount);
             panel3.Controls.Add(label2);
             panel3.Location = new Point(6, 44);
@@ -370,35 +376,92 @@
             // panel5
             // 
             panel5.BackColor = Color.White;
+            panel5.Controls.Add(button4);
+            panel5.Controls.Add(button3);
+            panel5.Controls.Add(dateTimePicker4);
+            panel5.Controls.Add(label9);
+            panel5.Controls.Add(dateTimePicker3);
+            panel5.Controls.Add(label8);
             panel5.Controls.Add(dataGridView1);
             panel5.Location = new Point(6, 9);
             panel5.Name = "panel5";
             panel5.Size = new Size(1082, 606);
             panel5.TabIndex = 1;
             // 
+            // button4
+            // 
+            button4.BackColor = Color.FromArgb(52, 152, 219);
+            button4.FlatAppearance.BorderColor = Color.White;
+            button4.FlatStyle = FlatStyle.Flat;
+            button4.Font = new Font("맑은 고딕", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            button4.Location = new Point(679, 80);
+            button4.Name = "button4";
+            button4.Size = new Size(132, 46);
+            button4.TabIndex = 20;
+            button4.Text = "검색";
+            button4.UseVisualStyleBackColor = false;
+            button4.Click += button4_Click;
+            // 
+            // button3
+            // 
+            button3.BackColor = Color.FromArgb(52, 152, 219);
+            button3.FlatAppearance.BorderColor = Color.White;
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.Font = new Font("맑은 고딕", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            button3.Location = new Point(679, 20);
+            button3.Name = "button3";
+            button3.Size = new Size(132, 46);
+            button3.TabIndex = 19;
+            button3.Text = "검색";
+            button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
+            // 
+            // dateTimePicker4
+            // 
+            dateTimePicker4.Location = new Point(463, 95);
+            dateTimePicker4.Name = "dateTimePicker4";
+            dateTimePicker4.Size = new Size(200, 23);
+            dateTimePicker4.TabIndex = 18;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("맑은 고딕", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label9.Location = new Point(307, 88);
+            label9.Name = "label9";
+            label9.Size = new Size(152, 37);
+            label9.TabIndex = 17;
+            label9.Text = "마감일검색";
+            // 
+            // dateTimePicker3
+            // 
+            dateTimePicker3.Location = new Point(462, 35);
+            dateTimePicker3.Name = "dateTimePicker3";
+            dateTimePicker3.Size = new Size(200, 23);
+            dateTimePicker3.TabIndex = 16;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("맑은 고딕", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label8.Location = new Point(304, 25);
+            label8.Name = "label8";
+            label8.Size = new Size(152, 37);
+            label8.TabIndex = 15;
+            label8.Text = "요청일검색";
+            // 
             // dataGridView1
             // 
+            dataGridView1.AllowUserToAddRows = false;
             dataGridView1.BackgroundColor = Color.White;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { order_start, order_account, order_item, order_count, order_end });
-            dataGridView1.Location = new Point(0, 187);
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { order_item, order_count, order_start, order_end, order_account });
+            dataGridView1.Dock = DockStyle.Bottom;
+            dataGridView1.Location = new Point(0, 157);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(1082, 416);
+            dataGridView1.Size = new Size(1082, 449);
             dataGridView1.TabIndex = 1;
-            // 
-            // order_start
-            // 
-            order_start.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            order_start.HeaderText = "요청일";
-            order_start.Name = "order_start";
-            order_start.ReadOnly = true;
-            // 
-            // order_account
-            // 
-            order_account.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            order_account.HeaderText = "거래처";
-            order_account.Name = "order_account";
             // 
             // order_item
             // 
@@ -414,12 +477,31 @@
             order_count.Name = "order_count";
             order_count.ReadOnly = true;
             // 
+            // order_start
+            // 
+            order_start.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            order_start.HeaderText = "요청일";
+            order_start.Name = "order_start";
+            order_start.ReadOnly = true;
+            // 
             // order_end
             // 
             order_end.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             order_end.HeaderText = "마감일";
             order_end.Name = "order_end";
             order_end.ReadOnly = true;
+            // 
+            // order_account
+            // 
+            order_account.Name = "order_account";
+            // 
+            // txtOrderName
+            // 
+            txtOrderName.Font = new Font("맑은 고딕", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            txtOrderName.Location = new Point(726, 21);
+            txtOrderName.Name = "txtOrderName";
+            txtOrderName.Size = new Size(265, 39);
+            txtOrderName.TabIndex = 5;
             // 
             // label3
             // 
@@ -431,13 +513,23 @@
             label3.TabIndex = 4;
             label3.Text = "주문명";
             // 
-            // txtOrderName
+            // label10
             // 
-            txtOrderName.Font = new Font("맑은 고딕", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            txtOrderName.Location = new Point(726, 21);
-            txtOrderName.Name = "txtOrderName";
-            txtOrderName.Size = new Size(265, 39);
-            txtOrderName.TabIndex = 5;
+            label10.AutoSize = true;
+            label10.Font = new Font("맑은 고딕", 26.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label10.Location = new Point(615, 18);
+            label10.Name = "label10";
+            label10.Size = new Size(125, 47);
+            label10.TabIndex = 4;
+            label10.Text = "주문명";
+            // 
+            // textBox1
+            // 
+            textBox1.Font = new Font("맑은 고딕", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            textBox1.Location = new Point(791, 26);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(263, 39);
+            textBox1.TabIndex = 5;
             // 
             // OrderForm
             // 
@@ -450,6 +542,7 @@
             Name = "OrderForm";
             Text = "OrderForm";
             FormClosed += OrderForm_FormClosed;
+            Load += OrderForm_Load;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel1.ResumeLayout(false);
@@ -461,6 +554,7 @@
             panel3.PerformLayout();
             tabPage2.ResumeLayout(false);
             panel5.ResumeLayout(false);
+            panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
@@ -484,22 +578,32 @@
         private Label label2;
         private Panel panel4;
         private Button button2;
+        private Button button3;
+        private Button button4;
         private Label label5;
         private Label label4;
         private Label label7;
+        private Label label8;
+        private Label label9;
         private ComboBox comboBox2;
+
         private Label label6;
         private ComboBox comboBox1;
         private DateTimePicker dateTimePicker2;
         private DateTimePicker dateTimePicker1;
+        private DateTimePicker dateTimePicker3;
+        private DateTimePicker dateTimePicker4;
         private Panel panel5;
         private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn order_start;
-        private DataGridViewTextBoxColumn order_account;
         private DataGridViewTextBoxColumn order_item;
         private DataGridViewTextBoxColumn order_count;
+        private DataGridViewTextBoxColumn order_start;
         private DataGridViewTextBoxColumn order_end;
         private TextBox txtOrderName;
         private Label label3;
+        private TextBox txtOrderCount;
+        private DataGridViewTextBoxColumn order_account;
+        private TextBox textBox1;
+        private Label label10;
     }
 }
