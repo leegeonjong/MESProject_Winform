@@ -49,11 +49,8 @@
             label5 = new Label();
             label4 = new Label();
             button2 = new Button();
-            textBox2 = new TextBox();
-            label3 = new Label();
             panel3 = new Panel();
-            button1 = new Button();
-            textBox1 = new TextBox();
+            txtAccount = new TextBox();
             label2 = new Label();
             tabPage2 = new TabPage();
             panel5 = new Panel();
@@ -63,6 +60,8 @@
             order_item = new DataGridViewTextBoxColumn();
             order_count = new DataGridViewTextBoxColumn();
             order_end = new DataGridViewTextBoxColumn();
+            label3 = new Label();
+            txtOrderName = new TextBox();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             tabControl1.SuspendLayout();
@@ -234,8 +233,6 @@
             panel4.Controls.Add(label5);
             panel4.Controls.Add(label4);
             panel4.Controls.Add(button2);
-            panel4.Controls.Add(textBox2);
-            panel4.Controls.Add(label3);
             panel4.Location = new Point(6, 145);
             panel4.Name = "panel4";
             panel4.Size = new Size(1086, 457);
@@ -243,14 +240,14 @@
             // 
             // dateTimePicker2
             // 
-            dateTimePicker2.Location = new Point(673, 139);
+            dateTimePicker2.Location = new Point(676, 94);
             dateTimePicker2.Name = "dateTimePicker2";
             dateTimePicker2.Size = new Size(200, 23);
             dateTimePicker2.TabIndex = 15;
             // 
             // dateTimePicker1
             // 
-            dateTimePicker1.Location = new Point(211, 139);
+            dateTimePicker1.Location = new Point(230, 81);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(200, 23);
             dateTimePicker1.TabIndex = 14;
@@ -299,7 +296,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("맑은 고딕", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.Location = new Point(518, 131);
+            label5.Location = new Point(518, 81);
             label5.Name = "label5";
             label5.Size = new Size(98, 37);
             label5.TabIndex = 9;
@@ -309,7 +306,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("맑은 고딕", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(83, 131);
+            label4.Location = new Point(65, 67);
             label4.Name = "label4";
             label4.Size = new Size(125, 37);
             label4.TabIndex = 7;
@@ -327,56 +324,27 @@
             button2.TabIndex = 5;
             button2.Text = "추가";
             button2.UseVisualStyleBackColor = false;
-            // 
-            // textBox2
-            // 
-            textBox2.Font = new Font("맑은 고딕", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            textBox2.Location = new Point(181, 22);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(627, 39);
-            textBox2.TabIndex = 3;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("맑은 고딕", 26.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(15, 14);
-            label3.Name = "label3";
-            label3.Size = new Size(160, 47);
-            label3.TabIndex = 0;
-            label3.Text = "주문번호";
+            button2.Click += button2_Click;
             // 
             // panel3
             // 
             panel3.BackColor = Color.White;
-            panel3.Controls.Add(button1);
-            panel3.Controls.Add(textBox1);
+            panel3.Controls.Add(txtOrderName);
+            panel3.Controls.Add(label3);
+            panel3.Controls.Add(txtAccount);
             panel3.Controls.Add(label2);
             panel3.Location = new Point(6, 44);
             panel3.Name = "panel3";
             panel3.Size = new Size(1086, 91);
             panel3.TabIndex = 1;
             // 
-            // button1
+            // txtAccount
             // 
-            button1.BackColor = Color.FromArgb(52, 152, 219);
-            button1.FlatAppearance.BorderColor = Color.White;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("맑은 고딕", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.Location = new Point(922, 22);
-            button1.Name = "button1";
-            button1.Size = new Size(132, 46);
-            button1.TabIndex = 5;
-            button1.Text = "입고";
-            button1.UseVisualStyleBackColor = false;
-            // 
-            // textBox1
-            // 
-            textBox1.Font = new Font("맑은 고딕", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            textBox1.Location = new Point(181, 26);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(365, 39);
-            textBox1.TabIndex = 3;
+            txtAccount.Font = new Font("맑은 고딕", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            txtAccount.Location = new Point(181, 26);
+            txtAccount.Name = "txtAccount";
+            txtAccount.Size = new Size(365, 39);
+            txtAccount.TabIndex = 3;
             // 
             // label2
             // 
@@ -453,6 +421,24 @@
             order_end.Name = "order_end";
             order_end.ReadOnly = true;
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("맑은 고딕", 26.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.Location = new Point(581, 16);
+            label3.Name = "label3";
+            label3.Size = new Size(125, 47);
+            label3.TabIndex = 4;
+            label3.Text = "주문명";
+            // 
+            // txtOrderName
+            // 
+            txtOrderName.Font = new Font("맑은 고딕", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            txtOrderName.Location = new Point(726, 21);
+            txtOrderName.Name = "txtOrderName";
+            txtOrderName.Size = new Size(265, 39);
+            txtOrderName.TabIndex = 5;
+            // 
             // OrderForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -494,13 +480,10 @@
         private Button btn_ProcessForm;
         private Button btn_LOTForm;
         private Panel panel3;
-        private Button button1;
-        private TextBox textBox1;
+        private TextBox txtAccount;
         private Label label2;
         private Panel panel4;
         private Button button2;
-        private TextBox textBox2;
-        private Label label3;
         private Label label5;
         private Label label4;
         private Label label7;
@@ -516,5 +499,7 @@
         private DataGridViewTextBoxColumn order_item;
         private DataGridViewTextBoxColumn order_count;
         private DataGridViewTextBoxColumn order_end;
+        private TextBox txtOrderName;
+        private Label label3;
     }
 }
