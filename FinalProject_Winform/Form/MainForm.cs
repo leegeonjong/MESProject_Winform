@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FinalProject_Winform.Models.domain;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -75,6 +76,7 @@ namespace FinalProject_Winform
 
         } // end ExecCommand()
 
+
         private void ProcessReady()
         {
            
@@ -83,7 +85,7 @@ namespace FinalProject_Winform
         private void MainForm_Load(object sender, EventArgs e)
         {
             // MainForm이 로드될 때 수행할 작업
-            string port = $"COM4";  // 여기 바꾸셈
+            string port = $"COM8";  // 여기 바꾸셈
 
             serialPort.PortName = port;   //시리얼 포트 설정
 
