@@ -11,7 +11,6 @@ namespace FinalProject_Winform.Models.domain
     public class Process
     {
         public long Id { get; set; }
-       
 
         public string Process_name { get; set; } // 공정이름
 

@@ -13,12 +13,13 @@ namespace FinalProject_Winform.Repositories
     {
         public async Task<IEnumerable<Process>> GetAllAsync()
         {
-            using FinalDbContext db = new();
-            var process = await db.Processes
-                //.Include(s => s.lot)
-                //.Include(s => s.lotHistory)
-                .ToListAsync();
-            return process.OrderByDescending(x => x.Id).ToList();
+            //using FinalDbContext db = new();
+            //var process = await db.Processes
+            //    .Include(s => s.lot)
+            //    .Include(s => s.lotHistory)
+            //    .ToListAsync();
+            //return process.OrderByDescending(x => x.Id).ToList();
+            throw new NotImplementedException();
         }
 
         public async Task<string> GetSelectedProcessStatus(string selectedProcessName)

@@ -73,14 +73,14 @@ namespace FinalProject_Winform
             //dgvImport.Rows.Clear();
             //dgvImport.Refresh();
 
-            int i = 0;
-            foreach (var process in processes)
-            {
-                //dgvImport.Rows.Add();  // 새로운 row 추가
-                //dgvImport.Rows[i].Cells["lot_barcode"].Value = process.lot.Lot_barcode;
-                //dgvImport.Rows[i].Cells["lot_status"].Value = process.lot.Lot_status;
-                //dgvImport.Rows[i].Cells["lothistory_datetime_Start"].Value = "+" + process.lotHistory.LotHistory_startDate;
-                //dgvImport.Rows[i].Cells["lothistory_datetime_End"].Value = process.lotHistory.LotHistory_endDate;
+            //int i = 0;
+            //foreach (var process in processes)
+            //{
+            //    dgvImport.Rows.Add();  // 새로운 row 추가
+            //    dgvImport.Rows[i].Cells["lot_barcode"].Value = process.lot.Lot_barcode;
+            //    dgvImport.Rows[i].Cells["lot_status"].Value = process.lot.Lot_status;
+            //    dgvImport.Rows[i].Cells["lothistory_datetime_Start"].Value = "+" + process.lotHistory.LotHistory_startDate;
+            //    dgvImport.Rows[i].Cells["lothistory_datetime_End"].Value = process.lotHistory.LotHistory_endDate;
 
             //    i++;
             //}
