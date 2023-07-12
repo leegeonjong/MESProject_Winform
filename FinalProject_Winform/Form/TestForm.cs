@@ -12,9 +12,11 @@ namespace FinalProject_Winform
 {
     public partial class TestForm : Form
     {
-        public TestForm()
+        private MainForm mainForm;
+        public TestForm(MainForm mainForm)
         {
             InitializeComponent();
+            this.mainForm = mainForm;
         }
 
         private void Button_Click(object sender, EventArgs e)
@@ -30,17 +32,11 @@ namespace FinalProject_Winform
         {
 
         }
-        
+
         //메인폼으로 돌아가기
         private void TestForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            var MainForm = Application.OpenForms["MainForm"] as MainForm;
-
-            if (MainForm != null)
-            {
-                MainForm = new MainForm();
-                MainForm.Show();
-            }
+            mainForm.Show();
             this.Hide();
         }
     }

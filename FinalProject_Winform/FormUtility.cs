@@ -26,7 +26,7 @@ namespace FinalProject_Winform
                     targetForm = Application.OpenForms["TestForm"] as TestForm;
                     if (targetForm == null)
                     {
-                        targetForm = new TestForm();
+                        targetForm = new TestForm(currentForm as MainForm);
                     }
                     break;
                 case "ProcessForm":
@@ -40,21 +40,21 @@ namespace FinalProject_Winform
                     targetForm = Application.OpenForms["StockForm"] as StockForm;
                     if (targetForm == null)
                     {
-                        targetForm = new StockForm();
+                        targetForm = new StockForm(currentForm as MainForm);
                     }
                     break;
                 case "OrderForm":
                     targetForm = Application.OpenForms["OrderForm"] as OrderForm;
                     if (targetForm == null)
                     {
-                        targetForm = new OrderForm();
+                        targetForm = new OrderForm(currentForm as MainForm);
                     }
                     break;
                 case "ChartForm":
                     targetForm = Application.OpenForms["ChartForm"] as ChartForm;
                     if (targetForm == null)
                     {
-                        targetForm = new ChartForm();
+                        targetForm = new ChartForm(currentForm as MainForm);
                     }
                     break;
                 default:

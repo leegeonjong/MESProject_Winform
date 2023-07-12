@@ -18,9 +18,11 @@ namespace FinalProject_Winform
     {
         private readonly FinalDbContext db;
         private readonly IItemRepository itemRepository;
-        public ChartForm()
+        private MainForm mainForm;
+        public ChartForm( MainForm mainForm)
         {
             InitializeComponent();
+            this.mainForm = mainForm;
             db = new FinalDbContext();
             itemRepository = new ItemRepository();
         }
@@ -73,13 +75,7 @@ namespace FinalProject_Winform
         //메인폼으로 돌아가기
         private void ChartForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            var MainForm = Application.OpenForms["MainForm"] as MainForm;
-
-            if (MainForm != null)
-            {
-                MainForm = new MainForm();
-                MainForm.Show();
-            }
+            mainForm.Show();
             this.Hide();
         }
 
