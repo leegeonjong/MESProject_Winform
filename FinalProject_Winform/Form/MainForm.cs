@@ -57,7 +57,7 @@ namespace FinalProject_Winform
             switch (arrMessage[0]) // Command
             {
                 case "Recieve": //명령 받음
-                    //ProcessReady();
+                    ProcessReady();
                     break;
                 case "Start": //공정 시작
                     //ProcessReject(arrMessage[1]);
@@ -74,6 +74,11 @@ namespace FinalProject_Winform
             } // end switch
 
         } // end ExecCommand()
+
+        private void ProcessReady()
+        {
+           
+        }
 
         private void MainForm_Load(object sender, EventArgs e)
         {

@@ -73,6 +73,35 @@
             Lot_status = new DataGridViewTextBoxColumn();
             Lot_break = new DataGridViewTextBoxColumn();
             Lot_regdata = new DataGridViewTextBoxColumn();
+            tabPage3 = new TabPage();
+            panel10 = new Panel();
+            lbl_start_check = new Label();
+            lbl_start_status = new Label();
+            panel17 = new Panel();
+            panel15 = new Panel();
+            label16 = new Label();
+            label15 = new Label();
+            btn_Start = new Button();
+            comboBox1 = new ComboBox();
+            panel16 = new Panel();
+            panel18 = new Panel();
+            label21 = new Label();
+            panel9 = new Panel();
+            lbl_start_item = new Label();
+            lbl_start_amount = new Label();
+            lbl_start_lotnum = new Label();
+            panel14 = new Panel();
+            panel13 = new Panel();
+            label11 = new Label();
+            label10 = new Label();
+            label7 = new Label();
+            panel12 = new Panel();
+            panel11 = new Panel();
+            label6 = new Label();
+            panel8 = new Panel();
+            tbox_start_lotnum = new TextBox();
+            btn_start_search = new Button();
+            lbl_lot = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             tabControl1.SuspendLayout();
@@ -85,6 +114,10 @@
             panel3.SuspendLayout();
             tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Dgv_Lot).BeginInit();
+            tabPage3.SuspendLayout();
+            panel10.SuspendLayout();
+            panel9.SuspendLayout();
+            panel8.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -223,6 +256,7 @@
             // 
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
+            tabControl1.Controls.Add(tabPage3);
             tabControl1.ItemSize = new Size(200, 40);
             tabControl1.Location = new Point(160, 87);
             tabControl1.Margin = new Padding(2);
@@ -596,6 +630,300 @@
             Lot_regdata.HeaderText = "생성일자";
             Lot_regdata.Name = "Lot_regdata";
             // 
+            // tabPage3
+            // 
+            tabPage3.AllowDrop = true;
+            tabPage3.BackColor = Color.Gainsboro;
+            tabPage3.Controls.Add(panel10);
+            tabPage3.Controls.Add(panel9);
+            tabPage3.Controls.Add(panel8);
+            tabPage3.Location = new Point(4, 44);
+            tabPage3.Name = "tabPage3";
+            tabPage3.Padding = new Padding(3);
+            tabPage3.Size = new Size(1096, 626);
+            tabPage3.TabIndex = 2;
+            tabPage3.Text = "LOT실행";
+            // 
+            // panel10
+            // 
+            panel10.BackColor = Color.White;
+            panel10.Controls.Add(lbl_start_check);
+            panel10.Controls.Add(lbl_start_status);
+            panel10.Controls.Add(panel17);
+            panel10.Controls.Add(panel15);
+            panel10.Controls.Add(label16);
+            panel10.Controls.Add(label15);
+            panel10.Controls.Add(btn_Start);
+            panel10.Controls.Add(comboBox1);
+            panel10.Controls.Add(panel16);
+            panel10.Controls.Add(panel18);
+            panel10.Controls.Add(label21);
+            panel10.Location = new Point(567, 111);
+            panel10.Name = "panel10";
+            panel10.Size = new Size(488, 379);
+            panel10.TabIndex = 11;
+            // 
+            // lbl_start_check
+            // 
+            lbl_start_check.AutoSize = true;
+            lbl_start_check.Font = new Font("맑은 고딕", 24F, FontStyle.Regular, GraphicsUnit.Point);
+            lbl_start_check.Location = new Point(261, 187);
+            lbl_start_check.Name = "lbl_start_check";
+            lbl_start_check.Size = new Size(91, 45);
+            lbl_start_check.TabIndex = 14;
+            lbl_start_check.Text = "품명:";
+            // 
+            // lbl_start_status
+            // 
+            lbl_start_status.AutoSize = true;
+            lbl_start_status.Font = new Font("맑은 고딕", 24F, FontStyle.Regular, GraphicsUnit.Point);
+            lbl_start_status.Location = new Point(189, 108);
+            lbl_start_status.Name = "lbl_start_status";
+            lbl_start_status.Size = new Size(91, 45);
+            lbl_start_status.TabIndex = 11;
+            lbl_start_status.Text = "품명:";
+            // 
+            // panel17
+            // 
+            panel17.BackColor = Color.Black;
+            panel17.Location = new Point(15, 245);
+            panel17.Name = "panel17";
+            panel17.Size = new Size(449, 1);
+            panel17.TabIndex = 7;
+            // 
+            // panel15
+            // 
+            panel15.BackColor = Color.Black;
+            panel15.Location = new Point(15, 334);
+            panel15.Name = "panel15";
+            panel15.Size = new Size(449, 2);
+            panel15.TabIndex = 5;
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Font = new Font("맑은 고딕", 24F, FontStyle.Regular, GraphicsUnit.Point);
+            label16.Location = new Point(15, 108);
+            label16.Name = "label16";
+            label16.Size = new Size(177, 45);
+            label16.TabIndex = 13;
+            label16.Text = "현재 공정 :";
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Font = new Font("맑은 고딕", 24F, FontStyle.Regular, GraphicsUnit.Point);
+            label15.Location = new Point(15, 187);
+            label15.Name = "label15";
+            label15.Size = new Size(252, 45);
+            label15.TabIndex = 12;
+            label15.Text = "공정 실행 가능 :";
+            // 
+            // btn_Start
+            // 
+            btn_Start.Location = new Point(388, 289);
+            btn_Start.Name = "btn_Start";
+            btn_Start.Size = new Size(75, 23);
+            btn_Start.TabIndex = 4;
+            btn_Start.Text = "실행";
+            btn_Start.UseVisualStyleBackColor = true;
+            btn_Start.Click += btn_Start_Click;
+            // 
+            // comboBox1
+            // 
+            comboBox1.Font = new Font("맑은 고딕", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "배합", "형태화", "찌기", "잘 튀기기", "냉동", "포장" });
+            comboBox1.Location = new Point(112, 29);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(352, 48);
+            comboBox1.TabIndex = 11;
+            // 
+            // panel16
+            // 
+            panel16.BackColor = Color.Black;
+            panel16.Location = new Point(15, 169);
+            panel16.Name = "panel16";
+            panel16.Size = new Size(449, 1);
+            panel16.TabIndex = 6;
+            // 
+            // panel18
+            // 
+            panel18.BackColor = Color.Black;
+            panel18.Location = new Point(15, 91);
+            panel18.Name = "panel18";
+            panel18.Size = new Size(449, 2);
+            panel18.TabIndex = 4;
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.Font = new Font("맑은 고딕", 24F, FontStyle.Regular, GraphicsUnit.Point);
+            label21.Location = new Point(15, 29);
+            label21.Name = "label21";
+            label21.Size = new Size(91, 45);
+            label21.TabIndex = 3;
+            label21.Text = "공정:";
+            // 
+            // panel9
+            // 
+            panel9.BackColor = Color.White;
+            panel9.Controls.Add(lbl_start_item);
+            panel9.Controls.Add(lbl_start_amount);
+            panel9.Controls.Add(lbl_start_lotnum);
+            panel9.Controls.Add(panel14);
+            panel9.Controls.Add(panel13);
+            panel9.Controls.Add(label11);
+            panel9.Controls.Add(label10);
+            panel9.Controls.Add(label7);
+            panel9.Controls.Add(panel12);
+            panel9.Controls.Add(panel11);
+            panel9.Controls.Add(label6);
+            panel9.Location = new Point(17, 111);
+            panel9.Name = "panel9";
+            panel9.Size = new Size(488, 379);
+            panel9.TabIndex = 3;
+            // 
+            // lbl_start_item
+            // 
+            lbl_start_item.AutoSize = true;
+            lbl_start_item.Font = new Font("맑은 고딕", 24F, FontStyle.Regular, GraphicsUnit.Point);
+            lbl_start_item.Location = new Point(112, 187);
+            lbl_start_item.Name = "lbl_start_item";
+            lbl_start_item.Size = new Size(91, 45);
+            lbl_start_item.TabIndex = 11;
+            lbl_start_item.Text = "품명:";
+            // 
+            // lbl_start_amount
+            // 
+            lbl_start_amount.AutoSize = true;
+            lbl_start_amount.Font = new Font("맑은 고딕", 24F, FontStyle.Regular, GraphicsUnit.Point);
+            lbl_start_amount.Location = new Point(112, 277);
+            lbl_start_amount.Name = "lbl_start_amount";
+            lbl_start_amount.Size = new Size(91, 45);
+            lbl_start_amount.TabIndex = 10;
+            lbl_start_amount.Text = "품명:";
+            // 
+            // lbl_start_lotnum
+            // 
+            lbl_start_lotnum.AutoSize = true;
+            lbl_start_lotnum.Font = new Font("맑은 고딕", 24F, FontStyle.Regular, GraphicsUnit.Point);
+            lbl_start_lotnum.Location = new Point(180, 108);
+            lbl_start_lotnum.Name = "lbl_start_lotnum";
+            lbl_start_lotnum.Size = new Size(91, 45);
+            lbl_start_lotnum.TabIndex = 8;
+            lbl_start_lotnum.Text = "품명:";
+            // 
+            // panel14
+            // 
+            panel14.BackColor = Color.Black;
+            panel14.Location = new Point(15, 245);
+            panel14.Name = "panel14";
+            panel14.Size = new Size(449, 1);
+            panel14.TabIndex = 7;
+            // 
+            // panel13
+            // 
+            panel13.BackColor = Color.Black;
+            panel13.Location = new Point(15, 334);
+            panel13.Name = "panel13";
+            panel13.Size = new Size(449, 1);
+            panel13.TabIndex = 6;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("맑은 고딕", 24F, FontStyle.Regular, GraphicsUnit.Point);
+            label11.Location = new Point(15, 277);
+            label11.Name = "label11";
+            label11.Size = new Size(91, 45);
+            label11.TabIndex = 7;
+            label11.Text = "수량:";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("맑은 고딕", 24F, FontStyle.Regular, GraphicsUnit.Point);
+            label10.Location = new Point(15, 187);
+            label10.Name = "label10";
+            label10.Size = new Size(91, 45);
+            label10.TabIndex = 6;
+            label10.Text = "품명:";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("맑은 고딕", 24F, FontStyle.Regular, GraphicsUnit.Point);
+            label7.Location = new Point(15, 108);
+            label7.Name = "label7";
+            label7.Size = new Size(159, 45);
+            label7.TabIndex = 3;
+            label7.Text = "LOT번호 :";
+            // 
+            // panel12
+            // 
+            panel12.BackColor = Color.Black;
+            panel12.Location = new Point(15, 169);
+            panel12.Name = "panel12";
+            panel12.Size = new Size(449, 1);
+            panel12.TabIndex = 5;
+            // 
+            // panel11
+            // 
+            panel11.BackColor = Color.Black;
+            panel11.Location = new Point(15, 91);
+            panel11.Name = "panel11";
+            panel11.Size = new Size(449, 2);
+            panel11.TabIndex = 4;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("맑은 고딕", 36F, FontStyle.Regular, GraphicsUnit.Point);
+            label6.Location = new Point(15, 12);
+            label6.Name = "label6";
+            label6.Size = new Size(227, 65);
+            label6.TabIndex = 3;
+            label6.Text = "LOT 정보";
+            // 
+            // panel8
+            // 
+            panel8.BackColor = Color.White;
+            panel8.Controls.Add(tbox_start_lotnum);
+            panel8.Controls.Add(btn_start_search);
+            panel8.Controls.Add(lbl_lot);
+            panel8.Location = new Point(17, 15);
+            panel8.Name = "panel8";
+            panel8.Size = new Size(1038, 76);
+            panel8.TabIndex = 0;
+            // 
+            // tbox_start_lotnum
+            // 
+            tbox_start_lotnum.Location = new Point(180, 32);
+            tbox_start_lotnum.Name = "tbox_start_lotnum";
+            tbox_start_lotnum.Size = new Size(531, 23);
+            tbox_start_lotnum.TabIndex = 4;
+            // 
+            // btn_start_search
+            // 
+            btn_start_search.Location = new Point(938, 33);
+            btn_start_search.Name = "btn_start_search";
+            btn_start_search.Size = new Size(75, 23);
+            btn_start_search.TabIndex = 3;
+            btn_start_search.Text = "button4";
+            btn_start_search.UseVisualStyleBackColor = true;
+            btn_start_search.Click += btn_start_search_Click;
+            // 
+            // lbl_lot
+            // 
+            lbl_lot.AutoSize = true;
+            lbl_lot.Font = new Font("맑은 고딕", 24F, FontStyle.Regular, GraphicsUnit.Point);
+            lbl_lot.Location = new Point(15, 15);
+            lbl_lot.Name = "lbl_lot";
+            lbl_lot.Size = new Size(159, 45);
+            lbl_lot.TabIndex = 1;
+            lbl_lot.Text = "LOT번호 :";
+            // 
             // LOTForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -628,6 +956,13 @@
             tabPage2.ResumeLayout(false);
             tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)Dgv_Lot).EndInit();
+            tabPage3.ResumeLayout(false);
+            panel10.ResumeLayout(false);
+            panel10.PerformLayout();
+            panel9.ResumeLayout(false);
+            panel9.PerformLayout();
+            panel8.ResumeLayout(false);
+            panel8.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -667,8 +1002,7 @@
         private Label lbl_text_count;
         private Label lbl_text_item;
         private DataGridView Dgv_Lot;
-        private Button button4;
-        private Button button5;
+        private Button btn_Start;
         private Button button6;
         private Button button7;
         private Button button8;
@@ -683,5 +1017,36 @@
         private DataGridViewTextBoxColumn Lot_break;
         private DataGridViewTextBoxColumn Lot_regdata;
         private ComboBox ComboSearch;
+        private TabPage tabPage3;
+        private Panel panel8;
+        private Panel panel9;
+        private Label lbl_lot;
+        private Label label6;
+        private Panel panel12;
+        private Panel panel11;
+        private Label label11;
+        private Label label10;
+        private Label label7;
+        private Panel panel14;
+        private Panel panel13;
+        private Panel panel10;
+        private ComboBox comboBox1;
+        private Panel panel16;
+        private Label label19;
+        private Label label20;
+        private Panel panel18;
+        private Label label21;
+        private Label lbl_start_amount;
+        private Label label13;
+        private Label lbl_start_lotnum;
+        private Label lbl_start_check;
+        private Label lbl_start_status;
+        private Panel panel17;
+        private Panel panel15;
+        private Label label16;
+        private Label label15;
+        private Button btn_start_search;
+        private TextBox tbox_start_lotnum;
+        private Label lbl_start_item;
     }
 }

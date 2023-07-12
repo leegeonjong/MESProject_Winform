@@ -12,7 +12,6 @@ namespace FinalProject_Winform.Repositories
 {
     public class LotRepository : ILotRepository
     {
-        DataGridView dgvItems;
 
         public async Task<Lot> AddLotAsync(string itemname, string barcode, long amount)
         {

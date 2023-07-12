@@ -19,7 +19,7 @@ namespace FinalProject_Winform
                     targetForm = Application.OpenForms["LOTForm"] as LOTForm;
                     if (targetForm == null)
                     {
-                        targetForm = new LOTForm();
+                        targetForm = new LOTForm(currentForm as MainForm);
                     }
                     break;
                 case "TestForm":
