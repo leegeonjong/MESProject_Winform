@@ -16,7 +16,6 @@ namespace FinalProject_Winform.Repositories
         {
             
         }
-
         public async Task<IEnumerable<Item>> GetAllAsync()
         {
             using FinalDbContext db = new();
@@ -37,5 +36,6 @@ namespace FinalProject_Winform.Repositories
             await db.SaveChangesAsync();
             return existingItem;
         }
+
     }
 }

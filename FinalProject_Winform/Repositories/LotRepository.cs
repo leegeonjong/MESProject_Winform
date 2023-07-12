@@ -1,4 +1,5 @@
-﻿using FinalProject_Winform.Data;
+﻿using BarcodeStandard;
+using FinalProject_Winform.Data;
 using FinalProject_Winform.Models.domain;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -11,7 +12,8 @@ namespace FinalProject_Winform.Repositories
 {
     public class LotRepository : ILotRepository
     {
-       
+        DataGridView dgvItems;
+
         public async Task<Lot> AddLotAsync(string itemname, string barcode, long amount)
         {
             using FinalDbContext db = new();
@@ -49,11 +51,29 @@ namespace FinalProject_Winform.Repositories
             }
         }
 
-        public Task<IEnumerable<Lot>> GetAllAsync()
+        public async Task<IEnumerable<Lot>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            using FinalDbContext db = new();
+            var Lot = await db.Lots.Include(i=>i.Item).ToListAsync();
+            return Lot.OrderBy(x => x.Id).ToList();
         }
 
-  
+        public async Task<IEnumerable<Lot>> GetByBarcode(string Barcode)
+        {
+            using FinalDbContext db = new();
+            return await db.Lots.Include(i => i.Item).Where(i => i.Lot_barcode == Barcode).ToListAsync();
+        }
+
+        public async Task<IEnumerable<Lot>> GetByItem(string Item)
+        {
+            using FinalDbContext db = new();
+            return await db.Lots.Include(i => i.Item).Where(i => i.Item.Item_name == Item).ToListAsync();
+        }
+
+        public async Task<IEnumerable<Lot>> GetByCount(int count)
+        {
+            using FinalDbContext db = new();
+            return await db.Lots.Include(i => i.Item).Where(i => i.Lot_amount == count).ToListAsync();
+        }
     }
 }

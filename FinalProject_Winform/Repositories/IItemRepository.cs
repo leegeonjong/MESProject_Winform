@@ -13,7 +13,5 @@ namespace FinalProject_Winform.Repositories
         Task<Item> UpdateAsync(string name,long amount); // 수정
 
         Task<IEnumerable<Item>> GetAllAsync();
-
-
     }
 }
