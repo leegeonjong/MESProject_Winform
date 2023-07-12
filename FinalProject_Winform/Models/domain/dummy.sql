@@ -62,6 +62,7 @@ VALUES
 
 select * from [FinalDB].[dbo].[Check]
 
+
 delete [FinalDB].[dbo].[Check]
 
 
