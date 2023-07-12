@@ -19,9 +19,8 @@ namespace FinalProject_Winform
         private IStockRepository stockRepository;
         private IItemRepository itemRepository;
         private MainForm mainForm;
-        public StockForm(MainForm mainForm)
         private IOrderRepository orderRepository;
-        public StockForm()
+        public StockForm(MainForm mainForm)
         {
             InitializeComponent();
             this.mainForm = mainForm;
