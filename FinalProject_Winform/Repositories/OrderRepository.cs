@@ -22,5 +22,32 @@ namespace FinalProject_Winform.Repositories
                 .FirstAsync();
             return order.Order_count;
         }
+
+        public async Task<Order> AddAsync
+            (
+             DateTime startDate,DateTime endDate,string ordername,long ordercount, string account,string itemname
+            )
+        {
+            using FinalDbContext db = new();
+            var item = await db.Items.Where(x => x.Item_name == itemname).FirstAsync();
+            if (item == null) return null;
+
+
+            Order order = new()
+            {
+                Item = item,
+                Order_startDate = startDate,
+                Order_endDate = endDate,   // FK
+                Order_status = "주문 제작 중",
+                Order_name = ordername,
+                Order_count = ordercount,
+                Order_account = account,
+
+            };
+
+            await db.Orders.AddAsync(order);
+            await db.SaveChangesAsync();
+            return order;
+        }
     }
 }

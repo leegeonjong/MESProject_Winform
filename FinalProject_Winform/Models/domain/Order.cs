@@ -22,7 +22,7 @@ namespace FinalProject_Winform.Models.domain
 
             public string Order_status { get; set; } // 주문 진행 상태
 
-            public string Order_name { get; set; } // 주문 이름
+            public string? Order_name { get; set; } // 주문 이름
 
             public long Order_count { get; set; } // 주문 수량
 

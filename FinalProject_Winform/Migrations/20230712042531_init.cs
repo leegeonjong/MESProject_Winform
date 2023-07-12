@@ -94,7 +94,7 @@ namespace FinalProject_Winform.Migrations
                     Order_endDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     Order_sendDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     Order_status = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Order_name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Order_name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Order_count = table.Column<long>(type: "bigint", nullable: false),
                     Order_account = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
@@ -158,8 +158,8 @@ namespace FinalProject_Winform.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     LotId = table.Column<long>(type: "bigint", nullable: false),
                     ProcessId = table.Column<long>(type: "bigint", nullable: false),
-                    LotHistory_startDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    LotHistory_endDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    LotHistory_startDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    LotHistory_endDate = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {

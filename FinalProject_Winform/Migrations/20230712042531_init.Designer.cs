@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FinalProject_Winform.Migrations
 {
     [DbContext(typeof(FinalDbContext))]
-    [Migration("20230712023359_init")]
+    [Migration("20230712042531_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -129,10 +129,10 @@ namespace FinalProject_Winform.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("LotHistoryId"));
 
-                    b.Property<DateTime>("LotHistory_endDate")
+                    b.Property<DateTime?>("LotHistory_endDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("LotHistory_startDate")
+                    b.Property<DateTime?>("LotHistory_startDate")
                         .HasColumnType("datetime2");
 
                     b.Property<long>("LotId")
@@ -172,7 +172,6 @@ namespace FinalProject_Winform.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Order_name")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("Order_sendDate")
