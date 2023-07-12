@@ -15,7 +15,5 @@ namespace FinalProject_Winform.Repositories
         Task<Item> ExportUpdateAsync(long orderId,long amount);
 
         Task<IEnumerable<Item>> GetAllAsync();
-
-
     }
 }

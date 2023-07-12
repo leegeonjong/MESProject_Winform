@@ -24,8 +24,12 @@ namespace FinalProject_Winform
             lotRepository = new LotRepository();
         }
         //
+        DataGridView dgv_lot;
 
-
+        private void LOTForm_Load(object sender, EventArgs e)
+        {
+            dgv_lot = Dgv_Lot;
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -114,5 +118,101 @@ namespace FinalProject_Winform
             }
             this.Hide();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            int num = 0;
+            string text = "";
+            if (ComboSearch.Text == "전체검색")
+            {
+                MessageBox.Show("전체");
+                LoadItems(text, num);
+            }
+            else if (ComboSearch.Text == "품명")
+            {
+                MessageBox.Show("품명");
+                num = 1;
+                text = txt_text.Text;
+                LoadItems(text, num);
+            }
+            else
+            {
+                MessageBox.Show("바코드");
+                num = 2;
+                text = txt_text.Text;
+                LoadItems(text, num);
+            }
+
+        }
+
+        private async void LoadItems(string text, int num)
+        {
+            if (num == 0) {
+                var Lots = await lotRepository.GetAllAsync();
+
+                //DataGridvIEW 저체 클리어
+                dgv_lot.Rows.Clear();
+                dgv_lot.Refresh();
+
+                int i = 0;
+                foreach (var Lot in Lots)
+                {
+                    dgv_lot.Rows.Add();  // 새로운 row 추가
+                    dgv_lot.Rows[i].Cells["Lot_Id"].Value = Lot.Id;
+                    dgv_lot.Rows[i].Cells["Lot_Barcode"].Value = Lot.Lot_barcode;
+                    dgv_lot.Rows[i].Cells["Lot_Itemid"].Value = Lot.Item.Item_name;
+                    dgv_lot.Rows[i].Cells["Lot_amount"].Value = Lot.Lot_amount;
+                    dgv_lot.Rows[i].Cells["Lot_status"].Value = Lot.Lot_status;
+                    dgv_lot.Rows[i].Cells["Lot_break"].Value = Lot.Lot_break;
+                    dgv_lot.Rows[i].Cells["Lot_regdata"].Value = Lot.Lot_regDate;
+                    i++;
+                }
+            }
+            if (num == 1)
+            {
+                var Lots = await lotRepository.GetByItem(text);
+
+                //DataGridvIEW 저체 클리어
+                dgv_lot.Rows.Clear();
+                dgv_lot.Refresh();
+
+                int i = 0;
+                foreach (var Lot in Lots)
+                {
+                    dgv_lot.Rows.Add();  // 새로운 row 추가
+                    dgv_lot.Rows[i].Cells["Lot_Id"].Value = Lot.Id;
+                    dgv_lot.Rows[i].Cells["Lot_Barcode"].Value = Lot.Lot_barcode;
+                    dgv_lot.Rows[i].Cells["Lot_Itemid"].Value = Lot.Item.Item_name;
+                    dgv_lot.Rows[i].Cells["Lot_amount"].Value = Lot.Lot_amount;
+                    dgv_lot.Rows[i].Cells["Lot_status"].Value = Lot.Lot_status;
+                    dgv_lot.Rows[i].Cells["Lot_break"].Value = Lot.Lot_break;
+                    dgv_lot.Rows[i].Cells["Lot_regdata"].Value = Lot.Lot_regDate;
+                    i++;
+                }
+            }
+            if (num == 2)
+            {
+                var Lots = await lotRepository.GetByBarcode(text);
+
+                //DataGridvIEW 저체 클리어
+                dgv_lot.Rows.Clear();
+                dgv_lot.Refresh();
+
+                int i = 0;
+                foreach (var Lot in Lots)
+                {
+                    dgv_lot.Rows.Add();  // 새로운 row 추가
+                    dgv_lot.Rows[i].Cells["Lot_Id"].Value = Lot.Id;
+                    dgv_lot.Rows[i].Cells["Lot_Barcode"].Value = Lot.Lot_barcode;
+                    dgv_lot.Rows[i].Cells["Lot_Itemid"].Value = Lot.Item.Item_name;
+                    dgv_lot.Rows[i].Cells["Lot_amount"].Value = Lot.Lot_amount;
+                    dgv_lot.Rows[i].Cells["Lot_status"].Value = Lot.Lot_status;
+                    dgv_lot.Rows[i].Cells["Lot_break"].Value = Lot.Lot_break;
+                    dgv_lot.Rows[i].Cells["Lot_regdata"].Value = Lot.Lot_regDate;
+                    i++;
+                }
+            }
+        }
+
     }
 }
