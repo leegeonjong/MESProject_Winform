@@ -58,11 +58,14 @@ namespace FinalProject_Winform
                 //dgv.Rows[i].Cells["stock_count"].Value = ;
                 //dgv.Rows[i].Cells["stock_time"].Value = ;
                 //dgv.Rows[i].Cells["stock_amount"].Value = ;
-                
+
                 i++;
             }
         }
-
+        private void StockForm_Load(object sender, EventArgs e)
+        {
+            dgv = dataGridView1;
+        }
         private void LoadExport()
         {
 

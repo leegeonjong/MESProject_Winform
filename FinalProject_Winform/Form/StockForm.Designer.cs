@@ -31,6 +31,7 @@
             panel2 = new Panel();
             label1 = new Label();
             panel1 = new Panel();
+            btn_ChartForm = new Button();
             btn_OrderForm = new Button();
             btn_StockForm = new Button();
             btn_TestForm = new Button();
@@ -39,6 +40,11 @@
             tabControl1 = new TabControl();
             tabImport = new TabPage();
             dataGridView1 = new DataGridView();
+            stock_item = new DataGridViewTextBoxColumn();
+            stock_status = new DataGridViewTextBoxColumn();
+            stock_count = new DataGridViewTextBoxColumn();
+            stock_time = new DataGridViewTextBoxColumn();
+            stock_amount = new DataGridViewTextBoxColumn();
             panel3 = new Panel();
             button1 = new Button();
             txtAmount = new TextBox();
@@ -56,11 +62,6 @@
             button3 = new Button();
             comboBox2 = new ComboBox();
             label6 = new Label();
-            stock_item = new DataGridViewTextBoxColumn();
-            stock_status = new DataGridViewTextBoxColumn();
-            stock_count = new DataGridViewTextBoxColumn();
-            stock_time = new DataGridViewTextBoxColumn();
-            stock_amount = new DataGridViewTextBoxColumn();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             tabControl1.SuspendLayout();
@@ -96,6 +97,7 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(180, 210, 230);
+            panel1.Controls.Add(btn_ChartForm);
             panel1.Controls.Add(btn_OrderForm);
             panel1.Controls.Add(btn_StockForm);
             panel1.Controls.Add(btn_TestForm);
@@ -109,7 +111,18 @@
             // 
             // btn_ChartForm
             // 
-           
+            btn_ChartForm.FlatAppearance.BorderColor = Color.Gray;
+            btn_ChartForm.FlatAppearance.BorderSize = 2;
+            btn_ChartForm.FlatStyle = FlatStyle.Flat;
+            btn_ChartForm.Font = new Font("맑은 고딕", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_ChartForm.Location = new Point(-4, 580);
+            btn_ChartForm.Name = "btn_ChartForm";
+            btn_ChartForm.Size = new Size(168, 104);
+            btn_ChartForm.TabIndex = 18;
+            btn_ChartForm.Text = "현황판";
+            btn_ChartForm.TextAlign = ContentAlignment.MiddleLeft;
+            btn_ChartForm.UseVisualStyleBackColor = true;
+            btn_ChartForm.Click += Button_Click;
             // 
             // btn_OrderForm
             // 
@@ -120,7 +133,7 @@
             btn_OrderForm.Location = new Point(-4, 480);
             btn_OrderForm.Name = "btn_OrderForm";
             btn_OrderForm.Size = new Size(168, 104);
-            btn_OrderForm.TabIndex = 13;
+            btn_OrderForm.TabIndex = 19;
             btn_OrderForm.Text = "주문";
             btn_OrderForm.TextAlign = ContentAlignment.MiddleLeft;
             btn_OrderForm.UseVisualStyleBackColor = true;
@@ -135,7 +148,7 @@
             btn_StockForm.Location = new Point(-4, 380);
             btn_StockForm.Name = "btn_StockForm";
             btn_StockForm.Size = new Size(168, 104);
-            btn_StockForm.TabIndex = 14;
+            btn_StockForm.TabIndex = 20;
             btn_StockForm.Text = "재고관리";
             btn_StockForm.TextAlign = ContentAlignment.MiddleLeft;
             btn_StockForm.UseVisualStyleBackColor = true;
@@ -150,7 +163,7 @@
             btn_TestForm.Location = new Point(-4, 279);
             btn_TestForm.Name = "btn_TestForm";
             btn_TestForm.Size = new Size(168, 104);
-            btn_TestForm.TabIndex = 15;
+            btn_TestForm.TabIndex = 21;
             btn_TestForm.Text = "검사";
             btn_TestForm.TextAlign = ContentAlignment.MiddleLeft;
             btn_TestForm.UseVisualStyleBackColor = true;
@@ -165,7 +178,7 @@
             btn_ProcessForm.Location = new Point(-4, 178);
             btn_ProcessForm.Name = "btn_ProcessForm";
             btn_ProcessForm.Size = new Size(168, 104);
-            btn_ProcessForm.TabIndex = 11;
+            btn_ProcessForm.TabIndex = 17;
             btn_ProcessForm.Text = "공정";
             btn_ProcessForm.TextAlign = ContentAlignment.MiddleLeft;
             btn_ProcessForm.UseVisualStyleBackColor = true;
@@ -180,7 +193,7 @@
             btn_LOTForm.Location = new Point(-4, 77);
             btn_LOTForm.Name = "btn_LOTForm";
             btn_LOTForm.Size = new Size(168, 104);
-            btn_LOTForm.TabIndex = 10;
+            btn_LOTForm.TabIndex = 16;
             btn_LOTForm.Text = "LOT";
             btn_LOTForm.TextAlign = ContentAlignment.MiddleLeft;
             btn_LOTForm.UseVisualStyleBackColor = true;
@@ -223,6 +236,36 @@
             dataGridView1.RowTemplate.Height = 25;
             dataGridView1.Size = new Size(1081, 464);
             dataGridView1.TabIndex = 1;
+            // 
+            // stock_item
+            // 
+            stock_item.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            stock_item.HeaderText = "종류";
+            stock_item.Name = "stock_item";
+            // 
+            // stock_status
+            // 
+            stock_status.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            stock_status.HeaderText = "입/출고";
+            stock_status.Name = "stock_status";
+            // 
+            // stock_count
+            // 
+            stock_count.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            stock_count.HeaderText = "수량";
+            stock_count.Name = "stock_count";
+            // 
+            // stock_time
+            // 
+            stock_time.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            stock_time.HeaderText = "날짜";
+            stock_time.Name = "stock_time";
+            // 
+            // stock_amount
+            // 
+            stock_amount.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            stock_amount.HeaderText = "총 수량";
+            stock_amount.Name = "stock_amount";
             // 
             // panel3
             // 
@@ -407,36 +450,6 @@
             label6.TabIndex = 0;
             label6.Text = "물품";
             // 
-            // stock_item
-            // 
-            stock_item.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            stock_item.HeaderText = "종류";
-            stock_item.Name = "stock_item";
-            // 
-            // stock_status
-            // 
-            stock_status.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            stock_status.HeaderText = "입/출고";
-            stock_status.Name = "stock_status";
-            // 
-            // stock_count
-            // 
-            stock_count.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            stock_count.HeaderText = "수량";
-            stock_count.Name = "stock_count";
-            // 
-            // stock_time
-            // 
-            stock_time.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            stock_time.HeaderText = "날짜";
-            stock_time.Name = "stock_time";
-            // 
-            // stock_amount
-            // 
-            stock_amount.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            stock_amount.HeaderText = "총 수량";
-            stock_amount.Name = "stock_amount";
-            // 
             // StockForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -496,5 +509,11 @@
         private DataGridViewTextBoxColumn stock_count;
         private DataGridViewTextBoxColumn stock_time;
         private DataGridViewTextBoxColumn stock_amount;
+        private Button btn_ChartForm;
+        private Button btn_OrderForm;
+        private Button btn_StockForm;
+        private Button btn_TestForm;
+        private Button btn_ProcessForm;
+        private Button btn_LOTForm;
     }
 }
