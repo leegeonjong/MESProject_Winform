@@ -11,6 +11,8 @@ namespace FinalProject_Winform.Models.domain
     public class Process
     {
         public long Id { get; set; }
+        public Lot? lot { get; set; }
+        public LotHistory? lotHistory { get; set; }
 
         public string Process_name { get; set; } // 공정이름
 

@@ -1,6 +1,7 @@
 ﻿using FinalProject_Winform.Data;
 using FinalProject_Winform.Models.domain;
 using FinalProject_Winform.Repositories;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -54,10 +55,6 @@ namespace FinalProject_Winform
         {
             var stocks = await stockRepository.GetAllAsync();
             FinalDbContext db = new();
-
-            // DataGridView 전체 clear
-            dgvImport.Rows.Clear();
-            dgvImport.Refresh();
 
             int i = 0;
             foreach (var stock in stocks)

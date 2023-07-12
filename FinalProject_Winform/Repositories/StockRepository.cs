@@ -11,10 +11,11 @@ namespace FinalProject_Winform.Repositories
             itemRepository = new ItemRepository();
         }
       
-        public async Task<Stock> AddAsync(string itemname,long amount)
+        public async Task<Tuple<Stock, long>> AddAsync(string itemname,long amount)
         {
             using FinalDbContext db = new();
             var item = await db.Items.Where(x => x.Item_name == itemname).FirstAsync();
+            long i_amount = item.Item_amount + amount;
             if (item == null) return null;
 
             
@@ -43,7 +44,7 @@ namespace FinalProject_Winform.Repositories
 
             await db.Stocks.AddAsync(stock);
             await db.SaveChangesAsync();
-            return stock;
+            return new Tuple<Stock, long>(stock, i_amount);
         }
 
         public async Task<IEnumerable<Stock>> GetAllAsync()

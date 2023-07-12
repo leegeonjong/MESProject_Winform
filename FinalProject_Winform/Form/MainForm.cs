@@ -39,16 +39,22 @@ namespace FinalProject_Winform
         //닫으면 모든 폼 닫기 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            // 메인 폼 닫기
-            this.Close();
+            // 숨겨진 폼을 담을 복사본 컬렉션 생성
+            var hiddenForms = new List<Form>();
 
-            // 숨겨진 모든 폼 닫기
+            // 숨겨진 모든 폼을 복사본 컬렉션에 추가
             foreach (Form form in Application.OpenForms)
             {
-                if (form != this && form.Visible == false)
+                if (form != this && !form.IsDisposed && !form.Visible)
                 {
-                    form.Close();
+                    hiddenForms.Add(form);
                 }
+            }
+
+            // 복사본 컬렉션의 폼 닫기
+            foreach (Form form in hiddenForms)
+            {
+                form.Close();
             }
         }
     }

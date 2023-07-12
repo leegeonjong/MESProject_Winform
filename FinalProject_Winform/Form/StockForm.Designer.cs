@@ -31,6 +31,7 @@
             panel2 = new Panel();
             label1 = new Label();
             panel1 = new Panel();
+            btn_ChartForm = new Button();
             btn_OrderForm = new Button();
             btn_StockForm = new Button();
             btn_TestForm = new Button();
@@ -101,6 +102,7 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(180, 210, 230);
+            panel1.Controls.Add(btn_ChartForm);
             panel1.Controls.Add(btn_OrderForm);
             panel1.Controls.Add(btn_StockForm);
             panel1.Controls.Add(btn_TestForm);
@@ -121,7 +123,7 @@
             btn_OrderForm.Location = new Point(-4, 480);
             btn_OrderForm.Name = "btn_OrderForm";
             btn_OrderForm.Size = new Size(168, 104);
-            btn_OrderForm.TabIndex = 13;
+            btn_OrderForm.TabIndex = 19;
             btn_OrderForm.Text = "주문";
             btn_OrderForm.TextAlign = ContentAlignment.MiddleLeft;
             btn_OrderForm.UseVisualStyleBackColor = true;
@@ -135,7 +137,7 @@
             btn_StockForm.Location = new Point(-4, 380);
             btn_StockForm.Name = "btn_StockForm";
             btn_StockForm.Size = new Size(168, 104);
-            btn_StockForm.TabIndex = 14;
+            btn_StockForm.TabIndex = 20;
             btn_StockForm.Text = "재고관리";
             btn_StockForm.TextAlign = ContentAlignment.MiddleLeft;
             btn_StockForm.UseVisualStyleBackColor = true;
@@ -149,7 +151,7 @@
             btn_TestForm.Location = new Point(-4, 279);
             btn_TestForm.Name = "btn_TestForm";
             btn_TestForm.Size = new Size(168, 104);
-            btn_TestForm.TabIndex = 15;
+            btn_TestForm.TabIndex = 21;
             btn_TestForm.Text = "검사";
             btn_TestForm.TextAlign = ContentAlignment.MiddleLeft;
             btn_TestForm.UseVisualStyleBackColor = true;
@@ -163,7 +165,7 @@
             btn_ProcessForm.Location = new Point(-4, 178);
             btn_ProcessForm.Name = "btn_ProcessForm";
             btn_ProcessForm.Size = new Size(168, 104);
-            btn_ProcessForm.TabIndex = 11;
+            btn_ProcessForm.TabIndex = 17;
             btn_ProcessForm.Text = "공정";
             btn_ProcessForm.TextAlign = ContentAlignment.MiddleLeft;
             btn_ProcessForm.UseVisualStyleBackColor = true;
@@ -177,7 +179,7 @@
             btn_LOTForm.Location = new Point(-4, 77);
             btn_LOTForm.Name = "btn_LOTForm";
             btn_LOTForm.Size = new Size(168, 104);
-            btn_LOTForm.TabIndex = 10;
+            btn_LOTForm.TabIndex = 16;
             btn_LOTForm.Text = "LOT";
             btn_LOTForm.TextAlign = ContentAlignment.MiddleLeft;
             btn_LOTForm.UseVisualStyleBackColor = true;
@@ -213,7 +215,7 @@
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.BackgroundColor = Color.White;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { item_name, item_warehousing, item_count, item_regdate, item_amount });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { stock_item, stock_status, stock_count, stock_time, stock_amount });
             dataGridView1.Location = new Point(7, 139);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
@@ -528,11 +530,12 @@
         private Label label6;
         private Button button1;
         private Button button3;
-        private DataGridViewTextBoxColumn item_name;
-        private DataGridViewTextBoxColumn item_warehousing;
-        private DataGridViewTextBoxColumn item_count;
-        private DataGridViewTextBoxColumn item_regdate;
-        private DataGridViewTextBoxColumn item_amount;
+        private DataGridViewTextBoxColumn stock_item;
+        private DataGridViewTextBoxColumn stock_status;
+        private DataGridViewTextBoxColumn stock_count;
+        private DataGridViewTextBoxColumn stock_time;
+        private DataGridViewTextBoxColumn stock_amount;
+        private Button btn_ChartForm;
         private Button btn_OrderForm;
         private Button btn_StockForm;
         private Button btn_TestForm;
