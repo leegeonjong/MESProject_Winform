@@ -25,4 +25,34 @@ INSERT INTO Stock (ItemId, Stock_Amount, Stock_regDate, Stock_status)
 VALUES
 (1,300,GETDATE(),'입고')
 
+select * from Process
 
+DBCC CHECKIDENT(Process, reseed, 0);
+delete Process
+
+INSERT INTO Process(Process_name, Process_status, Process_checkRight)
+VALUES ('배합', 1, 1)
+INSERT INTO Process(Process_name, Process_status, Process_checkRight)
+VALUES ('형태화', 1, 1)
+INSERT INTO Process(Process_name, Process_status, Process_checkRight)
+VALUES ('찌기', 1, 1)
+INSERT INTO Process(Process_name, Process_status, Process_checkRight)
+VALUES ('튀기기', 1, 1)
+INSERT INTO Process(Process_name, Process_status, Process_checkRight)
+VALUES ('냉동', 1, 1)
+INSERT INTO Process(Process_name, Process_status, Process_checkRight)
+VALUES ('포장', 1, 1)
+
+select * from [FinalDB].[dbo].[Check]
+
+delete [FinalDB].[dbo].[Check]
+
+
+INSERT INTO [FinalDB].[dbo].[Check] (ProcessId, Check_item, Check_value)
+VALUES (2, '용량 검사', '100')
+INSERT INTO [FinalDB].[dbo].[Check] (ProcessId, Check_item, Check_value)
+VALUES (3, '온도 검사', '100')
+INSERT INTO [FinalDB].[dbo].[Check] (ProcessId, Check_item, Check_value)
+VALUES (4, '온도 검사', '150')
+INSERT INTO [FinalDB].[dbo].[Check] (ProcessId, Check_item, Check_value)
+VALUES (6, '수량 검사', '50')
