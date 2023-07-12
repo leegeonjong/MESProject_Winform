@@ -333,8 +333,6 @@
             // panel3
             // 
             panel3.BackColor = Color.White;
-            panel3.Controls.Add(txtOrderName);
-            panel3.Controls.Add(label3);
             panel3.Controls.Add(txtAccount);
             panel3.Controls.Add(label2);
             panel3.Location = new Point(6, 44);
@@ -489,6 +487,10 @@
             order_end.Name = "order_end";
             order_end.ReadOnly = true;
             // 
+            // order_account
+            // 
+            order_account.Name = "order_account";
+            // 
             // OrderForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -536,19 +538,26 @@
         private Label label2;
         private Panel panel4;
         private Button button2;
+        private Button button3;
+        private Button button4;
         private Label label5;
         private Label label4;
         private Label label7;
+        private Label label8;
+        private Label label9;
         private ComboBox comboBox2;
         private Label label6;
         private ComboBox comboBox1;
         private DateTimePicker dateTimePicker2;
         private DateTimePicker dateTimePicker1;
+        private DateTimePicker dateTimePicker3;
+        private DateTimePicker dateTimePicker4;
         private Panel panel5;
         private DataGridView dataGridView1;
         private DataGridViewTextBoxColumn order_item;
         private DataGridViewTextBoxColumn order_count;
         private DataGridViewTextBoxColumn order_start;
         private DataGridViewTextBoxColumn order_end;
+        private DataGridViewTextBoxColumn order_account;
     }
 }
