@@ -19,7 +19,6 @@ namespace FinalProject_Winform
         private IStockRepository stockRepository;
         private IItemRepository itemRepository;
         private MainForm mainForm;
-        
         private IOrderRepository orderRepository;
         public StockForm(MainForm mainForm)
         {
