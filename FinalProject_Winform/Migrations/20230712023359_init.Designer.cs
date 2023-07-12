@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FinalProject_Winform.Migrations
 {
     [DbContext(typeof(FinalDbContext))]
-    [Migration("20230707084348_init")]
+    [Migration("20230712023359_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -160,6 +160,10 @@ namespace FinalProject_Winform.Migrations
 
                     b.Property<long?>("ItemId")
                         .HasColumnType("bigint");
+
+                    b.Property<string>("Order_account")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<long>("Order_count")
                         .HasColumnType("bigint");

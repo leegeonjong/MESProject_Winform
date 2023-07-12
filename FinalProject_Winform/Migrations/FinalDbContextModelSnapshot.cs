@@ -158,6 +158,10 @@ namespace FinalProject_Winform.Migrations
                     b.Property<long?>("ItemId")
                         .HasColumnType("bigint");
 
+                    b.Property<string>("Order_account")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<long>("Order_count")
                         .HasColumnType("bigint");
 

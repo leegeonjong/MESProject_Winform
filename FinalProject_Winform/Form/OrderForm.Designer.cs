@@ -31,18 +31,47 @@
             panel2 = new Panel();
             label1 = new Label();
             panel1 = new Panel();
-            tabControl1 = new TabControl();
-            tabPage1 = new TabPage();
-            tabPage2 = new TabPage();
             btn_ChartForm = new Button();
             btn_OrderForm = new Button();
             btn_StockForm = new Button();
             btn_TestForm = new Button();
             btn_ProcessForm = new Button();
             btn_LOTForm = new Button();
+            tabControl1 = new TabControl();
+            tabPage1 = new TabPage();
+            panel4 = new Panel();
+            dateTimePicker2 = new DateTimePicker();
+            dateTimePicker1 = new DateTimePicker();
+            label7 = new Label();
+            comboBox2 = new ComboBox();
+            label6 = new Label();
+            comboBox1 = new ComboBox();
+            label5 = new Label();
+            label4 = new Label();
+            button2 = new Button();
+            textBox2 = new TextBox();
+            label3 = new Label();
+            panel3 = new Panel();
+            button1 = new Button();
+            textBox1 = new TextBox();
+            label2 = new Label();
+            tabPage2 = new TabPage();
+            panel5 = new Panel();
+            dataGridView1 = new DataGridView();
+            order_start = new DataGridViewTextBoxColumn();
+            order_account = new DataGridViewTextBoxColumn();
+            order_item = new DataGridViewTextBoxColumn();
+            order_count = new DataGridViewTextBoxColumn();
+            order_end = new DataGridViewTextBoxColumn();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             tabControl1.SuspendLayout();
+            tabPage1.SuspendLayout();
+            panel4.SuspendLayout();
+            panel3.SuspendLayout();
+            tabPage2.SuspendLayout();
+            panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // panel2
@@ -78,38 +107,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(160, 761);
             panel1.TabIndex = 4;
-            // 
-            // tabControl1
-            // 
-            tabControl1.Controls.Add(tabPage1);
-            tabControl1.Controls.Add(tabPage2);
-            tabControl1.Dock = DockStyle.Bottom;
-            tabControl1.ItemSize = new Size(200, 40);
-            tabControl1.Location = new Point(160, 90);
-            tabControl1.Name = "tabControl1";
-            tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1104, 671);
-            tabControl1.TabIndex = 6;
-            // 
-            // tabPage1
-            // 
-            tabPage1.Location = new Point(4, 44);
-            tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1096, 623);
-            tabPage1.TabIndex = 0;
-            tabPage1.Text = "tabPage1asdfadfasdfafa";
-            tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            tabPage2.Location = new Point(4, 44);
-            tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1096, 623);
-            tabPage2.TabIndex = 1;
-            tabPage2.Text = "tabPage2";
-            tabPage2.UseVisualStyleBackColor = true;
             // 
             // btn_ChartForm
             // 
@@ -201,6 +198,261 @@
             btn_LOTForm.UseVisualStyleBackColor = true;
             btn_LOTForm.Click += Button_Click;
             // 
+            // tabControl1
+            // 
+            tabControl1.Controls.Add(tabPage1);
+            tabControl1.Controls.Add(tabPage2);
+            tabControl1.Dock = DockStyle.Bottom;
+            tabControl1.ItemSize = new Size(200, 40);
+            tabControl1.Location = new Point(160, 90);
+            tabControl1.Name = "tabControl1";
+            tabControl1.SelectedIndex = 0;
+            tabControl1.Size = new Size(1104, 671);
+            tabControl1.TabIndex = 6;
+            // 
+            // tabPage1
+            // 
+            tabPage1.BackColor = Color.Gray;
+            tabPage1.Controls.Add(panel4);
+            tabPage1.Controls.Add(panel3);
+            tabPage1.Location = new Point(4, 44);
+            tabPage1.Name = "tabPage1";
+            tabPage1.Padding = new Padding(3);
+            tabPage1.Size = new Size(1096, 623);
+            tabPage1.TabIndex = 0;
+            tabPage1.Text = "주문입력";
+            // 
+            // panel4
+            // 
+            panel4.BackColor = Color.White;
+            panel4.Controls.Add(dateTimePicker2);
+            panel4.Controls.Add(dateTimePicker1);
+            panel4.Controls.Add(label7);
+            panel4.Controls.Add(comboBox2);
+            panel4.Controls.Add(label6);
+            panel4.Controls.Add(comboBox1);
+            panel4.Controls.Add(label5);
+            panel4.Controls.Add(label4);
+            panel4.Controls.Add(button2);
+            panel4.Controls.Add(textBox2);
+            panel4.Controls.Add(label3);
+            panel4.Location = new Point(6, 145);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(1086, 457);
+            panel4.TabIndex = 6;
+            // 
+            // dateTimePicker2
+            // 
+            dateTimePicker2.Location = new Point(673, 139);
+            dateTimePicker2.Name = "dateTimePicker2";
+            dateTimePicker2.Size = new Size(200, 23);
+            dateTimePicker2.TabIndex = 15;
+            // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.Location = new Point(211, 139);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(200, 23);
+            dateTimePicker1.TabIndex = 14;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("맑은 고딕", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label7.Location = new Point(518, 250);
+            label7.Name = "label7";
+            label7.Size = new Size(125, 37);
+            label7.TabIndex = 13;
+            label7.Text = "주문수량";
+            // 
+            // comboBox2
+            // 
+            comboBox2.Font = new Font("맑은 고딕", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            comboBox2.FormattingEnabled = true;
+            comboBox2.Items.AddRange(new object[] { "밀가루", "물", "반죽", "면", "팜유", "찐 면", "튀긴 면 ", "냉동 면", "후레이크 ", "스프", "포장지", "라면" });
+            comboBox2.Location = new Point(676, 249);
+            comboBox2.Name = "comboBox2";
+            comboBox2.Size = new Size(197, 40);
+            comboBox2.TabIndex = 12;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("맑은 고딕", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label6.Location = new Point(83, 247);
+            label6.Name = "label6";
+            label6.Size = new Size(71, 37);
+            label6.TabIndex = 11;
+            label6.Text = "품명";
+            // 
+            // comboBox1
+            // 
+            comboBox1.Font = new Font("맑은 고딕", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "밀가루", "물", "반죽", "면", "팜유", "찐 면", "튀긴 면 ", "냉동 면", "후레이크 ", "스프", "포장지", "라면" });
+            comboBox1.Location = new Point(214, 247);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(197, 40);
+            comboBox1.TabIndex = 10;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("맑은 고딕", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.Location = new Point(518, 131);
+            label5.Name = "label5";
+            label5.Size = new Size(98, 37);
+            label5.TabIndex = 9;
+            label5.Text = "만기일";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("맑은 고딕", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.Location = new Point(83, 131);
+            label4.Name = "label4";
+            label4.Size = new Size(125, 37);
+            label4.TabIndex = 7;
+            label4.Text = "주문일자";
+            // 
+            // button2
+            // 
+            button2.BackColor = Color.FromArgb(52, 152, 219);
+            button2.FlatAppearance.BorderColor = Color.White;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("맑은 고딕", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            button2.Location = new Point(922, 393);
+            button2.Name = "button2";
+            button2.Size = new Size(132, 46);
+            button2.TabIndex = 5;
+            button2.Text = "추가";
+            button2.UseVisualStyleBackColor = false;
+            // 
+            // textBox2
+            // 
+            textBox2.Font = new Font("맑은 고딕", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            textBox2.Location = new Point(181, 22);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(627, 39);
+            textBox2.TabIndex = 3;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("맑은 고딕", 26.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.Location = new Point(15, 14);
+            label3.Name = "label3";
+            label3.Size = new Size(160, 47);
+            label3.TabIndex = 0;
+            label3.Text = "주문번호";
+            // 
+            // panel3
+            // 
+            panel3.BackColor = Color.White;
+            panel3.Controls.Add(button1);
+            panel3.Controls.Add(textBox1);
+            panel3.Controls.Add(label2);
+            panel3.Location = new Point(6, 44);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(1086, 91);
+            panel3.TabIndex = 1;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.FromArgb(52, 152, 219);
+            button1.FlatAppearance.BorderColor = Color.White;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("맑은 고딕", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            button1.Location = new Point(922, 22);
+            button1.Name = "button1";
+            button1.Size = new Size(132, 46);
+            button1.TabIndex = 5;
+            button1.Text = "입고";
+            button1.UseVisualStyleBackColor = false;
+            // 
+            // textBox1
+            // 
+            textBox1.Font = new Font("맑은 고딕", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            textBox1.Location = new Point(181, 26);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(365, 39);
+            textBox1.TabIndex = 3;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("맑은 고딕", 26.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Location = new Point(15, 21);
+            label2.Name = "label2";
+            label2.Size = new Size(125, 47);
+            label2.TabIndex = 0;
+            label2.Text = "거래처";
+            // 
+            // tabPage2
+            // 
+            tabPage2.BackColor = Color.Gray;
+            tabPage2.Controls.Add(panel5);
+            tabPage2.Location = new Point(4, 44);
+            tabPage2.Name = "tabPage2";
+            tabPage2.Padding = new Padding(3);
+            tabPage2.Size = new Size(1096, 623);
+            tabPage2.TabIndex = 1;
+            tabPage2.Text = "주문내역";
+            // 
+            // panel5
+            // 
+            panel5.BackColor = Color.White;
+            panel5.Controls.Add(dataGridView1);
+            panel5.Location = new Point(6, 9);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(1082, 606);
+            panel5.TabIndex = 1;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.BackgroundColor = Color.White;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { order_start, order_account, order_item, order_count, order_end });
+            dataGridView1.Location = new Point(0, 187);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowTemplate.Height = 25;
+            dataGridView1.Size = new Size(1082, 416);
+            dataGridView1.TabIndex = 1;
+            // 
+            // order_start
+            // 
+            order_start.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            order_start.HeaderText = "요청일";
+            order_start.Name = "order_start";
+            order_start.ReadOnly = true;
+            // 
+            // order_account
+            // 
+            order_account.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            order_account.HeaderText = "거래처";
+            order_account.Name = "order_account";
+            // 
+            // order_item
+            // 
+            order_item.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            order_item.HeaderText = "품명";
+            order_item.Name = "order_item";
+            order_item.ReadOnly = true;
+            // 
+            // order_count
+            // 
+            order_count.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            order_count.HeaderText = "갯수";
+            order_count.Name = "order_count";
+            order_count.ReadOnly = true;
+            // 
+            // order_end
+            // 
+            order_end.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            order_end.HeaderText = "마감일";
+            order_end.Name = "order_end";
+            order_end.ReadOnly = true;
+            // 
             // OrderForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -216,6 +468,14 @@
             panel2.PerformLayout();
             panel1.ResumeLayout(false);
             tabControl1.ResumeLayout(false);
+            tabPage1.ResumeLayout(false);
+            panel4.ResumeLayout(false);
+            panel4.PerformLayout();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
+            tabPage2.ResumeLayout(false);
+            panel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
 
@@ -233,5 +493,28 @@
         private Button btn_TestForm;
         private Button btn_ProcessForm;
         private Button btn_LOTForm;
+        private Panel panel3;
+        private Button button1;
+        private TextBox textBox1;
+        private Label label2;
+        private Panel panel4;
+        private Button button2;
+        private TextBox textBox2;
+        private Label label3;
+        private Label label5;
+        private Label label4;
+        private Label label7;
+        private ComboBox comboBox2;
+        private Label label6;
+        private ComboBox comboBox1;
+        private DateTimePicker dateTimePicker2;
+        private DateTimePicker dateTimePicker1;
+        private Panel panel5;
+        private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn order_start;
+        private DataGridViewTextBoxColumn order_account;
+        private DataGridViewTextBoxColumn order_item;
+        private DataGridViewTextBoxColumn order_count;
+        private DataGridViewTextBoxColumn order_end;
     }
 }

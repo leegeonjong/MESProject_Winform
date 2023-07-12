@@ -95,7 +95,8 @@ namespace FinalProject_Winform.Migrations
                     Order_sendDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     Order_status = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Order_name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Order_count = table.Column<long>(type: "bigint", nullable: false)
+                    Order_count = table.Column<long>(type: "bigint", nullable: false),
+                    Order_account = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {

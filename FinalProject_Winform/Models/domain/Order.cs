@@ -26,5 +26,7 @@ namespace FinalProject_Winform.Models.domain
 
             public long Order_count { get; set; } // 주문 수량
 
+            public string Order_account { get; set;}  // 거래처
+
         }
 }
