@@ -17,6 +17,7 @@ namespace FinalProject_Winform
     public partial class LOTForm : Form
     {
         private ILotRepository lotRepository;
+        MainForm mainForm = new MainForm();
         public LOTForm()
         {
             InitializeComponent();
@@ -28,7 +29,6 @@ namespace FinalProject_Winform
 
         private void button1_Click(object sender, EventArgs e)
         {
-
             if (comboBox_item.Text == "제품선택" || textBox_count.Text.IsNullOrEmpty())
             {
                 MessageBox.Show("제품과 수량을 입력해주세요");

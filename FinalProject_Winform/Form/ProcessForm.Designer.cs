@@ -54,14 +54,14 @@
             textBox1 = new TextBox();
             tabPage2 = new TabPage();
             panel5 = new Panel();
-            comboBox2 = new ComboBox();
             combo_process = new ComboBox();
             panel7 = new Panel();
             label6 = new Label();
             label4 = new Label();
-            button3 = new Button();
+            btnOn = new Button();
             panel6 = new Panel();
             label5 = new Label();
+            btnOff = new Button();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             tabControl1.SuspendLayout();
@@ -356,25 +356,16 @@
             // panel5
             // 
             panel5.BackColor = Color.Silver;
-            panel5.Controls.Add(comboBox2);
+            panel5.Controls.Add(btnOff);
             panel5.Controls.Add(combo_process);
             panel5.Controls.Add(panel7);
-            panel5.Controls.Add(button3);
+            panel5.Controls.Add(btnOn);
             panel5.Controls.Add(panel6);
             panel5.Dock = DockStyle.Fill;
             panel5.Location = new Point(3, 3);
             panel5.Name = "panel5";
             panel5.Size = new Size(1090, 617);
             panel5.TabIndex = 9;
-            // 
-            // comboBox2
-            // 
-            comboBox2.Font = new Font("맑은 고딕", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(565, 229);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(500, 40);
-            comboBox2.TabIndex = 10;
             // 
             // combo_process
             // 
@@ -383,7 +374,7 @@
             combo_process.Items.AddRange(new object[] { "배합", "형태화", "찌기", "잘 튀기기", "냉동", "포장" });
             combo_process.Location = new Point(28, 229);
             combo_process.Name = "combo_process";
-            combo_process.Size = new Size(500, 40);
+            combo_process.Size = new Size(1037, 40);
             combo_process.TabIndex = 9;
             combo_process.SelectedIndexChanged += combo_process_SelectedIndexChanged;
             // 
@@ -416,15 +407,16 @@
             label4.TabIndex = 6;
             label4.Text = "설비 진행 상황";
             // 
-            // button3
+            // btnOn
             // 
-            button3.BackColor = Color.FromArgb(52, 152, 219);
-            button3.Location = new Point(939, 517);
-            button3.Name = "button3";
-            button3.Size = new Size(126, 52);
-            button3.TabIndex = 8;
-            button3.Text = "검색";
-            button3.UseVisualStyleBackColor = false;
+            btnOn.BackColor = Color.Lime;
+            btnOn.Location = new Point(82, 343);
+            btnOn.Name = "btnOn";
+            btnOn.Size = new Size(366, 147);
+            btnOn.TabIndex = 8;
+            btnOn.Text = "ON";
+            btnOn.UseVisualStyleBackColor = false;
+            btnOn.Click += btnOn_Click;
             // 
             // panel6
             // 
@@ -444,6 +436,17 @@
             label5.Size = new Size(174, 32);
             label5.TabIndex = 6;
             label5.Text = "설비 상태 설정";
+            // 
+            // btnOff
+            // 
+            btnOff.BackColor = Color.Red;
+            btnOff.Location = new Point(592, 343);
+            btnOff.Name = "btnOff";
+            btnOff.Size = new Size(366, 147);
+            btnOff.TabIndex = 10;
+            btnOff.Text = "OFF";
+            btnOff.UseVisualStyleBackColor = false;
+            btnOff.Click += btnOff_Click;
             // 
             // ProcessForm
             // 
@@ -495,12 +498,11 @@
         private Label label3;
         private Panel panel5;
         private Panel panel6;
-        private Button button3;
+        private Button btnOn;
         private Label label5;
         private Panel panel7;
         private Label label4;
         private Label label6;
-        private ComboBox comboBox2;
         private ComboBox combo_process;
         private Button btn_ChartForm;
         private Button btn_OrderForm;
@@ -512,5 +514,6 @@
         private DataGridViewTextBoxColumn Process_Status;
         private DataGridViewTextBoxColumn LOT_StartDate;
         private DataGridViewTextBoxColumn LOT_EndDate;
+        private Button btnOff;
     }
 }

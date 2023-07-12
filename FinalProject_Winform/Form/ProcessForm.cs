@@ -111,5 +111,35 @@ namespace FinalProject_Winform
                 label6.Text = "꺼짐";
             }
         }
+
+        private async Task ProcessOnOffAsync(bool State)
+        {
+            // combo_process에서 선택한 값 가져오기
+            string selectedProcess = combo_process.SelectedItem.ToString();
+
+            //전원이 켜진 상태이면
+            if (State == true)
+            {
+                await processRepository.IsRunningAsync(State,selectedProcess);
+                label6.Text = "작동중";
+            }
+            //전원이 꺼진 상태이면
+            else
+            {
+                await processRepository.IsRunningAsync(State,selectedProcess);
+                label6.Text = "꺼짐";
+            }
+        }
+
+        //설비 전원 켜기
+        private void btnOn_Click(object sender, EventArgs e)
+        {
+            ProcessOnOffAsync(true);
+        }
+        //설비 전원 끄기
+        private void btnOff_Click(object sender, EventArgs e)
+        {
+            ProcessOnOffAsync(false);
+        }
     }
 }

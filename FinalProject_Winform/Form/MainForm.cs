@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO.Ports;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,7 +19,58 @@ namespace FinalProject_Winform
         public MainForm()
         {
             InitializeComponent();
+
+            // 시리얼 포트 생성
+            serialPort = new();
+            serialPort.BaudRate = 9600;
+            serialPort.DataReceived += serialPort_DataReceived;
+
+            serialPort.ReadTimeout = 0;
         }
+        private SerialPort serialPort;
+        private void serialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        {
+            if (serialPort.IsOpen)
+            {
+                try
+                {
+                    while (true)
+                    {
+                        string input = "";
+                        string recvData = serialPort.ReadLine().Trim();   // Trim() 꼭 해야 한다 
+                        input = $"← {recvData}";
+                        ExecCommand(recvData);
+                    }
+                }
+                catch (TimeoutException) { }  // ReadTimeout = 0;  // 읽기 timeout (ms) 을 0 으로 하자.
+            }
+        }  
+        
+        //---------------------------------------
+        // Command 에 따른 분기
+        private void ExecCommand(string recvData)
+        {
+            if (recvData.Length == 0 || recvData[0] != '$') return;
+
+            string[] arrMessage = recvData[1..].Split(",", StringSplitOptions.RemoveEmptyEntries);
+
+            switch (arrMessage[0]) // Command
+            {
+                case "Recieve":
+                    //ProcessReady();
+                    break;
+                case "Start":
+                    //ProcessReject(arrMessage[1]);
+                    break;
+                case "Stop":
+                    //ProcessAccept(arrMessage[1]);
+                    break;
+                case "End":
+                    //ProcessProcess(arrMessage[1]);
+                    break;
+            } // end switch
+
+        } // end ExecCommand()
 
         private void MainForm_Load(object sender, EventArgs e)
         {

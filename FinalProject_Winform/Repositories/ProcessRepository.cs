@@ -41,5 +41,31 @@ namespace FinalProject_Winform.Repositories
             }
         }
 
+        public async Task<bool> IsRunningAsync(bool state, string selectedProcessName)
+        {
+            using FinalDbContext db = new();
+            var process = await db.Processes
+                .Where(p => p.Process_name == selectedProcessName)
+                .FirstOrDefaultAsync();
+
+            if (process != null)
+            {
+                if (state == true)
+                {
+                    process.Process_status = true;
+                }
+                else
+                {
+                    process.Process_status = false;
+                }
+                await db.SaveChangesAsync();
+
+                return true;
+            }
+            else
+            {
+                throw new Exception("그런거 없음");
+            }
+        }
     }
 }
