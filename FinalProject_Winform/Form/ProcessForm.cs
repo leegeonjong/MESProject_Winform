@@ -17,10 +17,11 @@ namespace FinalProject_Winform
     public partial class ProcessForm : Form
     {
         private IProcessRepository processRepository;
-        MainForm mainForm = new();
-        public ProcessForm()
+        private MainForm mainForm;
+        public ProcessForm(MainForm mainForm)
         {
             InitializeComponent();
+            this.mainForm = mainForm;
             processRepository = new ProcessRepository();
         }
         DataGridView dgvImport;

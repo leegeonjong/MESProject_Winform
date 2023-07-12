@@ -33,7 +33,7 @@ namespace FinalProject_Winform
                     targetForm = Application.OpenForms["ProcessForm"] as ProcessForm;
                     if (targetForm == null)
                     {
-                        targetForm = new ProcessForm();
+                        targetForm = new ProcessForm(currentForm as MainForm); // MainForm의 인스턴스 전달
                     }
                     break;
                 case "StockForm":
