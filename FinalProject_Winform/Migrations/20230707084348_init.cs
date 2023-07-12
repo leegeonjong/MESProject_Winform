@@ -115,6 +115,7 @@ namespace FinalProject_Winform.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ItemId = table.Column<long>(type: "bigint", nullable: true),
                     Stock_amount = table.Column<long>(type: "bigint", nullable: false),
+                    Stock_regAmount = table.Column<long>(type: "bigint", nullable: false),
                     Stock_regDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Stock_status = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },

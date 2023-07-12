@@ -39,6 +39,11 @@
             tabControl1 = new TabControl();
             tabImport = new TabPage();
             dataGridView1 = new DataGridView();
+            item_name = new DataGridViewTextBoxColumn();
+            item_warehousing = new DataGridViewTextBoxColumn();
+            item_count = new DataGridViewTextBoxColumn();
+            item_regdate = new DataGridViewTextBoxColumn();
+            item_amount = new DataGridViewTextBoxColumn();
             panel3 = new Panel();
             button1 = new Button();
             txtAmount = new TextBox();
@@ -46,21 +51,21 @@
             comboBox1 = new ComboBox();
             label2 = new Label();
             tabExport = new TabPage();
-            dataGridView2 = new DataGridView();
             panel4 = new Panel();
-            button2 = new Button();
-            textBox2 = new TextBox();
+            btn_Export = new Button();
+            txtOrder = new TextBox();
             label5 = new Label();
             tabStock = new TabPage();
             panel5 = new Panel();
             button3 = new Button();
             comboBox2 = new ComboBox();
             label6 = new Label();
-            item_name = new DataGridViewTextBoxColumn();
-            item_warehousing = new DataGridViewTextBoxColumn();
-            item_count = new DataGridViewTextBoxColumn();
-            item_regdate = new DataGridViewTextBoxColumn();
-            item_amount = new DataGridViewTextBoxColumn();
+            dataGridView2 = new DataGridView();
+            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn6 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn7 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn8 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn9 = new DataGridViewTextBoxColumn();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             tabControl1.SuspendLayout();
@@ -68,10 +73,10 @@
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel3.SuspendLayout();
             tabExport.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             panel4.SuspendLayout();
             tabStock.SuspendLayout();
             panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             SuspendLayout();
             // 
             // panel2
@@ -107,10 +112,6 @@
             panel1.Size = new Size(160, 761);
             panel1.TabIndex = 4;
             // 
-            // btn_ChartForm
-            // 
-           
-            // 
             // btn_OrderForm
             // 
             btn_OrderForm.FlatAppearance.BorderColor = Color.Gray;
@@ -124,7 +125,6 @@
             btn_OrderForm.Text = "주문";
             btn_OrderForm.TextAlign = ContentAlignment.MiddleLeft;
             btn_OrderForm.UseVisualStyleBackColor = true;
-            btn_OrderForm.Click += Button_Click;
             // 
             // btn_StockForm
             // 
@@ -139,7 +139,6 @@
             btn_StockForm.Text = "재고관리";
             btn_StockForm.TextAlign = ContentAlignment.MiddleLeft;
             btn_StockForm.UseVisualStyleBackColor = true;
-            btn_StockForm.Click += Button_Click;
             // 
             // btn_TestForm
             // 
@@ -154,7 +153,6 @@
             btn_TestForm.Text = "검사";
             btn_TestForm.TextAlign = ContentAlignment.MiddleLeft;
             btn_TestForm.UseVisualStyleBackColor = true;
-            btn_TestForm.Click += Button_Click;
             // 
             // btn_ProcessForm
             // 
@@ -169,7 +167,6 @@
             btn_ProcessForm.Text = "공정";
             btn_ProcessForm.TextAlign = ContentAlignment.MiddleLeft;
             btn_ProcessForm.UseVisualStyleBackColor = true;
-            btn_ProcessForm.Click += Button_Click;
             // 
             // btn_LOTForm
             // 
@@ -184,7 +181,6 @@
             btn_LOTForm.Text = "LOT";
             btn_LOTForm.TextAlign = ContentAlignment.MiddleLeft;
             btn_LOTForm.UseVisualStyleBackColor = true;
-            btn_LOTForm.Click += Button_Click;
             // 
             // tabControl1
             // 
@@ -223,6 +219,41 @@
             dataGridView1.RowTemplate.Height = 25;
             dataGridView1.Size = new Size(1081, 464);
             dataGridView1.TabIndex = 1;
+            // 
+            // item_name
+            // 
+            item_name.HeaderText = "종류";
+            item_name.Name = "item_name";
+            item_name.ReadOnly = true;
+            item_name.Width = 150;
+            // 
+            // item_warehousing
+            // 
+            item_warehousing.HeaderText = "입/출고";
+            item_warehousing.Name = "item_warehousing";
+            item_warehousing.ReadOnly = true;
+            item_warehousing.Width = 150;
+            // 
+            // item_count
+            // 
+            item_count.HeaderText = "수량변화";
+            item_count.Name = "item_count";
+            item_count.ReadOnly = true;
+            item_count.Width = 150;
+            // 
+            // item_regdate
+            // 
+            item_regdate.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            item_regdate.HeaderText = "날짜";
+            item_regdate.Name = "item_regdate";
+            item_regdate.ReadOnly = true;
+            // 
+            // item_amount
+            // 
+            item_amount.HeaderText = "총 수량";
+            item_amount.Name = "item_amount";
+            item_amount.ReadOnly = true;
+            item_amount.Width = 180;
             // 
             // panel3
             // 
@@ -301,47 +332,38 @@
             tabExport.TabIndex = 1;
             tabExport.Text = "출고";
             // 
-            // dataGridView2
-            // 
-            dataGridView2.BackgroundColor = Color.White;
-            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Location = new Point(7, 139);
-            dataGridView2.Name = "dataGridView2";
-            dataGridView2.RowTemplate.Height = 25;
-            dataGridView2.Size = new Size(1081, 476);
-            dataGridView2.TabIndex = 2;
-            // 
             // panel4
             // 
             panel4.BackColor = Color.White;
-            panel4.Controls.Add(button2);
-            panel4.Controls.Add(textBox2);
+            panel4.Controls.Add(btn_Export);
+            panel4.Controls.Add(txtOrder);
             panel4.Controls.Add(label5);
             panel4.Location = new Point(4, 31);
             panel4.Name = "panel4";
             panel4.Size = new Size(1086, 91);
             panel4.TabIndex = 1;
             // 
-            // button2
+            // btn_Export
             // 
-            button2.BackColor = Color.FromArgb(52, 152, 219);
-            button2.FlatAppearance.BorderColor = Color.White;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("맑은 고딕", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            button2.Location = new Point(922, 22);
-            button2.Name = "button2";
-            button2.Size = new Size(132, 46);
-            button2.TabIndex = 4;
-            button2.Text = "출고";
-            button2.UseVisualStyleBackColor = false;
+            btn_Export.BackColor = Color.FromArgb(52, 152, 219);
+            btn_Export.FlatAppearance.BorderColor = Color.White;
+            btn_Export.FlatStyle = FlatStyle.Flat;
+            btn_Export.Font = new Font("맑은 고딕", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_Export.Location = new Point(922, 22);
+            btn_Export.Name = "btn_Export";
+            btn_Export.Size = new Size(132, 46);
+            btn_Export.TabIndex = 4;
+            btn_Export.Text = "출고";
+            btn_Export.UseVisualStyleBackColor = false;
+            btn_Export.Click += btn_Export_Click;
             // 
-            // textBox2
+            // txtOrder
             // 
-            textBox2.Font = new Font("맑은 고딕", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            textBox2.Location = new Point(216, 26);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(617, 39);
-            textBox2.TabIndex = 3;
+            txtOrder.Font = new Font("맑은 고딕", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            txtOrder.Location = new Point(216, 26);
+            txtOrder.Name = "txtOrder";
+            txtOrder.Size = new Size(617, 39);
+            txtOrder.TabIndex = 3;
             // 
             // label5
             // 
@@ -407,40 +429,51 @@
             label6.TabIndex = 0;
             label6.Text = "물품";
             // 
-            // item_name
+            // dataGridView2
             // 
-            item_name.HeaderText = "종류";
-            item_name.Name = "item_name";
-            item_name.ReadOnly = true;
-            item_name.Width = 150;
+            dataGridView2.AllowUserToAddRows = false;
+            dataGridView2.BackgroundColor = Color.White;
+            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView2.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn6, dataGridViewTextBoxColumn7, dataGridViewTextBoxColumn8, dataGridViewTextBoxColumn9 });
+            dataGridView2.Location = new Point(7, 139);
+            dataGridView2.Name = "dataGridView2";
+            dataGridView2.RowTemplate.Height = 25;
+            dataGridView2.Size = new Size(1081, 464);
+            dataGridView2.TabIndex = 2;
             // 
-            // item_warehousing
+            // dataGridViewTextBoxColumn1
             // 
-            item_warehousing.HeaderText = "입/출고";
-            item_warehousing.Name = "item_warehousing";
-            item_warehousing.ReadOnly = true;
-            item_warehousing.Width = 150;
+            dataGridViewTextBoxColumn1.HeaderText = "종류";
+            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            dataGridViewTextBoxColumn1.ReadOnly = true;
+            dataGridViewTextBoxColumn1.Width = 150;
             // 
-            // item_count
+            // dataGridViewTextBoxColumn6
             // 
-            item_count.HeaderText = "수량변화";
-            item_count.Name = "item_count";
-            item_count.ReadOnly = true;
-            item_count.Width = 150;
+            dataGridViewTextBoxColumn6.HeaderText = "입/출고";
+            dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            dataGridViewTextBoxColumn6.ReadOnly = true;
+            dataGridViewTextBoxColumn6.Width = 150;
             // 
-            // item_regdate
+            // dataGridViewTextBoxColumn7
             // 
-            item_regdate.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            item_regdate.HeaderText = "날짜";
-            item_regdate.Name = "item_regdate";
-            item_regdate.ReadOnly = true;
+            dataGridViewTextBoxColumn7.HeaderText = "수량변화";
+            dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            dataGridViewTextBoxColumn7.ReadOnly = true;
+            dataGridViewTextBoxColumn7.Width = 150;
             // 
-            // item_amount
+            // dataGridViewTextBoxColumn8
             // 
-            item_amount.HeaderText = "총 수량";
-            item_amount.Name = "item_amount";
-            item_amount.ReadOnly = true;
-            item_amount.Width = 180;
+            dataGridViewTextBoxColumn8.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewTextBoxColumn8.HeaderText = "날짜";
+            dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            dataGridViewTextBoxColumn9.HeaderText = "총 수량";
+            dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            dataGridViewTextBoxColumn9.ReadOnly = true;
+            dataGridViewTextBoxColumn9.Width = 180;
             // 
             // StockForm
             // 
@@ -462,12 +495,12 @@
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             tabExport.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
             tabStock.ResumeLayout(false);
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             ResumeLayout(false);
         }
 
@@ -487,10 +520,9 @@
         private TextBox txtAmount;
         private Label label3;
         private Panel panel4;
-        private Button button2;
-        private TextBox textBox2;
+        private Button btn_Export;
+        private TextBox txtOrder;
         private Label label5;
-        private DataGridView dataGridView2;
         private Panel panel5;
         private ComboBox comboBox2;
         private Label label6;
@@ -506,5 +538,16 @@
         private Button btn_TestForm;
         private Button btn_ProcessForm;
         private Button btn_LOTForm;
+        private DataGridViewTextBoxColumn Item_adw;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private DataGridView dataGridView2;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
     }
 }

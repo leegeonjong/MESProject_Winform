@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FinalProject_Winform.Migrations
 {
     [DbContext(typeof(FinalDbContext))]
-    [Migration("20230707005420_init")]
+    [Migration("20230707084348_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -223,6 +223,9 @@ namespace FinalProject_Winform.Migrations
                         .HasColumnType("bigint");
 
                     b.Property<long>("Stock_amount")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("Stock_regAmount")
                         .HasColumnType("bigint");
 
                     b.Property<DateTime>("Stock_regDate")

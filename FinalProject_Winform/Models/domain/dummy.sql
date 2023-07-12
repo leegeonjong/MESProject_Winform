@@ -1,4 +1,11 @@
-﻿DELETE FROM Item;
+﻿-- SELECT --
+
+SELECT * FROM Item;
+SELECT * FROM Stock;
+
+
+-- ITEM 테이블 ID값 초기화 DUMMY --
+DELETE FROM Item;
 
 DBCC CHECKIDENT(Item, reseed, 0);
 
@@ -17,6 +24,7 @@ VALUES
 ,('포장지', 'EA', '8801110000011', '반제품',0,100)
 ,('라면', 'EA', '8801110000012', '완제품',0,100)
 
+-- STOCK ID값 초기화 +DUMMY -- 
 DELETE FROM Stock
 
 DBCC CHECKIDENT(Stock, reseed, 0);
@@ -25,4 +33,13 @@ INSERT INTO Stock (ItemId, Stock_Amount, Stock_regDate, Stock_status)
 VALUES
 (1,300,GETDATE(),'입고')
 
+-- ORDER ID값 초기화 + DUMMY -- 
+
+DELETE FROM [Order]
+
+DBCC CHECKIDENT([Order], reseed, 0);
+
+INSERT INTO [Order] (ItemId, Order_startDate, Order_endDate, Order_sendDate,Order_status,Order_name,Order_count)
+VALUES
+(1,GETDATE(),GETDATE()+7,GETDATE()+6,'대기','주문',300)
 

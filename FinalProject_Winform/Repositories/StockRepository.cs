@@ -1,12 +1,6 @@
-﻿using BarcodeStandard;
-using FinalProject_Winform.Data;
+﻿using FinalProject_Winform.Data;
 using FinalProject_Winform.Models.domain;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FinalProject_Winform.Repositories
 {
@@ -22,15 +16,30 @@ namespace FinalProject_Winform.Repositories
             using FinalDbContext db = new();
             var item = await db.Items.Where(x => x.Item_name == itemname).FirstAsync();
             if (item == null) return null;
+
             
             Stock stock = new()
             {
                 Item = item,
-                Stock_amount = amount,
+                Stock_amount = amount, 
                Stock_regDate = DateTime.Now, 
                Stock_status =  "입고",
-
             };
+
+            var lastStock = await db.Stocks
+                .Where(x=>x.Item.Item_name==itemname)
+                .OrderByDescending(x => x.Stock_regDate)
+                .FirstOrDefaultAsync();
+
+            if (lastStock != null)
+            {
+                stock.Stock_regAmount = lastStock.Stock_regAmount + amount;
+            }
+            else
+            {
+                stock.Stock_regAmount = amount;
+            }
+
 
             await db.Stocks.AddAsync(stock);
             await db.SaveChangesAsync();
@@ -46,6 +55,36 @@ namespace FinalProject_Winform.Repositories
             return stocks.OrderByDescending(x => x.Id).ToList();
 
 
+        }
+
+        public async Task<Stock> MinusAsync(long orderId)
+        {
+            using FinalDbContext db = new();
+            var order = await db.Orders
+                .Include(s=>s.Item)
+                .Where(x => x.Id == orderId)
+                .FirstAsync();
+
+            if (order == null) return null;
+
+            var item = await db.Items.Where(x => x.Id == order.Item.Id).FirstOrDefaultAsync();
+            if (item == null) return null;
+   
+
+            Stock stock = new()
+            {
+                Item = item,
+                Stock_amount = -order.Order_count,
+                Stock_regDate = DateTime.Now,
+                Stock_status = "출고",
+            };
+
+          
+
+
+            await db.Stocks.AddAsync(stock);
+            await db.SaveChangesAsync();
+            return stock;
         }
     }
 }
