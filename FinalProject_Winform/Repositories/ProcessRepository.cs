@@ -13,12 +13,13 @@ namespace FinalProject_Winform.Repositories
     {
         public async Task<IEnumerable<Process>> GetAllAsync()
         {
-            using FinalDbContext db = new();
-            var process = await db.Processes
-                .Include(s => s.lot)
-                .Include(s => s.lotHistory)
-                .ToListAsync();
-            return process.OrderByDescending(x => x.Id).ToList();
+            //using FinalDbContext db = new();
+            //var process = await db.Processes
+            //    .Include(s => s.lot)
+            //    .Include(s => s.lotHistory)
+            //    .ToListAsync();
+            //return process.OrderByDescending(x => x.Id).ToList();
+            throw new NotImplementedException();
         }
 
         public async Task<string> GetSelectedProcessStatus(string selectedProcessName)
@@ -26,7 +27,8 @@ namespace FinalProject_Winform.Repositories
             using (FinalDbContext db = new FinalDbContext())
             {
                 var process = await db.Processes
-                    .FirstOrDefaultAsync(p => p.Process_name == selectedProcessName);
+            .Where(p => p.Process_name == selectedProcessName)
+            .FirstOrDefaultAsync();
 
                 if (process != null)
                 {
@@ -34,7 +36,7 @@ namespace FinalProject_Winform.Repositories
                 }
                 else
                 {
-                    return "Wrong";
+                    throw new Exception("그런건 없음");
                 }
             }
         }

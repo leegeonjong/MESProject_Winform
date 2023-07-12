@@ -18,14 +18,23 @@ namespace FinalProject_Winform
     {
         private IStockRepository stockRepository;
         private IItemRepository itemRepository;
+        private IOrderRepository orederRepository;
         public StockForm()
         {
             InitializeComponent();
             stockRepository = new StockRepository();
             itemRepository = new ItemRepository();
-            dgv = dataGridView1;
+            orederRepository = new OrderRepository();
+
         }
-        DataGridView dgv;
+        DataGridView dgvImport;
+        DataGridView dgvExport;
+
+        private void StockForm_Load(object sender, EventArgs e)
+        {
+            //dgvImport = dataGridView1;
+            //dgvExport = dataGridView2;
+        }
         private void tabControl1_Selected(object sender, TabControlEventArgs e)
         {
             switch (e.TabPageIndex)
@@ -44,31 +53,48 @@ namespace FinalProject_Winform
         }
         private async void LoadImport()
         {
-            using FinalDbContext db = new FinalDbContext();
-            var stocks = await db.Stocks.ToListAsync();
-            dgv.Rows.Clear();
-            dgv.Refresh();
+            var stocks = await stockRepository.GetAllAsync();
+            FinalDbContext db = new();
 
             int i = 0;
             foreach (var stock in stocks)
             {
-                //dgv.Rows.Add();  // 새로운 행을 추가
-                //dgv.Rows[i].Cells["stock_item"].Value = stock.Id;
-                //dgv.Rows[i].Cells["stock_status"].Value = ;
-                //dgv.Rows[i].Cells["stock_count"].Value = ;
-                //dgv.Rows[i].Cells["stock_time"].Value = ;
-                //dgv.Rows[i].Cells["stock_amount"].Value = ;
-
-                i++;
+                if (stock.Stock_status == "입고")
+                {
+                    dgvImport.Rows.Add();  // 새로운 row 추가
+                    dgvImport.Rows[i].Cells["item_name"].Value = stock.Item.Item_name;
+                    dgvImport.Rows[i].Cells["item_warehousing"].Value = stock.Stock_status;
+                    dgvImport.Rows[i].Cells["item_count"].Value = "+" + stock.Stock_amount + stock.Item.Item_unit;
+                    dgvImport.Rows[i].Cells["item_regdate"].Value = stock.Stock_regDate;
+                    dgvImport.Rows[i].Cells["item_amount"].Value = stock.Stock_regAmount + stock.Item.Item_unit;
+                    i++;
+                }
             }
         }
-        private void StockForm_Load(object sender, EventArgs e)
-        {
-            dgv = dataGridView1;
-        }
-        private void LoadExport()
-        {
 
+        private async void LoadExport()
+        {
+            var stocks = await stockRepository.GetAllAsync();
+            FinalDbContext db = new();
+
+            // DataGridView 전체 clear
+            dgvExport.Rows.Clear();
+            dgvExport.Refresh();
+
+            int i = 0;
+            foreach (var stock in stocks)
+            {
+                if (stock.Stock_status == "출고")
+                {
+                    dgvExport.Rows.Add();  // 새로운 row 추가
+                    dgvExport.Rows[i].Cells["item_name"].Value = stock.Item.Item_name;
+                    dgvExport.Rows[i].Cells["item_warehousing"].Value = stock.Stock_status;
+                    dgvExport.Rows[i].Cells["item_count"].Value = "+" + stock.Stock_amount + stock.Item.Item_unit;
+                    dgvExport.Rows[i].Cells["item_regdate"].Value = stock.Stock_regDate;
+                    dgvExport.Rows[i].Cells["item_amount"].Value = stock.Stock_regAmount + stock.Item.Item_unit;
+                    i++;
+                }
+            }
         }
 
         private void LoadStock()
@@ -85,13 +111,24 @@ namespace FinalProject_Winform
             var stock = await stockRepository.AddAsync(item, amount);
             if (stock != null)
             {
-                //MessageBox.Show("성공");
-                LoadImport();
+                await itemRepository.ImportUpdateAsync(item, amount);
+                MessageBox.Show("성공");
             }
-
-
-
         }
+
+        private async void btn_Export_Click(object sender, EventArgs e)
+        {
+            long orderId = long.Parse(txtOrder.Text);
+            var count = await orederRepository.GetByIdAsync(orderId);
+
+            var stock = await stockRepository.MinusAsync(orderId);
+            if (stock != null)
+            {
+                await itemRepository.ExportUpdateAsync(orderId, count);
+                MessageBox.Show("성공");
+            }
+        }
+
 
         private void Button_Click(object sender, EventArgs e)
         {
@@ -114,6 +151,7 @@ namespace FinalProject_Winform
             }
             this.Hide();
         }
+
 
     }
 }

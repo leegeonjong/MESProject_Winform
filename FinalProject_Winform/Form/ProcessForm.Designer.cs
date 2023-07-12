@@ -28,464 +28,452 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btn_ChartForm = new System.Windows.Forms.Button();
-            this.btn_OrderForm = new System.Windows.Forms.Button();
-            this.btn_StockForm = new System.Windows.Forms.Button();
-            this.btn_TestForm = new System.Windows.Forms.Button();
-            this.btn_ProcessForm = new System.Windows.Forms.Button();
-            this.btn_LOTForm = new System.Windows.Forms.Button();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.btn_next = new System.Windows.Forms.Button();
-            this.btn_prev = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.LOT_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Process_Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LOT_StartDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LOT_EndDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.btnSearchProcess = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.combo_process = new System.Windows.Forms.ComboBox();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.panel2.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panel3.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel7.SuspendLayout();
-            this.panel6.SuspendLayout();
-            this.SuspendLayout();
+            panel2 = new Panel();
+            label1 = new Label();
+            panel1 = new Panel();
+            btn_ChartForm = new Button();
+            btn_OrderForm = new Button();
+            btn_StockForm = new Button();
+            btn_TestForm = new Button();
+            btn_ProcessForm = new Button();
+            btn_LOTForm = new Button();
+            tabControl1 = new TabControl();
+            tabPage1 = new TabPage();
+            panel4 = new Panel();
+            label3 = new Label();
+            btn_next = new Button();
+            btn_prev = new Button();
+            dataGridView1 = new DataGridView();
+            LOT_ID = new DataGridViewTextBoxColumn();
+            Process_Status = new DataGridViewTextBoxColumn();
+            LOT_StartDate = new DataGridViewTextBoxColumn();
+            LOT_EndDate = new DataGridViewTextBoxColumn();
+            panel3 = new Panel();
+            btnSearchProcess = new Button();
+            label2 = new Label();
+            textBox1 = new TextBox();
+            tabPage2 = new TabPage();
+            panel5 = new Panel();
+            comboBox2 = new ComboBox();
+            combo_process = new ComboBox();
+            panel7 = new Panel();
+            label6 = new Label();
+            label4 = new Label();
+            button3 = new Button();
+            panel6 = new Panel();
+            label5 = new Label();
+            panel2.SuspendLayout();
+            panel1.SuspendLayout();
+            tabControl1.SuspendLayout();
+            tabPage1.SuspendLayout();
+            panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            panel3.SuspendLayout();
+            tabPage2.SuspendLayout();
+            panel5.SuspendLayout();
+            panel7.SuspendLayout();
+            panel6.SuspendLayout();
+            SuspendLayout();
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Location = new System.Drawing.Point(-3, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1267, 88);
-            this.panel2.TabIndex = 3;
+            panel2.BackColor = Color.FromArgb(52, 152, 219);
+            panel2.Controls.Add(label1);
+            panel2.Location = new Point(-3, 0);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(1267, 88);
+            panel2.TabIndex = 3;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("맑은 고딕", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(550, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(170, 50);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "아무거나";
+            label1.AutoSize = true;
+            label1.Font = new Font("맑은 고딕", 27.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(550, 18);
+            label1.Name = "label1";
+            label1.Size = new Size(170, 50);
+            label1.TabIndex = 0;
+            label1.Text = "아무거나";
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(210)))), ((int)(((byte)(230)))));
-            this.panel1.Controls.Add(this.btn_ChartForm);
-            this.panel1.Controls.Add(this.btn_OrderForm);
-            this.panel1.Controls.Add(this.btn_StockForm);
-            this.panel1.Controls.Add(this.btn_TestForm);
-            this.panel1.Controls.Add(this.btn_ProcessForm);
-            this.panel1.Controls.Add(this.btn_LOTForm);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(160, 761);
-            this.panel1.TabIndex = 2;
+            panel1.BackColor = Color.FromArgb(180, 210, 230);
+            panel1.Controls.Add(btn_ChartForm);
+            panel1.Controls.Add(btn_OrderForm);
+            panel1.Controls.Add(btn_StockForm);
+            panel1.Controls.Add(btn_TestForm);
+            panel1.Controls.Add(btn_ProcessForm);
+            panel1.Controls.Add(btn_LOTForm);
+            panel1.Dock = DockStyle.Left;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(160, 761);
+            panel1.TabIndex = 2;
             // 
             // btn_ChartForm
             // 
-            this.btn_ChartForm.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.btn_ChartForm.FlatAppearance.BorderSize = 2;
-            this.btn_ChartForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_ChartForm.Font = new System.Drawing.Font("맑은 고딕", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_ChartForm.Location = new System.Drawing.Point(-4, 580);
-            this.btn_ChartForm.Name = "btn_ChartForm";
-            this.btn_ChartForm.Size = new System.Drawing.Size(168, 104);
-            this.btn_ChartForm.TabIndex = 12;
-            this.btn_ChartForm.Text = "현황판";
-            this.btn_ChartForm.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_ChartForm.UseVisualStyleBackColor = true;
-            this.btn_ChartForm.Click += new System.EventHandler(this.Button_Click);
+            btn_ChartForm.FlatAppearance.BorderColor = Color.Gray;
+            btn_ChartForm.FlatAppearance.BorderSize = 2;
+            btn_ChartForm.FlatStyle = FlatStyle.Flat;
+            btn_ChartForm.Font = new Font("맑은 고딕", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_ChartForm.Location = new Point(-4, 580);
+            btn_ChartForm.Name = "btn_ChartForm";
+            btn_ChartForm.Size = new Size(168, 104);
+            btn_ChartForm.TabIndex = 12;
+            btn_ChartForm.Text = "현황판";
+            btn_ChartForm.TextAlign = ContentAlignment.MiddleLeft;
+            btn_ChartForm.UseVisualStyleBackColor = true;
+            btn_ChartForm.Click += Button_Click;
             // 
             // btn_OrderForm
             // 
-            this.btn_OrderForm.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.btn_OrderForm.FlatAppearance.BorderSize = 2;
-            this.btn_OrderForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_OrderForm.Font = new System.Drawing.Font("맑은 고딕", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_OrderForm.Location = new System.Drawing.Point(-4, 480);
-            this.btn_OrderForm.Name = "btn_OrderForm";
-            this.btn_OrderForm.Size = new System.Drawing.Size(168, 104);
-            this.btn_OrderForm.TabIndex = 13;
-            this.btn_OrderForm.Text = "주문";
-            this.btn_OrderForm.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_OrderForm.UseVisualStyleBackColor = true;
-            this.btn_OrderForm.Click += new System.EventHandler(this.Button_Click);
+            btn_OrderForm.FlatAppearance.BorderColor = Color.Gray;
+            btn_OrderForm.FlatAppearance.BorderSize = 2;
+            btn_OrderForm.FlatStyle = FlatStyle.Flat;
+            btn_OrderForm.Font = new Font("맑은 고딕", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_OrderForm.Location = new Point(-4, 480);
+            btn_OrderForm.Name = "btn_OrderForm";
+            btn_OrderForm.Size = new Size(168, 104);
+            btn_OrderForm.TabIndex = 13;
+            btn_OrderForm.Text = "주문";
+            btn_OrderForm.TextAlign = ContentAlignment.MiddleLeft;
+            btn_OrderForm.UseVisualStyleBackColor = true;
+            btn_OrderForm.Click += Button_Click;
             // 
             // btn_StockForm
             // 
-            this.btn_StockForm.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.btn_StockForm.FlatAppearance.BorderSize = 2;
-            this.btn_StockForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_StockForm.Font = new System.Drawing.Font("맑은 고딕", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_StockForm.Location = new System.Drawing.Point(-4, 380);
-            this.btn_StockForm.Name = "btn_StockForm";
-            this.btn_StockForm.Size = new System.Drawing.Size(168, 104);
-            this.btn_StockForm.TabIndex = 14;
-            this.btn_StockForm.Text = "재고관리";
-            this.btn_StockForm.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_StockForm.UseVisualStyleBackColor = true;
-            this.btn_StockForm.Click += new System.EventHandler(this.Button_Click);
+            btn_StockForm.FlatAppearance.BorderColor = Color.Gray;
+            btn_StockForm.FlatAppearance.BorderSize = 2;
+            btn_StockForm.FlatStyle = FlatStyle.Flat;
+            btn_StockForm.Font = new Font("맑은 고딕", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_StockForm.Location = new Point(-4, 380);
+            btn_StockForm.Name = "btn_StockForm";
+            btn_StockForm.Size = new Size(168, 104);
+            btn_StockForm.TabIndex = 14;
+            btn_StockForm.Text = "재고관리";
+            btn_StockForm.TextAlign = ContentAlignment.MiddleLeft;
+            btn_StockForm.UseVisualStyleBackColor = true;
+            btn_StockForm.Click += Button_Click;
             // 
             // btn_TestForm
             // 
-            this.btn_TestForm.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.btn_TestForm.FlatAppearance.BorderSize = 2;
-            this.btn_TestForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_TestForm.Font = new System.Drawing.Font("맑은 고딕", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_TestForm.Location = new System.Drawing.Point(-4, 279);
-            this.btn_TestForm.Name = "btn_TestForm";
-            this.btn_TestForm.Size = new System.Drawing.Size(168, 104);
-            this.btn_TestForm.TabIndex = 15;
-            this.btn_TestForm.Text = "검사";
-            this.btn_TestForm.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_TestForm.UseVisualStyleBackColor = true;
-            this.btn_TestForm.Click += new System.EventHandler(this.Button_Click);
+            btn_TestForm.FlatAppearance.BorderColor = Color.Gray;
+            btn_TestForm.FlatAppearance.BorderSize = 2;
+            btn_TestForm.FlatStyle = FlatStyle.Flat;
+            btn_TestForm.Font = new Font("맑은 고딕", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_TestForm.Location = new Point(-4, 279);
+            btn_TestForm.Name = "btn_TestForm";
+            btn_TestForm.Size = new Size(168, 104);
+            btn_TestForm.TabIndex = 15;
+            btn_TestForm.Text = "검사";
+            btn_TestForm.TextAlign = ContentAlignment.MiddleLeft;
+            btn_TestForm.UseVisualStyleBackColor = true;
+            btn_TestForm.Click += Button_Click;
             // 
             // btn_ProcessForm
             // 
-            this.btn_ProcessForm.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.btn_ProcessForm.FlatAppearance.BorderSize = 2;
-            this.btn_ProcessForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_ProcessForm.Font = new System.Drawing.Font("맑은 고딕", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_ProcessForm.Location = new System.Drawing.Point(-4, 178);
-            this.btn_ProcessForm.Name = "btn_ProcessForm";
-            this.btn_ProcessForm.Size = new System.Drawing.Size(168, 104);
-            this.btn_ProcessForm.TabIndex = 11;
-            this.btn_ProcessForm.Text = "공정";
-            this.btn_ProcessForm.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_ProcessForm.UseVisualStyleBackColor = true;
-            this.btn_ProcessForm.Click += new System.EventHandler(this.Button_Click);
+            btn_ProcessForm.FlatAppearance.BorderColor = Color.Gray;
+            btn_ProcessForm.FlatAppearance.BorderSize = 2;
+            btn_ProcessForm.FlatStyle = FlatStyle.Flat;
+            btn_ProcessForm.Font = new Font("맑은 고딕", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_ProcessForm.Location = new Point(-4, 178);
+            btn_ProcessForm.Name = "btn_ProcessForm";
+            btn_ProcessForm.Size = new Size(168, 104);
+            btn_ProcessForm.TabIndex = 11;
+            btn_ProcessForm.Text = "공정";
+            btn_ProcessForm.TextAlign = ContentAlignment.MiddleLeft;
+            btn_ProcessForm.UseVisualStyleBackColor = true;
+            btn_ProcessForm.Click += Button_Click;
             // 
             // btn_LOTForm
             // 
-            this.btn_LOTForm.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.btn_LOTForm.FlatAppearance.BorderSize = 2;
-            this.btn_LOTForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_LOTForm.Font = new System.Drawing.Font("맑은 고딕", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_LOTForm.Location = new System.Drawing.Point(-4, 77);
-            this.btn_LOTForm.Name = "btn_LOTForm";
-            this.btn_LOTForm.Size = new System.Drawing.Size(168, 104);
-            this.btn_LOTForm.TabIndex = 10;
-            this.btn_LOTForm.Text = "LOT";
-            this.btn_LOTForm.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_LOTForm.UseVisualStyleBackColor = true;
-            this.btn_LOTForm.Click += new System.EventHandler(this.Button_Click);
+            btn_LOTForm.FlatAppearance.BorderColor = Color.Gray;
+            btn_LOTForm.FlatAppearance.BorderSize = 2;
+            btn_LOTForm.FlatStyle = FlatStyle.Flat;
+            btn_LOTForm.Font = new Font("맑은 고딕", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_LOTForm.Location = new Point(-4, 77);
+            btn_LOTForm.Name = "btn_LOTForm";
+            btn_LOTForm.Size = new Size(168, 104);
+            btn_LOTForm.TabIndex = 10;
+            btn_LOTForm.Text = "LOT";
+            btn_LOTForm.TextAlign = ContentAlignment.MiddleLeft;
+            btn_LOTForm.UseVisualStyleBackColor = true;
+            btn_LOTForm.Click += Button_Click;
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tabControl1.ItemSize = new System.Drawing.Size(200, 40);
-            this.tabControl1.Location = new System.Drawing.Point(160, 90);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1104, 671);
-            this.tabControl1.TabIndex = 4;
-            this.tabControl1.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl1_Selected);
+            tabControl1.Controls.Add(tabPage1);
+            tabControl1.Controls.Add(tabPage2);
+            tabControl1.Dock = DockStyle.Bottom;
+            tabControl1.ItemSize = new Size(200, 40);
+            tabControl1.Location = new Point(160, 90);
+            tabControl1.Name = "tabControl1";
+            tabControl1.SelectedIndex = 0;
+            tabControl1.Size = new Size(1104, 671);
+            tabControl1.TabIndex = 4;
+            tabControl1.Selected += tabControl1_Selected;
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.panel4);
-            this.tabPage1.Location = new System.Drawing.Point(4, 44);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1096, 623);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "    공정조회    ";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            tabPage1.Controls.Add(panel4);
+            tabPage1.Location = new Point(4, 44);
+            tabPage1.Name = "tabPage1";
+            tabPage1.Padding = new Padding(3);
+            tabPage1.Size = new Size(1096, 623);
+            tabPage1.TabIndex = 0;
+            tabPage1.Text = "    공정조회    ";
+            tabPage1.UseVisualStyleBackColor = true;
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.Color.Silver;
-            this.panel4.Controls.Add(this.label3);
-            this.panel4.Controls.Add(this.btn_next);
-            this.panel4.Controls.Add(this.btn_prev);
-            this.panel4.Controls.Add(this.dataGridView1);
-            this.panel4.Controls.Add(this.panel3);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(3, 3);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1090, 617);
-            this.panel4.TabIndex = 8;
+            panel4.BackColor = Color.Silver;
+            panel4.Controls.Add(label3);
+            panel4.Controls.Add(btn_next);
+            panel4.Controls.Add(btn_prev);
+            panel4.Controls.Add(dataGridView1);
+            panel4.Controls.Add(panel3);
+            panel4.Dock = DockStyle.Fill;
+            panel4.Location = new Point(3, 3);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(1090, 617);
+            panel4.TabIndex = 8;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(522, 568);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(28, 32);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "1";
+            label3.AutoSize = true;
+            label3.Font = new Font("맑은 고딕", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.Location = new Point(522, 568);
+            label3.Name = "label3";
+            label3.Size = new Size(28, 32);
+            label3.TabIndex = 9;
+            label3.Text = "1";
             // 
             // btn_next
             // 
-            this.btn_next.Location = new System.Drawing.Point(574, 568);
-            this.btn_next.Name = "btn_next";
-            this.btn_next.Size = new System.Drawing.Size(75, 37);
-            this.btn_next.TabIndex = 10;
-            this.btn_next.Text = ">";
-            this.btn_next.UseVisualStyleBackColor = true;
+            btn_next.Location = new Point(574, 568);
+            btn_next.Name = "btn_next";
+            btn_next.Size = new Size(75, 37);
+            btn_next.TabIndex = 10;
+            btn_next.Text = ">";
+            btn_next.UseVisualStyleBackColor = true;
             // 
             // btn_prev
             // 
-            this.btn_prev.Location = new System.Drawing.Point(429, 568);
-            this.btn_prev.Name = "btn_prev";
-            this.btn_prev.Size = new System.Drawing.Size(75, 37);
-            this.btn_prev.TabIndex = 9;
-            this.btn_prev.Text = "<";
-            this.btn_prev.UseVisualStyleBackColor = true;
+            btn_prev.Location = new Point(429, 568);
+            btn_prev.Name = "btn_prev";
+            btn_prev.Size = new Size(75, 37);
+            btn_prev.TabIndex = 9;
+            btn_prev.Text = "<";
+            btn_prev.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.LOT_ID,
-            this.Process_Status,
-            this.LOT_StartDate,
-            this.LOT_EndDate});
-            this.dataGridView1.Location = new System.Drawing.Point(28, 122);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(1037, 431);
-            this.dataGridView1.TabIndex = 8;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { LOT_ID, Process_Status, LOT_StartDate, LOT_EndDate });
+            dataGridView1.Location = new Point(28, 122);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowTemplate.Height = 25;
+            dataGridView1.Size = new Size(1037, 431);
+            dataGridView1.TabIndex = 8;
             // 
             // LOT_ID
             // 
-            this.LOT_ID.HeaderText = "LOT";
-            this.LOT_ID.Name = "LOT_ID";
-            this.LOT_ID.ReadOnly = true;
+            LOT_ID.HeaderText = "LOT";
+            LOT_ID.Name = "LOT_ID";
+            LOT_ID.ReadOnly = true;
             // 
             // Process_Status
             // 
-            this.Process_Status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Process_Status.HeaderText = "상태";
-            this.Process_Status.Name = "Process_Status";
-            this.Process_Status.ReadOnly = true;
+            Process_Status.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Process_Status.HeaderText = "상태";
+            Process_Status.Name = "Process_Status";
+            Process_Status.ReadOnly = true;
             // 
             // LOT_StartDate
             // 
-            this.LOT_StartDate.HeaderText = "시작시간";
-            this.LOT_StartDate.Name = "LOT_StartDate";
-            this.LOT_StartDate.ReadOnly = true;
-            this.LOT_StartDate.Width = 300;
+            LOT_StartDate.HeaderText = "시작시간";
+            LOT_StartDate.Name = "LOT_StartDate";
+            LOT_StartDate.ReadOnly = true;
+            LOT_StartDate.Width = 300;
             // 
             // LOT_EndDate
             // 
-            this.LOT_EndDate.HeaderText = "종료시간";
-            this.LOT_EndDate.Name = "LOT_EndDate";
-            this.LOT_EndDate.ReadOnly = true;
-            this.LOT_EndDate.Width = 300;
+            LOT_EndDate.HeaderText = "종료시간";
+            LOT_EndDate.Name = "LOT_EndDate";
+            LOT_EndDate.ReadOnly = true;
+            LOT_EndDate.Width = 300;
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel3.Controls.Add(this.btnSearchProcess);
-            this.panel3.Controls.Add(this.label2);
-            this.panel3.Controls.Add(this.textBox1);
-            this.panel3.Location = new System.Drawing.Point(28, 24);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1037, 82);
-            this.panel3.TabIndex = 7;
+            panel3.BackColor = Color.WhiteSmoke;
+            panel3.Controls.Add(btnSearchProcess);
+            panel3.Controls.Add(label2);
+            panel3.Controls.Add(textBox1);
+            panel3.Location = new Point(28, 24);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(1037, 82);
+            panel3.TabIndex = 7;
             // 
             // btnSearchProcess
             // 
-            this.btnSearchProcess.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            this.btnSearchProcess.Location = new System.Drawing.Point(776, 15);
-            this.btnSearchProcess.Name = "btnSearchProcess";
-            this.btnSearchProcess.Size = new System.Drawing.Size(126, 52);
-            this.btnSearchProcess.TabIndex = 8;
-            this.btnSearchProcess.Text = "검색";
-            this.btnSearchProcess.UseVisualStyleBackColor = false;
+            btnSearchProcess.BackColor = Color.FromArgb(52, 152, 219);
+            btnSearchProcess.Location = new Point(776, 15);
+            btnSearchProcess.Name = "btnSearchProcess";
+            btnSearchProcess.Size = new Size(126, 52);
+            btnSearchProcess.TabIndex = 8;
+            btnSearchProcess.Text = "검색";
+            btnSearchProcess.UseVisualStyleBackColor = false;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(86, 26);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(148, 32);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "공정 검색  : ";
+            label2.AutoSize = true;
+            label2.Font = new Font("맑은 고딕", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Location = new Point(86, 26);
+            label2.Name = "label2";
+            label2.Size = new Size(148, 32);
+            label2.TabIndex = 6;
+            label2.Text = "공정 검색  : ";
             // 
             // textBox1
             // 
-            this.textBox1.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(240, 26);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(484, 32);
-            this.textBox1.TabIndex = 5;
+            textBox1.Font = new Font("맑은 고딕", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            textBox1.Location = new Point(240, 26);
+            textBox1.Multiline = true;
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(484, 32);
+            textBox1.TabIndex = 5;
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.panel5);
-            this.tabPage2.Location = new System.Drawing.Point(4, 44);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1096, 623);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "    설비설정    ";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            tabPage2.Controls.Add(panel5);
+            tabPage2.Location = new Point(4, 44);
+            tabPage2.Name = "tabPage2";
+            tabPage2.Padding = new Padding(3);
+            tabPage2.Size = new Size(1096, 623);
+            tabPage2.TabIndex = 1;
+            tabPage2.Text = "    설비설정    ";
+            tabPage2.UseVisualStyleBackColor = true;
             // 
             // panel5
             // 
-            this.panel5.BackColor = System.Drawing.Color.Silver;
-            this.panel5.Controls.Add(this.comboBox2);
-            this.panel5.Controls.Add(this.combo_process);
-            this.panel5.Controls.Add(this.panel7);
-            this.panel5.Controls.Add(this.button3);
-            this.panel5.Controls.Add(this.panel6);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(3, 3);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1090, 617);
-            this.panel5.TabIndex = 9;
+            panel5.BackColor = Color.Silver;
+            panel5.Controls.Add(comboBox2);
+            panel5.Controls.Add(combo_process);
+            panel5.Controls.Add(panel7);
+            panel5.Controls.Add(button3);
+            panel5.Controls.Add(panel6);
+            panel5.Dock = DockStyle.Fill;
+            panel5.Location = new Point(3, 3);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(1090, 617);
+            panel5.TabIndex = 9;
             // 
             // comboBox2
             // 
-            this.comboBox2.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(565, 229);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(500, 40);
-            this.comboBox2.TabIndex = 10;
+            comboBox2.Font = new Font("맑은 고딕", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            comboBox2.FormattingEnabled = true;
+            comboBox2.Location = new Point(565, 229);
+            comboBox2.Name = "comboBox2";
+            comboBox2.Size = new Size(500, 40);
+            comboBox2.TabIndex = 10;
             // 
             // combo_process
             // 
-            this.combo_process.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.combo_process.FormattingEnabled = true;
-            this.combo_process.Items.AddRange(new object[] {
-            "배합",
-            "형태화",
-            "찌기",
-            "잘 튀기기",
-            "냉동",
-            "포장"});
-            this.combo_process.Location = new System.Drawing.Point(28, 229);
-            this.combo_process.Name = "combo_process";
-            this.combo_process.Size = new System.Drawing.Size(500, 40);
-            this.combo_process.TabIndex = 9;
-            this.combo_process.SelectedIndexChanged += new System.EventHandler(this.combo_process_SelectedIndexChanged);
+            combo_process.Font = new Font("맑은 고딕", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            combo_process.FormattingEnabled = true;
+            combo_process.Items.AddRange(new object[] { "배합", "형태화", "찌기", "잘 튀기기", "냉동", "포장" });
+            combo_process.Location = new Point(28, 229);
+            combo_process.Name = "combo_process";
+            combo_process.Size = new Size(500, 40);
+            combo_process.TabIndex = 9;
+            combo_process.SelectedIndexChanged += combo_process_SelectedIndexChanged;
             // 
             // panel7
             // 
-            this.panel7.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel7.Controls.Add(this.label6);
-            this.panel7.Controls.Add(this.label4);
-            this.panel7.Location = new System.Drawing.Point(28, 134);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(1037, 49);
-            this.panel7.TabIndex = 8;
+            panel7.BackColor = Color.WhiteSmoke;
+            panel7.Controls.Add(label6);
+            panel7.Controls.Add(label4);
+            panel7.Location = new Point(28, 134);
+            panel7.Name = "panel7";
+            panel7.Size = new Size(1037, 49);
+            panel7.TabIndex = 8;
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(155, 17);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(118, 21);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "설비 진행 상황";
+            label6.AutoSize = true;
+            label6.Font = new Font("맑은 고딕", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label6.Location = new Point(155, 17);
+            label6.Name = "label6";
+            label6.Size = new Size(0, 21);
+            label6.TabIndex = 7;
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(15, 17);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(118, 21);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "설비 진행 상황";
+            label4.AutoSize = true;
+            label4.Font = new Font("맑은 고딕", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.Location = new Point(15, 17);
+            label4.Name = "label4";
+            label4.Size = new Size(118, 21);
+            label4.TabIndex = 6;
+            label4.Text = "설비 진행 상황";
             // 
             // button3
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            this.button3.Location = new System.Drawing.Point(939, 517);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(126, 52);
-            this.button3.TabIndex = 8;
-            this.button3.Text = "검색";
-            this.button3.UseVisualStyleBackColor = false;
+            button3.BackColor = Color.FromArgb(52, 152, 219);
+            button3.Location = new Point(939, 517);
+            button3.Name = "button3";
+            button3.Size = new Size(126, 52);
+            button3.TabIndex = 8;
+            button3.Text = "검색";
+            button3.UseVisualStyleBackColor = false;
             // 
             // panel6
             // 
-            this.panel6.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel6.Controls.Add(this.label5);
-            this.panel6.Location = new System.Drawing.Point(28, 24);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1037, 82);
-            this.panel6.TabIndex = 7;
+            panel6.BackColor = Color.WhiteSmoke;
+            panel6.Controls.Add(label5);
+            panel6.Location = new Point(28, 24);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(1037, 82);
+            panel6.TabIndex = 7;
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(16, 23);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(174, 32);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "설비 상태 설정";
+            label5.AutoSize = true;
+            label5.Font = new Font("맑은 고딕", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.Location = new Point(16, 23);
+            label5.Name = "label5";
+            label5.Size = new Size(174, 32);
+            label5.TabIndex = 6;
+            label5.Text = "설비 상태 설정";
             // 
             // ProcessForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1264, 761);
-            this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
-            this.Name = "ProcessForm";
-            this.Text = "ProcessForm";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ProcessForm_FormClosed);
-            this.Load += new System.EventHandler(this.ProcessForm_Load);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1264, 761);
+            Controls.Add(tabControl1);
+            Controls.Add(panel2);
+            Controls.Add(panel1);
+            Name = "ProcessForm";
+            Text = "ProcessForm";
+            FormClosed += ProcessForm_FormClosed;
+            Load += ProcessForm_Load;
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
+            panel1.ResumeLayout(false);
+            tabControl1.ResumeLayout(false);
+            tabPage1.ResumeLayout(false);
+            panel4.ResumeLayout(false);
+            panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
+            tabPage2.ResumeLayout(false);
+            panel5.ResumeLayout(false);
+            panel7.ResumeLayout(false);
+            panel7.PerformLayout();
+            panel6.ResumeLayout(false);
+            panel6.PerformLayout();
+            ResumeLayout(false);
         }
 
         #endregion

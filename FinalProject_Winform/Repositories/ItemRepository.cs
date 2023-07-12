@@ -24,7 +24,7 @@ namespace FinalProject_Winform.Repositories
             return items.OrderBy(x => x.Id).ToList();
         }
 
-        public async Task<Item> UpdateAsync(string name,long amount)
+        public async Task<Item> ImportUpdateAsync(string name,long amount)
         {
             using FinalDbContext db = new();
             var existingItem = await db.Items.Where(x => x.Item_name == name).FirstAsync();
@@ -34,6 +34,18 @@ namespace FinalProject_Winform.Repositories
             existingItem.Item_amount += amount;
           
             await db.SaveChangesAsync();
+            return existingItem;
+        }
+        public async Task<Item> ExportUpdateAsync(long orderId,long amount)
+        {
+            using FinalDbContext db = new();
+            var existingItem = await db.Items.Where(x => x.Id == orderId).FirstAsync();
+
+            if (existingItem == null) return null;
+
+            existingItem.Item_amount -= amount;
+
+                 await db.SaveChangesAsync();
             return existingItem;
         }
 
