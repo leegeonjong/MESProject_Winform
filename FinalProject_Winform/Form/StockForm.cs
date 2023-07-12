@@ -32,8 +32,8 @@ namespace FinalProject_Winform
 
         private void StockForm_Load(object sender, EventArgs e)
         {
-            dgvImport = dataGridView1;
-            dgvExport = dataGridView2;
+            //dgvImport = dataGridView1;
+            //dgvExport = dataGridView2;
         }
         private void tabControl1_Selected(object sender, TabControlEventArgs e)
         {

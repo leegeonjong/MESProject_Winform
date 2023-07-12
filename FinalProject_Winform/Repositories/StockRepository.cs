@@ -10,25 +10,24 @@ namespace FinalProject_Winform.Repositories
         public StockRepository() {
             itemRepository = new ItemRepository();
         }
-      
-        public async Task<Tuple<Stock, long>> AddAsync(string itemname,long amount)
+
+        public async Task<Stock> AddAsync(string itemname, long amount)
         {
             using FinalDbContext db = new();
             var item = await db.Items.Where(x => x.Item_name == itemname).FirstAsync();
-            long i_amount = item.Item_amount + amount;
             if (item == null) return null;
 
-            
+
             Stock stock = new()
             {
                 Item = item,
-                Stock_amount = amount, 
-               Stock_regDate = DateTime.Now, 
-               Stock_status =  "입고",
+                Stock_amount = amount,
+                Stock_regDate = DateTime.Now,
+                Stock_status = "입고",
             };
 
             var lastStock = await db.Stocks
-                .Where(x=>x.Item.Item_name==itemname)
+                .Where(x => x.Item.Item_name == itemname)
                 .OrderByDescending(x => x.Stock_regDate)
                 .FirstOrDefaultAsync();
 
@@ -44,7 +43,7 @@ namespace FinalProject_Winform.Repositories
 
             await db.Stocks.AddAsync(stock);
             await db.SaveChangesAsync();
-            return new Tuple<Stock, long>(stock, i_amount);
+            return stock;
         }
 
         public async Task<IEnumerable<Stock>> GetAllAsync()
