@@ -55,10 +55,6 @@ namespace FinalProject_Winform
                 case 0:  // 공정 조회
                     LoadProcessAsync();
                     break;
-                case 1:  // 설비 설정
-                    SetProcess();
-                    break;
-
             }
         }
 
@@ -89,14 +85,6 @@ namespace FinalProject_Winform
         //----------------------------------------------------------------------------
         //두번째 탭
         //----------------------------------------------------------------------------
-
-        private async void SetProcess()
-        {
-            //var processes = await processRepository.GetAllAsync();
-
-
-        }
-
         private async void combo_process_SelectedIndexChanged(object sender, EventArgs e)
         {
             // combo_process에서 선택한 값 가져오기

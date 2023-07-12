@@ -56,17 +56,20 @@ namespace FinalProject_Winform
 
             switch (arrMessage[0]) // Command
             {
-                case "Recieve":
+                case "Recieve": //명령 받음
                     //ProcessReady();
                     break;
-                case "Start":
+                case "Start": //공정 시작
                     //ProcessReject(arrMessage[1]);
                     break;
-                case "Stop":
+                case "End": //공정 종료
+                    //ProcessProcess(arrMessage[1]);
+                    break;
+                case "Off": //전원 껐을때 (일시정지)
                     //ProcessAccept(arrMessage[1]);
                     break;
-                case "End":
-                    //ProcessProcess(arrMessage[1]);
+                case "On": //전원 켰을때 
+
                     break;
             } // end switch
 
