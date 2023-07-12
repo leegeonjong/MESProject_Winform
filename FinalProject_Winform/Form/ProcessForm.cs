@@ -24,7 +24,7 @@ namespace FinalProject_Winform
         private void ProcessForm_Load(object sender, EventArgs e)
         {
             dgvImport = dataGridView1;
-            LoadProcessAsync();
+            //LoadProcessAsync();
         }
         private void Button_Click(object sender, EventArgs e)
         {
@@ -67,23 +67,23 @@ namespace FinalProject_Winform
         //----------------------------------------------------------------------------
         private async void LoadProcessAsync()
         {
-            var processes = await processRepository.GetAllAsync();
+            //var processes = await processRepository.GetAllAsync();
 
-            // DataGridView 전체 clear
-            dgvImport.Rows.Clear();
-            dgvImport.Refresh();
+            //// DataGridView 전체 clear
+            //dgvImport.Rows.Clear();
+            //dgvImport.Refresh();
 
-            int i = 0;
-            foreach (var process in processes)
-            {
-                dgvImport.Rows.Add();  // 새로운 row 추가
-                dgvImport.Rows[i].Cells["lot_barcode"].Value = process.lot.Lot_barcode;
-                dgvImport.Rows[i].Cells["lot_status"].Value = process.lot.Lot_status;
-                dgvImport.Rows[i].Cells["lothistory_datetime_Start"].Value = "+" + process.lotHistory.LotHistory_startDate;
-                dgvImport.Rows[i].Cells["lothistory_datetime_End"].Value = process.lotHistory.LotHistory_endDate;
+            //int i = 0;
+            //foreach (var process in processes)
+            //{
+            //    dgvImport.Rows.Add();  // 새로운 row 추가
+            //    dgvImport.Rows[i].Cells["lot_barcode"].Value = process.lot.Lot_barcode;
+            //    dgvImport.Rows[i].Cells["lot_status"].Value = process.lot.Lot_status;
+            //    dgvImport.Rows[i].Cells["lothistory_datetime_Start"].Value = "+" + process.lotHistory.LotHistory_startDate;
+            //    dgvImport.Rows[i].Cells["lothistory_datetime_End"].Value = process.lotHistory.LotHistory_endDate;
 
-                i++;
-            }
+            //    i++;
+            //}
         }
 
         //----------------------------------------------------------------------------
@@ -92,16 +92,16 @@ namespace FinalProject_Winform
 
         private async void SetProcess()
         {
-            var processes = await processRepository.GetAllAsync();
+            //var processes = await processRepository.GetAllAsync();
 
           
         }
 
-        private void combo_process_SelectedIndexChanged(object sender, EventArgs e)
+        private async void combo_process_SelectedIndexChanged(object sender, EventArgs e)
         {
             // combo_process에서 선택한 값 가져오기
             string selectedProcess = combo_process.SelectedItem.ToString();
-            var processesStatus = processRepository.GetSelectedProcessStatus(selectedProcess);
+            var processesStatus = await processRepository.GetSelectedProcessStatus(selectedProcess);
             label6.Text = processesStatus.ToString();
         }
     }
