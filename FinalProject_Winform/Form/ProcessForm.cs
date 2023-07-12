@@ -20,7 +20,7 @@ namespace FinalProject_Winform
             InitializeComponent();
             processRepository = new ProcessRepository();
         }
-        DataGridView dgvImport; 
+        DataGridView dgvImport;
         private void ProcessForm_Load(object sender, EventArgs e)
         {
             dgvImport = dataGridView1;
@@ -94,7 +94,7 @@ namespace FinalProject_Winform
         {
             //var processes = await processRepository.GetAllAsync();
 
-          
+
         }
 
         private async void combo_process_SelectedIndexChanged(object sender, EventArgs e)
@@ -102,7 +102,14 @@ namespace FinalProject_Winform
             // combo_process에서 선택한 값 가져오기
             string selectedProcess = combo_process.SelectedItem.ToString();
             var processesStatus = await processRepository.GetSelectedProcessStatus(selectedProcess);
-            label6.Text = processesStatus.ToString();
+            if (processesStatus == "True")
+            {
+                label6.Text = "작동중";
+            }
+            else
+            {
+                label6.Text = "꺼짐";
+            }
         }
     }
 }
