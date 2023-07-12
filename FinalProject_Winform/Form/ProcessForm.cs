@@ -5,7 +5,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO.Ports;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,6 +17,7 @@ namespace FinalProject_Winform
     public partial class ProcessForm : Form
     {
         private IProcessRepository processRepository;
+        MainForm mainForm = new();
         public ProcessForm()
         {
             InitializeComponent();
@@ -100,6 +103,7 @@ namespace FinalProject_Winform
             }
         }
 
+        //DB status 값 변경하기
         private async Task ProcessOnOffAsync(bool State)
         {
             // combo_process에서 선택한 값 가져오기
@@ -108,13 +112,13 @@ namespace FinalProject_Winform
             //전원이 켜진 상태이면
             if (State == true)
             {
-                await processRepository.IsRunningAsync(State,selectedProcess);
+                await processRepository.IsRunningAsync(State, selectedProcess);
                 label6.Text = "작동중";
             }
             //전원이 꺼진 상태이면
             else
             {
-                await processRepository.IsRunningAsync(State,selectedProcess);
+                await processRepository.IsRunningAsync(State, selectedProcess);
                 label6.Text = "꺼짐";
             }
         }
@@ -122,12 +126,60 @@ namespace FinalProject_Winform
         //설비 전원 켜기
         private void btnOn_Click(object sender, EventArgs e)
         {
+            //DB status 값 true로 변경하기
             ProcessOnOffAsync(true);
+            //아두이노에 전원 켜라고 시리얼 통신보내기
+            SendSerialOnOff(true);
         }
         //설비 전원 끄기
         private void btnOff_Click(object sender, EventArgs e)
         {
+            //DB status 값 false로 변경하기
             ProcessOnOffAsync(false);
+            //아두이노에 전원 끄라고 시리얼 통신보내기
+            SendSerialOnOff(false);
         }
-    }
+
+        //----------------------------------------------------------------------------
+        //시리얼 통신
+        //----------------------------------------------------------------------------
+
+        //아두이노에게 통신 보낼때 
+        public void SendSerialOnOff(bool status)
+        {
+            // combo_process에서 선택한 값 가져오기
+            string selectedProcess = combo_process.SelectedItem.ToString();
+
+            //현재 상태에 따라 다른 메시지 작성
+            string message = "";
+            if (status == true)
+            {
+                message = $"$On,{selectedProcess}";
+            }
+            else
+            {
+                message = $"$Off,{selectedProcess}";
+            }
+
+            //아두이노에게 시리얼 통신 보내기
+            mainForm.serialPort.WriteLine(message);
+        }
+  
+
+        // 아두이노에서 통신 받았을때 
+        public void RecieveSerialOn()
+        {
+            //아두이노에서 전원 켰을때
+
+        }
+
+        public void RecieveSerialOff()
+        {
+            //아두이노에서 전원 껏을때
+
+        }
+
+
+
+    }// end class 
 }
