@@ -65,6 +65,7 @@ namespace FinalProject_Winform.Repositories
                 .Where(x => x.Id == orderId)
                 .FirstAsync();
 
+            
             long ordercount = order.Order_count;
             if (order == null) return null;
 

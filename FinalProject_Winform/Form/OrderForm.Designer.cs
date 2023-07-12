@@ -50,6 +50,8 @@
             label4 = new Label();
             button2 = new Button();
             panel3 = new Panel();
+            textBox1 = new TextBox();
+            label10 = new Label();
             txtAccount = new TextBox();
             label2 = new Label();
             tabPage2 = new TabPage();
@@ -68,8 +70,6 @@
             order_account = new DataGridViewTextBoxColumn();
             txtOrderName = new TextBox();
             label3 = new Label();
-            label10 = new Label();
-            textBox1 = new TextBox();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             tabControl1.SuspendLayout();
@@ -263,6 +263,7 @@
             // 
             // dateTimePicker1
             // 
+            dateTimePicker1.Format = DateTimePickerFormat.Custom;
             dateTimePicker1.Location = new Point(230, 81);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(200, 23);
@@ -343,6 +344,24 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(1086, 91);
             panel3.TabIndex = 1;
+            // 
+            // textBox1
+            // 
+            textBox1.Font = new Font("맑은 고딕", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            textBox1.Location = new Point(791, 26);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(263, 39);
+            textBox1.TabIndex = 5;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("맑은 고딕", 26.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label10.Location = new Point(615, 18);
+            label10.Name = "label10";
+            label10.Size = new Size(125, 47);
+            label10.TabIndex = 4;
+            label10.Text = "주문명";
             // 
             // txtAccount
             // 
@@ -512,24 +531,6 @@
             label3.Size = new Size(125, 47);
             label3.TabIndex = 4;
             label3.Text = "주문명";
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Font = new Font("맑은 고딕", 26.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label10.Location = new Point(615, 18);
-            label10.Name = "label10";
-            label10.Size = new Size(125, 47);
-            label10.TabIndex = 4;
-            label10.Text = "주문명";
-            // 
-            // textBox1
-            // 
-            textBox1.Font = new Font("맑은 고딕", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            textBox1.Location = new Point(791, 26);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(263, 39);
-            textBox1.TabIndex = 5;
             // 
             // OrderForm
             // 

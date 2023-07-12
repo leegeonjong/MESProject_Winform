@@ -36,10 +36,10 @@ namespace FinalProject_Winform.Repositories
             await db.SaveChangesAsync();
             return existingItem;
         }
-        public async Task<Item> ExportUpdateAsync(long orderId, long amount)
+        public async Task<Item> ExportUpdateAsync(long itemId, long amount)
         {
             using FinalDbContext db = new();
-            var existingItem = await db.Items.Where(x => x.Id == orderId).FirstOrDefaultAsync();
+            var existingItem = await db.Items.Where(x => x.Id == itemId).FirstOrDefaultAsync();
 
             if (existingItem == null)
             {

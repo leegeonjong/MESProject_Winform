@@ -26,14 +26,21 @@ namespace FinalProject_Winform
         }
         DateTimePicker startdate;
         DateTimePicker enddate;
+        DateTimePicker startdate1;
+        DateTimePicker enddate1;
         DataGridView dgv;
 
         private void OrderForm_Load(object sender, EventArgs e)
         {
-            startdate = dateTimePicker1;
-            enddate = dateTimePicker2;
+            startdate1 = dateTimePicker1;
+            enddate1 = dateTimePicker2;
+            startdate = dateTimePicker3;
+            enddate = dateTimePicker4;
+        
+         
             startdate.Value = DateTime.Now;
             enddate.Value = DateTime.Now;
+
             dgv = dataGridView1;
             GridViewLoad();
         }
@@ -64,8 +71,11 @@ namespace FinalProject_Winform
         {
             using (FinalDbContext db = new())
             {
-                var srt = startdate.Value;
-                var orders = await db.Orders.Where(x => x.Order_startDate == srt).ToListAsync();
+                var srt = startdate.Value.Date;
+                var orders = await db.Orders
+                    .Include(x=>x.Item)
+                    .Where(x => x.Order_startDate == srt)
+                    .ToListAsync();
                 dgv.Rows.Clear();
                 dgv.Refresh();
                 int i = 0;
@@ -86,8 +96,11 @@ namespace FinalProject_Winform
         {
             using (FinalDbContext db = new())
             {
-                var edt = enddate.Value;
-                var orders = await db.Orders.Where(x => x.Order_endDate == edt).ToListAsync();
+                var edt = enddate.Value.Date;
+                var orders = await db.Orders
+                    .Include(x=>x.Item)
+                    .Where(x => x.Order_endDate == edt)
+                    .ToListAsync();
                 dgv.Rows.Clear();
                 dgv.Refresh();
                 int i = 0;
@@ -131,8 +144,8 @@ namespace FinalProject_Winform
             string account = txtAccount.Text;
             string ordername = textBox1.Text;
 
-            DateTime startDate = dateTimePicker1.Value;
-            DateTime endDate = dateTimePicker2.Value;
+            DateTime startDate = startdate1.Value.Date;
+            DateTime endDate = enddate1.Value.Date;
 
             string item = comboBox1.SelectedItem.ToString();
             long ordercount = long.Parse(txtOrderCount.Text);
