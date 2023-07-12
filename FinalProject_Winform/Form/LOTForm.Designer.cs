@@ -87,6 +87,7 @@
             panel18 = new Panel();
             label21 = new Label();
             panel9 = new Panel();
+            lbl_start_item = new Label();
             lbl_start_amount = new Label();
             lbl_start_lotnum = new Label();
             panel14 = new Panel();
@@ -101,7 +102,6 @@
             tbox_start_lotnum = new TextBox();
             btn_start_search = new Button();
             lbl_lot = new Label();
-            lbl_start_item = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             tabControl1.SuspendLayout();
@@ -727,11 +727,13 @@
             btn_Start.TabIndex = 4;
             btn_Start.Text = "실행";
             btn_Start.UseVisualStyleBackColor = true;
+            btn_Start.Click += btn_Start_Click;
             // 
             // comboBox1
             // 
             comboBox1.Font = new Font("맑은 고딕", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
             comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "배합", "형태화", "찌기", "잘 튀기기", "냉동", "포장" });
             comboBox1.Location = new Point(112, 29);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(352, 48);
@@ -781,6 +783,16 @@
             panel9.Name = "panel9";
             panel9.Size = new Size(488, 379);
             panel9.TabIndex = 3;
+            // 
+            // lbl_start_item
+            // 
+            lbl_start_item.AutoSize = true;
+            lbl_start_item.Font = new Font("맑은 고딕", 24F, FontStyle.Regular, GraphicsUnit.Point);
+            lbl_start_item.Location = new Point(112, 187);
+            lbl_start_item.Name = "lbl_start_item";
+            lbl_start_item.Size = new Size(91, 45);
+            lbl_start_item.TabIndex = 11;
+            lbl_start_item.Text = "품명:";
             // 
             // lbl_start_amount
             // 
@@ -911,16 +923,6 @@
             lbl_lot.Size = new Size(159, 45);
             lbl_lot.TabIndex = 1;
             lbl_lot.Text = "LOT번호 :";
-            // 
-            // lbl_start_item
-            // 
-            lbl_start_item.AutoSize = true;
-            lbl_start_item.Font = new Font("맑은 고딕", 24F, FontStyle.Regular, GraphicsUnit.Point);
-            lbl_start_item.Location = new Point(112, 187);
-            lbl_start_item.Name = "lbl_start_item";
-            lbl_start_item.Size = new Size(91, 45);
-            lbl_start_item.TabIndex = 11;
-            lbl_start_item.Text = "품명:";
             // 
             // LOTForm
             // 

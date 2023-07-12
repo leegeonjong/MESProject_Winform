@@ -19,10 +19,11 @@ namespace FinalProject_Winform
     public partial class LOTForm : Form
     {
         private ILotRepository lotRepository;
-        MainForm mainForm = new MainForm();
-        public LOTForm()
+        private MainForm mainForm;
+        public LOTForm(MainForm mainForm)
         {
             InitializeComponent();
+            this.mainForm = mainForm;
             lotRepository = new LotRepository();
         }
         //
@@ -229,6 +230,11 @@ namespace FinalProject_Winform
                 lbl_start_amount.Text = Lot.Lot_amount.ToString();
                 lbl_start_status.Text = Lot.Lot_status;
             }
+        }
+
+        private void btn_Start_Click(object sender, EventArgs e)
+        {
+            mainForm.serialPort.WriteLine("$Run");
         }
     }
 }
