@@ -11,6 +11,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
+using Image = System.Drawing.Image;
 
 namespace FinalProject_Winform
 {
@@ -109,7 +111,7 @@ namespace FinalProject_Winform
         //메인폼으로 돌아가기
         private void LOTForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            var MainForm = Application.OpenForms["MainForm"] as MainForm;
+            var MainForm = System.Windows.Forms.Application.OpenForms["MainForm"] as MainForm;
 
             if (MainForm != null)
             {
@@ -147,7 +149,8 @@ namespace FinalProject_Winform
 
         private async void LoadItems(string text, int num)
         {
-            if (num == 0) {
+            if (num == 0)
+            {
                 var Lots = await lotRepository.GetAllAsync();
 
                 //DataGridvIEW 저체 클리어
@@ -214,5 +217,18 @@ namespace FinalProject_Winform
             }
         }
 
+        private async void btn_start_search_Click(object sender, EventArgs e)
+        {
+            string text = tbox_start_lotnum.Text;
+            var Lots = await lotRepository.GetByBarcode(text);
+            int i = 0;
+            foreach (var Lot in Lots)
+            {
+                lbl_start_lotnum.Text = Lot.Lot_barcode;
+                lbl_start_item.Text = Lot.Item.Item_name;
+                lbl_start_amount.Text = Lot.Lot_amount.ToString();
+                lbl_start_status.Text = Lot.Lot_status;
+            }
+        }
     }
 }
