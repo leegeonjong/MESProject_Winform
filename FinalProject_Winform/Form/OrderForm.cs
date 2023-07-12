@@ -1,5 +1,6 @@
 ﻿using FinalProject_Winform.Data;
 using FinalProject_Winform.Models.domain;
+using FinalProject_Winform.Repositories;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -125,8 +126,10 @@ namespace FinalProject_Winform
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private async void button2_Click(object sender, EventArgs e)
         {
+            string account = txtAccount.Text;
+            string ordername = textBox1.Text;
 
             DateTime startDate = dateTimePicker1.Value;
             DateTime endDate = dateTimePicker2.Value;
