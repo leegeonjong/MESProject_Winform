@@ -19,9 +19,11 @@ namespace FinalProject_Winform
         private IStockRepository stockRepository;
         private IItemRepository itemRepository;
         private IOrderRepository orederRepository;
-        public StockForm()
+        private MainForm mainForm;
+        public StockForm(MainForm mainForm)
         {
             InitializeComponent();
+            this.mainForm = mainForm;
             stockRepository = new StockRepository();
             itemRepository = new ItemRepository();
             orederRepository = new OrderRepository();
@@ -115,15 +117,15 @@ namespace FinalProject_Winform
                     dgvWarehousing.Rows.Add();  // 새로운 row 추가
                     dgvWarehousing.Rows[i].Cells["item_name3"].Value = stock.Item.Item_name;
                     dgvWarehousing.Rows[i].Cells["item_warehousing3"].Value = stock.Stock_status;
-                    if (stock.Stock_status == "입고") 
-                    { 
-                        dgvWarehousing.Rows[i].Cells["item_count3"].Value = "+" +stock.Stock_amount + stock.Item.Item_unit; 
+                    if (stock.Stock_status == "입고")
+                    {
+                        dgvWarehousing.Rows[i].Cells["item_count3"].Value = "+" + stock.Stock_amount + stock.Item.Item_unit;
                     }
                     else
                     {
                         dgvWarehousing.Rows[i].Cells["item_count3"].Value = stock.Stock_amount + stock.Item.Item_unit;
                     }
-                    
+
                     dgvWarehousing.Rows[i].Cells["item_regdate3"].Value = stock.Stock_regDate;
                     dgvWarehousing.Rows[i].Cells["item_amount3"].Value = stock.Stock_regAmount + stock.Item.Item_unit;
                     i++;
@@ -181,13 +183,7 @@ namespace FinalProject_Winform
         //메인폼으로 돌아가기
         private void StockForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            var MainForm = Application.OpenForms["MainForm"] as MainForm;
-
-            if (MainForm != null)
-            {
-                MainForm = new MainForm();
-                MainForm.Show();
-            }
+            mainForm.Show();
             this.Hide();
         }
 
