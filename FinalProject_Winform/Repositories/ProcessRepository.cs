@@ -34,7 +34,7 @@ namespace FinalProject_Winform.Repositories
                 }
                 else
                 {
-                    return "해당하는 Process가 없습니다.";
+                    return "Wrong";
                 }
             }
         }
