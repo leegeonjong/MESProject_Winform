@@ -56,11 +56,11 @@
             button3 = new Button();
             comboBox2 = new ComboBox();
             label6 = new Label();
-            item_name = new DataGridViewTextBoxColumn();
-            item_warehousing = new DataGridViewTextBoxColumn();
-            item_count = new DataGridViewTextBoxColumn();
-            item_regdate = new DataGridViewTextBoxColumn();
-            item_amount = new DataGridViewTextBoxColumn();
+            stock_item = new DataGridViewTextBoxColumn();
+            stock_status = new DataGridViewTextBoxColumn();
+            stock_count = new DataGridViewTextBoxColumn();
+            stock_time = new DataGridViewTextBoxColumn();
+            stock_amount = new DataGridViewTextBoxColumn();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             tabControl1.SuspendLayout();
@@ -217,7 +217,7 @@
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.BackgroundColor = Color.White;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { item_name, item_warehousing, item_count, item_regdate, item_amount });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { stock_item, stock_status, stock_count, stock_time, stock_amount });
             dataGridView1.Location = new Point(7, 139);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
@@ -407,40 +407,35 @@
             label6.TabIndex = 0;
             label6.Text = "물품";
             // 
-            // item_name
+            // stock_item
             // 
-            item_name.HeaderText = "종류";
-            item_name.Name = "item_name";
-            item_name.ReadOnly = true;
-            item_name.Width = 150;
+            stock_item.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            stock_item.HeaderText = "종류";
+            stock_item.Name = "stock_item";
             // 
-            // item_warehousing
+            // stock_status
             // 
-            item_warehousing.HeaderText = "입/출고";
-            item_warehousing.Name = "item_warehousing";
-            item_warehousing.ReadOnly = true;
-            item_warehousing.Width = 150;
+            stock_status.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            stock_status.HeaderText = "입/출고";
+            stock_status.Name = "stock_status";
             // 
-            // item_count
+            // stock_count
             // 
-            item_count.HeaderText = "수량변화";
-            item_count.Name = "item_count";
-            item_count.ReadOnly = true;
-            item_count.Width = 150;
+            stock_count.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            stock_count.HeaderText = "수량";
+            stock_count.Name = "stock_count";
             // 
-            // item_regdate
+            // stock_time
             // 
-            item_regdate.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            item_regdate.HeaderText = "날짜";
-            item_regdate.Name = "item_regdate";
-            item_regdate.ReadOnly = true;
+            stock_time.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            stock_time.HeaderText = "날짜";
+            stock_time.Name = "stock_time";
             // 
-            // item_amount
+            // stock_amount
             // 
-            item_amount.HeaderText = "총 수량";
-            item_amount.Name = "item_amount";
-            item_amount.ReadOnly = true;
-            item_amount.Width = 180;
+            stock_amount.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            stock_amount.HeaderText = "총 수량";
+            stock_amount.Name = "stock_amount";
             // 
             // StockForm
             // 
@@ -496,15 +491,10 @@
         private Label label6;
         private Button button1;
         private Button button3;
-        private DataGridViewTextBoxColumn item_name;
-        private DataGridViewTextBoxColumn item_warehousing;
-        private DataGridViewTextBoxColumn item_count;
-        private DataGridViewTextBoxColumn item_regdate;
-        private DataGridViewTextBoxColumn item_amount;
-        private Button btn_OrderForm;
-        private Button btn_StockForm;
-        private Button btn_TestForm;
-        private Button btn_ProcessForm;
-        private Button btn_LOTForm;
+        private DataGridViewTextBoxColumn stock_item;
+        private DataGridViewTextBoxColumn stock_status;
+        private DataGridViewTextBoxColumn stock_count;
+        private DataGridViewTextBoxColumn stock_time;
+        private DataGridViewTextBoxColumn stock_amount;
     }
 }
