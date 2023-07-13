@@ -16,13 +16,13 @@ void SendEnd(String process, String lotid) {
   Serial.println(sendData);
 }
 
-void SendOff(String process, String lotid) {
+void SendContinue(String process, String lotid) {
   String sendData = String("");
-  sendData += String("$Off") + "," + process + "," + lotid;
+  sendData += String("$On") + "," + process + "," + lotid;
   Serial.println(sendData);
 }
 
-void SendOn(String process, String lotid) {
+void SendStop(String process, String lotid) {
   String sendData = String("");
   sendData += String("$On") + "," + process + "," + lotid;
   Serial.println(sendData);
