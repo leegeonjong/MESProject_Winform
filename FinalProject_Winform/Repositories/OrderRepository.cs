@@ -49,5 +49,18 @@ namespace FinalProject_Winform.Repositories
             await db.SaveChangesAsync();
             return order;
         }
+
+        public async Task<Order> OrderUpdateAsync(long orderId)
+        {
+            using FinalDbContext db = new();
+            var existingOrder = await db.Orders.Where(x => x.Id == orderId).FirstAsync();
+
+            if (existingOrder == null) return null;
+
+            existingOrder.Order_status = "완료";
+
+            await db.SaveChangesAsync();
+            return existingOrder;
+        }
     }
 }

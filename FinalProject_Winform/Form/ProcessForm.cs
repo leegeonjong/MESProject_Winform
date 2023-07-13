@@ -28,7 +28,7 @@ namespace FinalProject_Winform
         private void ProcessForm_Load(object sender, EventArgs e)
         {
             dgvImport = dataGridView1;
-            //LoadProcessAsync();
+            LoadProcessAsync();
         }
         private void Button_Click(object sender, EventArgs e)
         {

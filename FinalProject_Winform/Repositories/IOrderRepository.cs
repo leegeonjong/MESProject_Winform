@@ -13,5 +13,7 @@ namespace FinalProject_Winform.Repositories
         public Task<long> GetByIdAsync(long id);
 
         public Task<Order> AddAsync(DateTime startDate, DateTime endDate, string ordername, long ordercount, string account, string itemname);
+
+        public Task<Order> OrderUpdateAsync(long orderId);
     }
 }

@@ -12,6 +12,7 @@ namespace FinalProject_Winform.Repositories
 {
     public class ProcessRepository : IProcessRepository
     {
+
         public async Task<IEnumerable<Process>> GetAllAsync()
         {
             //using FinalDbContext db = new();

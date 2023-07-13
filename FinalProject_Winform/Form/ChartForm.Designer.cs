@@ -48,19 +48,22 @@
             btn_LOTForm = new Button();
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
+            chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             tabPage2 = new TabPage();
-            chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            tabPage3 = new TabPage();
+            panel3 = new Panel();
+            button2 = new Button();
+            label2 = new Label();
+            dateTimePicker1 = new DateTimePicker();
             chart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)chart2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)chart1).BeginInit();
             tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)chart2).BeginInit();
-            tabPage3.SuspendLayout();
+            panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)chart3).BeginInit();
             SuspendLayout();
             // 
@@ -192,7 +195,6 @@
             // 
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
-            tabControl1.Controls.Add(tabPage3);
             tabControl1.Dock = DockStyle.Bottom;
             tabControl1.ItemSize = new Size(200, 40);
             tabControl1.Location = new Point(160, 90);
@@ -204,6 +206,8 @@
             // 
             // tabPage1
             // 
+            tabPage1.BackColor = Color.Gray;
+            tabPage1.Controls.Add(chart2);
             tabPage1.Controls.Add(chart1);
             tabPage1.Location = new Point(4, 44);
             tabPage1.Name = "tabPage1";
@@ -211,77 +215,112 @@
             tabPage1.Size = new Size(1096, 623);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "재고 차트";
-            tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // chart2
+            // 
+            chartArea1.Name = "ChartArea1";
+            chart2.ChartAreas.Add(chartArea1);
+            chart2.Dock = DockStyle.Bottom;
+            legend1.Name = "Legend1";
+            chart2.Legends.Add(legend1);
+            chart2.Location = new Point(3, 313);
+            chart2.Name = "chart2";
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            chart2.Series.Add(series1);
+            chart2.Size = new Size(1090, 307);
+            chart2.TabIndex = 1;
+            chart2.Text = "chart4";
             // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            chart1.Legends.Add(legend1);
-            chart1.Location = new Point(94, 50);
+            chartArea2.Name = "ChartArea1";
+            chart1.ChartAreas.Add(chartArea2);
+            chart1.Dock = DockStyle.Top;
+            legend2.Name = "Legend1";
+            chart1.Legends.Add(legend2);
+            chart1.Location = new Point(3, 3);
             chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            chart1.Series.Add(series1);
-            chart1.Size = new Size(943, 485);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn;
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            chart1.Series.Add(series2);
+            chart1.Size = new Size(1090, 304);
             chart1.TabIndex = 0;
             chart1.Text = "chart1";
             // 
             // tabPage2
             // 
-            tabPage2.Controls.Add(chart2);
+            tabPage2.BackColor = Color.Gray;
+            tabPage2.Controls.Add(panel3);
+            tabPage2.Controls.Add(chart3);
             tabPage2.Location = new Point(4, 44);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
             tabPage2.Size = new Size(1096, 623);
             tabPage2.TabIndex = 1;
-            tabPage2.Text = "공정 차트";
-            tabPage2.UseVisualStyleBackColor = true;
+            tabPage2.Text = "출하 차트";
             // 
-            // chart2
+            // panel3
             // 
-            chartArea2.Name = "ChartArea1";
-            chart2.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            chart2.Legends.Add(legend2);
-            chart2.Location = new Point(94, 50);
-            chart2.Name = "chart2";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            chart2.Series.Add(series2);
-            chart2.Size = new Size(943, 485);
-            chart2.TabIndex = 0;
-            chart2.Text = "chart2";
+            panel3.BackColor = Color.White;
+            panel3.Controls.Add(button2);
+            panel3.Controls.Add(label2);
+            panel3.Controls.Add(dateTimePicker1);
+            panel3.Dock = DockStyle.Top;
+            panel3.Location = new Point(3, 3);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(1090, 118);
+            panel3.TabIndex = 1;
             // 
-            // tabPage3
+            // button2
             // 
-            tabPage3.Controls.Add(chart3);
-            tabPage3.Location = new Point(4, 44);
-            tabPage3.Name = "tabPage3";
-            tabPage3.Padding = new Padding(3);
-            tabPage3.Size = new Size(1096, 623);
-            tabPage3.TabIndex = 2;
-            tabPage3.Text = "검사 차트";
-            tabPage3.UseVisualStyleBackColor = true;
+            button2.BackColor = Color.FromArgb(52, 152, 219);
+            button2.FlatAppearance.BorderColor = Color.White;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("맑은 고딕", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            button2.Location = new Point(622, 26);
+            button2.Name = "button2";
+            button2.Size = new Size(132, 46);
+            button2.TabIndex = 6;
+            button2.Text = "검색";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("맑은 고딕", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Location = new Point(274, 35);
+            label2.Name = "label2";
+            label2.Size = new Size(125, 37);
+            label2.TabIndex = 1;
+            label2.Text = "시작날짜";
+            // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.Location = new Point(405, 41);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(200, 23);
+            dateTimePicker1.TabIndex = 0;
             // 
             // chart3
             // 
             chartArea3.Name = "ChartArea1";
             chart3.ChartAreas.Add(chartArea3);
+            chart3.Dock = DockStyle.Bottom;
             legend3.Name = "Legend1";
             chart3.Legends.Add(legend3);
-            chart3.Location = new Point(94, 50);
+            chart3.Location = new Point(3, 114);
             chart3.Name = "chart3";
             series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series3.Legend = "Legend1";
             series3.Name = "Series1";
             chart3.Series.Add(series3);
-            chart3.Size = new Size(943, 485);
+            chart3.Size = new Size(1090, 506);
             chart3.TabIndex = 0;
             chart3.Text = "chart3";
             // 
@@ -302,10 +341,11 @@
             panel1.ResumeLayout(false);
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)chart2).EndInit();
             ((System.ComponentModel.ISupportInitialize)chart1).EndInit();
             tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)chart2).EndInit();
-            tabPage3.ResumeLayout(false);
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)chart3).EndInit();
             ResumeLayout(false);
         }
@@ -318,15 +358,18 @@
         private TabControl tabControl1;
         private TabPage tabPage1;
         private TabPage tabPage2;
-        private TabPage tabPage3;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart3;
         private Button btn_ChartForm;
         private Button btn_OrderForm;
         private Button btn_StockForm;
         private Button btn_TestForm;
         private Button btn_ProcessForm;
         private Button btn_LOTForm;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
+        private Panel panel3;
+        private Label label2;
+        private DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart3;
+        private Button button2;
     }
 }

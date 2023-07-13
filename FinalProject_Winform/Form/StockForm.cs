@@ -18,15 +18,15 @@ namespace FinalProject_Winform
     {
         private IStockRepository stockRepository;
         private IItemRepository itemRepository;
-        private IOrderRepository orederRepository;
         private MainForm mainForm;
+        private IOrderRepository orderRepository;
         public StockForm(MainForm mainForm)
         {
             InitializeComponent();
             this.mainForm = mainForm;
             stockRepository = new StockRepository();
             itemRepository = new ItemRepository();
-            orederRepository = new OrderRepository();
+            orderRepository = new OrderRepository();
 
         }
         DataGridView dgvImport;
@@ -149,25 +149,23 @@ namespace FinalProject_Winform
 
         private async void btn_Export_Click(object sender, EventArgs e)
         {
-            try
-            {
+            
                 long orderId = long.Parse(txtOrder.Text);
-                var count = await orederRepository.GetByIdAsync(orderId);
+                var count = await orderRepository.GetByIdAsync(orderId);
 
                 var stock = await stockRepository.MinusAsync(orderId);
                 if (stock != null)
                 {
-                    var existingItem = await itemRepository.ExportUpdateAsync(orderId, count);
+                    var existingItem = await itemRepository.ExportUpdateAsync(stock.Item.Id, count);
+                      await orderRepository.OrderUpdateAsync(orderId);
+
                     if (existingItem != null)
                     {
                         MessageBox.Show("성공");
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("오류: " + ex.Message);
-            }
+            
+            
         }
 
 
