@@ -20,7 +20,7 @@ void loop() {
 
     if (recv.startsWith("$")) {
       String cmd = recv.substring(1, recv.indexOf(","));
-      String rest = recv.substring(recv.indexOf(",") + 1);
+      String process = recv.substring(recv.indexOf(",") + 1);
 
       if (cmd == "On") {
         digitalWrite(Process1Led1, HIGH);
