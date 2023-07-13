@@ -2,6 +2,7 @@
 
 SELECT * FROM Item;
 SELECT * FROM Stock;
+SELECT * FROM Process;
 
 
 -- ITEM 테이블 ID값 초기화 DUMMY --
@@ -35,21 +36,26 @@ VALUES
 
 select * from Process
 
+DELETE FROM Process
+
+
+
+
 DBCC CHECKIDENT(Process, reseed, 0);
 delete Process
 
 INSERT INTO Process(Process_name, Process_status, Process_checkRight)
-VALUES ('배합', 1, 1)
+VALUES ('Mix', 1, 1)
 INSERT INTO Process(Process_name, Process_status, Process_checkRight)
-VALUES ('형태화', 1, 1)
+VALUES ('Shape', 1, 1)
 INSERT INTO Process(Process_name, Process_status, Process_checkRight)
-VALUES ('찌기', 1, 1)
+VALUES ('Steam', 1, 1)
 INSERT INTO Process(Process_name, Process_status, Process_checkRight)
-VALUES ('튀기기', 1, 1)
+VALUES ('Fry', 1, 1)
 INSERT INTO Process(Process_name, Process_status, Process_checkRight)
-VALUES ('냉동', 1, 1)
+VALUES ('Freeze', 1, 1)
 INSERT INTO Process(Process_name, Process_status, Process_checkRight)
-VALUES ('포장', 1, 1)
+VALUES ('Pack', 1, 1)
 -- ORDER ID값 초기화 + DUMMY -- 
 
 DELETE FROM [Order]

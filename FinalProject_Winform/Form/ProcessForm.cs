@@ -17,12 +17,16 @@ namespace FinalProject_Winform
     public partial class ProcessForm : Form
     {
         private IProcessRepository processRepository;
+        private ILothistoryRepository lothistoryRepository;
+        private ILotRepository lotRepository;
         private MainForm mainForm;
         public ProcessForm(MainForm mainForm)
         {
             InitializeComponent();
             this.mainForm = mainForm;
             processRepository = new ProcessRepository();
+            lothistoryRepository = new LothistoryRepositry();
+            lotRepository = new LotRepository();
         }
         DataGridView dgvImport;
         private void ProcessForm_Load(object sender, EventArgs e)
@@ -140,26 +144,29 @@ namespace FinalProject_Winform
         //----------------------------------------------------------------------------
 
         //아두이노에게 통신 보낼때 
-        public void SendSerialOnOff(bool status)
+        public async void SendSerialOnOff(bool status)
         {
             // combo_process에서 선택한 값 가져오기
             string selectedProcess = combo_process.SelectedItem.ToString();
+            long ProcessId = processRepository.GetProcessId(selectedProcess);
+            long RecentLotId = await lothistoryRepository.GetRecentLotAsync(ProcessId);
+
 
             //현재 상태에 따라 다른 메시지 작성
             string message = "";
             if (status == true)
             {
-                message = $"$On,{selectedProcess}";
+                message = $"$On,{selectedProcess},{RecentLotId}";
             }
             else
             {
-                message = $"$Off,{selectedProcess}";
+                message = $"$Off,{selectedProcess},{RecentLotId}";
             }
 
             //아두이노에게 시리얼 통신 보내기
             mainForm.serialPort.WriteLine(message);
         }
-  
+
 
         // 아두이노에서 통신 받았을때 
         public void RecieveSerialOn()

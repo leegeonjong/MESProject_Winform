@@ -236,8 +236,9 @@ namespace FinalProject_Winform
             string processname = cmb_process.Text;
             long processid = processRepository.GetProcessId(processname);
             long lotid = lotRepository.FindLotPkByBarcode(lotbarcode);
-            lothistoryRepository.AddLotAsync(lotid, processid);
+            lothistoryRepository.AddLotAsync(lotid, processid, "created");
             mainForm.serialPort.WriteLine($"$Run,Mix,{lotid}");
+            mainForm.ShowMessage($"$Run,Mix,{lotid}");
         }
     }
 }

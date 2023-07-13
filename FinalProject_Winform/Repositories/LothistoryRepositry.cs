@@ -12,7 +12,7 @@ namespace FinalProject_Winform.Repositories
 {
     internal class LothistoryRepositry : ILothistoryRepository
     {
-        public async Task<LotHistory> AddLotAsync(long lotid, long processid)
+        public async Task<LotHistory> AddLotAsync(long lotid, long processid, string status)
         {
             using FinalDbContext db = new();
             //var lothistory = await db.LotHistorys.Where(x => x.LotId == lotid).Where(x=> x.ProcessId == processid).FirstAsync();
@@ -21,12 +21,25 @@ namespace FinalProject_Winform.Repositories
             {
                 LotId = lotid,
                 ProcessId = processid,
-                LotHistory_startDate = DateTime.Now,
+                LotHistory_Date = DateTime.Now,
+                LotHistory_status = status,
             };
 
             await db.LotHistorys.AddAsync(lothistory);
             await db.SaveChangesAsync();
             return lothistory;
         }
+
+        public async Task<long> GetRecentLotAsync(long processid)
+        {
+            using FinalDbContext db = new();
+            var lot = await db.LotHistorys
+                .Where(i => i.ProcessId == processid)
+                .OrderByDescending(i => i.LotHistory_Date)
+                .FirstOrDefaultAsync();
+
+            return lot.LotId;
+        }
+
     }
 }
