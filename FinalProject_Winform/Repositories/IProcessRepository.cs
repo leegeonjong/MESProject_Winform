@@ -14,5 +14,7 @@ namespace FinalProject_Winform.Repositories
         Task<string> GetSelectedProcessStatus(string selectedProcessName);
 
         Task<bool> IsRunningAsync(bool state, string selectedProcess);
+
+        long GetProcessId(string processName);
     }
 }

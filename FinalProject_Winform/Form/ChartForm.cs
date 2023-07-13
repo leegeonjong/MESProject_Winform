@@ -19,7 +19,7 @@ namespace FinalProject_Winform
         private readonly FinalDbContext db;
         private readonly IItemRepository itemRepository;
         private MainForm mainForm;
-        public ChartForm( MainForm mainForm)
+        public ChartForm(MainForm mainForm)
         {
             InitializeComponent();
             this.mainForm = mainForm;

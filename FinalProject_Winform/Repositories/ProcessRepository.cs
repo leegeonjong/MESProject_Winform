@@ -1,4 +1,5 @@
-﻿using FinalProject_Winform.Data;
+﻿using BarcodeStandard;
+using FinalProject_Winform.Data;
 using FinalProject_Winform.Models.domain;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -20,6 +21,13 @@ namespace FinalProject_Winform.Repositories
             //    .ToListAsync();
             //return process.OrderByDescending(x => x.Id).ToList();
             throw new NotImplementedException();
+        }
+
+        public long GetProcessId(string processName)
+        {
+            using FinalDbContext db = new();
+            var process = db.Processes.FirstOrDefault(l => l.Process_name == processName);
+            return process?.Id ?? 0;
         }
 
         public async Task<string> GetSelectedProcessStatus(string selectedProcessName)

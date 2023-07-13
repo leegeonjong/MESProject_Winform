@@ -12,7 +12,7 @@ namespace FinalProject_Winform.Repositories
 {
     internal class LothistoryRepositry : ILothistoryRepository
     {
-        public async Task<LotHistory> AddLotAsync(int lotid, int processid)
+        public async Task<LotHistory> AddLotAsync(long lotid, long processid)
         {
             using FinalDbContext db = new();
             //var lothistory = await db.LotHistorys.Where(x => x.LotId == lotid).Where(x=> x.ProcessId == processid).FirstAsync();
