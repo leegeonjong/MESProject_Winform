@@ -43,26 +43,21 @@ void setup() {
   }
 }
 
-  String action = "";   //공정상태
-  String rest = "";     //나머지
-  String process = "";  // 공정명
-  String lotid = "";    // lotid
+String action = "";   //공정상태
+String rest = "";     //나머지
+String process = "";  // 공정명
+String lotid = "";    // lotid
 
 void loop() {
-  String action = "";   //공정상태
-  String rest = "";     //나머지
-  String process = "";  // 공정명
-  String lotid = "";    // lotid
   for (int i = 0; i < 6; i++) {
     digitalWrite(LedRed[i], HIGH);
     // digitalWrite(LedGreen[i], HIGH);
     // digitalWrite(LedYellow[i], HIGH);
   }
 
-
   // $Run,Mix,213 명령 받고 이렇게 돌려주도록 한다
 
-  if (Serial.available() > 0) {  // <- 수신 버퍼를 비우려면 while(Serial.available()) 사용해야 한다.  https://www.baldengineer.com/when-do-you-use-the-arduinos-to-use-serial-flush.html
+  if (Serial.available() > 0) {
     String line = Serial.readStringUntil('\n');
     line.trim();  // trim() 은 void 리턴.
     if (line.startsWith("$")) {
@@ -74,16 +69,19 @@ void loop() {
       if (action == "Run") {
         SendRecieve(process, lotid);
         SendStart(process, lotid);
+
         startTime = millis();  // 타이머 시작 시간 저장
         timerStarted = true;   // 타이머 시작 상태 설정
       }
 
 
       else if (action == "On") {
-        SendOn(process, lotid);
-        for (int i = 0; i < 6; i++) {
-          digitalWrite(LedRed[i], HIGH);
-        }
+        //작동중이였다면 노란색 아니라면 초록색 켜기
+        digitalWrite(LedRed[ProcessNum], LOW);
+        digitalWrite(LedGreen[ProcessNum], HIGH);
+        digitalWrite(LedYellow[ProcessNum], LOW);
+        SendContinue(process, lotid);
+
       } else if (action == "Off") {
         digitalWrite(LedRed[ProcessNum], HIGH);
         digitalWrite(LedGreen[ProcessNum], LOW);
@@ -92,18 +90,18 @@ void loop() {
       }
     }
   }
-    if (timerStarted && millis() - startTime >= timerDuration) {
-      SendEnd(process, lotid);
-      timerStarted = false;  // 타이머 상태 초기화
-    }
-
-
-
-
-    //  WaterSenser();
-
-    // Process1(Process1Led1, Process1Led2, Process1Motor, Process1Sw);
-
-
-    // UltrasonicSensor();
+  if (timerStarted && millis() - startTime >= timerDuration) {
+    SendEnd(process, lotid);
+    timerStarted = false;  // 타이머 상태 초기화
   }
+
+
+
+
+  //  WaterSenser();
+
+  // Process1(Process1Led1, Process1Led2, Process1Motor, Process1Sw);
+
+
+  // UltrasonicSensor();
+}
