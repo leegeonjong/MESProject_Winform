@@ -1,9 +1,19 @@
-void SendRecieve(String Process,) {
-  String sendData = String("")
-  sendData += String()
+void SendRecieve(String process,String lotid) {
+  String sendData = String("");
+  sendData += String("$Recieve")
+    +"," + process
+    +"," + lotid
+    ;
+    Serial.println(sendData);
 }
 
-void SendStart() {
+void SendStart(String process,String lotid) {
+    String sendData = String("");
+  sendData += String("$Start")
+    +"," + process
+    +"," + lotid
+    ;
+    Serial.println(sendData);
 }
 
 void SendEnd() {

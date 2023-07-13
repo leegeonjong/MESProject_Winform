@@ -733,7 +733,7 @@
             // 
             cmb_process.Font = new Font("맑은 고딕", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
             cmb_process.FormattingEnabled = true;
-            cmb_process.Items.AddRange(new object[] { "배합", "형태화", "찌기", "튀기기", "냉동", "포장" });
+            cmb_process.Items.AddRange(new object[] { "Mix", "Shape", "Steam", "Fry", "Freeze", "Pack" });
             cmb_process.Location = new Point(112, 29);
             cmb_process.Name = "cmb_process";
             cmb_process.Size = new Size(352, 48);

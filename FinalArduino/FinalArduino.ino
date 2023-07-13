@@ -29,6 +29,8 @@ void loop() {
       process = rest.substring(0, line.indexOf(","));
       lotid = rest.substring(line.indexOf(",") + 0);
       if (action == "Run") {
+        SendRecieve(process,lotid);
+        SendStart(process,lotid);
       }
       else if (action == "On") {
         digitalWrite(Process1Led1, HIGH);
