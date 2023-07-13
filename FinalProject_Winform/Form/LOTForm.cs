@@ -105,20 +105,21 @@ namespace FinalProject_Winform
         }
 
         private void Button_Click(object sender, EventArgs e)
-        {
+        { 
             System.Windows.Forms.Button button = sender as System.Windows.Forms.Button;
             if (button != null)
             {
                 string formName = button.Name.Replace("btn_", "");
                 FormUtility.OpenForm(formName, this);
+                this.Close();
             }
         }
 
         //메인폼으로 돌아가기
         private void LOTForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            mainForm.Show();
-            this.Hide();
+            //mainForm.Show();
+            //this.Hide();
         }
 
         private void button3_Click(object sender, EventArgs e)

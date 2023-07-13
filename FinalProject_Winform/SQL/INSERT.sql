@@ -4,17 +4,17 @@ VALUES
 (1,GETDATE(),GETDATE()+7,GETDATE()+6,'대기','주문',300)
 
 INSERT INTO Process(Process_name, Process_status, Process_checkRight)
-VALUES ('Mix', 1, 1)
+VALUES ('Mix', 0, 1)
 INSERT INTO Process(Process_name, Process_status, Process_checkRight)
-VALUES ('Shape', 1, 1)
+VALUES ('Shape', 0, 1)
 INSERT INTO Process(Process_name, Process_status, Process_checkRight)
-VALUES ('Steam', 1, 1)
+VALUES ('Steam', 0, 1)
 INSERT INTO Process(Process_name, Process_status, Process_checkRight)
-VALUES ('Fry', 1, 1)
+VALUES ('Fry', 0, 1)
 INSERT INTO Process(Process_name, Process_status, Process_checkRight)
-VALUES ('Freeze', 1, 1)
+VALUES ('Freeze',0, 1)
 INSERT INTO Process(Process_name, Process_status, Process_checkRight)
-VALUES ('Pack', 1, 1)
+VALUES ('Pack', 0, 1)
 
 INSERT INTO Stock (ItemId, Stock_Amount, Stock_regDate, Stock_status)
 VALUES

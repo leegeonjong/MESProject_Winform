@@ -176,13 +176,14 @@ namespace FinalProject_Winform
             {
                 string formName = button.Name.Replace("btn_", "");
                 FormUtility.OpenForm(formName, this);
+                this.Close();
             }
         }
         //메인폼으로 돌아가기
         private void StockForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            mainForm.Show();
-            this.Hide();
+            //mainForm.Show();
+            //this.Hide();
         }
 
         private void button3_Click(object sender, EventArgs e)

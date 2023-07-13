@@ -63,7 +63,7 @@ namespace FinalProject_Winform
 
             if (targetForm != null)
             {
-                currentForm.Hide(); // 현재 폼 숨기기
+                //currentForm.Hide(); // 현재 폼 숨기기
                 targetForm.Show(); // 타겟 폼 보여주기
             }
             else
