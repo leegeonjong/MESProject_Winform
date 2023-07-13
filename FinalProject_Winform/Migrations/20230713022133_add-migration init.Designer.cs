@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FinalProject_Winform.Migrations
 {
     [DbContext(typeof(FinalDbContext))]
-    [Migration("20230712042531_init")]
-    partial class init
+    [Migration("20230713022133_add-migration init")]
+    partial class addmigrationinit
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -129,11 +129,11 @@ namespace FinalProject_Winform.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("LotHistoryId"));
 
-                    b.Property<DateTime?>("LotHistory_endDate")
+                    b.Property<DateTime?>("LotHistory_Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("LotHistory_startDate")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("LotHistory_status")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<long>("LotId")
                         .HasColumnType("bigint");

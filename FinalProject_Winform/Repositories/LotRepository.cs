@@ -82,7 +82,7 @@ namespace FinalProject_Winform.Repositories
             return lot?.Id ?? 0;
         }
 
-        public async Task<Lot> Updateasync(string status, int lotpk)
+        public async Task<Lot> Updateasync(string status, long lotpk)
         {
             using FinalDbContext db = new();
             var lot = await db.Lots.Where(x=> x.Id == lotpk).FirstOrDefaultAsync();

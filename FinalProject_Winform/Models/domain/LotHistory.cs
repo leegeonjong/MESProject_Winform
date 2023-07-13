@@ -24,8 +24,8 @@ namespace FinalProject_Winform.Models.domain
 
         public Process Process { get; set; }
 
-        public DateTime? LotHistory_startDate { get; set; } // LOT 시작 날짜
+        public DateTime? LotHistory_Date { get; set; } // LOT 시작 날짜
 
-        public DateTime? LotHistory_endDate { get; set; } // LOT 종료 날짜
+        public string? LotHistory_status { get; set; } // LOT 종료 날짜
     }
 }
