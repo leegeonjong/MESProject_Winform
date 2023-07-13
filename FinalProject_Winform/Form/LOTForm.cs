@@ -78,7 +78,7 @@ namespace FinalProject_Winform
                 );
 
             picture_Barcode.Image = Image.FromStream(img.Encode().AsStream());
-            ////
+          
 
         }
 
@@ -233,7 +233,6 @@ namespace FinalProject_Winform
 
         private void btn_Start_Click(object sender, EventArgs e)
         {
-            //
             string Check = lbl_start_check.Text;
             if (Check == "O") {
                 string lotbarcode = lbl_start_lotnum.Text;
@@ -241,7 +240,7 @@ namespace FinalProject_Winform
                 long processid = processRepository.GetProcessId(processname);
                 long lotid = lotRepository.FindLotPkByBarcode(lotbarcode);
 
-                mainForm.serialPort.WriteLine($"$Run,Mix,{lotid}");
+                mainForm.serialPort.WriteLine($"$Run,{processname},{lotid}");
                 MessageBox.Show("LOT이 실행되었습니다");
             }
             else  MessageBox.Show("이 Lot은 실행할 수 없습니다");

@@ -24,12 +24,16 @@ void SendEnd(String process, String lotid) {
 
 void SendContinue(String process, String lotid) {
   String sendData = String("");
-  sendData += String("$On") + "," + process + "," + lotid;
+  sendData += String("$Continue") 
+  + "," + process 
+   + lotid;
   Serial.println(sendData);
 }
 
 void SendStop(String process, String lotid) {
   String sendData = String("");
-  sendData += String("$On") + "," + process + "," + lotid;
+  sendData += String("$Stop") 
+  + "," + process 
+  + lotid;
   Serial.println(sendData);
 }

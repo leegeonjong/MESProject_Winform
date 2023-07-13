@@ -58,15 +58,20 @@ namespace FinalProject_Winform
                     }
                     break;
                 default:
-                    break;
+                    throw new ArgumentException("Invalid formName"); // 유효하지 않은 formName 예외 처리
             }
 
-            currentForm.Hide(); // 현재 폼 숨기기
-
-            targetForm.Show(); // 타겟 폼 보여주기
-
-
+            if (targetForm != null)
+            {
+                currentForm.Hide(); // 현재 폼 숨기기
+                targetForm.Show(); // 타겟 폼 보여주기
+            }
+            else
+            {
+                throw new Exception("Failed to open form"); // 폼을 열 수 없는 경우 예외 처리
+            }
         }
+
     }
 
 }

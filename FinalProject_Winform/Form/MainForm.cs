@@ -37,7 +37,7 @@ namespace FinalProject_Winform
             processRepository = new ProcessRepository();
 
             // MainForm이 로드될 때 수행할 작업
-            string port = $"COM4";  // 여기 바꾸셈
+            string port = $"COM8";  // 여기 바꾸셈
 
             serialPort.PortName = port;   //시리얼 포트 설정
 
@@ -111,10 +111,10 @@ namespace FinalProject_Winform
                 case "End": //공정 종료
                     ProcessEnd(arrMessage[1], lotpk);
                     break;
-                case "Off": //전원 껐을때 (일시정지)
+                case "Stop": //전원 껐을때 (일시정지)
                     ProcessOff(arrMessage[1], lotpk);
                     break;
-                case "On": //전원 켰을때 
+                case "Continue": //전원 켰을때 
                     ProcessOn(arrMessage[1], lotpk);
                     break;
             } // end switch
