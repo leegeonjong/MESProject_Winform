@@ -21,8 +21,8 @@ if (isnan(h) || isnan(t)) {
     Serial.print("humi : ");
     Serial.println(h);
 
-    if(t>30){
-      Serial.print
+    if(t<30){
+      Serial.println("온도가 너무 낮습니다");
     }
     
 
