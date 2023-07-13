@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Net.Mime.MediaTypeNames;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Image = System.Drawing.Image;
 
 namespace FinalProject_Winform
@@ -105,7 +106,7 @@ namespace FinalProject_Winform
 
         private void Button_Click(object sender, EventArgs e)
         {
-            Button button = sender as Button;
+            System.Windows.Forms.Button button = sender as System.Windows.Forms.Button;
             if (button != null)
             {
                 string formName = button.Name.Replace("btn_", "");
@@ -232,13 +233,38 @@ namespace FinalProject_Winform
 
         private void btn_Start_Click(object sender, EventArgs e)
         {
-            string lotbarcode = lbl_start_lotnum.Text;
-            string processname = cmb_process.Text;
-            long processid = processRepository.GetProcessId(processname);
-            long lotid = lotRepository.FindLotPkByBarcode(lotbarcode);
-            lothistoryRepository.AddLotAsync(lotid, processid, "created");
-            mainForm.serialPort.WriteLine($"$Run,Mix,{lotid}");
-            mainForm.ShowMessage($"$Run,Mix,{lotid}");
+            string status = lbl_start_status.Text;
+            
+                string lotbarcode = lbl_start_lotnum.Text;
+                string processname = cmb_process.Text;
+                long processid = processRepository.GetProcessId(processname);
+                long lotid = lotRepository.FindLotPkByBarcode(lotbarcode);
+
+                mainForm.serialPort.WriteLine($"$Run,Mix,{lotid}");
+            
+                //MessageBox.Show("이 Lot은 실행할 수 없습니다");
+            
+        }
+
+        private void cmb_process_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string status_start = cmb_process.Text; // 내가 고른 콤보박스 공정
+            string status = lbl_start_status.Text;  // 현재 공정
+            string check = lbl_start_check.Text;    // 체크 O X
+            if (status == "created" || status_start == "Mix")
+                check = "O";
+            else if (status == "MixEnd" || status_start == "Shape")
+                check = "O";
+            else if (status == "ShapeEnd" || status_start == "Steam")
+                check = "O";
+            else if (status == "SteamEnd" || status_start == "Fry")
+                check = "O";
+            else if (status == "FryEnd" || status_start == "Freeze")
+                check = "O";
+            else if (status == "FreezeEnd" || status_start == "Pack")
+                check = "O";
+            else check = "X";
+
         }
     }
 }

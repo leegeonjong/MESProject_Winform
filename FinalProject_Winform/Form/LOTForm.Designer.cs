@@ -738,6 +738,7 @@
             cmb_process.Name = "cmb_process";
             cmb_process.Size = new Size(352, 48);
             cmb_process.TabIndex = 11;
+            cmb_process.SelectedIndexChanged += cmb_process_SelectedIndexChanged;
             // 
             // panel16
             // 
