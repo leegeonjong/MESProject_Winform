@@ -21,7 +21,9 @@ if (isnan(h) || isnan(t)) {
     Serial.print("humi : ");
     Serial.println(h);
 
-    if(t>30)
+    if(t>30){
+      Serial.print
+    }
     
 
 }
