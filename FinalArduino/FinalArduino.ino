@@ -14,10 +14,28 @@ void setup() {
   pinMode(Process1Motor, OUTPUT);
 }
 void loop() {
+  if (Serial.available() > 0) {
+    String recv = Serial.readStringUntil('\n');
+    recv.trim();
+
+    if (recv.startsWith("$")) {
+      String cmd = recv.substring(1, recv.indexOf(","));
+      String rest = recv.substring(recv.indexOf(",") + 1);
+
+      if (cmd == "On") {
+        digitalWrite(Process1Led1, HIGH);
+        digitalWrite(Process1Led2, LOW);
+      } else if (cmd == "Off") {
+        digitalWrite(Process1Led1, LOW);
+        digitalWrite(Process1Led2, HIGH);
+      }
+    }
+  }
+
   //  WaterSenser();
 
-  Process1(Process1Led1, Process1Led2, Process1Motor, Process1Sw);
-void loop(){
+  // Process1(Process1Led1, Process1Led2, Process1Motor, Process1Sw);
 
- UltrasonicSensor();
+
+  // UltrasonicSensor();
 }
