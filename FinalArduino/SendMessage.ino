@@ -1,18 +1,24 @@
 void SendRecieve(String process, String lotid) {
   String sendData = String("");
-  sendData += String("$Recieve") + "," + process + "," + lotid;
+  sendData += String("$Recieve") 
+  + "," + process 
+  + lotid;
   Serial.println(sendData);
 }
 
 void SendStart(String process, String lotid) {
   String sendData = String("");
-  sendData += String("$Start") + "," + process + "," + lotid;
+  sendData += String("$Start") 
+  + "," + process 
+  + lotid;
   Serial.println(sendData);
 }
 
 void SendEnd(String process, String lotid) {
   String sendData = String("");
-  sendData += String("$End") + "," + process + "," + lotid;
+  sendData += String("$End") 
+  + "," + process 
+   + lotid;
   Serial.println(sendData);
 }
 
