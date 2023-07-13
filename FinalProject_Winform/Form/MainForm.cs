@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO.Ports;
 using System.Linq;
@@ -16,6 +17,9 @@ namespace FinalProject_Winform
     public partial class MainForm : Form
     {
         private ILotRepository lotRepository;
+        private ILothistoryRepository lothistoryRepository;
+        private IProcessRepository processRepository;
+        
         private LOTForm lotForm;
 
         public MainForm()
@@ -29,6 +33,8 @@ namespace FinalProject_Winform
 
             serialPort.ReadTimeout = 0;
             lotRepository = new LotRepository();
+            lothistoryRepository = new LothistoryRepositry();
+            processRepository = new ProcessRepository();
 
             // MainForm이 로드될 때 수행할 작업
             string port = $"COM7";  // 여기 바꾸셈
@@ -73,32 +79,57 @@ namespace FinalProject_Winform
             if (recvData.Length == 0 || recvData[0] != '$') return;
 
             string[] arrMessage = recvData[1..].Split(",", StringSplitOptions.RemoveEmptyEntries);
-            int lotpk = int.Parse(arrMessage[2]);
-            switch (arrMessage[0]) // Command
+            long lotpk = long.Parse(arrMessage[2]);
+            switch (arrMessage[0]) // arrMessage[0] = 공정행동, arrMessage[1] = 공정명 arrmessage = lotid
             {
                 case "Recieve": //명령 받음
-                    ProcessReady(arrMessage[1], lotpk);
+                    //ProcessReady(arrMessage[1], lotpk);
                     break;
                 case "Start": //공정 시작
-                    //ProcessReject(arrMessage[1]);
+                    ProcessStart(arrMessage[1], lotpk);
                     break;
                 case "End": //공정 종료
-                    //ProcessProcess(arrMessage[1]);
+                    ProcessEnd(arrMessage[1], lotpk);
                     break;
                 case "Off": //전원 껐을때 (일시정지)
-                    //ProcessAccept(arrMessage[1]);
+                    ProcessOff(arrMessage[1], lotpk);
                     break;
                 case "On": //전원 켰을때 
-
+                    ProcessOn(arrMessage[1], lotpk);
                     break;
             } // end switch
 
         } // end ExecCommand()
 
-        private void ProcessReady(string message, int b)
+        private void ProcessOn(string process, long lotpk)
         {
-           lotRepository.Updateasync($"{message}start",b);
+            long processid = processRepository.GetProcessId(process);
+            lothistoryRepository.AddLotAsync(lotpk, processid, $"{process}On");
+            lotRepository.Updateasync($"{process}On", lotpk);
         }
+
+        private void ProcessOff(string process, long lotpk)
+        {
+            long processid = processRepository.GetProcessId(process);
+            lothistoryRepository.AddLotAsync(lotpk, processid, $"{process}Off");
+            lotRepository.Updateasync($"{process}Off", lotpk);
+        }
+
+        private void ProcessEnd(string process, long lotpk)
+        {;
+            long processid = processRepository.GetProcessId(process);
+            lothistoryRepository.AddLotAsync(lotpk, processid, $"{process}End");
+            lotRepository.Updateasync($"{process}End", lotpk);
+        }
+
+        private void ProcessStart(string process, long lotpk)
+        {
+            long processid = processRepository.GetProcessId(process);
+            lothistoryRepository.AddLotAsync(lotpk, processid, $"{process}ing");
+            lotRepository.Updateasync($"{process}start", lotpk);
+        }
+
+       
 
         private void MainForm_Load(object sender, EventArgs e)
         {

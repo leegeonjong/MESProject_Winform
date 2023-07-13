@@ -15,7 +15,7 @@ namespace FinalProject_Winform.Repositories
         Task<IEnumerable<Lot>> GetByBarcode(string Barcode);
         Task<IEnumerable<Lot>> GetByItem(string Item);
         Task<IEnumerable<Lot>> GetByCount(int count);
-        Task<Lot> Updateasync(string status, int lotpk);
+        Task<Lot> Updateasync(string status, long lotpk);
 
         long FindLotPkByBarcode(string Barcode);
         string FindBarcodePkByPK(long lotId);
