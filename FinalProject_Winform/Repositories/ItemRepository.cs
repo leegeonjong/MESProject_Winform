@@ -44,13 +44,13 @@ namespace FinalProject_Winform.Repositories
             if (existingItem == null)
             {
                 // 존재하지 않는 아이템이면 오류 반환
-                throw new Exception("존재하지 않는 아이템입니다.");
+                MessageBox.Show("존재하지 않는 아이템입니다.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             if (existingItem.Item_amount < amount)
             {
                 // 아이템의 수량이 출고할 수량보다 작으면 오류 반환
-                throw new Exception("아이템의 수량이 출고할 수량보다 작습니다.");
+                MessageBox.Show("아이템의 수량이 출고할 수량보다 작습니다.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             existingItem.Item_amount -= amount;

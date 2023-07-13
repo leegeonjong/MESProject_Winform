@@ -38,6 +38,12 @@ select * from Process
 
 DELETE FROM Process
 
+-- LOT ID값 초기화 +DUMMY -- 
+
+DELETE FROM Lot
+
+DBCC CHECKIDENT(Lot, reseed, 0);
+
 
 
 
@@ -62,9 +68,9 @@ DELETE FROM [Order]
 
 DBCC CHECKIDENT([Order], reseed, 0);
 
-INSERT INTO [Order] (ItemId, Order_startDate, Order_endDate, Order_sendDate,Order_status,Order_name,Order_count)
+INSERT INTO [Order] (ItemId, Order_startDate, Order_endDate, Order_sendDate,Order_status,Order_name,Order_count,Order_account)
 VALUES
-(1,GETDATE(),GETDATE()+7,GETDATE()+6,'대기','주문',300)
+(1,GETDATE(),GETDATE()+7,GETDATE()+6,'대기','주문',300,'코리아It아카데미')
 
 select * from [FinalDB].[dbo].[Check]
 

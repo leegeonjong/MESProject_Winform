@@ -65,9 +65,9 @@ namespace FinalProject_Winform.Repositories
                 .Where(x => x.Id == orderId)
                 .FirstAsync();
 
+            if (order == null) return null;
             
             long ordercount = order.Order_count;
-            if (order == null) return null;
 
             var item = await db.Items.Where(x => x.Id == order.Item.Id).FirstOrDefaultAsync();
             if (item == null) return null;
@@ -103,7 +103,8 @@ namespace FinalProject_Winform.Repositories
 
             else
             {
-                throw new Exception("아이템 수량이 출고할 수량보다 작습니다.");
+                MessageBox.Show("아이템의 수량이 출고할 수량보다 작습니다.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
             }
 
 
