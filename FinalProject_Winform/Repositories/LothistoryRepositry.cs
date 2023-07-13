@@ -35,7 +35,7 @@ namespace FinalProject_Winform.Repositories
             using FinalDbContext db = new();
             var lot = await db.LotHistorys
                 .Where(i => i.ProcessId == processid)
-                .OrderByDescending(i => i.LotHistory_startDate)
+                .OrderByDescending(i => i.LotHistory_Date)
                 .FirstOrDefaultAsync();
 
             return lot.LotId;
