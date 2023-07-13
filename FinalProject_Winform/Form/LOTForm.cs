@@ -233,16 +233,18 @@ namespace FinalProject_Winform
 
         private void btn_Start_Click(object sender, EventArgs e)
         {
-            string status = lbl_start_status.Text;
-            
+            //
+            string Check = lbl_start_check.Text;
+            if (Check == "O") {
                 string lotbarcode = lbl_start_lotnum.Text;
                 string processname = cmb_process.Text;
                 long processid = processRepository.GetProcessId(processname);
                 long lotid = lotRepository.FindLotPkByBarcode(lotbarcode);
 
                 mainForm.serialPort.WriteLine($"$Run,Mix,{lotid}");
-            
-                //MessageBox.Show("이 Lot은 실행할 수 없습니다");
+                MessageBox.Show("LOT이 실행되었습니다");
+            }
+            else  MessageBox.Show("이 Lot은 실행할 수 없습니다");
             
         }
 
@@ -250,20 +252,20 @@ namespace FinalProject_Winform
         {
             string status_start = cmb_process.Text; // 내가 고른 콤보박스 공정
             string status = lbl_start_status.Text;  // 현재 공정
-            string check = lbl_start_check.Text;    // 체크 O X
-            if (status == "created" || status_start == "Mix")
-                check = "O";
-            else if (status == "MixEnd" || status_start == "Shape")
-                check = "O";
-            else if (status == "ShapeEnd" || status_start == "Steam")
-                check = "O";
-            else if (status == "SteamEnd" || status_start == "Fry")
-                check = "O";
-            else if (status == "FryEnd" || status_start == "Freeze")
-                check = "O";
-            else if (status == "FreezeEnd" || status_start == "Pack")
-                check = "O";
-            else check = "X";
+    
+            if (status == "created" && status_start == "Mix")
+                lbl_start_check.Text = "O";
+            else if (status == "MixEnd" && status_start == "Shape")
+                lbl_start_check.Text = "O";
+            else if (status == "ShapeEnd" && status_start == "Steam")
+                lbl_start_check.Text = "O";
+            else if (status == "SteamEnd" && status_start == "Fry")
+                lbl_start_check.Text = "O";
+            else if (status == "FryEnd" && status_start == "Freeze")
+                lbl_start_check.Text = "O";
+            else if (status == "FreezeEnd" && status_start == "Pack")
+                lbl_start_check.Text = "O";
+            else lbl_start_check.Text = "X";
 
         }
     }
