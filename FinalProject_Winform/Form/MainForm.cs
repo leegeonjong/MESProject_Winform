@@ -1,4 +1,5 @@
 ﻿using FinalProject_Winform.Models.domain;
+using FinalProject_Winform.Repositories;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,7 +15,7 @@ namespace FinalProject_Winform
 {
     public partial class MainForm : Form
     {
-
+        private ILotRepository lotRepository;
         private LOTForm lotForm;
 
         public MainForm()
@@ -27,6 +28,7 @@ namespace FinalProject_Winform
             serialPort.DataReceived += serialPort_DataReceived;
 
             serialPort.ReadTimeout = 0;
+            lotRepository = new LotRepository();
         }
         public SerialPort serialPort;
         private void serialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
@@ -54,11 +56,11 @@ namespace FinalProject_Winform
             if (recvData.Length == 0 || recvData[0] != '$') return;
 
             string[] arrMessage = recvData[1..].Split(",", StringSplitOptions.RemoveEmptyEntries);
-
+            int lotpk = int.Parse(arrMessage[2]);
             switch (arrMessage[0]) // Command
             {
                 case "Recieve": //명령 받음
-                    ProcessReady();
+                    ProcessReady(arrMessage[1], lotpk);
                     break;
                 case "Start": //공정 시작
                     //ProcessReject(arrMessage[1]);
@@ -76,16 +78,15 @@ namespace FinalProject_Winform
 
         } // end ExecCommand()
 
-
-        private void ProcessReady()
+        private void ProcessReady(string message, int b)
         {
-           
+           lotRepository.Updateasync($"{message}start",b);
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
             // MainForm이 로드될 때 수행할 작업
-            string port = $"COM8";  // 여기 바꾸셈
+            string port = $"COM4";  // 여기 바꾸셈
 
             serialPort.PortName = port;   //시리얼 포트 설정
 

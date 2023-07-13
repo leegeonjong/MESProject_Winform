@@ -74,5 +74,24 @@ namespace FinalProject_Winform.Repositories
             using FinalDbContext db = new();
             return await db.Lots.Include(i => i.Item).Where(i => i.Lot_amount == count).ToListAsync();
         }
+
+        public long FindLotPkByBarcode(string barcode)
+        {
+            using FinalDbContext db = new();
+            var lot = db.Lots.FirstOrDefault(l => l.Lot_barcode == barcode);
+            return lot?.Id ?? 0;
+        }
+
+        public async Task<Lot> Updateasync(string status, int lotpk)
+        {
+            using FinalDbContext db = new();
+            var lot = await db.Lots.Where(x=> x.Id == lotpk).FirstOrDefaultAsync();
+            if (lot == null) return null;
+
+            lot.Lot_status = status;
+
+            await db.SaveChangesAsync();
+            return lot;
+        }
     }
 }

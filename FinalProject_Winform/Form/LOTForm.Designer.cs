@@ -82,7 +82,7 @@
             label16 = new Label();
             label15 = new Label();
             btn_Start = new Button();
-            comboBox1 = new ComboBox();
+            cmb_process = new ComboBox();
             panel16 = new Panel();
             panel18 = new Panel();
             label21 = new Label();
@@ -654,7 +654,7 @@
             panel10.Controls.Add(label16);
             panel10.Controls.Add(label15);
             panel10.Controls.Add(btn_Start);
-            panel10.Controls.Add(comboBox1);
+            panel10.Controls.Add(cmb_process);
             panel10.Controls.Add(panel16);
             panel10.Controls.Add(panel18);
             panel10.Controls.Add(label21);
@@ -729,15 +729,15 @@
             btn_Start.UseVisualStyleBackColor = true;
             btn_Start.Click += btn_Start_Click;
             // 
-            // comboBox1
+            // cmb_process
             // 
-            comboBox1.Font = new Font("맑은 고딕", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "배합", "형태화", "찌기", "튀기기", "냉동", "포장" });
-            comboBox1.Location = new Point(112, 29);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(352, 48);
-            comboBox1.TabIndex = 11;
+            cmb_process.Font = new Font("맑은 고딕", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
+            cmb_process.FormattingEnabled = true;
+            cmb_process.Items.AddRange(new object[] { "배합", "형태화", "찌기", "튀기기", "냉동", "포장" });
+            cmb_process.Location = new Point(112, 29);
+            cmb_process.Name = "cmb_process";
+            cmb_process.Size = new Size(352, 48);
+            cmb_process.TabIndex = 11;
             // 
             // panel16
             // 
@@ -1030,7 +1030,7 @@
         private Panel panel14;
         private Panel panel13;
         private Panel panel10;
-        private ComboBox comboBox1;
+        private ComboBox cmb_process;
         private Panel panel16;
         private Label label19;
         private Label label20;

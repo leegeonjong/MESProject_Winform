@@ -19,12 +19,16 @@ namespace FinalProject_Winform
     public partial class LOTForm : Form
     {
         private ILotRepository lotRepository;
+        private IProcessRepository processRepository;
+        private ILothistoryRepository lothistoryRepository;
         private MainForm mainForm;
         public LOTForm(MainForm mainForm)
         {
             InitializeComponent();
             this.mainForm = mainForm;
             lotRepository = new LotRepository();
+            processRepository = new ProcessRepository();
+            lothistoryRepository = new LothistoryRepositry();
         }
         //
         DataGridView dgv_lot;
@@ -228,8 +232,12 @@ namespace FinalProject_Winform
 
         private void btn_Start_Click(object sender, EventArgs e)
         {
-
-            mainForm.serialPort.WriteLine("$Run");
+            string lotbarcode = lbl_start_lotnum.Text;
+            string processname = cmb_process.Text;
+            long processid = processRepository.GetProcessId(processname);
+            long lotid = lotRepository.FindLotPkByBarcode(lotbarcode);
+            lothistoryRepository.AddLotAsync(lotid, processid);
+            mainForm.serialPort.WriteLine($"$Run,Mix,{lotid}");
         }
     }
 }
