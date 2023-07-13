@@ -17,21 +17,64 @@ namespace FinalProject_Winform.Repositories
         {
             using FinalDbContext db = new();
             var item = await db.Items.Where(x => x.Item_name == itemname).FirstAsync();
+
+
             if (item == null) return null;
-            Lot lot = new()
+
+            if (item.Item_amount < amount)
             {
-                Item = item,
-                Lot_barcode = barcode,
-                Lot_amount = amount,
-                Lot_regDate = DateTime.Now,
-                Lot_status = "created",
-                Lot_break = false
+                MessageBox.Show("가진 아이템의 수량이 LOT 생성에 필요한 아이템 수량보다 적습니다", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
 
-            };
+            if(item.Item_amount > amount) 
+            {
+                item.Item_amount -= amount;
 
-            await db.Lots.AddAsync(lot);
-            await db.SaveChangesAsync();
-            return lot;
+                Lot lot = new()
+                {
+                    Item = item,
+                    Lot_barcode = barcode,
+                    Lot_amount = amount,
+                    Lot_regDate = DateTime.Now,
+                    Lot_status = "created",
+                    Lot_break = false
+
+                };
+
+                Stock stock = new()
+                {
+                    Item = item,
+                    Stock_amount = -amount,
+                    Stock_regDate = DateTime.Now,
+                    Stock_status = "Lot 생성",
+                };
+
+                var lastStock = await db.Stocks
+              .Where(x => x.Item.Id == item.Id)
+              .OrderByDescending(x => x.Stock_regDate)
+              .FirstOrDefaultAsync();
+
+                if (lastStock != null)
+                {
+                    stock.Stock_regAmount = lastStock.Stock_regAmount - amount;
+                }
+                else
+                {
+                    stock.Stock_regAmount = amount;
+                }
+
+                await db.Lots.AddAsync(lot);
+                await db.Stocks.AddAsync(stock);
+                await db.SaveChangesAsync();
+                return lot;
+            }
+
+            else
+            {
+                MessageBox.Show("재고의 수량이 LOT생성에 필요한 재고 수량보다 작습니다.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
 
         }
 

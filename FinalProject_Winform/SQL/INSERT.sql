@@ -35,6 +35,58 @@ VALUES
 ,('포장지', 'EA', '8801110000011', '반제품',0,100)
 ,('라면', 'EA', '8801110000012', '완제품',0,100)
 
+-- STOCK ID값 초기화 +DUMMY -- 
+DELETE FROM Stock
+
+DBCC CHECKIDENT(Stock, reseed, 0);
+
+INSERT INTO Stock (ItemId, Stock_Amount, Stock_regDate, Stock_status)
+VALUES
+(1,300,GETDATE(),'입고')
+
+select * from Process
+
+DELETE FROM Process
+
+-- LOT ID값 초기화 +DUMMY -- 
+
+DELETE FROM Lot
+
+DBCC CHECKIDENT(Lot, reseed, 0);
+
+
+
+
+DBCC CHECKIDENT(Process, reseed, 0);
+delete Process
+
+INSERT INTO Process(Process_name, Process_status, Process_checkRight)
+VALUES ('Mix', 1, 1)
+INSERT INTO Process(Process_name, Process_status, Process_checkRight)
+VALUES ('Shape', 1, 1)
+INSERT INTO Process(Process_name, Process_status, Process_checkRight)
+VALUES ('Steam', 1, 1)
+INSERT INTO Process(Process_name, Process_status, Process_checkRight)
+VALUES ('Fry', 1, 1)
+INSERT INTO Process(Process_name, Process_status, Process_checkRight)
+VALUES ('Freeze', 1, 1)
+INSERT INTO Process(Process_name, Process_status, Process_checkRight)
+VALUES ('Pack', 1, 1)
+-- ORDER ID값 초기화 + DUMMY -- 
+
+DELETE FROM [Order]
+
+DBCC CHECKIDENT([Order], reseed, 0);
+
+INSERT INTO [Order] (ItemId, Order_startDate, Order_endDate, Order_sendDate,Order_status,Order_name,Order_count,Order_account)
+VALUES
+(1,GETDATE(),GETDATE()+7,GETDATE()+6,'대기','주문',300,'코리아It아카데미')
+
+select * from [FinalDB].[dbo].[Check]
+
+
+delete [FinalDB].[dbo].[Check]
+
 
 INSERT INTO [FinalDB].[dbo].[Check] (ProcessId, Check_item, Check_value)
 VALUES (2, '용량 검사', '100')
