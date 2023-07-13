@@ -1,6 +1,6 @@
 #include "DHT.h"
 
-#define DHTPIN 23     // 출력에 연결된 핀번호
+#define DHTPIN 2     // 출력에 연결된 핀번호
 #define DHTTYPE DHT11   // DHT시리즈중 DHT11 선택
 
 
@@ -20,6 +20,8 @@ if (isnan(h) || isnan(t)) {
     Serial.println(t);
     Serial.print("humi : ");
     Serial.println(h);
+
+    if(t>30)
     
 
 }
