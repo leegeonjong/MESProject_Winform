@@ -1,14 +1,24 @@
-﻿-- SELECT --
+﻿
+INSERT INTO [Order] (ItemId, Order_startDate, Order_endDate, Order_sendDate,Order_status,Order_name,Order_count)
+VALUES
+(1,GETDATE(),GETDATE()+7,GETDATE()+6,'대기','주문',300)
 
-SELECT * FROM Item;
-SELECT * FROM Stock;
-SELECT * FROM Process;
+INSERT INTO Process(Process_name, Process_status, Process_checkRight)
+VALUES ('Mix', 1, 1)
+INSERT INTO Process(Process_name, Process_status, Process_checkRight)
+VALUES ('Shape', 1, 1)
+INSERT INTO Process(Process_name, Process_status, Process_checkRight)
+VALUES ('Steam', 1, 1)
+INSERT INTO Process(Process_name, Process_status, Process_checkRight)
+VALUES ('Fry', 1, 1)
+INSERT INTO Process(Process_name, Process_status, Process_checkRight)
+VALUES ('Freeze', 1, 1)
+INSERT INTO Process(Process_name, Process_status, Process_checkRight)
+VALUES ('Pack', 1, 1)
 
-
--- ITEM 테이블 ID값 초기화 DUMMY --
-DELETE FROM Item;
-
-DBCC CHECKIDENT(Item, reseed, 0);
+INSERT INTO Stock (ItemId, Stock_Amount, Stock_regDate, Stock_status)
+VALUES
+(1,300,GETDATE(),'입고')
 
 INSERT INTO Item (Item_name, Item_unit, Item_barcode, Item_type,Item_amount,Item_baseLine)
 VALUES
