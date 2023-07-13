@@ -54,6 +54,7 @@
             textBox1 = new TextBox();
             tabPage2 = new TabPage();
             panel5 = new Panel();
+            btnOff = new Button();
             combo_process = new ComboBox();
             panel7 = new Panel();
             label6 = new Label();
@@ -61,7 +62,6 @@
             btnOn = new Button();
             panel6 = new Panel();
             label5 = new Label();
-            btnOff = new Button();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             tabControl1.SuspendLayout();
@@ -367,11 +367,22 @@
             panel5.Size = new Size(1090, 617);
             panel5.TabIndex = 9;
             // 
+            // btnOff
+            // 
+            btnOff.BackColor = Color.Red;
+            btnOff.Location = new Point(592, 343);
+            btnOff.Name = "btnOff";
+            btnOff.Size = new Size(366, 147);
+            btnOff.TabIndex = 10;
+            btnOff.Text = "OFF";
+            btnOff.UseVisualStyleBackColor = false;
+            btnOff.Click += btnOff_Click;
+            // 
             // combo_process
             // 
             combo_process.Font = new Font("맑은 고딕", 18F, FontStyle.Regular, GraphicsUnit.Point);
             combo_process.FormattingEnabled = true;
-            combo_process.Items.AddRange(new object[] { "배합", "형태화", "찌기", "잘 튀기기", "냉동", "포장" });
+            combo_process.Items.AddRange(new object[] { "Mix", "Shape", "Steam", "Fry", "Freeze", "Pack" });
             combo_process.Location = new Point(28, 229);
             combo_process.Name = "combo_process";
             combo_process.Size = new Size(1037, 40);
@@ -436,17 +447,6 @@
             label5.Size = new Size(174, 32);
             label5.TabIndex = 6;
             label5.Text = "설비 상태 설정";
-            // 
-            // btnOff
-            // 
-            btnOff.BackColor = Color.Red;
-            btnOff.Location = new Point(592, 343);
-            btnOff.Name = "btnOff";
-            btnOff.Size = new Size(366, 147);
-            btnOff.TabIndex = 10;
-            btnOff.Text = "OFF";
-            btnOff.UseVisualStyleBackColor = false;
-            btnOff.Click += btnOff_Click;
             // 
             // ProcessForm
             // 

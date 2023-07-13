@@ -19,7 +19,7 @@ namespace FinalProject_Winform
         private ILotRepository lotRepository;
         private ILothistoryRepository lothistoryRepository;
         private IProcessRepository processRepository;
-        
+
         private LOTForm lotForm;
 
         public MainForm()
@@ -37,7 +37,7 @@ namespace FinalProject_Winform
             processRepository = new ProcessRepository();
 
             // MainForm이 로드될 때 수행할 작업
-            string port = $"COM4";  // 여기 바꾸셈
+            string port = $"COM7";  // 여기 바꾸셈
 
             serialPort.PortName = port;   //시리얼 포트 설정
 
@@ -65,13 +65,33 @@ namespace FinalProject_Winform
                         string input = "";
                         string recvData = serialPort.ReadLine().Trim();   // Trim() 꼭 해야 한다 
                         input = $"← {recvData}";
+                        ShowMessage(input); // ListBox 에 출력
                         ExecCommand(recvData);
                     }
                 }
                 catch (TimeoutException) { }  // ReadTimeout = 0;  // 읽기 timeout (ms) 을 0 으로 하자.
             }
-        }  
-        
+        }
+
+        public void ShowMessage(string message)
+        {
+            //---------------------------------------------------
+            // ListBox 에 출력
+            if (listBox1.InvokeRequired)
+            {
+                listBox1.Invoke(() =>
+                {
+                    listBox1.Items.Add(message);
+                    listBox1.TopIndex = listBox1.Items.Count - 1;  // scroll to end
+                });
+            }
+            else
+            {
+                listBox1.Items.Add(message);
+                listBox1.TopIndex = listBox1.Items.Count - 1;  // scroll to end
+            }
+        }
+
         //---------------------------------------
         // Command 에 따른 분기
         private void ExecCommand(string recvData)
@@ -116,7 +136,8 @@ namespace FinalProject_Winform
         }
 
         private void ProcessEnd(string process, long lotpk)
-        {;
+        {
+            ;
             long processid = processRepository.GetProcessId(process);
             lothistoryRepository.AddLotAsync(lotpk, processid, $"{process}End");
             lotRepository.Updateasync($"{process}End", lotpk);
@@ -129,7 +150,7 @@ namespace FinalProject_Winform
             lotRepository.Updateasync($"{process}ing", lotpk);
         }
 
-       
+
 
         private void MainForm_Load(object sender, EventArgs e)
         {

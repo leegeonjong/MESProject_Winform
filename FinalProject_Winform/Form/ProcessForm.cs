@@ -18,7 +18,7 @@ namespace FinalProject_Winform
     {
         private IProcessRepository processRepository;
         private ILothistoryRepository lothistoryRepository;
-        private ILotRepository  lotRepository;
+        private ILotRepository lotRepository;
         private MainForm mainForm;
         public ProcessForm(MainForm mainForm)
         {
@@ -166,7 +166,7 @@ namespace FinalProject_Winform
             //아두이노에게 시리얼 통신 보내기
             mainForm.serialPort.WriteLine(message);
         }
-  
+
 
         // 아두이노에서 통신 받았을때 
         public void RecieveSerialOn()
