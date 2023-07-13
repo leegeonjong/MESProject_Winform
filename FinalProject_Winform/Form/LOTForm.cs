@@ -233,6 +233,7 @@ namespace FinalProject_Winform
 
         private void btn_Start_Click(object sender, EventArgs e)
         {
+            //
             string Check = lbl_start_check.Text;
             if (Check == "O") {
                 string lotbarcode = lbl_start_lotnum.Text;
