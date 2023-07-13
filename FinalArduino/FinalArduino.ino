@@ -14,10 +14,10 @@ void setup() {
   pinMode(Process1Motor, OUTPUT);
 }
 void loop() {
-  action = "";   //공정상태
-  rest = "";     //나머지
-  process = "";  // 공정명
-  lotid = "";    // lotid
+  String action = "";   //공정상태
+  String rest = "";     //나머지
+  String process = "";  // 공정명
+  String lotid = "";    // lotid
   // $Run,Mix,213 명령 받고 이렇게 돌려주도록 한다
 
   if (Serial.available() > 0) {  // <- 수신 버퍼를 비우려면 while(Serial.available()) 사용해야 한다.  https://www.baldengineer.com/when-do-you-use-the-arduinos-to-use-serial-flush.html
@@ -29,16 +29,11 @@ void loop() {
       process = rest.substring(0, line.indexOf(","));
       lotid = rest.substring(line.indexOf(",") + 0);
       if (action == "Run") {
-        lcd.print("run");
-        Serial.println("$Recieve,lotstatus,lotid");
-        Serial.println(action);
-        Serial.println(process);
-        Serial.println(lotid);
       }
-      else if (cmd == "On") {
+      else if (action == "On") {
         digitalWrite(Process1Led1, HIGH);
         digitalWrite(Process1Led2, LOW);
-      } else if (cmd == "Off") {
+      } else if (action == "Off") {
         digitalWrite(Process1Led1, LOW);
         digitalWrite(Process1Led2, HIGH);
       }

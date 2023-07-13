@@ -10,5 +10,7 @@ namespace FinalProject_Winform.Repositories
     internal interface ILothistoryRepository
     {
         Task<LotHistory> AddLotAsync(long lotid, long processid);
+
+        Task<long> GetRecentLotAsync(long processid);
     }
 }

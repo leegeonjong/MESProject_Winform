@@ -1,4 +1,6 @@
-void SendRecieve() {
+void SendRecieve(String Process,) {
+  String sendData = String("")
+  sendData += String()
 }
 
 void SendStart() {

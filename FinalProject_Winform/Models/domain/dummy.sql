@@ -2,6 +2,7 @@
 
 SELECT * FROM Item;
 SELECT * FROM Stock;
+SELECT * FROM Process;
 
 
 -- ITEM 테이블 ID값 초기화 DUMMY --

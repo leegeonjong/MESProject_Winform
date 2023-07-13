@@ -82,6 +82,13 @@ namespace FinalProject_Winform.Repositories
             return lot?.Id ?? 0;
         }
 
+        public string FindBarcodePkByPK(long lotId)
+        {
+            using FinalDbContext db = new();
+            var lot = db.Lots.FirstOrDefault(l => l.Id == lotId);
+            return lot.Lot_barcode;
+        }
+
         public async Task<Lot> Updateasync(string status, int lotpk)
         {
             using FinalDbContext db = new();

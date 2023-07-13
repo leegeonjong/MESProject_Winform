@@ -28,5 +28,17 @@ namespace FinalProject_Winform.Repositories
             await db.SaveChangesAsync();
             return lothistory;
         }
+
+        public async Task<long> GetRecentLotAsync(long processid)
+        {
+            using FinalDbContext db = new();
+            var lot = await db.LotHistorys
+                .Where(i => i.ProcessId == processid)
+                .OrderByDescending(i => i.LotHistory_startDate)
+                .FirstOrDefaultAsync();
+
+            return lot.LotId;
+        }
+
     }
 }

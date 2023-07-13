@@ -18,6 +18,7 @@ namespace FinalProject_Winform.Repositories
         Task<Lot> Updateasync(string status, int lotpk);
 
         long FindLotPkByBarcode(string Barcode);
+        string FindBarcodePkByPK(long lotId);
 
         bool FindAsync(string barcode);
     }
