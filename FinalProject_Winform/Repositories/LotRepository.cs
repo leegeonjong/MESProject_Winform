@@ -97,7 +97,7 @@ namespace FinalProject_Winform.Repositories
         {
             using FinalDbContext db = new();
             var Lot = await db.Lots.Include(i=>i.Item).ToListAsync();
-            return Lot.OrderBy(x => x.Id).ToList();
+            return Lot.OrderByDescending(x => x.Lot_regDate).ToList();
         }
 
         public async Task<IEnumerable<Lot>> GetByBarcode(string Barcode)
