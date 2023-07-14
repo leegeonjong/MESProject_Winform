@@ -1,5 +1,7 @@
-﻿using FinalProject_Winform.Models.domain;
+﻿using FinalProject_Winform.Data;
+using FinalProject_Winform.Models.domain;
 using FinalProject_Winform.Repositories;
+using Microsoft.VisualBasic.Logging;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -32,7 +34,6 @@ namespace FinalProject_Winform
         private void ProcessForm_Load(object sender, EventArgs e)
         {
             dgvImport = dataGridView1;
-            LoadProcessAsync();
         }
         private void Button_Click(object sender, EventArgs e)
         {
@@ -56,7 +57,7 @@ namespace FinalProject_Winform
             switch (e.TabPageIndex)
             {
                 case 0:  // 공정 조회
-                    LoadProcessAsync();
+                   
                     break;
             }
         }
@@ -66,25 +67,27 @@ namespace FinalProject_Winform
         //----------------------------------------------------------------------------
         private async void LoadProcessAsync()
         {
-            var processes = await processRepository.GetAllAsync();
+            // 검색 공정을 지났던 LOTID로 가져오기
+            string processSearch = ProcessSearch.Text;
 
-            // DataGridView 전체 clear
+            List<LotHistory> lotHistories = await lothistoryRepository.GetLotId(processSearch);
+
             dgvImport.Rows.Clear();
             dgvImport.Refresh();
 
-            int i = 0;
-            foreach (var process in processes)
+            foreach (LotHistory lotHistory in lotHistories)
             {
-                dgvImport.Rows.Add();  // 새로운 row 추가
-                dgvImport.Rows[i].Cells["lot_barcode"].Value = process.lot.Lot_barcode;
-                dgvImport.Rows[i].Cells["lot_status"].Value = process.lot.Lot_status;
-                dgvImport.Rows[i].Cells["lothistory_datetime_Start"].Value = "+" + process.lotHistory.LotHistory_startDate;
-                dgvImport.Rows[i].Cells["lothistory_datetime_End"].Value = process.lotHistory.LotHistory_endDate;
-
-                i++;
+                int rowIndex = dgvImport.Rows.Add();
+                dgvImport.Rows[rowIndex].Cells["LOT_ID"].Value = lotHistory.LotId;
+                //dgvImport.Rows[rowIndex].Cells["LOT_NAME"].Value = lotHistory.Lot.Item.Item_name;
+                dgvImport.Rows[rowIndex].Cells["LOT_StartDate"].Value = "+" + lotHistory.LotHistory_Date;
+                dgvImport.Rows[rowIndex].Cells["LOT_STATUS"].Value = lotHistory.LotHistory_status;
             }
         }
-
+        private async void btnSearchProcess_Click(object sender, EventArgs e)
+        {
+            LoadProcessAsync();
+        }
         //----------------------------------------------------------------------------
         //두번째 탭
         //----------------------------------------------------------------------------
@@ -166,21 +169,6 @@ namespace FinalProject_Winform
             //아두이노에게 시리얼 통신 보내기
             mainForm.serialPort.WriteLine(message);
         }
-
-
-        // 아두이노에서 통신 받았을때 
-        public void RecieveSerialOn()
-        {
-            //아두이노에서 전원 켰을때
-
-        }
-
-        public void RecieveSerialOff()
-        {
-            //아두이노에서 전원 껏을때
-
-        }
-
 
 
     }// end class 
