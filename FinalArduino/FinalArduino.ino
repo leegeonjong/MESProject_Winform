@@ -30,26 +30,7 @@ bool buttonState[numProcesses] = { false, false, false, false, false, false };
 bool prevButtonState[numProcesses] = { false, false, false, false, false, false };
 bool timerStarted[numProcesses] = { false, false, false, false, false, false };
 unsigned long startTime[numProcesses] = { 0, 0, 0, 0, 0, 0 };
-unsigned long elapsedTime[numProcesses] = { 0, 0, 0, 0, 0, 0 };
-
-// unsigned long startTimeMix = 0;     // 시작시간
-// unsigned long startTimeShape = 0;   // 시작시간
-// unsigned long startTimeSteam = 0;   // 시작시간
-// unsigned long startTimeFry = 0;     // 시작시간
-// unsigned long startTimeFreeze = 0;  // 시작시간
-// unsigned long startTimePack = 0;    // 시작시간
-
-// bool timerStartedMix = false;     // 타이머 시작 bool
-// bool timerStartedShape = false;   // 타이머 시작 bool
-// bool timerStartedSteam = false;   // 타이머 시작 bool
-// bool timerStartedFry = false;     // 타이머 시작 bool
-// bool timerStartedFreeze = false;  // 타이머 시작 bool
-// bool timerStartedPack = false;    // 타이머 시작 bool
-
-
 unsigned long timerDuration = 10000;  // 10 seconds
-
-
 
 void setup() {
   Serial.begin(9600);  // Serial monitor 구동 전원입력
@@ -63,6 +44,7 @@ void setup() {
     pinMode(LedRed[i], OUTPUT);
     pinMode(LedGreen[i], OUTPUT);
     pinMode(LedYellow[i], OUTPUT);
+    digitalWrite(LedGreen[i],HIGH);
   }
 }
 
@@ -79,14 +61,18 @@ void loop() {
     // 버튼의 눌림 상태 변화를 감지하여 한 번만 실행
     if (buttonState[i] != prevButtonState[i]) {
       if (buttonState[i] == LOW && prevButtonState[i] == HIGH) {  // Falling Edge
-        digitalWrite(LedRed[i], HIGH);
 
         if (timerStarted[i]) {
+          digitalWrite(LedRed[i], HIGH);
+          digitalWrite(LedGreen[i], LOW);
+          digitalWrite(LedYellow[i], LOW);
           SendStop(myArray[i].process, myArray[i].lotid);
           timerDuration = timerDuration - (millis() - startTime[i]);
-          Serial.println(timerDuration);
           timerStarted[i] = false;  // 타이머 상태 초기화
         } else {
+          digitalWrite(LedRed[i], LOW);
+          digitalWrite(LedGreen[i], LOW);
+          digitalWrite(LedYellow[i], HIGH);
           SendContinue(myArray[i].process, myArray[i].lotid);
           startTime[i] = millis();
           timerStarted[i] = true;
@@ -109,39 +95,19 @@ void loop() {
     }
   }
 
-
   // 타이머 상태 확인 및 처리
   for (int i = 0; i < numProcesses; i++) {
     if (timerStarted[i] && millis() - startTime[i] >= timerDuration) {
-      Serial.println(timerDuration);
       SendEnd(myArray[i].process, myArray[i].lotid);
       timerStarted[i] = false;  // 타이머 상태 초기화
       timerDuration = 10000;    //10초로 초기화
+      digitalWrite(LedRed[i], LOW);
+      digitalWrite(LedGreen[i], HIGH);
+      digitalWrite(LedYellow[i], LOW);
     }
   }
 
-  // if (timerStartedMix && millis() - startTimeMix >= timerDuration) {
-  //   SendEnd(myArray[0].process, myArray[0].lotid);
-  //   timerStartedMix = false;  // 타이머 상태 초기화
-  // } else if (timerStartedShape && millis() - startTimeShape >= timerDuration) {
-  //   SendEnd(myArray[1].process, myArray[1].lotid);
-  //   timerStartedShape = false;  // 타이머 상태 초기화
-  // } else if (timerStartedSteam && millis() - startTimeSteam >= timerDuration) {
-  //   SendEnd(myArray[2].process, myArray[2].lotid);
-  //   timerStartedSteam = false;  // 타이머 상태 초기화
-  // } else if (timerStartedFry && millis() - startTimeFry >= timerDuration) {
-  //   SendEnd(myArray[3].process, myArray[3].lotid);
-  //   timerStartedFry = false;  // 타이머 상태 초기화
-  // } else if (timerStartedFreeze && millis() - startTimeFreeze >= timerDuration) {
-  //   SendEnd(myArray[4].process, myArray[4].lotid);
-  //   timerStartedFreeze = false;  // 타이머 상태 초기화
-  // } else if (timerStartedPack && millis() - startTimePack >= timerDuration) {
-  //   SendEnd(myArray[5].process, myArray[5].lotid);
-  //   timerStartedPack = false;  // 타이머 상태 초기화
-  // }
-
-
-  //  WaterSenser();
+  //WaterSenser();
 
   // Process1(Process1Led1, Process1Led2, Process1Motor, Process1Sw);
 
