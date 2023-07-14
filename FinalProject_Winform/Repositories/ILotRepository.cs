@@ -16,10 +16,12 @@ namespace FinalProject_Winform.Repositories
         Task<IEnumerable<Lot>> GetByItem(string Item);
         Task<IEnumerable<Lot>> GetByCount(int count);
         Task<Lot> Updateasync(string status, long lotpk);
-
+        Task<Lot> ItemUpdateAsync(long lotpk);
         long FindLotPkByBarcode(string Barcode);
         string FindBarcodePkByPK(long lotId);
 
         bool FindAsync(string barcode);
+        bool Findstatus(string status);
+
     }
 }

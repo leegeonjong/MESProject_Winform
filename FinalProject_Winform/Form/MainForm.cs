@@ -142,6 +142,7 @@ namespace FinalProject_Winform
             long processid = processRepository.GetProcessId(process);
             lothistoryRepository.AddLotAsync(lotpk, processid, $"{process}End");
             lotRepository.Updateasync($"{process}End", lotpk);
+            lotRepository.ItemUpdateAsync(lotpk);
         }
 
         private void ProcessStart(string process, long lotpk)
