@@ -1,6 +1,5 @@
 
 void Processstart(String action, String process, String lotid) {
-  Serial.print(process);
   int processNum = ProcessName(process);
   // if (action == "Run") {
   //     Serial.println(action);
