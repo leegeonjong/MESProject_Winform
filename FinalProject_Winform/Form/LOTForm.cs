@@ -249,6 +249,7 @@ namespace FinalProject_Winform
 
                     mainForm.serialPort.WriteLine($"$Run,{processname},{lotid}");
                     MessageBox.Show("LOT이 실행되었습니다");
+                    lbl_start_check.Text = "";
                 }
                 else MessageBox.Show("이 Lot은 실행할 수 없습니다");
             }

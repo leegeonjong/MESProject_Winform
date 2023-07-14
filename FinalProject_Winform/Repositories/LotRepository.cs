@@ -96,7 +96,7 @@ namespace FinalProject_Winform.Repositories
         public async Task<IEnumerable<Lot>> GetAllAsync()
         {
             using FinalDbContext db = new();
-            var Lot = await db.Lots.Include(i=>i.Item).ToListAsync();
+            var Lot = await db.Lots.Include(i => i.Item).ToListAsync();
             return Lot.OrderByDescending(x => x.Lot_regDate).ToList();
         }
 
@@ -180,11 +180,28 @@ namespace FinalProject_Winform.Repositories
                 {
                     await UpdateLotItem2Async(db, lot);
                 }
-
+                else if (lot.Item.Id == 3)
+                {
+                    await UpdateLotItem3Async(db, lot);
+                }
+                else if (lot.Item.Id == 4)
+                {
+                    await UpdateLotItem4Async(db, lot);
+                }
+                else if (lot.Item.Id == 5)
+                {
+                    await UpdateLotItem5Async(db, lot);
+                }
+                else if (lot.Item.Id == 6)
+                {
+                    await UpdateLotItem6Async(db, lot);
+                }
                 await db.SaveChangesAsync();
                 return lot;
             }
         }
+
+
 
         private async Task UpdateLotItem1Async(FinalDbContext db, Lot lot)
         {
@@ -278,6 +295,345 @@ namespace FinalProject_Winform.Repositories
 
             await db.Stocks.AddAsync(stock);
             await db.Stocks.AddAsync(stock1);
+        }
+        private async Task UpdateLotItem3Async(FinalDbContext db, Lot lot)
+        {
+            var item4 = await db.Items.FirstOrDefaultAsync(x => x.Id == 4);
+            var item3 = await db.Items.FirstOrDefaultAsync(x => x.Id == 3);
+
+            lot.Item = item4;
+
+            item4.Item_amount += lot.Lot_amount;
+            item3.Item_amount -= lot.Lot_amount;
+
+            Stock stock = new Stock()
+            {
+                Item = item4,
+                Stock_amount = lot.Lot_amount,
+                Stock_regDate = DateTime.Now,
+                Stock_status = "면 찌기",
+            };
+
+            Stock stock1 = new Stock()
+            {
+                Item = item3,
+                Stock_amount = -lot.Lot_amount,
+                Stock_regDate = DateTime.Now,
+                Stock_status = "면 찌기",
+            };
+
+            var lastStock = await db.Stocks
+                .Where(x => x.Item.Id == item4.Id)
+                .OrderByDescending(x => x.Stock_regDate)
+                .FirstOrDefaultAsync();
+
+            var lastStock1 = await db.Stocks
+                .Where(x => x.Item.Id == item3.Id)
+                .OrderByDescending(x => x.Stock_regDate)
+                .FirstOrDefaultAsync();
+
+            if (lastStock != null)
+            {
+                stock.Stock_regAmount = lastStock.Stock_regAmount + lot.Lot_amount;
+            }
+            else
+            {
+                stock.Stock_regAmount = lot.Lot_amount;
+            }
+
+            if (lastStock1 != null)
+            {
+                stock1.Stock_regAmount = lastStock1.Stock_regAmount - lot.Lot_amount;
+            }
+            else
+            {
+                stock1.Stock_regAmount = lot.Lot_amount;
+            }
+
+            await db.Stocks.AddAsync(stock);
+            await db.Stocks.AddAsync(stock1);
+
+
+        }
+
+        private async Task UpdateLotItem4Async(FinalDbContext db, Lot lot)
+        {
+            var item5 = await db.Items.FirstOrDefaultAsync(x => x.Id == 5);
+            var item4 = await db.Items.FirstOrDefaultAsync(x => x.Id == 4);
+            var item10 = await db.Items.FirstOrDefaultAsync(x => x.Id == 10);
+
+            lot.Item = item5;
+
+            item5.Item_amount += lot.Lot_amount;
+            item4.Item_amount -= lot.Lot_amount;
+            item10.Item_amount -= 200;
+
+            Stock stock = new Stock()
+            {
+                Item = item5,
+                Stock_amount = lot.Lot_amount,
+                Stock_regDate = DateTime.Now,
+                Stock_status = "면 튀기기",
+            };
+
+            Stock stock1 = new Stock()
+            {
+                Item = item4,
+                Stock_amount = -lot.Lot_amount,
+                Stock_regDate = DateTime.Now,
+                Stock_status = "면 튀기기",
+            };
+
+
+            Stock stock2 = new Stock()
+            {
+                Item = item10,
+                Stock_amount = -200,
+                Stock_regDate = DateTime.Now,
+                Stock_status = "면 튀기기",
+            };
+
+            var lastStock = await db.Stocks
+                .Where(x => x.Item.Id == item5.Id)
+                .OrderByDescending(x => x.Stock_regDate)
+                .FirstOrDefaultAsync();
+
+            var lastStock1 = await db.Stocks
+                .Where(x => x.Item.Id == item4.Id)
+                .OrderByDescending(x => x.Stock_regDate)
+                .FirstOrDefaultAsync();
+
+            var lastStock2 = await db.Stocks
+                .Where(x => x.Item.Id == item10.Id)
+                .OrderByDescending(x => x.Stock_regDate)
+                .FirstOrDefaultAsync();
+
+            if (lastStock != null)
+            {
+                stock.Stock_regAmount = lastStock.Stock_regAmount + lot.Lot_amount;
+            }
+            else
+            {
+                stock.Stock_regAmount = lot.Lot_amount;
+            }
+
+            if (lastStock1 != null)
+            {
+                stock1.Stock_regAmount = lastStock1.Stock_regAmount - lot.Lot_amount;
+            }
+            else
+            {
+                stock1.Stock_regAmount = lot.Lot_amount;
+            }
+
+            if (lastStock2 != null)
+            {
+                stock2.Stock_regAmount = lastStock2.Stock_regAmount - 200;
+            }
+
+            else
+            {
+                stock2.Stock_regAmount = -200;
+            }
+
+            await db.Stocks.AddAsync(stock);
+            await db.Stocks.AddAsync(stock1);
+            await db.Stocks.AddAsync(stock2);
+        }
+
+        private async Task UpdateLotItem5Async(FinalDbContext db, Lot lot)
+        {
+            var item6 = await db.Items.FirstOrDefaultAsync(x => x.Id == 6);
+            var item5 = await db.Items.FirstOrDefaultAsync(x => x.Id == 5);
+
+            lot.Item = item6;
+
+            item6.Item_amount += lot.Lot_amount;
+            item5.Item_amount -= lot.Lot_amount;
+
+            Stock stock = new Stock()
+            {
+                Item = item6,
+                Stock_amount = lot.Lot_amount,
+                Stock_regDate = DateTime.Now,
+                Stock_status = "면 얼리기",
+            };
+
+            Stock stock1 = new Stock()
+            {
+                Item = item5,
+                Stock_amount = -lot.Lot_amount,
+                Stock_regDate = DateTime.Now,
+                Stock_status = "면 얼리기",
+            };
+
+            var lastStock = await db.Stocks
+                .Where(x => x.Item.Id == item6.Id)
+                .OrderByDescending(x => x.Stock_regDate)
+                .FirstOrDefaultAsync();
+
+            var lastStock1 = await db.Stocks
+                .Where(x => x.Item.Id == item5.Id)
+                .OrderByDescending(x => x.Stock_regDate)
+                .FirstOrDefaultAsync();
+
+            if (lastStock != null)
+            {
+                stock.Stock_regAmount = lastStock.Stock_regAmount + lot.Lot_amount;
+            }
+            else
+            {
+                stock.Stock_regAmount = lot.Lot_amount;
+            }
+
+            if (lastStock1 != null)
+            {
+                stock1.Stock_regAmount = lastStock1.Stock_regAmount - lot.Lot_amount;
+            }
+            else
+            {
+                stock1.Stock_regAmount = lot.Lot_amount;
+            }
+
+            await db.Stocks.AddAsync(stock);
+            await db.Stocks.AddAsync(stock1);
+        }
+
+        private async Task UpdateLotItem6Async(FinalDbContext db, Lot lot)
+        {
+            var item11 = await db.Items.FirstOrDefaultAsync(x => x.Id == 11);
+            var item6 = await db.Items.FirstOrDefaultAsync(x => x.Id == 6);
+            var item7 = await db.Items.FirstOrDefaultAsync(x => x.Id == 7);
+            var item8 = await db.Items.FirstOrDefaultAsync(x => x.Id == 8);
+            var item9 = await db.Items.FirstOrDefaultAsync(x => x.Id == 9);
+
+            lot.Item = item11;
+
+            item11.Item_amount += lot.Lot_amount;
+            item6.Item_amount -= lot.Lot_amount;
+            item7.Item_amount -= lot.Lot_amount;
+            item8.Item_amount -= lot.Lot_amount;
+            item9.Item_amount -= lot.Lot_amount;
+
+            Stock stock = new Stock()
+            {
+                Item = item11,
+                Stock_amount = lot.Lot_amount,
+                Stock_regDate = DateTime.Now,
+                Stock_status = "라면 포장",
+            };
+
+            Stock stock1 = new Stock()
+            {
+                Item = item6,
+                Stock_amount = -lot.Lot_amount,
+                Stock_regDate = DateTime.Now,
+                Stock_status = "라면 포장",
+            };
+
+
+            Stock stock2 = new Stock()
+            {
+                Item = item7,
+                Stock_amount = -lot.Lot_amount,
+                Stock_regDate = DateTime.Now,
+                Stock_status = "라면 포장",
+            };
+
+            Stock stock3 = new Stock()
+            {
+                Item = item8,
+                Stock_amount = -lot.Lot_amount1,
+                Stock_regDate = DateTime.Now,
+                Stock_status = "라면 포장",
+            };
+
+            Stock stock4 = new Stock()
+            {
+                Item = item9,
+                Stock_amount = -lot.Lot_amount1,
+                Stock_regDate = DateTime.Now,
+                Stock_status = "라면 포장",
+            };
+
+            var lastStock = await db.Stocks
+                .Where(x => x.Item.Id == item11.Id)
+                .OrderByDescending(x => x.Stock_regDate)
+                .FirstOrDefaultAsync();
+
+            var lastStock1 = await db.Stocks
+                .Where(x => x.Item.Id == item6.Id)
+                .OrderByDescending(x => x.Stock_regDate)
+                .FirstOrDefaultAsync();
+
+            var lastStock2 = await db.Stocks
+                .Where(x => x.Item.Id == item7.Id)
+                .OrderByDescending(x => x.Stock_regDate)
+                .FirstOrDefaultAsync();
+
+            var lastStock3 = await db.Stocks
+            .Where(x => x.Item.Id == item8.Id)
+            .OrderByDescending(x => x.Stock_regDate)
+            .FirstOrDefaultAsync();
+
+            var lastStock4 = await db.Stocks
+              .Where(x => x.Item.Id == item9.Id)
+             .OrderByDescending(x => x.Stock_regDate)
+                .FirstOrDefaultAsync();
+
+            if (lastStock != null)
+            {
+                stock.Stock_regAmount = lastStock.Stock_regAmount + lot.Lot_amount;
+            }
+            else
+            {
+                stock.Stock_regAmount = lot.Lot_amount;
+            }
+
+            if (lastStock1 != null)
+            {
+                stock1.Stock_regAmount = lastStock1.Stock_regAmount - lot.Lot_amount;
+            }
+            else
+            {
+                stock1.Stock_regAmount = lot.Lot_amount;
+            }
+
+            if (lastStock2 != null)
+            {
+                stock2.Stock_regAmount = lastStock2.Stock_regAmount -lot.Lot_amount;
+            }
+
+            else
+            {
+                stock2.Stock_regAmount = -lot.Lot_amount;
+            }
+
+            if (lastStock3 != null)
+            {
+                stock3.Stock_regAmount = lastStock3.Stock_regAmount -lot.Lot_amount;
+            }
+
+            else
+            {
+                stock3.Stock_regAmount = -lot.Lot_amount;
+            }
+
+            if (lastStock4 != null)
+            {
+                stock4.Stock_regAmount = lastStock4.Stock_regAmount - lot.Lot_amount;
+            }
+
+            else
+            {
+                stock4.Stock_regAmount = -lot.Lot_amount;
+            }
+
+            await db.Stocks.AddAsync(stock);
+            await db.Stocks.AddAsync(stock1);
+            await db.Stocks.AddAsync(stock2);
+            await db.Stocks.AddAsync(stock3);
+            await db.Stocks.AddAsync(stock4);
         }
 
 
