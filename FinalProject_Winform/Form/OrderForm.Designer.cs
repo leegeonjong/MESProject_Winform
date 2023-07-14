@@ -383,7 +383,7 @@
             // 
             // tabPage2
             // 
-            tabPage2.BackColor = Color.Gray;
+            tabPage2.BackColor = Color.Gainsboro;
             tabPage2.Controls.Add(panel5);
             tabPage2.Location = new Point(4, 44);
             tabPage2.Name = "tabPage2";
@@ -413,11 +413,11 @@
             button4.FlatAppearance.BorderColor = Color.White;
             button4.FlatStyle = FlatStyle.Flat;
             button4.Font = new Font("맑은 고딕", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            button4.Location = new Point(679, 80);
+            button4.Location = new Point(879, 79);
             button4.Name = "button4";
-            button4.Size = new Size(132, 46);
+            button4.Size = new Size(184, 46);
             button4.TabIndex = 20;
-            button4.Text = "검색";
+            button4.Text = "날짜 보기";
             button4.UseVisualStyleBackColor = false;
             button4.Click += button4_Click;
             // 
@@ -427,11 +427,11 @@
             button3.FlatAppearance.BorderColor = Color.White;
             button3.FlatStyle = FlatStyle.Flat;
             button3.Font = new Font("맑은 고딕", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            button3.Location = new Point(679, 20);
+            button3.Location = new Point(879, 20);
             button3.Name = "button3";
-            button3.Size = new Size(132, 46);
+            button3.Size = new Size(184, 46);
             button3.TabIndex = 19;
-            button3.Text = "검색";
+            button3.Text = "주문 전체 보기";
             button3.UseVisualStyleBackColor = false;
             button3.Click += button3_Click;
             // 

@@ -9,8 +9,7 @@ namespace FinalProject_Winform.Repositories
 {
     internal interface ILothistoryRepository
     {
-
-
+        Task<List<LotHistory>> GetLotId(string processName);
         Task<long> GetRecentLotAsync(long processid);
         Task<LotHistory> AddLotAsync(long lotid, long processid, string status);
     }

@@ -44,14 +44,10 @@
             btn_next = new Button();
             btn_prev = new Button();
             dataGridView1 = new DataGridView();
-            LOT_ID = new DataGridViewTextBoxColumn();
-            Process_Status = new DataGridViewTextBoxColumn();
-            LOT_StartDate = new DataGridViewTextBoxColumn();
-            LOT_EndDate = new DataGridViewTextBoxColumn();
             panel3 = new Panel();
             btnSearchProcess = new Button();
             label2 = new Label();
-            textBox1 = new TextBox();
+            ProcessSearch = new TextBox();
             tabPage2 = new TabPage();
             panel5 = new Panel();
             btnOff = new Button();
@@ -62,6 +58,10 @@
             btnOn = new Button();
             panel6 = new Panel();
             label5 = new Label();
+            LOT_ID = new DataGridViewTextBoxColumn();
+            LOT_NAME = new DataGridViewTextBoxColumn();
+            LOT_StartDate = new DataGridViewTextBoxColumn();
+            LOT_STATUS = new DataGridViewTextBoxColumn();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             tabControl1.SuspendLayout();
@@ -268,46 +268,19 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { LOT_ID, Process_Status, LOT_StartDate, LOT_EndDate });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { LOT_ID, LOT_NAME, LOT_StartDate, LOT_STATUS });
             dataGridView1.Location = new Point(28, 122);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
             dataGridView1.Size = new Size(1037, 431);
             dataGridView1.TabIndex = 8;
             // 
-            // LOT_ID
-            // 
-            LOT_ID.HeaderText = "LOT";
-            LOT_ID.Name = "LOT_ID";
-            LOT_ID.ReadOnly = true;
-            // 
-            // Process_Status
-            // 
-            Process_Status.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Process_Status.HeaderText = "상태";
-            Process_Status.Name = "Process_Status";
-            Process_Status.ReadOnly = true;
-            // 
-            // LOT_StartDate
-            // 
-            LOT_StartDate.HeaderText = "시작시간";
-            LOT_StartDate.Name = "LOT_StartDate";
-            LOT_StartDate.ReadOnly = true;
-            LOT_StartDate.Width = 300;
-            // 
-            // LOT_EndDate
-            // 
-            LOT_EndDate.HeaderText = "종료시간";
-            LOT_EndDate.Name = "LOT_EndDate";
-            LOT_EndDate.ReadOnly = true;
-            LOT_EndDate.Width = 300;
-            // 
             // panel3
             // 
             panel3.BackColor = Color.WhiteSmoke;
             panel3.Controls.Add(btnSearchProcess);
             panel3.Controls.Add(label2);
-            panel3.Controls.Add(textBox1);
+            panel3.Controls.Add(ProcessSearch);
             panel3.Location = new Point(28, 24);
             panel3.Name = "panel3";
             panel3.Size = new Size(1037, 82);
@@ -322,6 +295,7 @@
             btnSearchProcess.TabIndex = 8;
             btnSearchProcess.Text = "검색";
             btnSearchProcess.UseVisualStyleBackColor = false;
+            btnSearchProcess.Click += btnSearchProcess_Click;
             // 
             // label2
             // 
@@ -333,14 +307,14 @@
             label2.TabIndex = 6;
             label2.Text = "공정 검색  : ";
             // 
-            // textBox1
+            // ProcessSearch
             // 
-            textBox1.Font = new Font("맑은 고딕", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox1.Location = new Point(240, 26);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(484, 32);
-            textBox1.TabIndex = 5;
+            ProcessSearch.Font = new Font("맑은 고딕", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            ProcessSearch.Location = new Point(240, 26);
+            ProcessSearch.Multiline = true;
+            ProcessSearch.Name = "ProcessSearch";
+            ProcessSearch.Size = new Size(484, 32);
+            ProcessSearch.TabIndex = 5;
             // 
             // tabPage2
             // 
@@ -448,6 +422,33 @@
             label5.TabIndex = 6;
             label5.Text = "설비 상태 설정";
             // 
+            // LOT_ID
+            // 
+            LOT_ID.HeaderText = "LOT";
+            LOT_ID.Name = "LOT_ID";
+            LOT_ID.ReadOnly = true;
+            // 
+            // LOT_NAME
+            // 
+            LOT_NAME.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            LOT_NAME.HeaderText = "이름";
+            LOT_NAME.Name = "LOT_NAME";
+            LOT_NAME.ReadOnly = true;
+            // 
+            // LOT_StartDate
+            // 
+            LOT_StartDate.HeaderText = "시작시간";
+            LOT_StartDate.Name = "LOT_StartDate";
+            LOT_StartDate.ReadOnly = true;
+            LOT_StartDate.Width = 300;
+            // 
+            // LOT_STATUS
+            // 
+            LOT_STATUS.HeaderText = "상태";
+            LOT_STATUS.Name = "LOT_STATUS";
+            LOT_STATUS.ReadOnly = true;
+            LOT_STATUS.Width = 300;
+            // 
             // ProcessForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -487,7 +488,7 @@
         private TabControl tabControl1;
         private TabPage tabPage1;
         private TabPage tabPage2;
-        private TextBox textBox1;
+        private TextBox ProcessSearch;
         private Label label2;
         private Panel panel3;
         private Panel panel4;
@@ -510,10 +511,10 @@
         private Button btn_TestForm;
         private Button btn_ProcessForm;
         private Button btn_LOTForm;
-        private DataGridViewTextBoxColumn LOT_ID;
-        private DataGridViewTextBoxColumn Process_Status;
-        private DataGridViewTextBoxColumn LOT_StartDate;
-        private DataGridViewTextBoxColumn LOT_EndDate;
         private Button btnOff;
+        private DataGridViewTextBoxColumn LOT_ID;
+        private DataGridViewTextBoxColumn LOT_NAME;
+        private DataGridViewTextBoxColumn LOT_StartDate;
+        private DataGridViewTextBoxColumn LOT_STATUS;
     }
 }

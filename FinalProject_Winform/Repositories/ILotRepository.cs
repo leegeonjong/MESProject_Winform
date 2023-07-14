@@ -21,5 +21,7 @@ namespace FinalProject_Winform.Repositories
         string FindBarcodePkByPK(long lotId);
 
         bool FindAsync(string barcode);
+        bool Findstatus(string status);
+
     }
 }

@@ -96,8 +96,8 @@ namespace FinalProject_Winform.Repositories
         public async Task<IEnumerable<Lot>> GetAllAsync()
         {
             using FinalDbContext db = new();
-            var Lot = await db.Lots.Include(i => i.Item).ToListAsync();
-            return Lot.OrderBy(x => x.Id).ToList();
+            var Lot = await db.Lots.Include(i=>i.Item).ToListAsync();
+            return Lot.OrderByDescending(x => x.Lot_regDate).ToList();
         }
 
         public async Task<IEnumerable<Lot>> GetByBarcode(string Barcode)
@@ -141,6 +141,23 @@ namespace FinalProject_Winform.Repositories
 
             await db.SaveChangesAsync();
             return lot;
+        }
+
+        public bool Findstatus(string status)
+        {
+            using FinalDbContext db = new();
+            var lot = db.Lots.FirstOrDefault(l => l.Lot_status == status);
+
+            if (lot != null)
+            {
+                // status와 일치하는 Lot이 존재하는 경우
+                return false;
+            }
+            else
+            {
+                // status와 일치하는 Lot이 존재하지 않는 경우
+                return true;
+            }
         }
 
         public async Task<Lot> ItemUpdateAsync(long lotpk)

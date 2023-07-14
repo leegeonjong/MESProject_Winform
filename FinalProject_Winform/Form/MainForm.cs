@@ -37,7 +37,8 @@ namespace FinalProject_Winform
             processRepository = new ProcessRepository();
 
             // MainForm이 로드될 때 수행할 작업
-            string port = $"COM3";  // 여기 바꾸셈
+            //string port = $"COM8";  // 여기 바꾸셈
+            string port = $"COM3";  // 이건종
 
             serialPort.PortName = port;   //시리얼 포트 설정
 

@@ -41,5 +41,17 @@ namespace FinalProject_Winform.Repositories
             return lot.LotId;
         }
 
+        public async Task<List<LotHistory>> GetLotId(string processName)
+        {
+            using FinalDbContext db = new();
+            var lots = await db.LotHistorys
+                .Where(i => i.Process.Process_name == processName)
+                .OrderByDescending(i => i.LotHistory_Date)
+                .ToListAsync();
+
+            return lots;
+        }
+
+
     }
 }
