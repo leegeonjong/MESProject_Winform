@@ -10,15 +10,14 @@ DBCC CHECKIDENT(Stock, reseed, 0);
 --------------------------------------
 DELETE FROM LOT
 DBCC CHECKIDENT(Lot, reseed, 0);
-
+-------------------------------------------
 DBCC CHECKIDENT(LotHistory, reseed, 0);
 delete LotHistory
+-------------------------------------------
 
-
+DELETE FROM Process
 DBCC CHECKIDENT(Process, reseed, 0);
-delete Process
-
-
+-------------------------------------------
 DELETE FROM [Order]
-
 DBCC CHECKIDENT([Order], reseed, 0);
+-------------------------------------------

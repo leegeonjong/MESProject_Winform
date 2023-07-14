@@ -37,14 +37,12 @@
             btn_TestForm = new Button();
             btn_ProcessForm = new Button();
             btn_LOTForm = new Button();
-            tabControl1 = new TabControl();
-            tabPage1 = new TabPage();
-            tabPage2 = new TabPage();
+            panel3 = new Panel();
             listBox1 = new ListBox();
+            label2 = new Label();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
-            tabControl1.SuspendLayout();
-            tabPage1.SuspendLayout();
+            panel3.SuspendLayout();
             SuspendLayout();
             // 
             // panel2
@@ -171,54 +169,43 @@
             btn_LOTForm.UseVisualStyleBackColor = true;
             btn_LOTForm.Click += Button_Click;
             // 
-            // tabControl1
+            // panel3
             // 
-            tabControl1.Controls.Add(tabPage1);
-            tabControl1.Controls.Add(tabPage2);
-            tabControl1.Dock = DockStyle.Bottom;
-            tabControl1.ItemSize = new Size(200, 40);
-            tabControl1.Location = new Point(160, 90);
-            tabControl1.Name = "tabControl1";
-            tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1104, 671);
-            tabControl1.TabIndex = 6;
-            // 
-            // tabPage1
-            // 
-            tabPage1.Controls.Add(listBox1);
-            tabPage1.Location = new Point(4, 44);
-            tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1096, 623);
-            tabPage1.TabIndex = 0;
-            tabPage1.Text = "tabPage1asdfadfasdfafa";
-            tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            tabPage2.Location = new Point(4, 44);
-            tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1096, 623);
-            tabPage2.TabIndex = 1;
-            tabPage2.Text = "tabPage2";
-            tabPage2.UseVisualStyleBackColor = true;
+            panel3.BackColor = Color.Silver;
+            panel3.Controls.Add(listBox1);
+            panel3.Controls.Add(label2);
+            panel3.Location = new Point(160, 90);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(1104, 671);
+            panel3.TabIndex = 6;
             // 
             // listBox1
             // 
+            listBox1.BorderStyle = BorderStyle.None;
+            listBox1.Font = new Font("맑은 고딕", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 15;
-            listBox1.Location = new Point(35, 35);
+            listBox1.ItemHeight = 30;
+            listBox1.Location = new Point(23, 88);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(477, 319);
-            listBox1.TabIndex = 0;
+            listBox1.Size = new Size(1054, 540);
+            listBox1.TabIndex = 2;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("맑은 고딕", 27.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Location = new Point(23, 13);
+            label2.Name = "label2";
+            label2.Size = new Size(399, 50);
+            label2.TabIndex = 1;
+            label2.Text = "아두이노 <-> PC 통신";
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1264, 761);
-            Controls.Add(tabControl1);
+            Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "MainForm";
@@ -228,8 +215,8 @@
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel1.ResumeLayout(false);
-            tabControl1.ResumeLayout(false);
-            tabPage1.ResumeLayout(false);
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -238,15 +225,14 @@
         private Panel panel2;
         private Label label1;
         private Panel panel1;
-        private TabControl tabControl1;
-        private TabPage tabPage1;
-        private TabPage tabPage2;
         private Button btn_ChartForm;
         private Button btn_OrderForm;
         private Button btn_StockForm;
         private Button btn_TestForm;
         private Button btn_ProcessForm;
         private Button btn_LOTForm;
+        private Panel panel3;
+        private Label label2;
         private ListBox listBox1;
     }
 }
