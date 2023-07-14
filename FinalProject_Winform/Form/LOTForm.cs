@@ -100,7 +100,7 @@ namespace FinalProject_Winform
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (lotRepository.AddLotAsync(lbl_text_item.Text, lbl_barcode.Text, int.Parse(lbl_text_count.Text)) == null)
+            if (lotRepository.AddLotAsync(lbl_text_item.Text, lbl_barcode.Text, int.Parse(lbl_text_count.Text)) != null)
             {
                 MessageBox.Show("Lot이 생성되었습니다");
             }
@@ -236,18 +236,24 @@ namespace FinalProject_Winform
 
         private void btn_Start_Click(object sender, EventArgs e)
         {
-            string Check = lbl_start_check.Text;
-            if (Check == "O") {
-                string lotbarcode = lbl_start_lotnum.Text;
-                string processname = cmb_process.Text;
-                long processid = processRepository.GetProcessId(processname);
-                long lotid = lotRepository.FindLotPkByBarcode(lotbarcode);
+            string ing = cmb_process.Text + "ing";
+            if (lotRepository.Findstatus(ing))
+            {
+                string Check = lbl_start_check.Text;
+                if (Check == "O")
+                {
+                    string lotbarcode = lbl_start_lotnum.Text;
+                    string processname = cmb_process.Text;
+                    long processid = processRepository.GetProcessId(processname);
+                    long lotid = lotRepository.FindLotPkByBarcode(lotbarcode);
 
-                mainForm.serialPort.WriteLine($"$Run,{processname},{lotid}");
-                MessageBox.Show("LOT이 실행되었습니다");
+                    mainForm.serialPort.WriteLine($"$Run,{processname},{lotid}");
+                    MessageBox.Show("LOT이 실행되었습니다");
+                }
+                else MessageBox.Show("이 Lot은 실행할 수 없습니다");
             }
-            else  MessageBox.Show("이 Lot은 실행할 수 없습니다");
-            
+            else MessageBox.Show("이 공정에는 이미 다른 lot이 실행중입니다");
+
         }
 
         private void cmb_process_SelectedIndexChanged(object sender, EventArgs e)

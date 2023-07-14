@@ -21,3 +21,5 @@ DBCC CHECKIDENT(Process, reseed, 0);
 DELETE FROM [Order]
 DBCC CHECKIDENT([Order], reseed, 0);
 -------------------------------------------
+DELETE FROM [CHECK]
+DBCC CHECKIDENT([CHECK], reseed, 0);

@@ -142,5 +142,22 @@ namespace FinalProject_Winform.Repositories
             await db.SaveChangesAsync();
             return lot;
         }
+
+        public bool Findstatus(string status)
+        {
+            using FinalDbContext db = new();
+            var lot = db.Lots.FirstOrDefault(l => l.Lot_status == status);
+
+            if (lot != null)
+            {
+                // status와 일치하는 Lot이 존재하는 경우
+                return false;
+            }
+            else
+            {
+                // status와 일치하는 Lot이 존재하지 않는 경우
+                return true;
+            }
+        }
     }
 }
