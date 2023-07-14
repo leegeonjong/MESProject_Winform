@@ -65,7 +65,7 @@ void loop() {
       rest = line.substring(line.indexOf(",") + 1);
       process = rest.substring(0, line.indexOf(","));
       lotid = rest.substring(line.indexOf(",") + 0);
-      int ProcessNum = ProcessName(process);
+      int ProcessNum = ProcessName(process) - 1;
       if (action == "Run") {
         SendRecieve(process, lotid);
         SendStart(process, lotid);
