@@ -1,7 +1,7 @@
 ﻿
-INSERT INTO [Order] (ItemId, Order_startDate, Order_endDate, Order_sendDate,Order_status,Order_name,Order_count)
+INSERT INTO [Order] (ItemId, Order_startDate, Order_endDate, Order_sendDate,Order_status,Order_name,Order_count,Order_Account)
 VALUES
-(1,GETDATE(),GETDATE()+7,GETDATE()+6,'대기','주문',300)
+(1,GETDATE(),GETDATE()+7,GETDATE()+6,'대기','주문',300,'코리아IT아카데미')
 
 INSERT INTO Process(Process_name, Process_status, Process_checkRight)
 VALUES ('Mix', 1, 1)
