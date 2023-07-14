@@ -25,8 +25,8 @@ namespace FinalProject_Winform
             if (button != null)
             {
                 string formName = button.Name.Replace("btn_", "");
-                FormUtility.OpenForm(formName, this);
                 this.Close();
+                FormUtility.OpenForm(formName, mainForm);
             }
         }
         private void Form6_Load(object sender, EventArgs e)

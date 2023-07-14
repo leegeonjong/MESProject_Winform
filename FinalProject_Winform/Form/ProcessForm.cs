@@ -40,8 +40,8 @@ namespace FinalProject_Winform
             if (button != null)
             {
                 string formName = button.Name.Replace("btn_", "");
-                FormUtility.OpenForm(formName, this);
                 this.Close();
+                FormUtility.OpenForm(formName, mainForm);
             }
         }
         //메인폼으로 돌아가기
@@ -126,18 +126,18 @@ namespace FinalProject_Winform
         //설비 전원 켜기
         private void btnOn_Click(object sender, EventArgs e)
         {
-            //DB status 값 true로 변경하기
-            ProcessOnOffAsync(true);
             //아두이노에 전원 켜라고 시리얼 통신보내기
             SendSerialOnOff(true);
+            //DB status 값 true로 변경하기
+            ProcessOnOffAsync(true);
         }
         //설비 전원 끄기
         private void btnOff_Click(object sender, EventArgs e)
         {
-            //DB status 값 false로 변경하기
-            ProcessOnOffAsync(false);
             //아두이노에 전원 끄라고 시리얼 통신보내기
             SendSerialOnOff(false);
+            //DB status 값 false로 변경하기
+            ProcessOnOffAsync(false);
         }
 
         //----------------------------------------------------------------------------
@@ -151,7 +151,6 @@ namespace FinalProject_Winform
             string selectedProcess = combo_process.SelectedItem.ToString();
             long ProcessId = processRepository.GetProcessId(selectedProcess);
             long RecentLotId = await lothistoryRepository.GetRecentLotAsync(ProcessId);
-
 
             //현재 상태에 따라 다른 메시지 작성
             string message = "";

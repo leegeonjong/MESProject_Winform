@@ -163,6 +163,7 @@ namespace FinalProject_Winform
             Button button = sender as Button;
             if (button != null)
             {
+                //버튼의 이름에서 Form 이름 가져오기
                 string formName = button.Name.Replace("btn_", "");
                 FormUtility.OpenForm(formName, this);
             }
