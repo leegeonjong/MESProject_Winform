@@ -242,6 +242,7 @@ namespace FinalProject_Winform
                 long lotid = lotRepository.FindLotPkByBarcode(lotbarcode);
 
                 mainForm.serialPort.WriteLine($"$Run,{processname},{lotid}");
+                mainForm.ShowMessage($"→$Run,{processname},{lotid}");
                 MessageBox.Show("LOT이 실행되었습니다");
             }
             else  MessageBox.Show("이 Lot은 실행할 수 없습니다");
