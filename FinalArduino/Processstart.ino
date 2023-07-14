@@ -2,6 +2,12 @@
 void Processstart(String action, String process, String lotid) {
   int processNum = ProcessName(process);
   if (action == "Run") {
+    //검사를 하는 공정이면
+    if (processNum == 3) {
+      //튀기기 공정이면 waterlever로 팜유 측정
+      WaterSenser();
+    }
+
     startTime[processNum] = millis();
     timerStarted[processNum] = true;
     myArray[processNum] = { action, process, lotid, startTime[processNum] };
@@ -18,7 +24,7 @@ void Processstart(String action, String process, String lotid) {
     digitalWrite(LedYellow[processNum], HIGH);
     startTime[processNum] = millis();
     timerStarted[processNum] = true;
-    
+
     SendContinue(myArray[processNum].process, myArray[processNum].lotid);
   } else if (action == "Off") {
     digitalWrite(LedRed[processNum], HIGH);

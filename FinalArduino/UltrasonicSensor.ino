@@ -1,40 +1,70 @@
-#define TRIG 27 //TRIG 핀 설정 (초음파 보내는 핀)
+int TRIG_Plus = 10;   //더하기 TRIG 핀 설정 (초음파 보내는 핀)
+int ECHO_Plus = 11;   //더하기 ECHO 핀 설정 (초음파 받는 핀)
+int TRIG_Minus = 16;  //빼기 TRIG 핀 설정 (초음파 보내는 핀)
+int ECHO_Minus = 15;
 
-#define ECHO 25 //ECHO 핀 설정 (초음파 받는 핀)
+int Lot_Count = 0;
 
-int count = 0;
+bool minusToggle = false;
+bool plusToggle = false;
 
-void UltrasonicSensor(){
-  pinMode(TRIG, OUTPUT);
+void UltrasonicSensor() {
+  pinMode(TRIG_Plus, OUTPUT);
+  pinMode(ECHO_Plus, INPUT);
 
-  pinMode(ECHO, INPUT);
+  long durationPlus, distancePlus;
 
-  long duration, distance;
+  digitalWrite(TRIG_Plus, LOW);
 
-
-
-  digitalWrite(TRIG, LOW);
   delayMicroseconds(2);
-  digitalWrite(TRIG, HIGH);
+  digitalWrite(TRIG_Plus, HIGH);
+
   delayMicroseconds(10);
-  digitalWrite(TRIG, LOW);
-
-  duration = pulseIn (ECHO, HIGH); //물체에 반사되어돌아온 초음파의 시간을 변수에 저장합니다.
-
-  distance = duration * 17 / 1000; 
+  digitalWrite(TRIG_Plus, LOW);
 
 
-  Serial.print(distance); //측정된 물체로부터 거리값(cm값)을 보여줍니다.
+  durationPlus = pulseIn(ECHO_Plus, HIGH);
 
-  Serial.println(" Cm");
 
-  if(distance<10){
-    count++;
-    Serial.print(count);
-    Serial.println("개 통과");
+  distancePlus = durationPlus * 17 / 1000;
+
+
+  if (distancePlus < 5) {
+    if (Lot_Count >= 0 && !plusToggle) {
+      plusToggle = true;
+      Lot_Count++;
+      Serial.print(Lot_Count);
+      Serial.println("개 더함");
+    }
+  } else {
+    plusToggle = false;
   }
+}
 
 
+void UltrasonicSensorMinus() {
+  pinMode(TRIG_Minus, OUTPUT);
+  pinMode(ECHO_Minus, INPUT);
 
-  delay(1000); //1초마다 측정값을 보여줍니다.
+  long durationMinus, distanceMinus;
+
+  digitalWrite(TRIG_Minus, LOW);
+  delayMicroseconds(2);
+  digitalWrite(TRIG_Minus, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(TRIG_Minus, LOW);
+
+  durationMinus = pulseIn(ECHO_Minus, HIGH);
+  distanceMinus = durationMinus * 17 / 1000;
+
+  if (distanceMinus < 5) {
+    if (Lot_Count > 0 && !minusToggle) {
+      minusToggle = true;
+      Lot_Count--;
+      Serial.print(Lot_Count);
+      Serial.println("개 뺌");
+    }
+  } else {
+    minusToggle = false;
+  }
 }
