@@ -26,8 +26,11 @@ MyStruct myArray[] = {
 };
 
 const int numProcesses = 6;  //공정 개수
+bool buttonState[numProcesses] = { false, false, false, false, false, false };
+bool prevButtonState[numProcesses] = { false, false, false, false, false, false };
 bool timerStarted[numProcesses] = { false, false, false, false, false, false };
 unsigned long startTime[numProcesses] = { 0, 0, 0, 0, 0, 0 };
+unsigned long elapsedTime[numProcesses] = { 0, 0, 0, 0, 0, 0 };
 
 // unsigned long startTimeMix = 0;     // 시작시간
 // unsigned long startTimeShape = 0;   // 시작시간
@@ -44,7 +47,7 @@ unsigned long startTime[numProcesses] = { 0, 0, 0, 0, 0, 0 };
 // bool timerStartedPack = false;    // 타이머 시작 bool
 
 
-const unsigned long timerDuration = 10000;  // 10 seconds
+unsigned long timerDuration = 10000;  // 10 seconds
 
 
 
@@ -69,15 +72,31 @@ String process = "";  // 공정명
 String lotid = "";    // lotid
 
 void loop() {
+  // 버튼을 눌렀을 때
   for (int i = 0; i < numProcesses; i++) {
-    if (digitalRead(ProcessSw[i]) == LOW) {
-      SendStop(process, lotid);
-      digitalWrite(LedRed[i], HIGH);
-      SendRecieve(myArray[i].process, myArray[i].lotid);
+    buttonState[i] = digitalRead(ProcessSw[i]);
+
+    // 버튼의 눌림 상태 변화를 감지하여 한 번만 실행
+    if (buttonState[i] != prevButtonState[i]) {
+      if (buttonState[i] == LOW && prevButtonState[i] == HIGH) {  // Falling Edge
+        digitalWrite(LedRed[i], HIGH);
+
+        if (timerStarted[i]) {
+          SendStop(myArray[i].process, myArray[i].lotid);
+          timerDuration = timerDuration - (millis() - startTime[i]);
+          Serial.println(timerDuration);
+          timerStarted[i] = false;  // 타이머 상태 초기화
+        } else {
+          SendContinue(myArray[i].process, myArray[i].lotid);
+          startTime[i] = millis();
+          timerStarted[i] = true;
+        }
+      }
+      prevButtonState[i] = buttonState[i];
     }
   }
 
-  // $Run,Mix,213 명령 받고 이렇게 돌려주도록 한다
+  // 윈폼에서 통신을 받는 곳
   if (Serial.available() > 0) {
     String line = Serial.readStringUntil('\n');
     line.trim();  // trim() 은 void 리턴.
@@ -91,7 +110,15 @@ void loop() {
   }
 
 
-
+  // 타이머 상태 확인 및 처리
+  for (int i = 0; i < numProcesses; i++) {
+    if (timerStarted[i] && millis() - startTime[i] >= timerDuration) {
+      Serial.println(timerDuration);
+      SendEnd(myArray[i].process, myArray[i].lotid);
+      timerStarted[i] = false;  // 타이머 상태 초기화
+      timerDuration = 10000;    //10초로 초기화
+    }
+  }
 
   // if (timerStartedMix && millis() - startTimeMix >= timerDuration) {
   //   SendEnd(myArray[0].process, myArray[0].lotid);
