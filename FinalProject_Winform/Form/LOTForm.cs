@@ -100,8 +100,10 @@ namespace FinalProject_Winform
 
         private void button2_Click(object sender, EventArgs e)
         {
-            lotRepository.AddLotAsync(lbl_text_item.Text, lbl_barcode.Text, int.Parse(lbl_text_count.Text));
-            MessageBox.Show("Lot이 생성되었습니다");
+            if (lotRepository.AddLotAsync(lbl_text_item.Text, lbl_barcode.Text, int.Parse(lbl_text_count.Text)) == null)
+            {
+                MessageBox.Show("Lot이 생성되었습니다");
+            }
         }
 
         private void Button_Click(object sender, EventArgs e)

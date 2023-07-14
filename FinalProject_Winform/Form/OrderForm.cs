@@ -38,8 +38,8 @@ namespace FinalProject_Winform
             enddate1 = dateTimePicker2;
             startdate = dateTimePicker3;
             enddate = dateTimePicker4;
-        
-         
+
+
             startdate.Value = DateTime.Now;
             enddate.Value = DateTime.Now;
 
@@ -68,10 +68,8 @@ namespace FinalProject_Winform
         {
             using (FinalDbContext db = new())
             {
-                var srt = startdate.Value.Date;
                 var orders = await db.Orders
-                    .Include(x=>x.Item)
-                    .Where(x => x.Order_startDate == srt)
+                    .Include(x => x.Item)
                     .ToListAsync();
                 dgv.Rows.Clear();
                 dgv.Refresh();
@@ -94,9 +92,10 @@ namespace FinalProject_Winform
             using (FinalDbContext db = new())
             {
                 var edt = enddate.Value.Date;
+                var srt = startdate.Value.Date;
                 var orders = await db.Orders
-                    .Include(x=>x.Item)
-                    .Where(x => x.Order_endDate == edt)
+                    .Include(x => x.Item)
+                    .Where(o => o.Order_startDate >= srt && o.Order_endDate <= edt)
                     .ToListAsync();
                 dgv.Rows.Clear();
                 dgv.Refresh();
