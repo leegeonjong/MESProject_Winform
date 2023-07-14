@@ -1,7 +1,7 @@
 int TRIG_Plus = 10;   //더하기 TRIG 핀 설정 (초음파 보내는 핀)
 int ECHO_Plus = 11;   //더하기 ECHO 핀 설정 (초음파 받는 핀)
 int TRIG_Minus = 16;  //빼기 TRIG 핀 설정 (초음파 보내는 핀)
-int ECHO_Minus = 15;
+int ECHO_Minus = 15;  //빼기 ECHO 핀 설정 (초음파 받는 핀)
 
 int Lot_Count = 0;
 
@@ -40,7 +40,6 @@ void UltrasonicSensor() {
     plusToggle = false;
   }
 }
-
 
 void UltrasonicSensorMinus() {
   pinMode(TRIG_Minus, OUTPUT);
