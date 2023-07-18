@@ -12,6 +12,21 @@ namespace FinalProject_Winform.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "Check",
+                columns: table => new
+                {
+                    Id = table.Column<long>(type: "bigint", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Check_item = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Check_value = table.Column<long>(type: "bigint", nullable: true),
+                    Check_Result = table.Column<long>(type: "bigint", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Check", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Item",
                 columns: table => new
                 {
@@ -30,21 +45,6 @@ namespace FinalProject_Winform.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Process",
-                columns: table => new
-                {
-                    Id = table.Column<long>(type: "bigint", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Process_name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Process_status = table.Column<bool>(type: "bit", nullable: false),
-                    Process_checkRight = table.Column<bool>(type: "bit", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Process", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "PUser",
                 columns: table => new
                 {
@@ -58,6 +58,27 @@ namespace FinalProject_Winform.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_PUser", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Process",
+                columns: table => new
+                {
+                    Id = table.Column<long>(type: "bigint", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CheckId = table.Column<long>(type: "bigint", nullable: true),
+                    Process_name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Process_status = table.Column<bool>(type: "bit", nullable: false),
+                    Process_checkRight = table.Column<bool>(type: "bit", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Process", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Process_Check_CheckId",
+                        column: x => x.CheckId,
+                        principalTable: "Check",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -131,26 +152,6 @@ namespace FinalProject_Winform.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Check",
-                columns: table => new
-                {
-                    Id = table.Column<long>(type: "bigint", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    ProcessId = table.Column<long>(type: "bigint", nullable: true),
-                    Check_item = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Check_value = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Check", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Check_Process_ProcessId",
-                        column: x => x.ProcessId,
-                        principalTable: "Process",
-                        principalColumn: "Id");
-                });
-
-            migrationBuilder.CreateTable(
                 name: "LotHistory",
                 columns: table => new
                 {
@@ -179,11 +180,6 @@ namespace FinalProject_Winform.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Check_ProcessId",
-                table: "Check",
-                column: "ProcessId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Lot_ItemId",
                 table: "Lot",
                 column: "ItemId");
@@ -204,6 +200,11 @@ namespace FinalProject_Winform.Migrations
                 column: "ItemId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Process_CheckId",
+                table: "Process",
+                column: "CheckId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Stock_ItemId",
                 table: "Stock",
                 column: "ItemId");
@@ -212,9 +213,6 @@ namespace FinalProject_Winform.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "Check");
-
             migrationBuilder.DropTable(
                 name: "LotHistory");
 
@@ -235,6 +233,9 @@ namespace FinalProject_Winform.Migrations
 
             migrationBuilder.DropTable(
                 name: "Item");
+
+            migrationBuilder.DropTable(
+                name: "Check");
         }
     }
 }

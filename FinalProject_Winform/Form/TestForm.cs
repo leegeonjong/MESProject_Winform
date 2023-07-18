@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FinalProject_Winform.Repositories;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.AxHost;
 
 namespace FinalProject_Winform
 {
@@ -39,6 +41,26 @@ namespace FinalProject_Winform
         {
             //mainForm.Show();
             //this.Hide();
+        }
+
+        private void SetThreshold_Click(object sender, EventArgs e)
+        {
+            // combo_process에서 선택한 값 가져오기
+            string selectedProcess = cmbProcess1.SelectedItem.ToString();
+            string selectedTest =  cmbTest.SelectedItem.ToString();
+
+            //전원이 켜진 상태이면
+            if (State == true)
+            {
+                await processRepository.IsRunningAsync(State, selectedProcess);
+                label6.Text = "작동중";
+            }
+            //전원이 꺼진 상태이면
+            else
+            {
+                await processRepository.IsRunningAsync(State, selectedProcess);
+                label6.Text = "꺼짐";
+            }
         }
     }
 }

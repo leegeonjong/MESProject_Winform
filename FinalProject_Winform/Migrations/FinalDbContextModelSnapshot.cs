@@ -30,20 +30,17 @@ namespace FinalProject_Winform.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
+                    b.Property<long?>("Check_Result")
+                        .HasColumnType("bigint");
+
                     b.Property<string>("Check_item")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Check_value")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<long?>("ProcessId")
+                    b.Property<long?>("Check_value")
                         .HasColumnType("bigint");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ProcessId");
 
                     b.ToTable("Check");
                 });
@@ -196,6 +193,9 @@ namespace FinalProject_Winform.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
+                    b.Property<long?>("CheckId")
+                        .HasColumnType("bigint");
+
                     b.Property<bool?>("Process_checkRight")
                         .HasColumnType("bit");
 
@@ -207,6 +207,8 @@ namespace FinalProject_Winform.Migrations
                         .HasColumnType("bit");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CheckId");
 
                     b.ToTable("Process");
                 });
@@ -271,15 +273,6 @@ namespace FinalProject_Winform.Migrations
                     b.ToTable("PUser");
                 });
 
-            modelBuilder.Entity("FinalProject_Winform.Models.domain.Check", b =>
-                {
-                    b.HasOne("FinalProject_Winform.Models.domain.Process", "Process")
-                        .WithMany()
-                        .HasForeignKey("ProcessId");
-
-                    b.Navigation("Process");
-                });
-
             modelBuilder.Entity("FinalProject_Winform.Models.domain.Lot", b =>
                 {
                     b.HasOne("FinalProject_Winform.Models.domain.Item", "Item")
@@ -315,6 +308,15 @@ namespace FinalProject_Winform.Migrations
                         .HasForeignKey("ItemId");
 
                     b.Navigation("Item");
+                });
+
+            modelBuilder.Entity("FinalProject_Winform.Models.domain.Process", b =>
+                {
+                    b.HasOne("FinalProject_Winform.Models.domain.Check", "Check")
+                        .WithMany()
+                        .HasForeignKey("CheckId");
+
+                    b.Navigation("Check");
                 });
 
             modelBuilder.Entity("FinalProject_Winform.Models.domain.Stock", b =>

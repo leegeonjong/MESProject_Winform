@@ -1,7 +1,6 @@
 #define WaterSensor A0  // A0핀을 수심센서로 설정
 #include <LiquidCrystal_I2C.h>
 
-
 LiquidCrystal_I2C lcd1(0x27, 16, 2);  // (LCD I2C 주소, 16자, 2라인)
 
 int ProcessSw[] = { 22, 23, 24, 25, 26, 27 };  //설비 정지 버튼
