@@ -219,7 +219,7 @@
             // 
             // tabPage1
             // 
-            tabPage1.BackColor = Color.Gray;
+            tabPage1.BackColor = Color.Gainsboro;
             tabPage1.Controls.Add(panel4);
             tabPage1.Controls.Add(panel3);
             tabPage1.Location = new Point(4, 44);
@@ -241,22 +241,22 @@
             panel4.Controls.Add(label5);
             panel4.Controls.Add(label4);
             panel4.Controls.Add(button2);
-            panel4.Location = new Point(6, 145);
+            panel4.Location = new Point(6, 113);
             panel4.Name = "panel4";
-            panel4.Size = new Size(1086, 457);
+            panel4.Size = new Size(1086, 502);
             panel4.TabIndex = 6;
             // 
             // txtOrderCount
             // 
             txtOrderCount.Font = new Font("맑은 고딕", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            txtOrderCount.Location = new Point(676, 250);
+            txtOrderCount.Location = new Point(659, 170);
             txtOrderCount.Name = "txtOrderCount";
-            txtOrderCount.Size = new Size(265, 39);
+            txtOrderCount.Size = new Size(200, 39);
             txtOrderCount.TabIndex = 17;
             // 
             // dateTimePicker2
             // 
-            dateTimePicker2.Location = new Point(676, 94);
+            dateTimePicker2.Location = new Point(659, 50);
             dateTimePicker2.Name = "dateTimePicker2";
             dateTimePicker2.Size = new Size(200, 23);
             dateTimePicker2.TabIndex = 15;
@@ -264,7 +264,7 @@
             // dateTimePicker1
             // 
             dateTimePicker1.Format = DateTimePickerFormat.Custom;
-            dateTimePicker1.Location = new Point(230, 81);
+            dateTimePicker1.Location = new Point(211, 50);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(200, 23);
             dateTimePicker1.TabIndex = 14;
@@ -273,7 +273,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("맑은 고딕", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label7.Location = new Point(518, 250);
+            label7.Location = new Point(491, 168);
             label7.Name = "label7";
             label7.Size = new Size(125, 37);
             label7.TabIndex = 13;
@@ -283,7 +283,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("맑은 고딕", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.Location = new Point(83, 247);
+            label6.Location = new Point(94, 168);
             label6.Name = "label6";
             label6.Size = new Size(71, 37);
             label6.TabIndex = 11;
@@ -294,16 +294,16 @@
             comboBox1.Font = new Font("맑은 고딕", 18F, FontStyle.Bold, GraphicsUnit.Point);
             comboBox1.FormattingEnabled = true;
             comboBox1.Items.AddRange(new object[] { "밀가루", "물", "반죽", "면", "팜유", "찐 면", "튀긴 면 ", "냉동 면", "후레이크 ", "스프", "포장지", "라면" });
-            comboBox1.Location = new Point(214, 247);
+            comboBox1.Location = new Point(211, 165);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(197, 40);
+            comboBox1.Size = new Size(200, 40);
             comboBox1.TabIndex = 10;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("맑은 고딕", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.Location = new Point(518, 81);
+            label5.Location = new Point(518, 36);
             label5.Name = "label5";
             label5.Size = new Size(98, 37);
             label5.TabIndex = 9;
@@ -313,7 +313,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("맑은 고딕", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(65, 67);
+            label4.Location = new Point(40, 36);
             label4.Name = "label4";
             label4.Size = new Size(125, 37);
             label4.TabIndex = 7;
@@ -325,7 +325,7 @@
             button2.FlatAppearance.BorderColor = Color.White;
             button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("맑은 고딕", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            button2.Location = new Point(922, 393);
+            button2.Location = new Point(922, 408);
             button2.Name = "button2";
             button2.Size = new Size(132, 46);
             button2.TabIndex = 5;
@@ -340,9 +340,9 @@
             panel3.Controls.Add(label10);
             panel3.Controls.Add(txtAccount);
             panel3.Controls.Add(label2);
-            panel3.Location = new Point(6, 44);
+            panel3.Location = new Point(6, 6);
             panel3.Name = "panel3";
-            panel3.Size = new Size(1086, 91);
+            panel3.Size = new Size(1086, 101);
             panel3.TabIndex = 1;
             // 
             // textBox1

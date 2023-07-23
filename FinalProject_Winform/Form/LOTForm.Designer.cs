@@ -559,12 +559,15 @@
             // 
             // button3
             // 
+            button3.BackColor = Color.FromArgb(52, 152, 219);
+            button3.FlatAppearance.BorderSize = 0;
+            button3.FlatStyle = FlatStyle.Flat;
             button3.Location = new Point(921, 87);
             button3.Name = "button3";
             button3.Size = new Size(128, 44);
             button3.TabIndex = 12;
             button3.Text = "검색";
-            button3.UseVisualStyleBackColor = true;
+            button3.UseVisualStyleBackColor = false;
             button3.Click += button3_Click;
             // 
             // txt_text
@@ -721,12 +724,16 @@
             // 
             // btn_Start
             // 
-            btn_Start.Location = new Point(388, 289);
+            btn_Start.BackColor = Color.FromArgb(52, 152, 219);
+            btn_Start.FlatAppearance.BorderSize = 0;
+            btn_Start.FlatStyle = FlatStyle.Flat;
+            btn_Start.Font = new Font("맑은 고딕", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            btn_Start.Location = new Point(327, 265);
             btn_Start.Name = "btn_Start";
-            btn_Start.Size = new Size(75, 23);
+            btn_Start.Size = new Size(136, 57);
             btn_Start.TabIndex = 4;
-            btn_Start.Text = "실행";
-            btn_Start.UseVisualStyleBackColor = true;
+            btn_Start.Text = "LOT 실행";
+            btn_Start.UseVisualStyleBackColor = false;
             btn_Start.Click += btn_Start_Click;
             // 
             // cmb_process
@@ -900,19 +907,24 @@
             // 
             // tbox_start_lotnum
             // 
-            tbox_start_lotnum.Location = new Point(180, 32);
+            tbox_start_lotnum.Font = new Font("맑은 고딕", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
+            tbox_start_lotnum.Location = new Point(180, 16);
             tbox_start_lotnum.Name = "tbox_start_lotnum";
-            tbox_start_lotnum.Size = new Size(531, 23);
+            tbox_start_lotnum.Size = new Size(531, 46);
             tbox_start_lotnum.TabIndex = 4;
             // 
             // btn_start_search
             // 
-            btn_start_search.Location = new Point(938, 33);
+            btn_start_search.BackColor = Color.FromArgb(52, 152, 219);
+            btn_start_search.FlatAppearance.BorderSize = 0;
+            btn_start_search.FlatStyle = FlatStyle.Flat;
+            btn_start_search.Font = new Font("맑은 고딕", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btn_start_search.Location = new Point(895, 15);
             btn_start_search.Name = "btn_start_search";
-            btn_start_search.Size = new Size(75, 23);
+            btn_start_search.Size = new Size(118, 47);
             btn_start_search.TabIndex = 3;
-            btn_start_search.Text = "button4";
-            btn_start_search.UseVisualStyleBackColor = true;
+            btn_start_search.Text = "검색";
+            btn_start_search.UseVisualStyleBackColor = false;
             btn_start_search.Click += btn_start_search_Click;
             // 
             // lbl_lot
