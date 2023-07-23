@@ -1,10 +1,9 @@
 #include <Servo.h>  //Servo 라이브러리를 추가
-int servo = 2;
 Servo servo;    //Servo 클래스로 servo객체 생성
 int value = 0;  // 각도를 조절할 변수 value
 
 void Defective_Servo() {
-  servo.attach(servo);  
+  servo.attach(2);  
 
   if (Serial.available())  //시리얼 모니터에 데이터가 입력되면
   {

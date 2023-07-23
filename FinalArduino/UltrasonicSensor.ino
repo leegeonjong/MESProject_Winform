@@ -28,7 +28,6 @@ void UltrasonicSensor() {
 
   distancePlus = durationPlus * 17 / 1000;
 
-
   if (distancePlus < 5) {
     if (Lot_Count >= 0 && !plusToggle) {
       plusToggle = true;

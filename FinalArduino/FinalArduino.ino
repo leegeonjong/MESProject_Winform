@@ -53,6 +53,7 @@ String process = "";  // 공정명
 String lotid = "";    // lotid
 
 void loop() {
+  UltrasonicSensor();
   // 버튼을 눌렀을 때
   for (int i = 0; i < numProcesses; i++) {
     buttonState[i] = digitalRead(ProcessSw[i]);

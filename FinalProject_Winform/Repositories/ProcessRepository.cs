@@ -8,28 +8,71 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.AxHost;
 using Process = FinalProject_Winform.Models.domain.Process;
 
 namespace FinalProject_Winform.Repositories
 {
     public class ProcessRepository : IProcessRepository
     {
-        //검사 기준값 설정
-        public async Task<long> SetThreshold(string selectedProcessName, string selectedTestName)
+        //현재 검사 기준값 가져오기
+        public async Task<long> NowThreshold(string selectedProcessName, string selectedTestName)
         {
             using FinalDbContext db = new();
-            var processTestResult = await db.Processes
-         .Where(p => p.Process_name == selectedProcessName && p.Check.Check_item == selectedTestName)
+
+            //공정 이름에 따라 검사 구분하기
+            if (selectedProcessName == "Mix")
+            {
+                selectedTestName = selectedTestName + " 입고";
+            }
+            else if (selectedProcessName == "Pack")
+            {
+                selectedTestName = selectedTestName + " 출고";
+            }
+
+            var processTestResult = await db.Checks
+         .Where(p => p.Check_item == selectedTestName)
          .FirstOrDefaultAsync();
 
             if (processTestResult != null)
             {
                 //검사 기준값 반환
-                return (long)processTestResult.Check.Check_value;
+                return (long)processTestResult.Check_value;
             }
             else
             {
                 return 0;
+            }
+
+        }
+
+        //검사 기준값 설정하기
+        public async Task SetThreshold(string selectedProcessName, string selectedTestName, long SetValue)
+        {
+            using FinalDbContext db = new();
+
+            //공정 이름에 따라 검사 구분하기
+            if (selectedProcessName == "Mix")
+            {
+                selectedTestName = selectedTestName + " 입고";
+            }
+            else if (selectedProcessName == "Pack")
+            {
+                selectedTestName = selectedTestName + " 출고";
+            }
+
+            var processTestResult = await db.Checks
+        .Where(p => p.Check_item == selectedTestName)
+        .FirstOrDefaultAsync();
+
+            if (processTestResult != null)
+            {
+                processTestResult.Check_value = SetValue;
+                await db.SaveChangesAsync();
+            }
+            else
+            {
+                throw new NotImplementedException();
             }
 
         }
@@ -97,5 +140,7 @@ namespace FinalProject_Winform.Repositories
                 throw new Exception("그런거 없음");
             }
         }
+
+
     }
 }
