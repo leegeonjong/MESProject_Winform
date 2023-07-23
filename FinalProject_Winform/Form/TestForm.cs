@@ -95,7 +95,7 @@ namespace FinalProject_Winform
                 MessageBox.Show("검사를 선택하세요");
                 return true;
             }
-            if(string.IsNullOrEmpty(selectedProcessName1)&& string.IsNullOrEmpty(selectedProcessName2)&& string.IsNullOrEmpty(selectedProcessName3))
+            if (string.IsNullOrEmpty(selectedProcessName1) && string.IsNullOrEmpty(selectedProcessName2) && string.IsNullOrEmpty(selectedProcessName3))
             {
                 MessageBox.Show("공정을 선택하세요");
                 return true;

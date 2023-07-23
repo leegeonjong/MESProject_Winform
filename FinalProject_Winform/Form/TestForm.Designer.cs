@@ -227,7 +227,7 @@
             // 
             cmbProcess2.FormattingEnabled = true;
             cmbProcess2.Items.AddRange(new object[] { "Steam" });
-            cmbProcess2.Location = new Point(541, 216);
+            cmbProcess2.Location = new Point(541, 187);
             cmbProcess2.Name = "cmbProcess2";
             cmbProcess2.Size = new Size(121, 23);
             cmbProcess2.TabIndex = 11;
@@ -238,7 +238,7 @@
             // 
             cmbProcess3.FormattingEnabled = true;
             cmbProcess3.Items.AddRange(new object[] { "Fry" });
-            cmbProcess3.Location = new Point(541, 245);
+            cmbProcess3.Location = new Point(541, 187);
             cmbProcess3.Name = "cmbProcess3";
             cmbProcess3.Size = new Size(121, 23);
             cmbProcess3.TabIndex = 12;
@@ -275,7 +275,7 @@
             // 
             // txtHiding
             // 
-            txtHiding.Location = new Point(541, 158);
+            txtHiding.Location = new Point(541, 187);
             txtHiding.Name = "txtHiding";
             txtHiding.ReadOnly = true;
             txtHiding.Size = new Size(121, 23);
