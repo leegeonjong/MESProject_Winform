@@ -59,7 +59,7 @@ namespace FinalProject_Winform
             dateTimePicker1 = new DateTimePicker();
             chart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             tabPage3 = new TabPage();
-            comboBox1 = new ComboBox();
+            cmbTestName = new ComboBox();
             textBox1 = new TextBox();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
@@ -333,24 +333,24 @@ namespace FinalProject_Winform
             // 
             // tabPage3
             // 
-            tabPage3.Controls.Add(comboBox1);
+            tabPage3.Controls.Add(cmbTestName);
             tabPage3.Controls.Add(textBox1);
             tabPage3.Location = new Point(4, 44);
-            tabPage3.Name = "ChartView3";
+            tabPage3.Name = "tabPage3";
             tabPage3.Size = new Size(1096, 623);
             tabPage3.TabIndex = 2;
             tabPage3.Text = "검사 차트";
             tabPage3.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // cmbTestName
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "용량 검사", "온도 검사", "수량 검사 입고", "수량 검사 출고" });
-            comboBox1.Location = new Point(612, 65);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(121, 23);
-            comboBox1.TabIndex = 2;
-            comboBox1.Text = "검사 선택";
+            cmbTestName.FormattingEnabled = true;
+            cmbTestName.Items.AddRange(new object[] { "용량 검사", "온도 검사", "수량 검사 입고", "수량 검사 출고" });
+            cmbTestName.Location = new Point(612, 65);
+            cmbTestName.Name = "cmbTestName";
+            cmbTestName.Size = new Size(121, 23);
+            cmbTestName.TabIndex = 2;
+            cmbTestName.Text = "검사 선택";
             // 
             // textBox1
             // 
@@ -412,6 +412,6 @@ namespace FinalProject_Winform
         private System.Windows.Forms.DataVisualization.Charting.Chart chart3;
         private Button button2;
         private TextBox textBox1;
-        private ComboBox comboBox1;
+        private ComboBox cmbTestName;
     }
 }

@@ -77,6 +77,7 @@ namespace FinalProject_Winform.Repositories
 
         }
 
+        //공정 정보 다가져오기
         public async Task<IEnumerable<Process>> GetAllAsync()
         {
             //using FinalDbContext db = new();
@@ -88,6 +89,23 @@ namespace FinalProject_Winform.Repositories
             throw new NotImplementedException();
         }
 
+        //검사 데이터 저장하기
+        public async Task SaveTestData(long processid,long data)
+        {
+            using FinalDbContext db = new();
+            var process = await db.Processes
+                .Where(p => p.Id == processid)
+                .FirstOrDefaultAsync();
+
+            //공정 id 로 검사 찾기
+
+            //검사에 데이터 SaveChangesAsync();
+
+
+            throw new NotImplementedException();
+        }
+
+        //공정 id 가져오기
         public long GetProcessId(string processName)
         {
             using FinalDbContext db = new();
@@ -95,6 +113,7 @@ namespace FinalProject_Winform.Repositories
             return process?.Id ?? 0;
         }
 
+        //공정상태가져오기
         public async Task<string> GetSelectedProcessStatus(string selectedProcessName)
         {
             using (FinalDbContext db = new FinalDbContext())
@@ -114,6 +133,7 @@ namespace FinalProject_Winform.Repositories
             }
         }
 
+        //공정 상태 바꾸기
         public async Task<bool> IsRunningAsync(bool state, string selectedProcessName)
         {
             using FinalDbContext db = new();
@@ -141,6 +161,6 @@ namespace FinalProject_Winform.Repositories
             }
         }
 
-
+        
     }
 }

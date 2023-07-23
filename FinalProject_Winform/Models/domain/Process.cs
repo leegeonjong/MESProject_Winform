@@ -19,5 +19,7 @@ namespace FinalProject_Winform.Models.domain
         public bool Process_status { get; set; } // 공정 상태
 
         public bool? Process_checkRight { get; set; } // 공정 검사 통과 여부
+
+        //public long? CheckId { get; set; } // 검사 id
     }
 }

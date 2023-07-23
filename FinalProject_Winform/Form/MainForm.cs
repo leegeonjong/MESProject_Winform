@@ -127,7 +127,11 @@ namespace FinalProject_Winform
 
         private void ProcessTest(string process, long data)
         {
+            //공정 id 가져오기
             long processid = processRepository.GetProcessId(process);
+
+            //공정 id 로 해당 검사에 검사 data 입력하기
+            processRepository.SaveTestData(processid, data);
         }
 
         private void ProcessOn(string process, long lotpk)
