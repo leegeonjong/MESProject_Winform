@@ -66,9 +66,14 @@ namespace FinalProject_Winform
                     ChartView2();
                     break;
                 case 2:
-
+                    ChartView3();
                     break;
             }
+        }
+
+        private void ChartView3()
+        {
+            throw new NotImplementedException();
         }
 
         private async void ChartView2()

@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             panel2 = new Panel();
             label1 = new Label();
             panel1 = new Panel();
@@ -56,6 +56,9 @@
             label2 = new Label();
             dateTimePicker1 = new DateTimePicker();
             chart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            ChartView3 = new TabPage();
+            comboBox1 = new ComboBox();
+            textBox1 = new TextBox();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             tabControl1.SuspendLayout();
@@ -65,6 +68,7 @@
             tabPage2.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)chart3).BeginInit();
+            ChartView3.SuspendLayout();
             SuspendLayout();
             // 
             // panel2
@@ -195,6 +199,7 @@
             // 
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
+            tabControl1.Controls.Add(ChartView3);
             tabControl1.Dock = DockStyle.Bottom;
             tabControl1.ItemSize = new Size(200, 40);
             tabControl1.Location = new Point(160, 90);
@@ -218,36 +223,36 @@
             // 
             // chart2
             // 
-            chartArea1.Name = "ChartArea1";
-            chart2.ChartAreas.Add(chartArea1);
+            chartArea4.Name = "ChartArea1";
+            chart2.ChartAreas.Add(chartArea4);
             chart2.Dock = DockStyle.Bottom;
-            legend1.Name = "Legend1";
-            chart2.Legends.Add(legend1);
+            legend4.Name = "Legend1";
+            chart2.Legends.Add(legend4);
             chart2.Location = new Point(3, 313);
             chart2.Name = "chart2";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn;
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            chart2.Series.Add(series1);
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn;
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            chart2.Series.Add(series4);
             chart2.Size = new Size(1090, 307);
             chart2.TabIndex = 1;
             chart2.Text = "chart4";
             // 
             // chart1
             // 
-            chartArea2.Name = "ChartArea1";
-            chart1.ChartAreas.Add(chartArea2);
+            chartArea5.Name = "ChartArea1";
+            chart1.ChartAreas.Add(chartArea5);
             chart1.Dock = DockStyle.Top;
-            legend2.Name = "Legend1";
-            chart1.Legends.Add(legend2);
+            legend5.Name = "Legend1";
+            chart1.Legends.Add(legend5);
             chart1.Location = new Point(3, 3);
             chart1.Name = "chart1";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn;
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            chart1.Series.Add(series2);
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn;
+            series5.Legend = "Legend1";
+            series5.Name = "Series1";
+            chart1.Series.Add(series5);
             chart1.Size = new Size(1090, 304);
             chart1.TabIndex = 0;
             chart1.Text = "chart1";
@@ -309,20 +314,50 @@
             // 
             // chart3
             // 
-            chartArea3.Name = "ChartArea1";
-            chart3.ChartAreas.Add(chartArea3);
+            chartArea6.Name = "ChartArea1";
+            chart3.ChartAreas.Add(chartArea6);
             chart3.Dock = DockStyle.Bottom;
-            legend3.Name = "Legend1";
-            chart3.Legends.Add(legend3);
+            legend6.Name = "Legend1";
+            chart3.Legends.Add(legend6);
             chart3.Location = new Point(3, 114);
             chart3.Name = "chart3";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            chart3.Series.Add(series3);
+            series6.ChartArea = "ChartArea1";
+            series6.Legend = "Legend1";
+            series6.Name = "Series1";
+            chart3.Series.Add(series6);
             chart3.Size = new Size(1090, 506);
             chart3.TabIndex = 0;
             chart3.Text = "chart3";
+            // 
+            // ChartView3
+            // 
+            ChartView3.Controls.Add(comboBox1);
+            ChartView3.Controls.Add(textBox1);
+            ChartView3.Location = new Point(4, 44);
+            ChartView3.Name = "ChartView3";
+            ChartView3.Size = new Size(1096, 623);
+            ChartView3.TabIndex = 2;
+            ChartView3.Text = "검사 차트";
+            ChartView3.UseVisualStyleBackColor = true;
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "용량 검사", "온도 검사", "수량 검사 입고", "수량 검사 출고" });
+            comboBox1.Location = new Point(612, 65);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(121, 23);
+            comboBox1.TabIndex = 2;
+            comboBox1.Text = "검사 선택";
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(77, 65);
+            textBox1.Name = "textBox1";
+            textBox1.ReadOnly = true;
+            textBox1.Size = new Size(656, 23);
+            textBox1.TabIndex = 1;
+            textBox1.Text = "공정 차트 조회";
             // 
             // ChartForm
             // 
@@ -347,6 +382,8 @@
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)chart3).EndInit();
+            ChartView3.ResumeLayout(false);
+            ChartView3.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -371,5 +408,8 @@
         private DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart3;
         private Button button2;
+        private TabPage ChartView3;
+        private TextBox textBox1;
+        private ComboBox comboBox1;
     }
 }
