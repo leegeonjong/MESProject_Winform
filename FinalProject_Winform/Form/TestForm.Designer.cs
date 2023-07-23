@@ -37,12 +37,16 @@
             btn_TestForm = new Button();
             btn_ProcessForm = new Button();
             btn_LOTForm = new Button();
-            tabControl1 = new TabControl();
-            tabPage1 = new TabPage();
-            tabPage2 = new TabPage();
+            cmbTest = new ComboBox();
+            cmbProcess1 = new ComboBox();
+            textBox1 = new TextBox();
+            textBox2 = new TextBox();
+            textBox3 = new TextBox();
+            cmbProcess2 = new ComboBox();
+            cmbProcess3 = new ComboBox();
+            SetThreshold = new Button();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
-            tabControl1.SuspendLayout();
             SuspendLayout();
             // 
             // panel2
@@ -169,44 +173,86 @@
             btn_LOTForm.UseVisualStyleBackColor = true;
             btn_LOTForm.Click += Button_Click;
             // 
-            // tabControl1
+            // cmbTest
             // 
-            tabControl1.Controls.Add(tabPage1);
-            tabControl1.Controls.Add(tabPage2);
-            tabControl1.Dock = DockStyle.Bottom;
-            tabControl1.ItemSize = new Size(200, 40);
-            tabControl1.Location = new Point(160, 90);
-            tabControl1.Name = "tabControl1";
-            tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1104, 671);
-            tabControl1.TabIndex = 6;
+            cmbTest.FormattingEnabled = true;
+            cmbTest.Items.AddRange(new object[] { "수량 검사", "온도 검사", "용량 검사" });
+            cmbTest.Location = new Point(232, 187);
+            cmbTest.Name = "cmbTest";
+            cmbTest.Size = new Size(224, 23);
+            cmbTest.TabIndex = 6;
             // 
-            // tabPage1
+            // cmbProcess1
             // 
-            tabPage1.Location = new Point(4, 44);
-            tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1096, 623);
-            tabPage1.TabIndex = 0;
-            tabPage1.Text = "tabPage1asdfadfasdfafa";
-            tabPage1.UseVisualStyleBackColor = true;
+            cmbProcess1.FormattingEnabled = true;
+            cmbProcess1.Items.AddRange(new object[] { "Mix", "Pack" });
+            cmbProcess1.Location = new Point(541, 187);
+            cmbProcess1.Name = "cmbProcess1";
+            cmbProcess1.Size = new Size(121, 23);
+            cmbProcess1.TabIndex = 7;
             // 
-            // tabPage2
+            // textBox1
             // 
-            tabPage2.Location = new Point(4, 44);
-            tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1096, 623);
-            tabPage2.TabIndex = 1;
-            tabPage2.Text = "tabPage2";
-            tabPage2.UseVisualStyleBackColor = true;
+            textBox1.Location = new Point(232, 313);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(100, 23);
+            textBox1.TabIndex = 8;
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(232, 380);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(100, 23);
+            textBox2.TabIndex = 9;
+            // 
+            // textBox3
+            // 
+            textBox3.Location = new Point(232, 104);
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(100, 23);
+            textBox3.TabIndex = 10;
+            // 
+            // cmbProcess2
+            // 
+            cmbProcess2.FormattingEnabled = true;
+            cmbProcess2.Items.AddRange(new object[] { "Steam" });
+            cmbProcess2.Location = new Point(541, 230);
+            cmbProcess2.Name = "cmbProcess2";
+            cmbProcess2.Size = new Size(121, 23);
+            cmbProcess2.TabIndex = 11;
+            // 
+            // cmbProcess3
+            // 
+            cmbProcess3.FormattingEnabled = true;
+            cmbProcess3.Items.AddRange(new object[] { "Fry" });
+            cmbProcess3.Location = new Point(541, 279);
+            cmbProcess3.Name = "cmbProcess3";
+            cmbProcess3.Size = new Size(121, 23);
+            cmbProcess3.TabIndex = 12;
+            // 
+            // SetThreshold
+            // 
+            SetThreshold.Location = new Point(587, 394);
+            SetThreshold.Name = "SetThreshold";
+            SetThreshold.Size = new Size(75, 23);
+            SetThreshold.TabIndex = 13;
+            SetThreshold.Text = "button1";
+            SetThreshold.UseVisualStyleBackColor = true;
+            SetThreshold.Click += SetThreshold_Click;
             // 
             // TestForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1264, 761);
-            Controls.Add(tabControl1);
+            Controls.Add(SetThreshold);
+            Controls.Add(cmbProcess3);
+            Controls.Add(cmbProcess2);
+            Controls.Add(textBox3);
+            Controls.Add(textBox2);
+            Controls.Add(textBox1);
+            Controls.Add(cmbProcess1);
+            Controls.Add(cmbTest);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "TestForm";
@@ -216,8 +262,8 @@
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel1.ResumeLayout(false);
-            tabControl1.ResumeLayout(false);
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -225,14 +271,19 @@
         private Panel panel2;
         private Label label1;
         private Panel panel1;
-        private TabControl tabControl1;
-        private TabPage tabPage1;
-        private TabPage tabPage2;
         private Button btn_ChartForm;
         private Button btn_OrderForm;
         private Button btn_StockForm;
         private Button btn_TestForm;
         private Button btn_ProcessForm;
         private Button btn_LOTForm;
+        private ComboBox cmbTest;
+        private ComboBox cmbProcess1;
+        private TextBox textBox1;
+        private TextBox textBox2;
+        private TextBox textBox3;
+        private ComboBox cmbProcess2;
+        private ComboBox cmbProcess3;
+        private Button SetThreshold;
     }
 }

@@ -9,6 +9,9 @@ namespace FinalProject_Winform.Repositories
 {
     internal interface IProcessRepository
     {
+        //검사 기준값 설정
+        Task<long> SetThreshold(string selectedProcessName, string selectedTestName);
+
         Task<IEnumerable<Process>> GetAllAsync();
 
         Task<string> GetSelectedProcessStatus(string selectedProcessName);

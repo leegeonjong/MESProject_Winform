@@ -4,14 +4,35 @@ using FinalProject_Winform.Models.domain;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Process = FinalProject_Winform.Models.domain.Process;
 
 namespace FinalProject_Winform.Repositories
 {
     public class ProcessRepository : IProcessRepository
     {
+        //검사 기준값 설정
+        public async Task<long> SetThreshold(string selectedProcessName, string selectedTestName)
+        {
+            using FinalDbContext db = new();
+            var processTestResult = await db.Processes
+         .Where(p => p.Process_name == selectedProcessName && p.Check.Check_item == selectedTestName)
+         .FirstOrDefaultAsync();
+
+            if (processTestResult != null)
+            {
+                //검사 기준값 반환
+                return (long)processTestResult.Check.Check_value;
+            }
+            else
+            {
+                return 0;
+            }
+
+        }
 
         public async Task<IEnumerable<Process>> GetAllAsync()
         {

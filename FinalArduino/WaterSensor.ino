@@ -1,12 +1,12 @@
 int water_pin = A0;  //수위센서 A0에 연결
 int waterlevel = 0;
+const int standard = 100;
+
 void WaterSenser() {
   waterlevel = analogRead(A0);
-
-  if (waterlevel > 10 && waterlevel < 100) {
-    Serial.println("너무 적어");
-  }
-  else if(waterlevel >= 100){
-    Serial.println("적정량");
+  if (waterlevel >= standard) {
+    Serial.println(true);
+  } else if (waterlevel < standard) {
+    Serial.println(false);
   }
 }

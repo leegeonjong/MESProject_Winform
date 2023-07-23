@@ -27,7 +27,7 @@ namespace FinalProject_Winform.Repositories
                 return null;
             }
 
-            if(item.Item_amount > amount) 
+            if (item.Item_amount > amount)
             {
                 item.Item_amount -= amount;
 
@@ -134,7 +134,7 @@ namespace FinalProject_Winform.Repositories
         public async Task<Lot> Updateasync(string status, long lotpk)
         {
             using FinalDbContext db = new();
-            var lot = await db.Lots.Where(x=> x.Id == lotpk).FirstOrDefaultAsync();
+            var lot = await db.Lots.Where(x => x.Id == lotpk).FirstOrDefaultAsync();
             if (lot == null) return null;
 
             lot.Lot_status = status;
@@ -159,5 +159,127 @@ namespace FinalProject_Winform.Repositories
                 return true;
             }
         }
+
+        public async Task<Lot> ItemUpdateAsync(long lotpk)
+        {
+            using (FinalDbContext db = new FinalDbContext())
+            {
+                var lot = await db.Lots
+                    .Include(x => x.Item)
+                    .Where(x => x.Id == lotpk)
+                    .FirstOrDefaultAsync();
+
+                if (lot == null)
+                    return null;
+
+                if (lot.Item.Id == 1)
+                {
+                    await UpdateLotItem1Async(db, lot);
+                }
+                else if (lot.Item.Id == 2)
+                {
+                    await UpdateLotItem2Async(db, lot);
+                }
+
+                await db.SaveChangesAsync();
+                return lot;
+            }
+        }
+
+        private async Task UpdateLotItem1Async(FinalDbContext db, Lot lot)
+        {
+            var item2 = await db.Items.FirstOrDefaultAsync(x => x.Id == 2);
+            lot.Item = item2;
+
+            item2.Item_amount += lot.Lot_amount;
+
+            Stock stock = new Stock()
+            {
+                Item = item2,
+                Stock_amount = lot.Lot_amount,
+                Stock_regDate = DateTime.Now,
+                Stock_status = "반죽됨",
+            };
+
+            var lastStock = await db.Stocks
+                .Where(x => x.Item.Id == item2.Id)
+                .OrderByDescending(x => x.Stock_regDate)
+                .FirstOrDefaultAsync();
+
+            if (lastStock != null)
+            {
+                stock.Stock_regAmount = lastStock.Stock_regAmount + lot.Lot_amount;
+            }
+            else
+            {
+                stock.Stock_regAmount = lot.Lot_amount;
+            }
+
+            await db.Stocks.AddAsync(stock);
+        }
+
+        private async Task UpdateLotItem2Async(FinalDbContext db, Lot lot)
+        {
+            var item3 = await db.Items.FirstOrDefaultAsync(x => x.Id == 3);
+            var item2 = await db.Items.FirstOrDefaultAsync(x => x.Id == 2);
+
+            lot.Item = item3;
+
+            long noodleEA = lot.Lot_amount / 100;
+
+            item3.Item_amount += noodleEA;
+            item2.Item_amount -= lot.Lot_amount;
+
+            Stock stock = new Stock()
+            {
+                Item = item3,
+                Stock_amount = noodleEA,
+                Stock_regDate = DateTime.Now,
+                Stock_status = "면 형태화",
+            };
+
+            Stock stock1 = new Stock()
+            {
+                Item = item2,
+                Stock_amount = -lot.Lot_amount,
+                Stock_regDate = DateTime.Now,
+                Stock_status = "면 형태화",
+            };
+
+            var lastStock = await db.Stocks
+                .Where(x => x.Item.Id == item3.Id)
+                .OrderByDescending(x => x.Stock_regDate)
+                .FirstOrDefaultAsync();
+
+            var lastStock1 = await db.Stocks
+                .Where(x => x.Item.Id == item2.Id)
+                .OrderByDescending(x => x.Stock_regDate)
+                .FirstOrDefaultAsync();
+
+            if (lastStock != null)
+            {
+                stock.Stock_regAmount = lastStock.Stock_regAmount + noodleEA;
+            }
+            else
+            {
+                stock.Stock_regAmount = noodleEA;
+            }
+
+            if (lastStock1 != null)
+            {
+                stock1.Stock_regAmount = lastStock1.Stock_regAmount - lot.Lot_amount;
+            }
+            else
+            {
+                stock1.Stock_regAmount = lot.Lot_amount;
+            }
+
+            lot.Lot_amount = noodleEA;
+
+            await db.Stocks.AddAsync(stock);
+            await db.Stocks.AddAsync(stock1);
+        }
+
+
     }
 }
