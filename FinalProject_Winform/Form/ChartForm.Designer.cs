@@ -1,4 +1,6 @@
-﻿namespace FinalProject_Winform
+﻿using System.Windows.Forms;
+
+namespace FinalProject_Winform
 {
     partial class ChartForm
     {
@@ -56,7 +58,7 @@
             label2 = new Label();
             dateTimePicker1 = new DateTimePicker();
             chart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            ChartView3 = new TabPage();
+            tabPage3 = new TabPage();
             comboBox1 = new ComboBox();
             textBox1 = new TextBox();
             panel2.SuspendLayout();
@@ -68,7 +70,7 @@
             tabPage2.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)chart3).BeginInit();
-            ChartView3.SuspendLayout();
+            tabPage3.SuspendLayout();
             SuspendLayout();
             // 
             // panel2
@@ -199,7 +201,7 @@
             // 
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
-            tabControl1.Controls.Add(ChartView3);
+            tabControl1.Controls.Add(tabPage3);
             tabControl1.Dock = DockStyle.Bottom;
             tabControl1.ItemSize = new Size(200, 40);
             tabControl1.Location = new Point(160, 90);
@@ -329,16 +331,16 @@
             chart3.TabIndex = 0;
             chart3.Text = "chart3";
             // 
-            // ChartView3
+            // tabPage3
             // 
-            ChartView3.Controls.Add(comboBox1);
-            ChartView3.Controls.Add(textBox1);
-            ChartView3.Location = new Point(4, 44);
-            ChartView3.Name = "ChartView3";
-            ChartView3.Size = new Size(1096, 623);
-            ChartView3.TabIndex = 2;
-            ChartView3.Text = "검사 차트";
-            ChartView3.UseVisualStyleBackColor = true;
+            tabPage3.Controls.Add(comboBox1);
+            tabPage3.Controls.Add(textBox1);
+            tabPage3.Location = new Point(4, 44);
+            tabPage3.Name = "ChartView3";
+            tabPage3.Size = new Size(1096, 623);
+            tabPage3.TabIndex = 2;
+            tabPage3.Text = "검사 차트";
+            tabPage3.UseVisualStyleBackColor = true;
             // 
             // comboBox1
             // 
@@ -382,8 +384,8 @@
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)chart3).EndInit();
-            ChartView3.ResumeLayout(false);
-            ChartView3.PerformLayout();
+            tabPage3.ResumeLayout(false);
+            tabPage3.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -395,6 +397,7 @@
         private TabControl tabControl1;
         private TabPage tabPage1;
         private TabPage tabPage2;
+        private TabPage tabPage3;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private Button btn_ChartForm;
         private Button btn_OrderForm;
@@ -408,7 +411,6 @@
         private DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart3;
         private Button button2;
-        private TabPage ChartView3;
         private TextBox textBox1;
         private ComboBox comboBox1;
     }

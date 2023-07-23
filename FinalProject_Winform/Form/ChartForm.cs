@@ -32,7 +32,6 @@ namespace FinalProject_Winform
         DateTimePicker dtp;
         private void Form5_Load(object sender, EventArgs e)
         {
-
             chartStock1 = chart1;
             chartStock1.Titles.Add("현재 수량");
             chartStock1.ChartAreas["ChartArea1"].AxisX.Title = "물품명";
