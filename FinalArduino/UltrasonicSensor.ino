@@ -3,12 +3,13 @@ int ECHO_Plus = 11;   //더하기 ECHO 핀 설정 (초음파 받는 핀)
 int TRIG_Minus = 16;  //빼기 TRIG 핀 설정 (초음파 보내는 핀)
 int ECHO_Minus = 15;  //빼기 ECHO 핀 설정 (초음파 받는 핀)
 
+const int speedOfSound = 34300;
 int Lot_Count = 0;
 
 bool minusToggle = false;
 bool plusToggle = false;
 
-void UltrasonicSensor() {
+void UltrasonicSensor(String process) {
   pinMode(TRIG_Plus, OUTPUT);
   pinMode(ECHO_Plus, INPUT);
 
@@ -24,23 +25,21 @@ void UltrasonicSensor() {
 
 
   durationPlus = pulseIn(ECHO_Plus, HIGH);
+ distancePlus = durationPlus * 17 / 1000;
 
-
-  distancePlus = durationPlus * 17 / 1000;
-
-  if (distancePlus < 5) {
+  if (distancePlus < 5 && distancePlus != 0) {
     if (Lot_Count >= 0 && !plusToggle) {
       plusToggle = true;
       Lot_Count++;
-      Serial.print(Lot_Count);
-      Serial.println("개 더함");
+      SendTestData(process, String(Lot_Count));
+      return;
     }
   } else {
     plusToggle = false;
   }
 }
 
-void UltrasonicSensorMinus() {
+void UltrasonicSensorMinus(String process) {
   pinMode(TRIG_Minus, OUTPUT);
   pinMode(ECHO_Minus, INPUT);
 
@@ -55,12 +54,11 @@ void UltrasonicSensorMinus() {
   durationMinus = pulseIn(ECHO_Minus, HIGH);
   distanceMinus = durationMinus * 17 / 1000;
 
-  if (distanceMinus < 5) {
+  if (distanceMinus < 3 && distanceMinus != 0) {
     if (Lot_Count > 0 && !minusToggle) {
       minusToggle = true;
       Lot_Count--;
-      Serial.print(Lot_Count);
-      Serial.println("개 뺌");
+      SendTestData(process, String(Lot_Count));
     }
   } else {
     minusToggle = false;

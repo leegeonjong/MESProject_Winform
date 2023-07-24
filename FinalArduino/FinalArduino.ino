@@ -43,7 +43,7 @@ void setup() {
     pinMode(LedRed[i], OUTPUT);
     pinMode(LedGreen[i], OUTPUT);
     pinMode(LedYellow[i], OUTPUT);
-    digitalWrite(LedGreen[i],HIGH);
+    digitalWrite(LedGreen[i], HIGH);
   }
 }
 
@@ -53,7 +53,6 @@ String process = "";  // 공정명
 String lotid = "";    // lotid
 
 void loop() {
-  UltrasonicSensor();
   // 버튼을 눌렀을 때
   for (int i = 0; i < numProcesses; i++) {
     buttonState[i] = digitalRead(ProcessSw[i]);
@@ -105,9 +104,21 @@ void loop() {
       digitalWrite(LedGreen[i], HIGH);
       digitalWrite(LedYellow[i], LOW);
     }
-  }
+    
+    if (timerStarted[i]) {
+      switch (i) {
+        case 0:  // 첫번째 공정이면 제공 더하기
+          UltrasonicSensor(myArray[i].process);
+          break;
+        case 5:  // 마지막 공정이면 제공 빼기
+          UltrasonicSensorMinus(myArray[i].process);
+          break;
+        case 3:  // 튀기기 공정이면 waterlever로 팜유 용량 측정
+          WaterSenser();
+          break;
+      }
+    }
+  }  //end timer for
 
-  //WaterSenser();
 
-
-}
+}  //end loop
