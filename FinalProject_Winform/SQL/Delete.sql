@@ -9,6 +9,7 @@ DBCC CHECKIDENT(Stock, reseed, 0);
 
 --------------------------------------
 DELETE FROM LOT
+DELETE FROM LOT where id = '1';
 DBCC CHECKIDENT(Lot, reseed, 0);
 -------------------------------------------
 DBCC CHECKIDENT(LotHistory, reseed, 0);

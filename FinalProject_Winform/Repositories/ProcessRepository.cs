@@ -90,19 +90,47 @@ namespace FinalProject_Winform.Repositories
         }
 
         //검사 데이터 저장하기
-        public async Task SaveTestData(long processid,long data)
+        public async Task SaveTestData(long processid, long data)
         {
             using FinalDbContext db = new();
+
             var process = await db.Processes
-                .Where(p => p.Id == processid)
-                .FirstOrDefaultAsync();
+          .Include(p => p.Check)
+          .Where(p => p.Id == processid)
+          .FirstOrDefaultAsync();
 
-            //공정 id 로 검사 찾기
+            if (process != null)
+            {
+                //검사 데이터 저장
+                process.Check.Check_Result = data;
+                //검사에 데이터 SaveChangesAsync();
+                await db.SaveChangesAsync();
+            }
+            else
+            {
+                throw new NotImplementedException();
+            }
+        }
 
-            //검사에 데이터 SaveChangesAsync();
+        //검사 기준값 가져오기
+        public async Task<long> GetTestCheckValue(long processid, long data)
+        {
+            using FinalDbContext db = new();
 
+            var process = await db.Processes
+        .Where(p => p.Id == processid)
+        .Include(p => p.Check)
+        .FirstOrDefaultAsync();
 
-            throw new NotImplementedException();
+            if (process != null)
+            {
+                long? checkValue = process.Check.Check_value;
+                return (long)checkValue;
+            }
+            else
+            {
+                throw new NotImplementedException();
+            }
         }
 
         //공정 id 가져오기
@@ -161,6 +189,6 @@ namespace FinalProject_Winform.Repositories
             }
         }
 
-        
+
     }
 }

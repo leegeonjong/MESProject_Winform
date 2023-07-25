@@ -104,7 +104,7 @@ void loop() {
       digitalWrite(LedGreen[i], HIGH);
       digitalWrite(LedYellow[i], LOW);
     }
-    
+
     if (timerStarted[i]) {
       switch (i) {
         case 0:  // 첫번째 공정이면 제공 더하기
@@ -113,8 +113,11 @@ void loop() {
         case 5:  // 마지막 공정이면 제공 빼기
           UltrasonicSensorMinus(myArray[i].process);
           break;
+        case 2:  // 찌기 공정일떄 TemperatureSensor 온도 측정
+          TemperatureSensor(myArray[i].process);
+          break;
         case 3:  // 튀기기 공정이면 waterlever로 팜유 용량 측정
-          WaterSenser();
+          WaterSenser(myArray[i].process);
           break;
       }
     }

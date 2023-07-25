@@ -27,32 +27,32 @@ namespace FinalProject_Winform
             InitializeComponent();
 
             // 시리얼 포트 생성
-            //serialPort = new();
-            //serialPort.BaudRate = 9600;
-            //serialPort.DataReceived += serialPort_DataReceived;
+            serialPort = new();
+            serialPort.BaudRate = 9600;
+            serialPort.DataReceived += serialPort_DataReceived;
 
-            //serialPort.ReadTimeout = 0;
-            //lotRepository = new LotRepository();
-            //lothistoryRepository = new LothistoryRepositry();
-            //processRepository = new ProcessRepository();
+            serialPort.ReadTimeout = 0;
+            lotRepository = new LotRepository();
+            lothistoryRepository = new LothistoryRepositry();
+            processRepository = new ProcessRepository();
 
-            //// MainForm이 로드될 때 수행할 작업
-            ////string port = $"COM8";  // 여기 바꾸셈
-            //string port = $"COM3";  // 이건종
+            // MainForm이 로드될 때 수행할 작업
+            //string port = $"COM8";  // 여기 바꾸셈
+            string port = $"COM3";  // 이건종
 
-            //serialPort.PortName = port;   //시리얼 포트 설정
+            serialPort.PortName = port;   //시리얼 포트 설정
 
-            //// 시리얼 통신 시작
-            //if (serialPort.IsOpen)
-            //{
-            //    // 이미 COM 포트 오픈 되어 있으면. 아무것도 안함.
-            //    MessageBox.Show($"이미 {port}는 열려 있습니다");
-            //}
-            //else
-            //{
-            //    // 연결이 안되어 있으면 연결한다.
-            //    serialPort.Open();
-            //}
+            // 시리얼 통신 시작
+            if (serialPort.IsOpen)
+            {
+                // 이미 COM 포트 오픈 되어 있으면. 아무것도 안함.
+                MessageBox.Show($"이미 {port}는 열려 있습니다");
+            }
+            else
+            {
+                // 연결이 안되어 있으면 연결한다.
+                serialPort.Open();
+            }
         }
         public SerialPort serialPort;
         private void serialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
@@ -100,7 +100,7 @@ namespace FinalProject_Winform
             if (recvData.Length == 0 || recvData[0] != '$') return;
 
             string[] arrMessage = recvData[1..].Split(",", StringSplitOptions.RemoveEmptyEntries);
-            long lotpk = long.Parse(arrMessage[2]); 
+            long lotpk = long.Parse(arrMessage[2]);
             switch (arrMessage[0]) // arrMessage[0] = 공정행동, arrMessage[1] = 공정명 arrmessage = lotid
             {
                 case "Recieve": //명령 받음
@@ -125,13 +125,40 @@ namespace FinalProject_Winform
 
         } // end ExecCommand()
 
-        private void ProcessTest(string process, long data)
+        private async Task<bool> ProcessTest(string process, long data)
         {
             //공정 id 가져오기
             long processid = processRepository.GetProcessId(process);
 
             //공정 id 로 해당 검사에 검사 data 입력하기
-            processRepository.SaveTestData(processid, data);
+            await processRepository.SaveTestData(processid, data);
+
+            //검사 기준값 가져오기
+            long? checkValue = await processRepository.GetTestCheckValue(processid, data);
+            if (!checkValue.HasValue)
+            {
+                //만약 검사 기준값이 설정 되어있지 않으면 기준값은 0
+                //메시지 표시
+                checkValue = 0;
+                MessageBox.Show("검사 기준값이 없습니다.");
+            }
+
+            //검사 기준값과 data 비교하기
+            // 오차 계산
+            double errorPercentage = Math.Abs((double)(checkValue - data)) / (double)data * 100;
+            //오차 허용범위 : 5%
+            int tolerance = 5;
+
+            if (errorPercentage <= tolerance)
+            {
+                // 오차가 5% 내외인 경우
+                return true;
+            }
+            else
+            {
+                // 오차가 5% 이상인 경우
+                return false;
+            }
         }
 
         private void ProcessOn(string process, long lotpk)
@@ -150,7 +177,7 @@ namespace FinalProject_Winform
 
         private void ProcessEnd(string process, long lotpk)
         {
-            lotForm.loadLot();
+            //lotForm.loadLot(); //여기서 오류발생
             long processid = processRepository.GetProcessId(process);
             lothistoryRepository.AddLotAsync(lotpk, processid, $"{process}End");
             lotRepository.Updateasync($"{process}End", lotpk);
