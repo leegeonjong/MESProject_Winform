@@ -1,14 +1,4 @@
-﻿using BarcodeStandard;
-using FinalProject_Winform.Data;
-using FinalProject_Winform.Models.domain;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Windows.Forms.AxHost;
+﻿using FinalProject_Winform.Data;
 using Process = FinalProject_Winform.Models.domain.Process;
 
 namespace FinalProject_Winform.Repositories
