@@ -88,49 +88,49 @@ namespace FinalProject_Winform
                 switch (process)
                 {
                     case "Mix":
-                        SetLabelBackColor(panel5,MixStatus, status,lotid);
+                        SetLabelBackColor(panel5, MixStatus, status, lotid);
                         AddToListBox(listBox1, message);
                         break;
                     case "Shape":
-                        SetLabelBackColor(panel7,ShapeStatus, status, lotid);
+                        SetLabelBackColor(panel7, ShapeStatus, status, lotid);
                         AddToListBox(listBox2, message);
                         break;
                     case "Steam":
-                        SetLabelBackColor(panel9,SteamStatus, status, lotid);
+                        SetLabelBackColor(panel9, SteamStatus, status, lotid);
                         AddToListBox(listBox3, message);
                         break;
                     case "Fry":
-                        SetLabelBackColor(panel11,FryStatus, status, lotid);
+                        SetLabelBackColor(panel11, FryStatus, status, lotid);
                         AddToListBox(listBox4, message);
                         break;
                     case "Freeze":
-                        SetLabelBackColor(panel13,FreezeStatus, status, lotid);
+                        SetLabelBackColor(panel13, FreezeStatus, status, lotid);
                         AddToListBox(listBox5, message);
                         break;
                     case "Pack":
-                        SetLabelBackColor(panel15,PackStatus, status, lotid);
+                        SetLabelBackColor(panel15, PackStatus, status, lotid);
                         AddToListBox(listBox6, message);
                         break;
                 }
             }
         }
 
-        private void SetLabelBackColor(Panel panel,Label label, string status,string lotid)
+        private void SetLabelBackColor(Panel panel, Label label, string status, string lotid)
         {
-            
+
 
             if (panel.InvokeRequired)
-            {              
+            {
                 // 다른 스레드에서 호출한 경우, 메인 UI 스레드로 인보크하여 작업을 수행합니다.
-                panel.Invoke(new Action(() => SetLabelBackColor(panel,label, status, lotid)));
+                panel.Invoke(new Action(() => SetLabelBackColor(panel, label, status, lotid)));
             }
             else
-            {       
+            {
                 switch (status)
                 {
                     case "Start":
                         panel.BackColor = Color.Green;
-                        label.Text = "상태 : 가동중 /"+" LOT번호 : "+lotid;
+                        label.Text = "상태 : 가동중 /" + " LOT번호 : " + lotid;
                         break;
                     case "End":
                         panel.BackColor = Color.Red;
@@ -140,12 +140,12 @@ namespace FinalProject_Winform
                         panel.BackColor = Color.Yellow;
                         label.Text = "상태 : 정지 / " + " LOT번호 : " + lotid;
                         break;
-                    default:                   
+                    default:
                         panel.BackColor = SystemColors.Control;
                         break;
                 }
 
-          
+
                 panel.Refresh();
                 label.Refresh();
             }
@@ -211,19 +211,21 @@ namespace FinalProject_Winform
 
             //검사 기준값 가져오기
             long? checkValue = await processRepository.GetTestCheckValue(processid, data);
+
+            //만약 검사 기준값이 설정 되어있지 않으면 기준값은 0
             if (!checkValue.HasValue)
             {
-                //만약 검사 기준값이 설정 되어있지 않으면 기준값은 0
                 //메시지 표시
                 checkValue = 0;
                 MessageBox.Show("검사 기준값이 없습니다.");
             }
 
-            //검사 기준값과 data 비교하기
+            //-------------------검사 기준값과 data 비교하기--------------------------
             // 오차 계산
             double errorPercentage = Math.Abs((double)(checkValue - data)) / (double)data * 100;
-            //오차 허용범위 : 5%
-            int tolerance = 5;
+
+            //오차 허용범위 : 5% -- 오차 허용범위도 조절 할 수 있게 할 건지
+            const int tolerance = 5;
 
             if (errorPercentage <= tolerance)
             {

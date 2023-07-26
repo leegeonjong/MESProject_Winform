@@ -1,4 +1,5 @@
 ﻿using FinalProject_Winform.Data;
+using Microsoft.EntityFrameworkCore;
 using Process = FinalProject_Winform.Models.domain.Process;
 
 namespace FinalProject_Winform.Repositories
