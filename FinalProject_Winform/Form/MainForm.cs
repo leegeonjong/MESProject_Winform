@@ -76,20 +76,96 @@ namespace FinalProject_Winform
 
         public void ShowMessage(string message)
         {
-            //---------------------------------------------------
-            // ListBox 에 출력
-            if (listBox1.InvokeRequired)
+            string[] dataParts = message.Split(',');
+
+            if (dataParts.Length >= 2)
             {
-                listBox1.Invoke(() =>
+                string status = dataParts[0].Replace("← $", "").Trim();
+                string process = dataParts[1].Trim();
+                string lotid = dataParts[2].Trim();
+
+
+                switch (process)
                 {
-                    listBox1.Items.Add(message);
-                    listBox1.TopIndex = listBox1.Items.Count - 1;  // scroll to end
+                    case "Mix":
+                        SetLabelBackColor(panel5,MixStatus, status,lotid);
+                        AddToListBox(listBox1, message);
+                        break;
+                    case "Shape":
+                        SetLabelBackColor(panel7,ShapeStatus, status, lotid);
+                        AddToListBox(listBox2, message);
+                        break;
+                    case "Steam":
+                        SetLabelBackColor(panel9,SteamStatus, status, lotid);
+                        AddToListBox(listBox3, message);
+                        break;
+                    case "Fry":
+                        SetLabelBackColor(panel11,FryStatus, status, lotid);
+                        AddToListBox(listBox4, message);
+                        break;
+                    case "Freeze":
+                        SetLabelBackColor(panel13,FreezeStatus, status, lotid);
+                        AddToListBox(listBox5, message);
+                        break;
+                    case "Pack":
+                        SetLabelBackColor(panel15,PackStatus, status, lotid);
+                        AddToListBox(listBox6, message);
+                        break;
+                }
+            }
+        }
+
+        private void SetLabelBackColor(Panel panel,Label label, string status,string lotid)
+        {
+            
+
+            if (panel.InvokeRequired)
+            {              
+                // 다른 스레드에서 호출한 경우, 메인 UI 스레드로 인보크하여 작업을 수행합니다.
+                panel.Invoke(new Action(() => SetLabelBackColor(panel,label, status, lotid)));
+            }
+            else
+            {       
+                switch (status)
+                {
+                    case "Start":
+                        panel.BackColor = Color.Green;
+                        label.Text = "상태 : 가동중 /"+" LOT번호 : "+lotid;
+                        break;
+                    case "End":
+                        panel.BackColor = Color.Red;
+                        label.Text = "상태 : 종료 / " + " LOT번호 : " + lotid;
+                        break;
+                    case "Stop":
+                        panel.BackColor = Color.Yellow;
+                        label.Text = "상태 : 정지 / " + " LOT번호 : " + lotid;
+                        break;
+                    default:                   
+                        panel.BackColor = SystemColors.Control;
+                        break;
+                }
+
+          
+                panel.Refresh();
+                label.Refresh();
+            }
+        }
+
+
+        private void AddToListBox(ListBox listBox, string message)
+        {
+            if (listBox.InvokeRequired)
+            {
+                listBox.Invoke(() =>
+                {
+                    listBox.Items.Add(message);
+                    listBox.TopIndex = listBox.Items.Count - 1;  // scroll to end
                 });
             }
             else
             {
-                listBox1.Items.Add(message);
-                listBox1.TopIndex = listBox1.Items.Count - 1;  // scroll to end
+                listBox.Items.Add(message);
+                listBox.TopIndex = listBox.Items.Count - 1;  // scroll to end
             }
         }
 

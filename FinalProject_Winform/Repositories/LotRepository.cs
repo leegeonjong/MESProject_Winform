@@ -543,7 +543,7 @@ namespace FinalProject_Winform.Repositories
             Stock stock3 = new Stock()
             {
                 Item = item8,
-                Stock_amount = -lot.Lot_amount1,
+                Stock_amount = -lot.Lot_amount,
                 Stock_regDate = DateTime.Now,
                 Stock_status = "라면 포장",
             };
@@ -551,7 +551,7 @@ namespace FinalProject_Winform.Repositories
             Stock stock4 = new Stock()
             {
                 Item = item9,
-                Stock_amount = -lot.Lot_amount1,
+                Stock_amount = -lot.Lot_amount,
                 Stock_regDate = DateTime.Now,
                 Stock_status = "라면 포장",
             };
