@@ -78,7 +78,7 @@ namespace FinalProject_Winform
                 );
 
             picture_Barcode.Image = Image.FromStream(img.Encode().AsStream());
-          
+
 
         }
 
@@ -107,7 +107,7 @@ namespace FinalProject_Winform
         }
 
         private void Button_Click(object sender, EventArgs e)
-        { 
+        {
             System.Windows.Forms.Button button = sender as System.Windows.Forms.Button;
             if (button != null)
             {
@@ -222,9 +222,12 @@ namespace FinalProject_Winform
 
         private async void btn_start_search_Click(object sender, EventArgs e)
         {
+            loadLot();
+        }
+        public async void loadLot() 
+        {
             string text = tbox_start_lotnum.Text;
             var Lots = await lotRepository.GetByBarcode(text);
-            int i = 0;
             foreach (var Lot in Lots)
             {
                 lbl_start_lotnum.Text = Lot.Lot_barcode;
@@ -257,11 +260,12 @@ namespace FinalProject_Winform
 
         }
 
+
         private void cmb_process_SelectedIndexChanged(object sender, EventArgs e)
         {
             string status_start = cmb_process.Text; // 내가 고른 콤보박스 공정
             string status = lbl_start_status.Text;  // 현재 공정
-    
+
             if (status == "created" && status_start == "Mix")
                 lbl_start_check.Text = "O";
             else if (status == "MixEnd" && status_start == "Shape")

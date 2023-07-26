@@ -37,12 +37,19 @@
             btn_TestForm = new Button();
             btn_ProcessForm = new Button();
             btn_LOTForm = new Button();
-            tabControl1 = new TabControl();
-            tabPage1 = new TabPage();
-            tabPage2 = new TabPage();
+            cmbTest = new ComboBox();
+            cmbProcess1 = new ComboBox();
+            txtNowValue = new TextBox();
+            txtSetValue = new TextBox();
+            textBox3 = new TextBox();
+            cmbProcess2 = new ComboBox();
+            cmbProcess3 = new ComboBox();
+            SetThreshold = new Button();
+            label2 = new Label();
+            label3 = new Label();
+            txtHiding = new TextBox();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
-            tabControl1.SuspendLayout();
             SuspendLayout();
             // 
             // panel2
@@ -169,44 +176,128 @@
             btn_LOTForm.UseVisualStyleBackColor = true;
             btn_LOTForm.Click += Button_Click;
             // 
-            // tabControl1
+            // cmbTest
             // 
-            tabControl1.Controls.Add(tabPage1);
-            tabControl1.Controls.Add(tabPage2);
-            tabControl1.Dock = DockStyle.Bottom;
-            tabControl1.ItemSize = new Size(200, 40);
-            tabControl1.Location = new Point(160, 90);
-            tabControl1.Name = "tabControl1";
-            tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1104, 671);
-            tabControl1.TabIndex = 6;
+            cmbTest.FormattingEnabled = true;
+            cmbTest.Items.AddRange(new object[] { "수량 검사", "온도 검사", "용량 검사" });
+            cmbTest.Location = new Point(232, 187);
+            cmbTest.Name = "cmbTest";
+            cmbTest.Size = new Size(224, 23);
+            cmbTest.TabIndex = 6;
+            cmbTest.Text = "검사 선택";
+            cmbTest.SelectedIndexChanged += cmbTest_SelectedIndexChanged;
             // 
-            // tabPage1
+            // cmbProcess1
             // 
-            tabPage1.Location = new Point(4, 44);
-            tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1096, 623);
-            tabPage1.TabIndex = 0;
-            tabPage1.Text = "tabPage1asdfadfasdfafa";
-            tabPage1.UseVisualStyleBackColor = true;
+            cmbProcess1.FormattingEnabled = true;
+            cmbProcess1.Items.AddRange(new object[] { "Mix", "Pack" });
+            cmbProcess1.Location = new Point(541, 187);
+            cmbProcess1.Name = "cmbProcess1";
+            cmbProcess1.Size = new Size(121, 23);
+            cmbProcess1.TabIndex = 7;
+            cmbProcess1.Text = "공정 선택";
+            cmbProcess1.SelectedIndexChanged += cmbProcess1_SelectedIndexChanged;
             // 
-            // tabPage2
+            // txtNowValue
             // 
-            tabPage2.Location = new Point(4, 44);
-            tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1096, 623);
-            tabPage2.TabIndex = 1;
-            tabPage2.Text = "tabPage2";
-            tabPage2.UseVisualStyleBackColor = true;
+            txtNowValue.Location = new Point(280, 313);
+            txtNowValue.Name = "txtNowValue";
+            txtNowValue.ReadOnly = true;
+            txtNowValue.Size = new Size(382, 23);
+            txtNowValue.TabIndex = 8;
+            // 
+            // txtSetValue
+            // 
+            txtSetValue.Location = new Point(280, 372);
+            txtSetValue.Name = "txtSetValue";
+            txtSetValue.Size = new Size(382, 23);
+            txtSetValue.TabIndex = 9;
+            // 
+            // textBox3
+            // 
+            textBox3.Font = new Font("맑은 고딕", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            textBox3.Location = new Point(232, 104);
+            textBox3.Name = "textBox3";
+            textBox3.ReadOnly = true;
+            textBox3.Size = new Size(430, 39);
+            textBox3.TabIndex = 10;
+            textBox3.Text = "검사 기준값 설정";
+            // 
+            // cmbProcess2
+            // 
+            cmbProcess2.FormattingEnabled = true;
+            cmbProcess2.Items.AddRange(new object[] { "Steam" });
+            cmbProcess2.Location = new Point(541, 187);
+            cmbProcess2.Name = "cmbProcess2";
+            cmbProcess2.Size = new Size(121, 23);
+            cmbProcess2.TabIndex = 11;
+            cmbProcess2.Text = "공정 선택";
+            cmbProcess2.SelectedIndexChanged += cmbProcess2_SelectedIndexChanged;
+            // 
+            // cmbProcess3
+            // 
+            cmbProcess3.FormattingEnabled = true;
+            cmbProcess3.Items.AddRange(new object[] { "Fry" });
+            cmbProcess3.Location = new Point(541, 187);
+            cmbProcess3.Name = "cmbProcess3";
+            cmbProcess3.Size = new Size(121, 23);
+            cmbProcess3.TabIndex = 12;
+            cmbProcess3.Text = "공정 선택";
+            cmbProcess3.SelectedIndexChanged += cmbProcess3_SelectedIndexChanged;
+            // 
+            // SetThreshold
+            // 
+            SetThreshold.Location = new Point(587, 431);
+            SetThreshold.Name = "SetThreshold";
+            SetThreshold.Size = new Size(75, 23);
+            SetThreshold.TabIndex = 13;
+            SetThreshold.Text = "설정완료";
+            SetThreshold.UseVisualStyleBackColor = true;
+            SetThreshold.Click += SetThreshold_Click;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(187, 321);
+            label2.Name = "label2";
+            label2.Size = new Size(71, 15);
+            label2.TabIndex = 14;
+            label2.Text = "현재 기준값";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(187, 380);
+            label3.Name = "label3";
+            label3.Size = new Size(71, 15);
+            label3.TabIndex = 15;
+            label3.Text = "기준값 입력";
+            // 
+            // txtHiding
+            // 
+            txtHiding.Location = new Point(541, 187);
+            txtHiding.Name = "txtHiding";
+            txtHiding.ReadOnly = true;
+            txtHiding.Size = new Size(121, 23);
+            txtHiding.TabIndex = 16;
+            txtHiding.Text = "검사를 선택해 주세요";
             // 
             // TestForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1264, 761);
-            Controls.Add(tabControl1);
+            ClientSize = new Size(1260, 761);
+            Controls.Add(txtHiding);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(SetThreshold);
+            Controls.Add(cmbProcess3);
+            Controls.Add(cmbProcess2);
+            Controls.Add(textBox3);
+            Controls.Add(txtSetValue);
+            Controls.Add(txtNowValue);
+            Controls.Add(cmbProcess1);
+            Controls.Add(cmbTest);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "TestForm";
@@ -216,8 +307,8 @@
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel1.ResumeLayout(false);
-            tabControl1.ResumeLayout(false);
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -225,14 +316,22 @@
         private Panel panel2;
         private Label label1;
         private Panel panel1;
-        private TabControl tabControl1;
-        private TabPage tabPage1;
-        private TabPage tabPage2;
         private Button btn_ChartForm;
         private Button btn_OrderForm;
         private Button btn_StockForm;
         private Button btn_TestForm;
         private Button btn_ProcessForm;
         private Button btn_LOTForm;
+        private ComboBox cmbTest;
+        private ComboBox cmbProcess1;
+        private TextBox txtNowValue;
+        private TextBox txtSetValue;
+        private TextBox textBox3;
+        private ComboBox cmbProcess2;
+        private ComboBox cmbProcess3;
+        private Button SetThreshold;
+        private Label label2;
+        private Label label3;
+        private TextBox txtHiding;
     }
 }

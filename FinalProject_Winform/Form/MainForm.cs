@@ -194,9 +194,48 @@ namespace FinalProject_Winform
                 case "Continue": //전원 켰을때 
                     ProcessOn(arrMessage[1], lotpk);
                     break;
+                case "Data": //검사값 받았을때
+                    ProcessTest(arrMessage[1], lotpk); //lotpk 에는 검사값이 들어감
+                    break;
             } // end switch
 
         } // end ExecCommand()
+
+        private async Task<bool> ProcessTest(string process, long data)
+        {
+            //공정 id 가져오기
+            long processid = processRepository.GetProcessId(process);
+
+            //공정 id 로 해당 검사에 검사 data 입력하기
+            await processRepository.SaveTestData(processid, data);
+
+            //검사 기준값 가져오기
+            long? checkValue = await processRepository.GetTestCheckValue(processid, data);
+            if (!checkValue.HasValue)
+            {
+                //만약 검사 기준값이 설정 되어있지 않으면 기준값은 0
+                //메시지 표시
+                checkValue = 0;
+                MessageBox.Show("검사 기준값이 없습니다.");
+            }
+
+            //검사 기준값과 data 비교하기
+            // 오차 계산
+            double errorPercentage = Math.Abs((double)(checkValue - data)) / (double)data * 100;
+            //오차 허용범위 : 5%
+            int tolerance = 5;
+
+            if (errorPercentage <= tolerance)
+            {
+                // 오차가 5% 내외인 경우
+                return true;
+            }
+            else
+            {
+                // 오차가 5% 이상인 경우
+                return false;
+            }
+        }
 
         private void ProcessOn(string process, long lotpk)
         {
@@ -214,7 +253,7 @@ namespace FinalProject_Winform
 
         private void ProcessEnd(string process, long lotpk)
         {
-
+            //lotForm.loadLot(); //여기서 오류발생
             long processid = processRepository.GetProcessId(process);
             lothistoryRepository.AddLotAsync(lotpk, processid, $"{process}End");
             lotRepository.Updateasync($"{process}End", lotpk);

@@ -12,10 +12,10 @@ namespace FinalProject_Winform.Models.domain
     {
         public long Id { get; set; } // PK
 
-        public Process? Process { get; set; }
-
         public string Check_item { get; set; } // 검사 항목
 
-        public string Check_value { get; set; } // 검사 기준 값
+        public long? Check_value { get; set; } // 검사 기준 값
+
+        public long? Check_Result { get; set; } // 검사 결과 값 
     }
 }

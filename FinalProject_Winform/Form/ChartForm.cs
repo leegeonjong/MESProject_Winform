@@ -32,7 +32,6 @@ namespace FinalProject_Winform
         DateTimePicker dtp;
         private void Form5_Load(object sender, EventArgs e)
         {
-
             chartStock1 = chart1;
             chartStock1.Titles.Add("현재 수량");
             chartStock1.ChartAreas["ChartArea1"].AxisX.Title = "물품명";
@@ -69,6 +68,30 @@ namespace FinalProject_Winform
 
                     break;
             }
+        }
+
+        private void ChartView3()
+        {
+            //사용자가 선택한 검사를 가져오기
+            //검사 결과를 데이터 그리드뷰로 가져오는건가?
+            //차트로도 가져오는건가?
+            //둘다 가져오나?
+
+            //사용자가 선택한 콤보박스 검사값 가져오기
+            string selectedTestName = cmbTestName.Text.ToString();
+
+            //데이터베이스에서 Check_value 가져오기
+
+            //데이터베이스에서 Check_Result 가져오기 
+
+            //데이터그리드뷰에 보여주기?
+
+
+            //가져온 Check_Result를 Check_value와 비교하여 오차 구하기
+
+            //검사 오차율 구하기/ 불량 구하기
+
+            //차트로 표시하기 
         }
 
         private async void ChartView2()
