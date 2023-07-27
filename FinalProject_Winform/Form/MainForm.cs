@@ -215,8 +215,8 @@ namespace FinalProject_Winform
             //만약 검사 기준값이 설정 되어있지 않으면 기준값은 0
             if (!checkValue.HasValue)
             {
-                //메시지 표시
                 checkValue = 0;
+                //메시지 표시
                 MessageBox.Show("검사 기준값이 없습니다.");
             }
 
@@ -224,8 +224,16 @@ namespace FinalProject_Winform
             // 오차 계산
             double errorPercentage = Math.Abs((double)(checkValue - data)) / (double)data * 100;
 
-            //오차 허용범위 : 5% -- 오차 허용범위도 조절 할 수 있게 할 건지
-            const int tolerance = 5;
+            //오차 허용범위값 가져오기
+            long? tolerance = await processRepository.GetTestToleranceValue(processid, data);
+
+            //만약 허용범위값이 설정 되어있지 않으면 5%
+            if (!tolerance.HasValue)
+            {
+                tolerance = 5;
+                //메시지 표시
+                MessageBox.Show("검사 기준값이 없습니다.");
+            }
 
             if (errorPercentage <= tolerance)
             {

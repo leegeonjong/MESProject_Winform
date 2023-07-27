@@ -22,11 +22,10 @@ namespace FinalProject_Winform.Repositories
 
         //검사 값 저장하기
         Task SaveTestData(long processid, long data);
-
+        //현재 검사 기준값 가져오기
         Task<long> GetTestCheckValue(long processid, long data);
-
-        Task<IEnumerable<Process>> GetAllAsync();
-
+        //현재 허용 범위 값 가져오기
+        Task<long> GetTestToleranceValue(long processid, long data);
         Task<string> GetSelectedProcessStatus(string selectedProcessName);
 
         Task<bool> IsRunningAsync(bool state, string selectedProcess);
