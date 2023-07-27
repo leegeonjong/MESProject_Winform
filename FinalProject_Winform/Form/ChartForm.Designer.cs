@@ -30,15 +30,18 @@ namespace FinalProject_Winform
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             panel2 = new Panel();
             label1 = new Label();
             panel1 = new Panel();
@@ -61,6 +64,7 @@ namespace FinalProject_Winform
             tabPage3 = new TabPage();
             cmbTestName = new ComboBox();
             textBox1 = new TextBox();
+            chart4 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             tabControl1.SuspendLayout();
@@ -71,6 +75,7 @@ namespace FinalProject_Winform
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)chart3).BeginInit();
             tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)chart4).BeginInit();
             SuspendLayout();
             // 
             // panel2
@@ -225,36 +230,36 @@ namespace FinalProject_Winform
             // 
             // chart2
             // 
-            chartArea4.Name = "ChartArea1";
-            chart2.ChartAreas.Add(chartArea4);
+            chartArea1.Name = "ChartArea1";
+            chart2.ChartAreas.Add(chartArea1);
             chart2.Dock = DockStyle.Bottom;
-            legend4.Name = "Legend1";
-            chart2.Legends.Add(legend4);
+            legend1.Name = "Legend1";
+            chart2.Legends.Add(legend1);
             chart2.Location = new Point(3, 313);
             chart2.Name = "chart2";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn;
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            chart2.Series.Add(series4);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            chart2.Series.Add(series1);
             chart2.Size = new Size(1090, 307);
             chart2.TabIndex = 1;
             chart2.Text = "chart4";
             // 
             // chart1
             // 
-            chartArea5.Name = "ChartArea1";
-            chart1.ChartAreas.Add(chartArea5);
+            chartArea2.Name = "ChartArea1";
+            chart1.ChartAreas.Add(chartArea2);
             chart1.Dock = DockStyle.Top;
-            legend5.Name = "Legend1";
-            chart1.Legends.Add(legend5);
+            legend2.Name = "Legend1";
+            chart1.Legends.Add(legend2);
             chart1.Location = new Point(3, 3);
             chart1.Name = "chart1";
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn;
-            series5.Legend = "Legend1";
-            series5.Name = "Series1";
-            chart1.Series.Add(series5);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn;
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            chart1.Series.Add(series2);
             chart1.Size = new Size(1090, 304);
             chart1.TabIndex = 0;
             chart1.Text = "chart1";
@@ -316,23 +321,24 @@ namespace FinalProject_Winform
             // 
             // chart3
             // 
-            chartArea6.Name = "ChartArea1";
-            chart3.ChartAreas.Add(chartArea6);
+            chartArea3.Name = "ChartArea1";
+            chart3.ChartAreas.Add(chartArea3);
             chart3.Dock = DockStyle.Bottom;
-            legend6.Name = "Legend1";
-            chart3.Legends.Add(legend6);
+            legend3.Name = "Legend1";
+            chart3.Legends.Add(legend3);
             chart3.Location = new Point(3, 114);
             chart3.Name = "chart3";
-            series6.ChartArea = "ChartArea1";
-            series6.Legend = "Legend1";
-            series6.Name = "Series1";
-            chart3.Series.Add(series6);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            chart3.Series.Add(series3);
             chart3.Size = new Size(1090, 506);
             chart3.TabIndex = 0;
             chart3.Text = "chart3";
             // 
             // tabPage3
             // 
+            tabPage3.Controls.Add(chart4);
             tabPage3.Controls.Add(cmbTestName);
             tabPage3.Controls.Add(textBox1);
             tabPage3.Location = new Point(4, 44);
@@ -361,6 +367,24 @@ namespace FinalProject_Winform
             textBox1.TabIndex = 1;
             textBox1.Text = "공정 차트 조회";
             // 
+            // chart4
+            // 
+            chartArea4.Name = "ChartArea1";
+            chart4.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            chart4.Legends.Add(legend4);
+            chart4.Location = new Point(77, 145);
+            chart4.Name = "chart4";
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Range;
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            series4.YValuesPerPoint = 4;
+            chart4.Series.Add(series4);
+            chart4.Size = new Size(656, 300);
+            chart4.TabIndex = 3;
+            chart4.Text = "검사 결과";
+            // 
             // ChartForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -386,6 +410,7 @@ namespace FinalProject_Winform
             ((System.ComponentModel.ISupportInitialize)chart3).EndInit();
             tabPage3.ResumeLayout(false);
             tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)chart4).EndInit();
             ResumeLayout(false);
         }
 
@@ -413,5 +438,6 @@ namespace FinalProject_Winform
         private Button button2;
         private TextBox textBox1;
         private ComboBox cmbTestName;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart4;
     }
 }

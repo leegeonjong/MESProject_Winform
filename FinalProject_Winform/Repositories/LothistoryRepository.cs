@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace FinalProject_Winform.Repositories
 {
-    internal class LothistoryRepositry : ILothistoryRepository
+    internal class LothistoryRepository : ILothistoryRepository
     {
         public async Task<LotHistory> AddLotAsync(long lotid, long processid, string status)
         {

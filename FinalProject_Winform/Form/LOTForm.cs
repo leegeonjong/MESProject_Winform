@@ -29,7 +29,7 @@ namespace FinalProject_Winform
             this.mainForm = mainForm;
             lotRepository = new LotRepository();
             processRepository = new ProcessRepository();
-            lothistoryRepository = new LothistoryRepositry();
+            lothistoryRepository = new LothistoryRepository();
         }
         //
         DataGridView dgv_lot;

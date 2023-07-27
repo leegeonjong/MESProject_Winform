@@ -27,7 +27,7 @@ namespace FinalProject_Winform
             InitializeComponent();
             this.mainForm = mainForm;
             processRepository = new ProcessRepository();
-            lothistoryRepository = new LothistoryRepositry();
+            lothistoryRepository = new LothistoryRepository();
             lotRepository = new LotRepository();
         }
         DataGridView dgvImport;

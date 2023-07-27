@@ -1,4 +1,5 @@
 ﻿using FinalProject_Winform.Data;
+using FinalProject_Winform.Models.domain;
 using FinalProject_Winform.Repositories;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -19,12 +20,16 @@ namespace FinalProject_Winform
     {
 
         private readonly IItemRepository itemRepository;
+        private readonly IProcessRepository processRepository;
+        private readonly ILothistoryRepository lothistoryRepository;
         private MainForm mainForm;
         public ChartForm(MainForm mainForm)
         {
             InitializeComponent();
             this.mainForm = mainForm;
+            processRepository = new ProcessRepository();
             itemRepository = new ItemRepository();
+            lothistoryRepository = new LothistoryRepository();
         }
         Chart chartStock1;
         Chart chartStock2;
@@ -80,12 +85,18 @@ namespace FinalProject_Winform
             //사용자가 선택한 콤보박스 검사값 가져오기
             string selectedTestName = cmbTestName.Text.ToString();
 
+            using FinalDbContext db = new FinalDbContext();
+            var list = await db.Checks.Where(x => x.Check_item ==  selectedTestName).ToListAsync();
+
+            foreach(var checkName in list)
+            {
+                chart4.Series["Series1"].Points.AddXY(checkName.Check_item);
+            }
             //데이터베이스에서 Check_value 가져오기
 
             //데이터베이스에서 Check_Result 가져오기 
 
             //데이터그리드뷰에 보여주기?
-
 
             //가져온 Check_Result를 Check_value와 비교하여 오차 구하기
 
