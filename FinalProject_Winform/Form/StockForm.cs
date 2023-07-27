@@ -149,23 +149,23 @@ namespace FinalProject_Winform
 
         private async void btn_Export_Click(object sender, EventArgs e)
         {
-            
-                long orderId = long.Parse(txtOrder.Text);
-                var count = await orderRepository.GetByIdAsync(orderId);
 
-                var stock = await stockRepository.MinusAsync(orderId);
-                if (stock != null)
+            long orderId = long.Parse(txtOrder.Text);
+            var count = await orderRepository.GetByIdAsync(orderId);
+
+            var stock = await stockRepository.MinusAsync(orderId);
+            if (stock != null)
+            {
+                var existingItem = await itemRepository.ExportUpdateAsync(stock.Item.Id, count);
+                await orderRepository.OrderUpdateAsync(orderId);
+
+                if (existingItem != null)
                 {
-                    var existingItem = await itemRepository.ExportUpdateAsync(stock.Item.Id, count);
-                      await orderRepository.OrderUpdateAsync(orderId);
-
-                    if (existingItem != null)
-                    {
-                        MessageBox.Show("성공");
-                    }
+                    MessageBox.Show("성공");
                 }
-            
-            
+            }
+
+
         }
 
 
