@@ -65,12 +65,12 @@ namespace FinalProject_Winform
                     ChartView2();
                     break;
                 case 2:
-
+                    //ChartView3();
                     break;
             }
         }
 
-        private void ChartView3()
+        private async void ChartView3()
         {
             //사용자가 선택한 검사를 가져오기
             //검사 결과를 데이터 그리드뷰로 가져오는건가?

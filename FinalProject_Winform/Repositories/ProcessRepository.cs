@@ -47,7 +47,7 @@ namespace FinalProject_Winform.Repositories
         }
 
         //현재 검사 기준값 가져오기
-        public async Task<long> NowThreshold(string selectedProcessName, string selectedTestName)
+        public async Task<long> NowCheckValue(string selectedProcessName, string selectedTestName)
         {
             using FinalDbContext db = new();
 

@@ -72,7 +72,7 @@ namespace FinalProject_Winform
             }
 
             //현재 검사 설정값 가져오기
-            long checkValue = await processRepository.NowThreshold(selectedProcessName, selectedTestName);
+            long checkValue = await processRepository.NowCheckValue(selectedProcessName, selectedTestName);
 
             //현재 허용범위 값 가져오기
             long tolerance = await processRepository.NowTolerance(selectedProcessName, selectedTestName);
@@ -138,7 +138,7 @@ namespace FinalProject_Winform
             MessageBox.Show("설정 완료");
 
             //바뀐 검사값으로 다시 가져오기
-            long checkValue = await processRepository.NowThreshold(selectedProcessName, selectedTestName);
+            long checkValue = await processRepository.NowCheckValue(selectedProcessName, selectedTestName);
             long tolerance = await processRepository.NowTolerance(selectedProcessName, selectedTestName);
 
             txtNowValue.Text = checkValue.ToString();
