@@ -224,7 +224,7 @@ namespace FinalProject_Winform
         {
             loadLot();
         }
-        public async void loadLot() 
+        public async void loadLot()
         {
             string text = tbox_start_lotnum.Text;
             var Lots = await lotRepository.GetByBarcode(text);

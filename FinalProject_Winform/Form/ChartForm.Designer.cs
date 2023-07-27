@@ -62,9 +62,9 @@ namespace FinalProject_Winform
             dateTimePicker1 = new DateTimePicker();
             chart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             tabPage3 = new TabPage();
+            chart4 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             cmbTestName = new ComboBox();
             textBox1 = new TextBox();
-            chart4 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             tabControl1.SuspendLayout();
@@ -348,6 +348,24 @@ namespace FinalProject_Winform
             tabPage3.Text = "검사 차트";
             tabPage3.UseVisualStyleBackColor = true;
             // 
+            // chart4
+            // 
+            chartArea4.Name = "ChartArea1";
+            chart4.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            chart4.Legends.Add(legend4);
+            chart4.Location = new Point(77, 145);
+            chart4.Name = "chart4";
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Range;
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            series4.YValuesPerPoint = 4;
+            chart4.Series.Add(series4);
+            chart4.Size = new Size(656, 300);
+            chart4.TabIndex = 3;
+            chart4.Text = "검사 결과";
+            // 
             // cmbTestName
             // 
             cmbTestName.FormattingEnabled = true;
@@ -367,24 +385,6 @@ namespace FinalProject_Winform
             textBox1.TabIndex = 1;
             textBox1.Text = "공정 차트 조회";
             // 
-            // chart4
-            // 
-            chartArea4.Name = "ChartArea1";
-            chart4.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            chart4.Legends.Add(legend4);
-            chart4.Location = new Point(77, 145);
-            chart4.Name = "chart4";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Range;
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            series4.YValuesPerPoint = 4;
-            chart4.Series.Add(series4);
-            chart4.Size = new Size(656, 300);
-            chart4.TabIndex = 3;
-            chart4.Text = "검사 결과";
-            // 
             // ChartForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -394,6 +394,7 @@ namespace FinalProject_Winform
             Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "ChartForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "ChartForm";
             FormClosed += ChartForm_FormClosed;
             Load += Form5_Load;

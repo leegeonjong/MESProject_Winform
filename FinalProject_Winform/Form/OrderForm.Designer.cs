@@ -541,6 +541,7 @@
             Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "OrderForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "OrderForm";
             FormClosed += OrderForm_FormClosed;
             Load += OrderForm_Load;

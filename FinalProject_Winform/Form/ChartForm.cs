@@ -87,11 +87,11 @@ namespace FinalProject_Winform
 
             //사용자가 선택한 검사를 지나간 LOT ID 가져오기
             using FinalDbContext db = new FinalDbContext();
-            var list = await db.Checks.Where(x => x.Check_item ==  selectedTestName).ToListAsync();
+            var list = await db.Checks.Where(x => x.Check_item == selectedTestName).ToListAsync();
             var lotList = await db.LotHistorys.Where(x => x.Process.Check.Check_item == selectedTestName).ToListAsync();
 
 
-            foreach(var lotHistory in lotList)
+            foreach (var lotHistory in lotList)
             {
                 chart4.Series["Series1"].Points.AddXY(lotHistory.LotId);
             }

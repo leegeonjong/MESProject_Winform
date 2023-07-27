@@ -946,7 +946,7 @@
             Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "LOTForm";
-            StartPosition = FormStartPosition.CenterParent;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "LOTForm";
             FormClosed += LOTForm_FormClosed;
             Load += LOTForm_Load;

@@ -73,7 +73,6 @@
             button3 = new Button();
             comboBox2 = new ComboBox();
             label6 = new Label();
-            btn_ChartForm = new Button();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             tabControl1.SuspendLayout();
@@ -111,7 +110,6 @@
             // 
             panel1.BackColor = Color.FromArgb(180, 210, 230);
             panel1.Controls.Add(btn_ChartForm);
-            panel1.Controls.Add(btn_ChartForm);
             panel1.Controls.Add(btn_OrderForm);
             panel1.Controls.Add(btn_StockForm);
             panel1.Controls.Add(btn_TestForm);
@@ -122,6 +120,21 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(160, 761);
             panel1.TabIndex = 4;
+            // 
+            // btn_ChartForm
+            // 
+            btn_ChartForm.FlatAppearance.BorderColor = Color.Gray;
+            btn_ChartForm.FlatAppearance.BorderSize = 2;
+            btn_ChartForm.FlatStyle = FlatStyle.Flat;
+            btn_ChartForm.Font = new Font("맑은 고딕", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_ChartForm.Location = new Point(-3, 581);
+            btn_ChartForm.Name = "btn_ChartForm";
+            btn_ChartForm.Size = new Size(168, 104);
+            btn_ChartForm.TabIndex = 22;
+            btn_ChartForm.Text = "현황판";
+            btn_ChartForm.TextAlign = ContentAlignment.MiddleLeft;
+            btn_ChartForm.UseVisualStyleBackColor = true;
+            btn_ChartForm.Click += Button_Click;
             // 
             // btn_OrderForm
             // 
@@ -197,21 +210,6 @@
             btn_LOTForm.TextAlign = ContentAlignment.MiddleLeft;
             btn_LOTForm.UseVisualStyleBackColor = true;
             btn_LOTForm.Click += Button_Click;
-            // 
-            // btn_ChartForm
-            // 
-            btn_ChartForm.FlatAppearance.BorderColor = Color.Gray;
-            btn_ChartForm.FlatAppearance.BorderSize = 2;
-            btn_ChartForm.FlatStyle = FlatStyle.Flat;
-            btn_ChartForm.Font = new Font("맑은 고딕", 24F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_ChartForm.Location = new Point(-3, 581);
-            btn_ChartForm.Name = "btn_ChartForm";
-            btn_ChartForm.Size = new Size(168, 104);
-            btn_ChartForm.TabIndex = 22;
-            btn_ChartForm.Text = "현황판";
-            btn_ChartForm.TextAlign = ContentAlignment.MiddleLeft;
-            btn_ChartForm.UseVisualStyleBackColor = true;
-            btn_ChartForm.Click += Button_Click;
             // 
             // tabControl1
             // 
@@ -566,6 +564,7 @@
             Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "StockForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "StockForm";
             Load += StockForm_Load;
             panel2.ResumeLayout(false);

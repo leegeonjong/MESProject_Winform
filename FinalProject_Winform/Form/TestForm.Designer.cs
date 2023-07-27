@@ -342,6 +342,7 @@
             Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "TestForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "TestForm";
             FormClosed += TestForm_FormClosed;
             Load += Form6_Load;

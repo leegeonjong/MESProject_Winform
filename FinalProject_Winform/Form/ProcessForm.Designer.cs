@@ -44,6 +44,10 @@
             btn_next = new Button();
             btn_prev = new Button();
             dataGridView1 = new DataGridView();
+            LOT_ID = new DataGridViewTextBoxColumn();
+            LOT_NAME = new DataGridViewTextBoxColumn();
+            LOT_StartDate = new DataGridViewTextBoxColumn();
+            LOT_STATUS = new DataGridViewTextBoxColumn();
             panel3 = new Panel();
             btnSearchProcess = new Button();
             label2 = new Label();
@@ -58,10 +62,6 @@
             btnOn = new Button();
             panel6 = new Panel();
             label5 = new Label();
-            LOT_ID = new DataGridViewTextBoxColumn();
-            LOT_NAME = new DataGridViewTextBoxColumn();
-            LOT_StartDate = new DataGridViewTextBoxColumn();
-            LOT_STATUS = new DataGridViewTextBoxColumn();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             tabControl1.SuspendLayout();
@@ -275,6 +275,33 @@
             dataGridView1.Size = new Size(1037, 431);
             dataGridView1.TabIndex = 8;
             // 
+            // LOT_ID
+            // 
+            LOT_ID.HeaderText = "LOT";
+            LOT_ID.Name = "LOT_ID";
+            LOT_ID.ReadOnly = true;
+            // 
+            // LOT_NAME
+            // 
+            LOT_NAME.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            LOT_NAME.HeaderText = "이름";
+            LOT_NAME.Name = "LOT_NAME";
+            LOT_NAME.ReadOnly = true;
+            // 
+            // LOT_StartDate
+            // 
+            LOT_StartDate.HeaderText = "시작시간";
+            LOT_StartDate.Name = "LOT_StartDate";
+            LOT_StartDate.ReadOnly = true;
+            LOT_StartDate.Width = 300;
+            // 
+            // LOT_STATUS
+            // 
+            LOT_STATUS.HeaderText = "상태";
+            LOT_STATUS.Name = "LOT_STATUS";
+            LOT_STATUS.ReadOnly = true;
+            LOT_STATUS.Width = 300;
+            // 
             // panel3
             // 
             panel3.BackColor = Color.WhiteSmoke;
@@ -422,33 +449,6 @@
             label5.TabIndex = 6;
             label5.Text = "설비 상태 설정";
             // 
-            // LOT_ID
-            // 
-            LOT_ID.HeaderText = "LOT";
-            LOT_ID.Name = "LOT_ID";
-            LOT_ID.ReadOnly = true;
-            // 
-            // LOT_NAME
-            // 
-            LOT_NAME.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            LOT_NAME.HeaderText = "이름";
-            LOT_NAME.Name = "LOT_NAME";
-            LOT_NAME.ReadOnly = true;
-            // 
-            // LOT_StartDate
-            // 
-            LOT_StartDate.HeaderText = "시작시간";
-            LOT_StartDate.Name = "LOT_StartDate";
-            LOT_StartDate.ReadOnly = true;
-            LOT_StartDate.Width = 300;
-            // 
-            // LOT_STATUS
-            // 
-            LOT_STATUS.HeaderText = "상태";
-            LOT_STATUS.Name = "LOT_STATUS";
-            LOT_STATUS.ReadOnly = true;
-            LOT_STATUS.Width = 300;
-            // 
             // ProcessForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -458,6 +458,7 @@
             Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "ProcessForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "ProcessForm";
             FormClosed += ProcessForm_FormClosed;
             Load += ProcessForm_Load;

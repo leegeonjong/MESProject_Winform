@@ -57,7 +57,7 @@ namespace FinalProject_Winform
             switch (e.TabPageIndex)
             {
                 case 0:  // 공정 조회
-                   
+
                     break;
             }
         }
