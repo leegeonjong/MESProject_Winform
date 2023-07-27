@@ -85,22 +85,18 @@ namespace FinalProject_Winform
             //사용자가 선택한 콤보박스 검사값 가져오기
             string selectedTestName = cmbTestName.Text.ToString();
 
+            //사용자가 선택한 검사를 지나간 LOT ID 가져오기
             using FinalDbContext db = new FinalDbContext();
             var list = await db.Checks.Where(x => x.Check_item ==  selectedTestName).ToListAsync();
             var lotList = await db.LotHistorys.Where(x => x.Process.Check.Check_item == selectedTestName).ToListAsync();
 
 
-            foreach(var checkName in list)
+            foreach(var lotHistory in lotList)
             {
-                chart4.Series["Series1"].Points.AddXY(checkName.Check_item);
+                chart4.Series["Series1"].Points.AddXY(lotHistory.LotId);
             }
-            //데이터베이스에서 Check_value 가져오기
-
-            //데이터베이스에서 Check_Result 가져오기 
 
             //데이터그리드뷰에 보여주기?
-
-            //가져온 Check_Result를 Check_value와 비교하여 오차 구하기
 
             //검사 오차율 구하기/ 불량 구하기
 
