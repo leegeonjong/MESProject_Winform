@@ -19,7 +19,8 @@ namespace FinalProject_Winform.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Check_item = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Check_value = table.Column<long>(type: "bigint", nullable: true),
-                    Check_Result = table.Column<long>(type: "bigint", nullable: true)
+                    Check_Result = table.Column<long>(type: "bigint", nullable: true),
+                    Check_Tolerance = table.Column<long>(type: "bigint", nullable: true)
                 },
                 constraints: table =>
                 {

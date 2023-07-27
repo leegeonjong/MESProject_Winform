@@ -6,6 +6,36 @@ namespace FinalProject_Winform.Repositories
 {
     public class ProcessRepository : IProcessRepository
     {
+        //현재 허용범위 값 가져오기 
+        public async Task<long> NowTolerance(string selectedProcessName,string selectedTestName)
+        {
+            using FinalDbContext db = new();
+
+            //공정 이름에 따라 검사 구분하기
+            if (selectedProcessName == "Mix")
+            {
+                selectedTestName = selectedTestName + " 입고";
+            }
+            else if (selectedProcessName == "Pack")
+            {
+                selectedTestName = selectedTestName + " 출고";
+            }
+
+            var processTestResult = await db.Checks
+        .Where(p => p.Check_item == selectedTestName)
+        .FirstOrDefaultAsync();
+
+            if (processTestResult != null)
+            {
+                //허용범위 값 반환
+                return (long)processTestResult.Check_Tolerance;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
         //현재 검사 기준값 가져오기
         public async Task<long> NowThreshold(string selectedProcessName, string selectedTestName)
         {
@@ -66,6 +96,36 @@ namespace FinalProject_Winform.Repositories
                 throw new NotImplementedException();
             }
 
+        }
+
+        //허용범위 값 설정하기
+        public async Task SetTolerance(string selectedProcessName, string selectedTestName, long SetTolerance)
+        {
+            using FinalDbContext db = new();
+
+            //공정 이름에 따라 검사 구분하기
+            if (selectedProcessName == "Mix")
+            {
+                selectedTestName = selectedTestName + " 입고";
+            }
+            else if (selectedProcessName == "Pack")
+            {
+                selectedTestName = selectedTestName + " 출고";
+            }
+
+            var processTestResult = await db.Checks
+        .Where(p => p.Check_item == selectedTestName)
+        .FirstOrDefaultAsync();
+
+            if (processTestResult != null)
+            {
+                processTestResult.Check_Tolerance = SetTolerance;
+                await db.SaveChangesAsync();
+            }
+            else
+            {
+                throw new NotImplementedException();
+            }
         }
 
         //공정 정보 다가져오기

@@ -9,8 +9,13 @@ namespace FinalProject_Winform.Repositories
 {
     internal interface IProcessRepository
     {
+        //현재 허용 범위 값 가져오기
+        Task<long> NowTolerance(string selectedProcessName, string selectedTestName);
         //현재 검사 기준값 가져오기
         Task<long> NowThreshold(string selectedProcessName, string selectedTestName);
+
+        //검사 허용범위 설정하기
+        Task SetTolerance(string selectedProcessName, string selectedTestName, long SetValue);
 
         //검사 기준값 설정하기
         Task SetThreshold(string selectedProcessName, string selectedTestName, long SetValue);

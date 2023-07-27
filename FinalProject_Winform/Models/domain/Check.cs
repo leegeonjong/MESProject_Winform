@@ -17,5 +17,7 @@ namespace FinalProject_Winform.Models.domain
         public long? Check_value { get; set; } // 검사 기준 값
 
         public long? Check_Result { get; set; } // 검사 결과 값 
+
+        public long? Check_Tolerance { get; set; } //검사 허용 범위
     }
 }

@@ -33,6 +33,9 @@ namespace FinalProject_Winform.Migrations
                     b.Property<long?>("Check_Result")
                         .HasColumnType("bigint");
 
+                    b.Property<long?>("Check_Tolerance")
+                        .HasColumnType("bigint");
+
                     b.Property<string>("Check_item")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");

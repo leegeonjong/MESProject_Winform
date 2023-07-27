@@ -51,7 +51,7 @@ namespace FinalProject_Winform
             //this.Hide();
         }
 
-        //사용자가 선택한 검사 현재 기준값 가져오기
+        //사용자가 선택한 검사 현재 기준값, 허용범위값 가져오기
         private async void cmbProcess_SelectedIndexChagned(int num)
         {
             //사용자가 선택한 공정 가져오기
@@ -73,7 +73,12 @@ namespace FinalProject_Winform
 
             //현재 검사 설정값 가져오기
             long checkValue = await processRepository.NowThreshold(selectedProcessName, selectedTestName);
+
+            //현재 허용범위 값 가져오기
+            long tolerance = await processRepository.NowTolerance(selectedProcessName, selectedTestName);
+
             txtNowValue.Text = checkValue.ToString();
+            txtNowTolerance.Text = tolerance.ToString();
         }
 
 
@@ -85,11 +90,6 @@ namespace FinalProject_Winform
             string selectedProcessName2 = cmbProcess2.SelectedItem?.ToString();
             string selectedProcessName3 = cmbProcess3.SelectedItem?.ToString();
 
-            if (txtSetValue.Text == "")
-            {
-                MessageBox.Show("기준값을 입력하세요");
-                return true;
-            }
             if (string.IsNullOrEmpty(selectedTestName))
             {
                 MessageBox.Show("검사를 선택하세요");
@@ -100,6 +100,17 @@ namespace FinalProject_Winform
                 MessageBox.Show("공정을 선택하세요");
                 return true;
             }
+            if (txtSetValue.Text == "")
+            {
+                MessageBox.Show("기준값을 입력하세요");
+                return true;
+            }
+            if (txtSetTolerance.Text == "")
+            {
+                MessageBox.Show("허용범위를 입력하세요");
+                return true;
+            }
+
             return false;
         }
 
@@ -115,17 +126,23 @@ namespace FinalProject_Winform
             // combo_process에서 선택한 값 가져오기
             string selectedProcessName = cmbProcess1.SelectedItem.ToString();
             string selectedTestName = cmbTest.SelectedItem.ToString();
-            // 사용자가 입력한 기준값 가져오기
+
+            // 사용자가 입력한 값 가져오기
             long SetValue = long.Parse(txtSetValue.Text);
+            long SetTolerance = long.Parse(txtSetTolerance.Text);
 
             await processRepository.SetThreshold(selectedProcessName, selectedTestName, SetValue);
+            await processRepository.SetTolerance(selectedProcessName, selectedTestName, SetTolerance);
 
             //기준값 입력 성공 메시지 박스 띄우기
             MessageBox.Show("설정 완료");
 
             //바뀐 검사값으로 다시 가져오기
             long checkValue = await processRepository.NowThreshold(selectedProcessName, selectedTestName);
+            long tolerance = await processRepository.NowTolerance(selectedProcessName, selectedTestName);
+
             txtNowValue.Text = checkValue.ToString();
+            txtNowTolerance.Text = tolerance.ToString();
         }
 
         //선택한 검사에 따라 다른 콤보박스를 보이게 함

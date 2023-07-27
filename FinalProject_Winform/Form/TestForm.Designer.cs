@@ -48,6 +48,10 @@
             label2 = new Label();
             label3 = new Label();
             txtHiding = new TextBox();
+            label4 = new Label();
+            txtSetTolerance = new TextBox();
+            label5 = new Label();
+            txtNowTolerance = new TextBox();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -200,7 +204,7 @@
             // 
             // txtNowValue
             // 
-            txtNowValue.Location = new Point(280, 313);
+            txtNowValue.Location = new Point(280, 279);
             txtNowValue.Name = "txtNowValue";
             txtNowValue.ReadOnly = true;
             txtNowValue.Size = new Size(382, 23);
@@ -247,7 +251,7 @@
             // 
             // SetThreshold
             // 
-            SetThreshold.Location = new Point(587, 431);
+            SetThreshold.Location = new Point(587, 461);
             SetThreshold.Name = "SetThreshold";
             SetThreshold.Size = new Size(75, 23);
             SetThreshold.TabIndex = 13;
@@ -258,7 +262,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(187, 321);
+            label2.Location = new Point(187, 287);
             label2.Name = "label2";
             label2.Size = new Size(71, 15);
             label2.TabIndex = 14;
@@ -282,11 +286,48 @@
             txtHiding.TabIndex = 16;
             txtHiding.Text = "검사를 선택해 주세요";
             // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(187, 435);
+            label4.Name = "label4";
+            label4.Size = new Size(83, 15);
+            label4.TabIndex = 17;
+            label4.Text = "허용범위 입력";
+            // 
+            // txtSetTolerance
+            // 
+            txtSetTolerance.Location = new Point(280, 427);
+            txtSetTolerance.Name = "txtSetTolerance";
+            txtSetTolerance.Size = new Size(382, 23);
+            txtSetTolerance.TabIndex = 18;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(187, 334);
+            label5.Name = "label5";
+            label5.Size = new Size(83, 15);
+            label5.TabIndex = 20;
+            label5.Text = "현재 허용범위";
+            // 
+            // txtNowTolerance
+            // 
+            txtNowTolerance.Location = new Point(280, 331);
+            txtNowTolerance.Name = "txtNowTolerance";
+            txtNowTolerance.ReadOnly = true;
+            txtNowTolerance.Size = new Size(382, 23);
+            txtNowTolerance.TabIndex = 19;
+            // 
             // TestForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1260, 761);
+            Controls.Add(label5);
+            Controls.Add(txtNowTolerance);
+            Controls.Add(txtSetTolerance);
+            Controls.Add(label4);
             Controls.Add(txtHiding);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -333,5 +374,9 @@
         private Label label2;
         private Label label3;
         private TextBox txtHiding;
+        private Label label4;
+        private TextBox txtSetTolerance;
+        private Label label5;
+        private TextBox txtNowTolerance;
     }
 }

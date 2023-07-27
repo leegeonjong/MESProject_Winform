@@ -3,18 +3,18 @@ INSERT INTO [Order] (ItemId, Order_startDate, Order_endDate, Order_sendDate,Orde
 VALUES
 (1,GETDATE(),GETDATE()+7,GETDATE()+6,'대기','주문',300,'코리아IT아카데미')
 
+INSERT INTO Process(Process_name, Process_status, Process_checkRight , CheckId)
+VALUES ('Mix', 0, 1 , 3 )
 INSERT INTO Process(Process_name, Process_status, Process_checkRight)
-VALUES ('Mix', 0, 1)
+VALUES ('Shape', 0, 1 )
+INSERT INTO Process(Process_name, Process_status, Process_checkRight, CheckId)
+VALUES ('Steam', 0, 1 , 2)
+INSERT INTO Process(Process_name, Process_status, Process_checkRight, CheckId)
+VALUES ('Fry', 0, 1 , 1)
 INSERT INTO Process(Process_name, Process_status, Process_checkRight)
-VALUES ('Shape', 0, 1)
-INSERT INTO Process(Process_name, Process_status, Process_checkRight)
-VALUES ('Steam', 0, 1)
-INSERT INTO Process(Process_name, Process_status, Process_checkRight)
-VALUES ('Fry', 0, 1)
-INSERT INTO Process(Process_name, Process_status, Process_checkRight)
-VALUES ('Freeze',0, 1)
-INSERT INTO Process(Process_name, Process_status, Process_checkRight)
-VALUES ('Pack', 0, 1)
+VALUES ('Freeze',0, 1 )
+INSERT INTO Process(Process_name, Process_status, Process_checkRight, CheckId)
+VALUES ('Pack', 0, 1 , 4)
 
 INSERT INTO Stock (ItemId, Stock_Amount, Stock_regDate, Stock_status)
 VALUES
@@ -59,18 +59,6 @@ DBCC CHECKIDENT(Lot, reseed, 0);
 DBCC CHECKIDENT(Process, reseed, 0);
 delete Process
 
-INSERT INTO Process(Process_name, Process_status, Process_checkRight)
-VALUES ('Mix', 1, 1)
-INSERT INTO Process(Process_name, Process_status, Process_checkRight)
-VALUES ('Shape', 1, 1)
-INSERT INTO Process(Process_name, Process_status, Process_checkRight)
-VALUES ('Steam', 1, 1)
-INSERT INTO Process(Process_name, Process_status, Process_checkRight)
-VALUES ('Fry', 1, 1)
-INSERT INTO Process(Process_name, Process_status, Process_checkRight)
-VALUES ('Freeze', 1, 1)
-INSERT INTO Process(Process_name, Process_status, Process_checkRight)
-VALUES ('Pack', 1, 1)
 -- ORDER ID값 초기화 + DUMMY -- 
 
 DELETE FROM [Order]

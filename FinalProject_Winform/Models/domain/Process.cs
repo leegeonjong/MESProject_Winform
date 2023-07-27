@@ -12,7 +12,7 @@ namespace FinalProject_Winform.Models.domain
     {
         public long Id { get; set; }
 
-        public Check? Check { get; set; } 
+        public Check? Check { get; set; } //검사 하는 공정
 
         public string Process_name { get; set; } // 공정이름
 
@@ -20,6 +20,5 @@ namespace FinalProject_Winform.Models.domain
 
         public bool? Process_checkRight { get; set; } // 공정 검사 통과 여부
 
-        //public long? CheckId { get; set; } // 검사 id
     }
 }
