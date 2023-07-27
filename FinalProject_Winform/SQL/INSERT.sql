@@ -75,11 +75,15 @@ select * from [FinalDB].[dbo].[Check]
 delete [FinalDB].[dbo].[Check]
 
 
-INSERT INTO [FinalDB].[dbo].[Check] ( Check_item, Check_value)
-VALUES ( '용량 검사', '100')
-INSERT INTO [FinalDB].[dbo].[Check] ( Check_item, Check_value)
-VALUES ( '온도 검사', '100')
-INSERT INTO [FinalDB].[dbo].[Check] ( Check_item, Check_value)
-VALUES ( '수량 검사 입고', '50')
-INSERT INTO [FinalDB].[dbo].[Check] ( Check_item, Check_value)
-VALUES ( '수량 검사 출고', '50')
+INSERT INTO [FinalDB].[dbo].[Check] ( Check_item, Check_value ,Check_Tolerance )
+VALUES ( '용량 검사', '100', '0')
+INSERT INTO [FinalDB].[dbo].[Check] ( Check_item, Check_value,Check_Tolerance)
+VALUES ( '온도 검사', '100', '0')
+INSERT INTO [FinalDB].[dbo].[Check] ( Check_item, Check_value,Check_Tolerance)
+VALUES ( '수량 검사 입고', '50', '0')
+INSERT INTO [FinalDB].[dbo].[Check] ( Check_item, Check_value,Check_Tolerance)
+VALUES ( '수량 검사 출고', '50', '0')
+
+UPDATE [FinalDB].[dbo].[Check]
+SET Check_Tolerance = 0
+WHERE Id IN (1, 2, 3, 4)
