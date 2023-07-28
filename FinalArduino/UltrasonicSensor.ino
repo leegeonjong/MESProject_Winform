@@ -9,7 +9,7 @@ int Lot_Count = 0;
 bool minusToggle = false;
 bool plusToggle = false;
 
-void UltrasonicSensor(String process) {
+void UltrasonicSensor(String process ,String lotId) {
   pinMode(TRIG_Plus, OUTPUT);
   pinMode(ECHO_Plus, INPUT);
 
@@ -31,7 +31,7 @@ void UltrasonicSensor(String process) {
     if (Lot_Count >= 0 && !plusToggle) {
       plusToggle = true;
       Lot_Count++;
-      SendTestData(process, String(Lot_Count));
+      SendTestData(process,lotId String(Lot_Count));
       return;
     }
   } else {
@@ -39,7 +39,7 @@ void UltrasonicSensor(String process) {
   }
 }
 
-void UltrasonicSensorMinus(String process) {
+void UltrasonicSensorMinus(String process,String lotId) {
   pinMode(TRIG_Minus, OUTPUT);
   pinMode(ECHO_Minus, INPUT);
 
@@ -58,7 +58,7 @@ void UltrasonicSensorMinus(String process) {
     if (Lot_Count > 0 && !minusToggle) {
       minusToggle = true;
       Lot_Count--;
-      SendTestData(process, String(Lot_Count));
+      SendTestData(process, lotId,String(Lot_Count));
     }
   } else {
     minusToggle = false;
