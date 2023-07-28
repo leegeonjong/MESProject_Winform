@@ -24,3 +24,6 @@ DBCC CHECKIDENT([Order], reseed, 0);
 -------------------------------------------
 DELETE FROM [CHECK]
 DBCC CHECKIDENT([CHECK], reseed, 0);
+
+
+DELETE FROM [LotHistory]
