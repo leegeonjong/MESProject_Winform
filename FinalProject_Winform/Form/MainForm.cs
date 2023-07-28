@@ -27,32 +27,32 @@ namespace FinalProject_Winform
             InitializeComponent();
 
             // 시리얼 포트 생성
-            //serialPort = new();
-            //serialPort.BaudRate = 9600;
-            //serialPort.DataReceived += serialPort_DataReceived;
+            serialPort = new();
+            serialPort.BaudRate = 9600;
+            serialPort.DataReceived += serialPort_DataReceived;
 
-            //serialPort.ReadTimeout = 0;
-            //lotRepository = new LotRepository();
-            //lothistoryRepository = new LothistoryRepositry();
-            //processRepository = new ProcessRepository();
+            serialPort.ReadTimeout = 0;
+            lotRepository = new LotRepository();
+            lothistoryRepository = new LothistoryRepository();
+            processRepository = new ProcessRepository();
 
-            //// MainForm이 로드될 때 수행할 작업
-            ////string port = $"COM8";  // 여기 바꾸셈
+            // MainForm이 로드될 때 수행할 작업
+            string port = $"COM8";  // 여기 바꾸셈
             //string port = $"COM3";  // 이건종
 
-            //serialPort.PortName = port;   //시리얼 포트 설정
+            serialPort.PortName = port;   //시리얼 포트 설정
 
-            //// 시리얼 통신 시작
-            //if (serialPort.IsOpen)
-            //{
-            //    // 이미 COM 포트 오픈 되어 있으면. 아무것도 안함.
-            //    MessageBox.Show($"이미 {port}는 열려 있습니다");
-            //}
-            //else
-            //{
-            //    // 연결이 안되어 있으면 연결한다.
-            //    serialPort.Open();
-            //}
+            // 시리얼 통신 시작
+            if (serialPort.IsOpen)
+            {
+                // 이미 COM 포트 오픈 되어 있으면. 아무것도 안함.
+                MessageBox.Show($"이미 {port}는 열려 있습니다");
+            }
+            else
+            {
+                // 연결이 안되어 있으면 연결한다.
+                serialPort.Open();
+            }
         }
         public SerialPort serialPort;
         private void serialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
