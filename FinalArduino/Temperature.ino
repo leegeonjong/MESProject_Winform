@@ -4,7 +4,7 @@
 
 DHT dht(DHTPIN, DHTTYPE);  // DHT 객체 생성
 
-void TemperatureSensor(String process,Stirng lotId) {
+void TemperatureSensor(String process,String lotId) {
   dht.begin();
   float temperature = dht.readTemperature();  // 온도를 측정 (섭씨 ℃)
 

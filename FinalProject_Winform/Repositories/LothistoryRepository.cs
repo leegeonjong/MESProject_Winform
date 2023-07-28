@@ -72,12 +72,6 @@ namespace FinalProject_Winform.Repositories
 
             return lots;
         }
-
-        public Task<LotHistory> AddLotAsync(long lotid, long processid, string status)
-        {
-            throw new NotImplementedException();
-        }
-
        
     }
 }

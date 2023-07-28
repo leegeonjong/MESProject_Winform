@@ -177,7 +177,9 @@ namespace FinalProject_Winform
 
             string[] arrMessage = recvData[1..].Split(",", StringSplitOptions.RemoveEmptyEntries);
             long lotpk = long.Parse(arrMessage[2]);
-            long data = long.Parse(arrMessage[3]);
+
+            //string[] arrMessage2 = recvData[1..].Split(",", StringSplitOptions.RemoveEmptyEntries);
+            //long? data = long.Parse(arrMessage2[2]);
             switch (arrMessage[0]) // arrMessage[0] = 공정행동, arrMessage[1] = 공정명 arrmessage = lotid
             {
                 case "Recieve": //명령 받음
@@ -195,15 +197,24 @@ namespace FinalProject_Winform
                 case "Continue": //전원 켰을때 
                     ProcessOn(arrMessage[1], lotpk);
                     break;
-                case "Data": //검사값 받았을때
-                    ProcessTest(arrMessage[1], lotpk, data); //lotpk 에는 검사값이 들어감
-                    break;
+                //case "Data": //검사값 받았을때
+                //    ProcessTest(arrMessage[1], lotpk, data); //lotpk 에는 검사값이 들어감
+                //    break;
             } // end switch
 
         } // end ExecCommand()
 
-        private async Task<bool> ProcessTest(string process, long lotpk, long data)
+        private async Task<bool> ProcessTest(string process, long lotpk, long? checkResult)
         {
+            long data;
+            if (checkResult == null)
+            {
+                data = 0;
+            }
+            else;
+            {
+                data = checkResult.Value;
+            }
             //공정 id 가져오기
             long processid = processRepository.GetProcessId(process);
 

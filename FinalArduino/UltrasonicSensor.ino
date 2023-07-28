@@ -31,7 +31,7 @@ void UltrasonicSensor(String process ,String lotId) {
     if (Lot_Count >= 0 && !plusToggle) {
       plusToggle = true;
       Lot_Count++;
-      SendTestData(process,lotId String(Lot_Count));
+      SendTestData(process,lotId ,String(Lot_Count));
       return;
     }
   } else {
@@ -58,7 +58,7 @@ void UltrasonicSensorMinus(String process,String lotId) {
     if (Lot_Count > 0 && !minusToggle) {
       minusToggle = true;
       Lot_Count--;
-      SendTestData(process, lotId,String(Lot_Count));
+      SendTestData(process, lotId, String(Lot_Count));
     }
   } else {
     minusToggle = false;
