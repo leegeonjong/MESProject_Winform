@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FinalProject_Winform.Migrations
 {
     [DbContext(typeof(FinalDbContext))]
-    [Migration("20230727021501_init")]
+    [Migration("20230728111524_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -128,6 +128,13 @@ namespace FinalProject_Winform.Migrations
                         .HasColumnType("bigint");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("LotHistoryId"));
+
+                    b.Property<long>("CheckId")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("CheckResult")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("LotHistory_Date")
                         .HasColumnType("datetime2");

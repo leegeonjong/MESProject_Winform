@@ -126,6 +126,13 @@ namespace FinalProject_Winform.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("LotHistoryId"));
 
+                    b.Property<long>("CheckId")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("CheckResult")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime?>("LotHistory_Date")
                         .HasColumnType("datetime2");
 

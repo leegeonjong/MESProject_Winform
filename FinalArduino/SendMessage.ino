@@ -35,9 +35,9 @@ void SendStop(String process, String lotid) {
   Serial.println(sendData);
 }
 
-void SendTestData(String process, String lotid) {
+void SendTestData(String process, String lotid, String data) {
   String sendData = String("");
   sendData += String("$Data")
-              + "," + process + "," + lotid;
+              + "," + process + "," + lotid + "," + data;
   Serial.println(sendData);
 }

@@ -20,12 +20,16 @@ namespace FinalProject_Winform.Models.domain
         [ForeignKey("Process")]
         public long ProcessId { get; set; }
 
+        [ForeignKey("Check")]
+        public long CheckId { get; set; }
         public Lot Lot { get; set; }
 
         public Process Process { get; set; }
 
+        public string CheckResult { get; set; } //Lot 검사 이력
+
         public DateTime? LotHistory_Date { get; set; } // LOT 시작 날짜
 
-        public string? LotHistory_status { get; set; } // LOT 종료 날짜
+        public string? LotHistory_status { get; set; } // LOT mix end
     }
 }
