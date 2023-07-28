@@ -196,13 +196,13 @@ namespace FinalProject_Winform
                     ProcessOn(arrMessage[1], lotpk);
                     break;
                 case "Data": //검사값 받았을때
-                    ProcessTest(arrMessage[1], lotpk , data); //lotpk 에는 검사값이 들어감
+                    ProcessTest(arrMessage[1], lotpk, data); //lotpk 에는 검사값이 들어감
                     break;
             } // end switch
 
         } // end ExecCommand()
 
-        private async Task<bool> ProcessTest(string process, long lotpk ,long data)
+        private async Task<bool> ProcessTest(string process, long lotpk, long data)
         {
             //공정 id 가져오기
             long processid = processRepository.GetProcessId(process);
@@ -228,6 +228,9 @@ namespace FinalProject_Winform
             //오차 허용범위값 가져오기
             long? tolerance = await processRepository.GetTestToleranceValue(processid, data);
 
+            //검사결과 checkresult 저장
+            lothistoryRepository.SaveTestData(lotpk, processid, data);
+
             //만약 허용범위값이 설정 되어있지 않으면 5%
             if (!tolerance.HasValue)
             {
@@ -241,11 +244,6 @@ namespace FinalProject_Winform
                 // 오차가 5% 내외인 경우
                 message = $"$Good,{process},{0}";
                 serialPort.WriteLine(message);
-
-                //Process_checkRight 에 true 입력
-                lothistoryRepository.AddLotAsync(lotpk, processid, $"{process}ing");
-
-
                 return true;
             }
             else
@@ -254,8 +252,6 @@ namespace FinalProject_Winform
                 //아두이노에게 불량이라고 메시지 보내기
                 message = $"$Fail,{process},{0}";
                 serialPort.WriteLine(message);
-
-                //Process_checkRight 에 false 입력
                 return false;
             }
         }

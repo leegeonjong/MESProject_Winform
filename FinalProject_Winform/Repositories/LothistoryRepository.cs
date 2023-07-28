@@ -23,11 +23,32 @@ namespace FinalProject_Winform.Repositories
                 ProcessId = processid,
                 LotHistory_Date = DateTime.Now,
                 LotHistory_status = status,
+               
             };
 
             await db.LotHistorys.AddAsync(lothistory);
             await db.SaveChangesAsync();
             return lothistory;
+        }
+        public async Task<LotHistory> SaveTestData(long lotid, long processid, long checkResult)
+        {
+            using FinalDbContext db = new();
+
+            // 해당 lotid와 processid에 해당하는 LotHistory 데이터 조회
+            var lothistory = await db.LotHistorys
+                .FirstOrDefaultAsync(x => x.LotId == lotid && x.ProcessId == processid);
+
+            if (lothistory != null)
+            {
+                // 검사 결과 업데이트
+                lothistory.CheckResult = checkResult.ToString();
+
+                // 변경 사항을 데이터베이스에 저장
+                await db.SaveChangesAsync();
+            }
+
+            return lothistory;
+
         }
 
         public async Task<long> GetRecentLotAsync(long processid)
@@ -52,6 +73,11 @@ namespace FinalProject_Winform.Repositories
             return lots;
         }
 
+        public Task<LotHistory> AddLotAsync(long lotid, long processid, string status)
+        {
+            throw new NotImplementedException();
+        }
 
+       
     }
 }

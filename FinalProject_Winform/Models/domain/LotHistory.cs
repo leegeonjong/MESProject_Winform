@@ -30,6 +30,6 @@ namespace FinalProject_Winform.Models.domain
 
         public DateTime? LotHistory_Date { get; set; } // LOT 시작 날짜
 
-        public string? LotHistory_status { get; set; } // LOT 종료 날짜
+        public string? LotHistory_status { get; set; } // LOT mix end
     }
 }
