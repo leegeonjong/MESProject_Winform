@@ -126,6 +126,9 @@ namespace FinalProject_Winform.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("LotHistoryId"));
 
+                    b.Property<long>("CheckId")
+                        .HasColumnType("bigint");
+
                     b.Property<string>("CheckResult")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -141,10 +144,6 @@ namespace FinalProject_Winform.Migrations
 
                     b.Property<long>("ProcessId")
                         .HasColumnType("bigint");
-
-                    b.Property<string>("SubColumn")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("LotHistoryId");
 

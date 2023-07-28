@@ -37,7 +37,7 @@ void setup() {
 
   lcd1.init();       // LCD 초기화
   lcd1.backlight();  // LCD 백라이트 ON
-
+ 
   for (int i = 0; i < numProcesses; i++) {
     pinMode(ProcessSw[i], INPUT_PULLUP);
     pinMode(LedRed[i], OUTPUT);

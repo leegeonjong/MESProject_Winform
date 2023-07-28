@@ -102,7 +102,7 @@ namespace FinalProject_Winform
             }
             else
             {
-                label6.Text = "꺼짐";
+                label6.Text = "정지";
             }
         }
 

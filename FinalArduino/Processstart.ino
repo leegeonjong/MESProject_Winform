@@ -1,8 +1,6 @@
 void Processstart(String action, String process, String lotid) {
   int processNum = ProcessName(process);
   if (action == "Run") {
-   
-
     startTime[processNum] = millis();
     timerStarted[processNum] = true;
     myArray[processNum] = { action, process, lotid, startTime[processNum] };
@@ -32,4 +30,5 @@ void Processstart(String action, String process, String lotid) {
 
     SendStop(myArray[processNum].process, myArray[processNum].lotid);
   }
+  
 }

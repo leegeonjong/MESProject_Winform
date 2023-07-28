@@ -3,6 +3,16 @@ INSERT INTO [Order] (ItemId, Order_startDate, Order_endDate, Order_sendDate,Orde
 VALUES
 (1,GETDATE(),GETDATE()+7,GETDATE()+6,'대기','주문',300,'코리아IT아카데미')
 
+INSERT INTO [FinalDB].[dbo].[Check] ( Check_item, Check_value ,Check_Tolerance )
+VALUES ( '용량 검사', '100', '0')
+INSERT INTO [FinalDB].[dbo].[Check] ( Check_item, Check_value,Check_Tolerance)
+VALUES ( '온도 검사', '100', '0')
+INSERT INTO [FinalDB].[dbo].[Check] ( Check_item, Check_value,Check_Tolerance)
+VALUES ( '수량 검사 입고', '50', '0')
+INSERT INTO [FinalDB].[dbo].[Check] ( Check_item, Check_value,Check_Tolerance)
+VALUES ( '수량 검사 출고', '50', '0')
+
+
 INSERT INTO Process(Process_name, Process_status, Process_checkRight , CheckId)
 VALUES ('Mix', 0, 1 , 3 )
 INSERT INTO Process(Process_name, Process_status, Process_checkRight)
@@ -75,14 +85,7 @@ select * from [FinalDB].[dbo].[Check]
 delete [FinalDB].[dbo].[Check]
 
 
-INSERT INTO [FinalDB].[dbo].[Check] ( Check_item, Check_value ,Check_Tolerance )
-VALUES ( '용량 검사', '100', '0')
-INSERT INTO [FinalDB].[dbo].[Check] ( Check_item, Check_value,Check_Tolerance)
-VALUES ( '온도 검사', '100', '0')
-INSERT INTO [FinalDB].[dbo].[Check] ( Check_item, Check_value,Check_Tolerance)
-VALUES ( '수량 검사 입고', '50', '0')
-INSERT INTO [FinalDB].[dbo].[Check] ( Check_item, Check_value,Check_Tolerance)
-VALUES ( '수량 검사 출고', '50', '0')
+
 
 UPDATE [FinalDB].[dbo].[Check]
 SET Check_Tolerance = 0

@@ -160,7 +160,7 @@ namespace FinalProject_Winform.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     LotId = table.Column<long>(type: "bigint", nullable: false),
                     ProcessId = table.Column<long>(type: "bigint", nullable: false),
-                    SubColumn = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CheckId = table.Column<long>(type: "bigint", nullable: false),
                     CheckResult = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     LotHistory_Date = table.Column<DateTime>(type: "datetime2", nullable: true),
                     LotHistory_status = table.Column<string>(type: "nvarchar(max)", nullable: true)

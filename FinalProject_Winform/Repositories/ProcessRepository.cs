@@ -171,8 +171,8 @@ namespace FinalProject_Winform.Repositories
             using (FinalDbContext db = new FinalDbContext())
             {
                 var process = await db.Processes
-            .Where(p => p.Process_name == selectedProcessName)
-            .FirstOrDefaultAsync();
+                .Where(p => p.Process_name == selectedProcessName)
+                .FirstOrDefaultAsync();
 
                 if (process != null)
                 {
