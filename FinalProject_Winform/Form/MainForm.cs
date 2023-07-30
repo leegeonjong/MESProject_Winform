@@ -209,19 +209,17 @@ namespace FinalProject_Winform
 
         } // end ExecCommand()
 
-        private async Task<bool> ProcessTest(string process, long lotpk, long data)
+        private async Task ProcessTest(string process, long lotpk, long data)
         {
             if (data == 0)
             {
-                return false;
+                return;
             }
             //공정 id 가져오기
             long processid = processRepository.GetProcessId(process);
 
-            //공정 id 로 해당 검사에 검사 data 입력하기
-            await processRepository.SaveTestData(processid, data);
 
-            //검사 기준값 가져오기
+            //검사 기준값 가져오기 
             long? checkValue = await processRepository.GetTestCheckValue(processid, data);
 
             //만약 검사 기준값이 설정 되어있지 않으면 기준값은 0
@@ -249,17 +247,23 @@ namespace FinalProject_Winform
                 //메시지 표시
                 MessageBox.Show("검사 기준값이 없습니다.");
             }
-            string message = "";
+            bool pass = true;
             if (errorPercentage <= tolerance)
             {
                 // 오차가 5% 내외인 경우
-                return true;
+                lotRepository.UpdateLotbreak(lotpk, pass);
             }
             else
             {
                 // 오차가 5% 이상인 경우
-                return false;
+                pass = false;
+                lotRepository.UpdateLotbreak(lotpk, pass);
             }
+
+            //공정 id 로 해당 검사에 검사 data 입력하기
+            await processRepository.SaveTestData(processid, data);
+            //lotHistory에 저장
+            await lothistoryRepository.SaveTestData(lotpk, processid, data);
         }
 
 

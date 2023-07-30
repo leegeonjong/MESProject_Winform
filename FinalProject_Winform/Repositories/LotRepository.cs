@@ -131,6 +131,16 @@ namespace FinalProject_Winform.Repositories
             var lot = db.Lots.FirstOrDefault(l => l.Id == lotId);
             return lot.Lot_barcode;
         }
+
+        public async Task UpdateLotbreak(long lotpk , bool pass)
+        {
+            using FinalDbContext db = new();
+            var lot = db.Lots.FirstOrDefault(l => l.Id == lotpk);
+            lot.Lot_break = pass;
+
+            await db.SaveChangesAsync();
+        }
+
         public async Task<Lot> Updateasync(string status, long lotpk)
         {
             using FinalDbContext db = new();
@@ -201,7 +211,7 @@ namespace FinalProject_Winform.Repositories
             }
         }
 
-
+     
 
         private async Task UpdateLotItem1Async(FinalDbContext db, Lot lot)
         {
@@ -635,7 +645,5 @@ namespace FinalProject_Winform.Repositories
             await db.Stocks.AddAsync(stock3);
             await db.Stocks.AddAsync(stock4);
         }
-
-
     }
 }
