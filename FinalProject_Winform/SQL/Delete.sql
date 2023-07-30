@@ -9,12 +9,7 @@ DBCC CHECKIDENT(Stock, reseed, 0);
 
 --------------------------------------
 DELETE FROM LOT
-DELETE FROM LOT where id = '1';
-DELETE FROM LOT where id = '2';
-DELETE FROM LOT where id = '3';
-DELETE FROM LOT where id = '4';
-DELETE FROM LOT where id = '5';
-DELETE FROM LOT where id = '6';
+
 
 DBCC CHECKIDENT(Lot, reseed, 0);
 -------------------------------------------

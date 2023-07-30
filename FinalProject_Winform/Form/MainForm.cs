@@ -37,8 +37,8 @@ namespace FinalProject_Winform
             processRepository = new ProcessRepository();
 
             // MainForm이 로드될 때 수행할 작업
-            //string port = $"COM8";  // 여기 바꾸셈
-            string port = $"COM8";  // 이건종
+            //string port = $"COM8";  // 이건종
+            string port = $"COM4";
 
             serialPort.PortName = port;   //시리얼 포트 설정
 
@@ -171,19 +171,27 @@ namespace FinalProject_Winform
 
         //---------------------------------------
         // Command 에 따른 분기
-        private void ExecCommand(string recvData)
+        private async void ExecCommand(string recvData)
         {
             if (recvData.Length == 0 || recvData[0] != '$') return;
 
             string[] arrMessage = recvData[1..].Split(",", StringSplitOptions.RemoveEmptyEntries);
             long lotpk = long.Parse(arrMessage[2]);
+            long data;
 
-            //string[] arrMessage2 = recvData[1..].Split(",", StringSplitOptions.RemoveEmptyEntries);
-            //long? data = long.Parse(arrMessage2[2]);
-            switch (arrMessage[0]) // arrMessage[0] = 공정행동, arrMessage[1] = 공정명 arrmessage = lotid
+            if (arrMessage.Length >= 4)
+            {
+                data = long.Parse(arrMessage[3]);
+            }
+            else
+            {
+                data = 0;
+            }
+
+            switch (arrMessage[0]) // arrMessage[0] = 공정행동, arrMessage[1] = 공정명, arrmessage[2] = lotid
             {
                 case "Recieve": //명령 받음
-                    //ProcessReady(arrMessage[1], lotpk);
+                                //ProcessReady(arrMessage[1], lotpk);
                     break;
                 case "Start": //공정 시작
                     ProcessStart(arrMessage[1], lotpk);
@@ -197,23 +205,18 @@ namespace FinalProject_Winform
                 case "Continue": //전원 켰을때 
                     ProcessOn(arrMessage[1], lotpk);
                     break;
-                //case "Data": //검사값 받았을때
-                //    ProcessTest(arrMessage[1], lotpk, data); //lotpk 에는 검사값이 들어감
-                //    break;
+                case "Data": //검사값 받았을때
+                    await ProcessTest(arrMessage[1], lotpk, data); //lotpk에는 검사값이 들어감
+                    break;
             } // end switch
 
         } // end ExecCommand()
 
-        private async Task<bool> ProcessTest(string process, long lotpk, long? checkResult)
+        private async Task<bool> ProcessTest(string process, long lotpk, long data)
         {
-            long data;
-            if (checkResult == null)
+            if (data == 0)
             {
-                data = 0;
-            }
-            else;
-            {
-                data = checkResult.Value;
+                return false;
             }
             //공정 id 가져오기
             long processid = processRepository.GetProcessId(process);

@@ -23,7 +23,7 @@ namespace FinalProject_Winform.Repositories
                 ProcessId = processid,
                 LotHistory_Date = DateTime.Now,
                 LotHistory_status = status,
-               
+                CheckResult = "0"
             };
 
             await db.LotHistorys.AddAsync(lothistory);
