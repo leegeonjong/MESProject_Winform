@@ -256,16 +256,11 @@ namespace FinalProject_Winform
             if (errorPercentage <= tolerance)
             {
                 // 오차가 5% 내외인 경우
-                message = $"$Good,{process},{lotpk}";
-                serialPort.WriteLine(message);
                 return true;
             }
             else
             {
                 // 오차가 5% 이상인 경우
-                //아두이노에게 불량이라고 메시지 보내기
-                message = $"$Fail,{process},{lotpk}";
-                serialPort.WriteLine(message);
                 return false;
             }
         }

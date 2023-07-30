@@ -1,14 +1,15 @@
 #define WaterSensor A0  // A0핀을 수심센서로 설정
 #include <LiquidCrystal_I2C.h>
-
+#include <Servo.h>
 
 LiquidCrystal_I2C lcd(0x27, 16, 2);  // (LCD I2C 주소, 16자, 2라인)
+Servo servo;
 
 int ProcessSw[] = { 22, 23, 24, 25, 26, 27 };  //설비 정지 버튼
 int LedRed[] = { 30, 32, 7, 41, 46, 49 };      //설비 정지
 int LedGreen[] = { 31, 34, 39, 42, 47, 50 };   //설비 준비
 int LedYellow[] = { 33, 35, 40, 43, 48, 51 };  //설비 가동중
-String LEDstatus[] = {"G", "G", "G", "G", "G", "G"};
+String LEDstatus[] = { "G", "G", "G", "G", "G", "G" };
 struct MyStruct {
   String action;
   String process;
@@ -35,9 +36,10 @@ unsigned long timerDuration = 10000;  // 10 seconds
 void setup() {
   Serial.begin(9600);  // Serial monitor 구동 전원입력
   pinMode(WaterSensor, INPUT);
-  lcd.begin(16, 2); 
+  lcd.begin(16, 2);
   lcd.init();       // LCD 초기화
   lcd.backlight();  // LCD 백라이트 ON
+  servo.attach(2);  // 서보모터
 
   for (int i = 0; i < numProcesses; i++) {
     pinMode(ProcessSw[i], INPUT_PULLUP);
@@ -45,7 +47,6 @@ void setup() {
     pinMode(LedGreen[i], OUTPUT);
     pinMode(LedYellow[i], OUTPUT);
     digitalWrite(LedGreen[i], HIGH);
-
   }
 }
 
@@ -55,7 +56,7 @@ String process = "";  // 공정명
 String lotid = "";    // lotid
 
 void loop() {
-LCDSet(LEDstatus);
+  LCDSet(LEDstatus);
   // 버튼을 눌렀을 때
   for (int i = 0; i < numProcesses; i++) {
     buttonState[i] = digitalRead(ProcessSw[i]);
@@ -68,7 +69,7 @@ LCDSet(LEDstatus);
           digitalWrite(LedRed[i], HIGH);
           digitalWrite(LedGreen[i], LOW);
           digitalWrite(LedYellow[i], LOW);
-          LEDstatus[i]="R";
+          LEDstatus[i] = "R";
 
           SendStop(myArray[i].process, myArray[i].lotid);
           timerDuration = timerDuration - (millis() - startTime[i]);
@@ -77,7 +78,7 @@ LCDSet(LEDstatus);
           digitalWrite(LedRed[i], LOW);
           digitalWrite(LedGreen[i], LOW);
           digitalWrite(LedYellow[i], HIGH);
-          LEDstatus[i]="Y";
+          LEDstatus[i] = "Y";
           SendContinue(myArray[i].process, myArray[i].lotid);
           startTime[i] = millis();
           timerStarted[i] = true;
@@ -110,8 +111,7 @@ LCDSet(LEDstatus);
       digitalWrite(LedRed[i], LOW);
       digitalWrite(LedGreen[i], HIGH);
       digitalWrite(LedYellow[i], LOW);
-      LEDstatus[i]="G";
-
+      LEDstatus[i] = "G";
     }
 
     if (timerStarted[i]) {
