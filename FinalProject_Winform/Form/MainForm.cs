@@ -177,16 +177,13 @@ namespace FinalProject_Winform
 
             string[] arrMessage = recvData[1..].Split(",", StringSplitOptions.RemoveEmptyEntries);
             long lotpk = long.Parse(arrMessage[2]);
-            long data;
+            long data = 0;
 
             if (arrMessage.Length >= 4)
             {
                 data = long.Parse(arrMessage[3]);
             }
-            else
-            {
-                data = 0;
-            }
+         
 
             switch (arrMessage[0]) // arrMessage[0] = 공정행동, arrMessage[1] = 공정명, arrmessage[2] = lotid
             {
