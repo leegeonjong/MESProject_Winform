@@ -17,6 +17,7 @@ namespace FinalProject_Winform
 
 
             // 나도 바쁘다고!
+            // 김동후 체크
 
         }
     }
