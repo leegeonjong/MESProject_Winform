@@ -243,7 +243,7 @@ namespace FinalProject_Winform
             long? tolerance = await processRepository.GetTestToleranceValue(processid, data);
 
             //검사결과 checkresult 저장
-            lothistoryRepository.SaveTestData(lotpk, processid, data);
+            await lothistoryRepository.SaveTestData(lotpk, processid, data);
 
             //만약 허용범위값이 설정 되어있지 않으면 5%
             if (!tolerance.HasValue)
@@ -256,7 +256,7 @@ namespace FinalProject_Winform
             if (errorPercentage <= tolerance)
             {
                 // 오차가 5% 내외인 경우
-                message = $"$Good,{process},{0}";
+                message = $"$Good,{process},{lotpk}";
                 serialPort.WriteLine(message);
                 return true;
             }
@@ -264,7 +264,7 @@ namespace FinalProject_Winform
             {
                 // 오차가 5% 이상인 경우
                 //아두이노에게 불량이라고 메시지 보내기
-                message = $"$Fail,{process},{0}";
+                message = $"$Fail,{process},{lotpk}";
                 serialPort.WriteLine(message);
                 return false;
             }

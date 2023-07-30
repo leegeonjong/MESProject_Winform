@@ -1,4 +1,3 @@
-
 void LCDSet(String arr[]){
      lcd.setCursor(0, 0);
      lcd.print("1: " + arr[0]); // 첫 번째 문자열 출력

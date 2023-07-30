@@ -46,9 +46,7 @@ namespace FinalProject_Winform.Repositories
                 // 변경 사항을 데이터베이스에 저장
                 await db.SaveChangesAsync();
             }
-
             return lothistory;
-
         }
 
         public async Task<long> GetRecentLotAsync(long processid)
