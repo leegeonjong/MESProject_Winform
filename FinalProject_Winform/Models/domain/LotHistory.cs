@@ -26,7 +26,7 @@ namespace FinalProject_Winform.Models.domain
 
         public Process Process { get; set; }
 
-        public string CheckResult { get; set; } //Lot 검사 이력
+        public string? CheckResult { get; set; } //Lot 검사 이력
 
         public DateTime? LotHistory_Date { get; set; } // LOT 시작 날짜
 
