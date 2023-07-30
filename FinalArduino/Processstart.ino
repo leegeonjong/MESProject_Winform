@@ -19,7 +19,8 @@ void Processstart(String action, String process, String lotid) {
       // 아무 작업 없음
       break;
 
-    case "Fail": // 명령어가 Fail 일때 : 검사 실패 --> 폐기
+    case "Fail": // 명령어가 Fail 일때 : 검사 실패 --> 
+      LEDstatus[processNum] = "F";
       // lcd 에 F 표시 
       // 서보모터 돌리기 
       break;
