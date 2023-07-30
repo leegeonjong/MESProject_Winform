@@ -10,6 +10,7 @@ int LedRed[] = { 30, 32, 7, 41, 46, 49 };      //설비 정지
 int LedGreen[] = { 31, 34, 39, 42, 47, 50 };   //설비 준비
 int LedYellow[] = { 33, 35, 40, 43, 48, 51 };  //설비 가동중
 String LEDstatus[] = { "G", "G", "G", "G", "G", "G" };
+
 struct MyStruct {
   String action;
   String process;
@@ -31,7 +32,9 @@ bool buttonState[numProcesses] = { false, false, false, false, false, false };
 bool prevButtonState[numProcesses] = { false, false, false, false, false, false };
 bool timerStarted[numProcesses] = { false, false, false, false, false, false };
 unsigned long startTime[numProcesses] = { 0, 0, 0, 0, 0, 0 };
-unsigned long timerDuration = 10000;  // 10 seconds
+unsigned long timerDuration = 10000;                          // 10 seconds
+bool isWaterSenserCalled = false;  // WaterSenser 함수가 한 번 호출되었는지 여부를 저장하는 변수
+bool isTemperatureSensorCalled = false; // TemperatureSensor 함수가 한 번 호출되었는지 여부를 저장하는 변수
 
 void setup() {
   Serial.begin(9600);  // Serial monitor 구동 전원입력
@@ -123,10 +126,16 @@ void loop() {
           UltrasonicSensorMinus(myArray[i].process, myArray[i].lotid);
           break;
         case 2:  // 찌기 공정일떄 TemperatureSensor 온도 측정
-          TemperatureSensor(myArray[i].process, myArray[i].lotid);
+          if (!isTemperatureSensorCalled) {
+            TemperatureSensor(myArray[i].process, myArray[i].lotid);
+            isTemperatureSensorCalled = true; ///TemperatureSensor 함수가 호출되었음을 표시 
+          }
           break;
         case 3:  // 튀기기 공정이면 waterlever로 팜유 용량 측정
-          WaterSenser(myArray[i].process, myArray[i].lotid);
+          if (!isWaterSenserCalled) {
+            WaterSenser(myArray[i].process, myArray[i].lotid);
+            isWaterSenserCalled = true;  // WaterSenser 함수가 호출되었음을 표시
+          }
           break;
       }
     }
