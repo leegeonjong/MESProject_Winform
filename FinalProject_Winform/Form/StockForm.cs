@@ -145,6 +145,7 @@ namespace FinalProject_Winform
                 await itemRepository.ImportUpdateAsync(item, amount);
                 MessageBox.Show("성공");
             }
+            LoadImport();
         }
 
         private async void btn_Export_Click(object sender, EventArgs e)
@@ -164,7 +165,7 @@ namespace FinalProject_Winform
                     MessageBox.Show("성공");
                 }
             }
-
+            LoadExport();
 
         }
 
