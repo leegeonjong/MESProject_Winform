@@ -90,7 +90,7 @@ namespace FinalProject_Winform
             var list = await db.Checks.Where(x => x.Check_item == selectedTestName).ToListAsync();
             var lotList = await db.LotHistorys.Where(x => x.Process.Check.Check_item == selectedTestName).ToListAsync();
 
-
+            //z
             foreach (var lotHistory in lotList)
             {
                 chart4.Series["Series1"].Points.AddXY(lotHistory.LotId);
