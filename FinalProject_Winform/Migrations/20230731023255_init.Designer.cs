@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FinalProject_Winform.Migrations
 {
     [DbContext(typeof(FinalDbContext))]
-    [Migration("20230730044401_init")]
+    [Migration("20230731023255_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -123,11 +123,11 @@ namespace FinalProject_Winform.Migrations
 
             modelBuilder.Entity("FinalProject_Winform.Models.domain.LotHistory", b =>
                 {
-                    b.Property<long>("LotHistoryId")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("LotHistoryId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
                     b.Property<long>("CheckId")
                         .HasColumnType("bigint");
@@ -147,7 +147,7 @@ namespace FinalProject_Winform.Migrations
                     b.Property<long>("ProcessId")
                         .HasColumnType("bigint");
 
-                    b.HasKey("LotHistoryId");
+                    b.HasKey("Id");
 
                     b.HasIndex("LotId");
 

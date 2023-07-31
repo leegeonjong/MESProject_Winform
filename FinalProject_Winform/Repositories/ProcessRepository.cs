@@ -186,7 +186,7 @@ namespace FinalProject_Winform.Repositories
         }
 
         //공정 상태 바꾸기
-        public async Task<bool> IsRunningAsync(bool state, string selectedProcessName)
+        public async Task IsRunningAsync(bool state, string selectedProcessName)
         {
             using FinalDbContext db = new();
             var process = await db.Processes
@@ -205,7 +205,7 @@ namespace FinalProject_Winform.Repositories
                 }
                 await db.SaveChangesAsync();
 
-                return true;
+              
             }
             else
             {

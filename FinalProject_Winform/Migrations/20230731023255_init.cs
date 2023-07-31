@@ -156,7 +156,7 @@ namespace FinalProject_Winform.Migrations
                 name: "LotHistory",
                 columns: table => new
                 {
-                    LotHistoryId = table.Column<long>(type: "bigint", nullable: false)
+                    Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     LotId = table.Column<long>(type: "bigint", nullable: false),
                     ProcessId = table.Column<long>(type: "bigint", nullable: false),
@@ -167,7 +167,7 @@ namespace FinalProject_Winform.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_LotHistory", x => x.LotHistoryId);
+                    table.PrimaryKey("PK_LotHistory", x => x.Id);
                     table.ForeignKey(
                         name: "FK_LotHistory_Lot_LotId",
                         column: x => x.LotId,

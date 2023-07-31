@@ -12,7 +12,7 @@ namespace FinalProject_Winform.Models.domain
     public class LotHistory
     {
         [Key]
-        public long LotHistoryId { get; set; } // 기본 키
+        public long Id { get; set; } // 기본 키
 
         [ForeignKey("Lot")]
         public long LotId { get; set; }
