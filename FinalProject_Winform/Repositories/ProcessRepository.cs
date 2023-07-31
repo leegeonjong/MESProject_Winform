@@ -204,8 +204,6 @@ namespace FinalProject_Winform.Repositories
                     process.Process_status = true;
                 }
                 await db.SaveChangesAsync();
-
-              
             }
             else
             {

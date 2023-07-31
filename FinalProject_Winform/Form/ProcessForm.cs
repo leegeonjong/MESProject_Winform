@@ -107,40 +107,62 @@ namespace FinalProject_Winform
         }
 
         //DB status 값 변경하기
-        private async Task ProcessOnOffAsync(bool State)
+        private async Task ProcessOnOffAsync(bool processesStatus)
         {
             // combo_process에서 선택한 값 가져오기
             string selectedProcess = combo_process.SelectedItem.ToString();
 
             //전원이 켜진 상태이면 꺼짐으로 바꿈
-            if (State == true)
+            if (processesStatus == true)
             {
-                await processRepository.IsRunningAsync(State, selectedProcess);
-                label6.Text = "작동중";
+                await processRepository.IsRunningAsync(processesStatus, selectedProcess);
+                label6.Text = "꺼짐";
             }
             //전원이 꺼진 상태이면 작동중으로 바꿈
             else
             {
-                await processRepository.IsRunningAsync(State, selectedProcess);
-                label6.Text = "꺼짐";
+                await processRepository.IsRunningAsync(processesStatus, selectedProcess);
+                label6.Text = "작동중";
             }
         }
 
         //설비 전원 켜기
-        private void btnOn_Click(object sender, EventArgs e)
+        private async void btnOn_Click(object sender, EventArgs e)
         {
+            string selectedProcess = combo_process.SelectedItem.ToString();
+            var processesStatus = await processRepository.GetSelectedProcessStatus(selectedProcess);
+            bool state = true;
+            if (processesStatus == "True")
+            {
+                state = true;
+            }
+            else
+            {
+                state = false;
+            }
             //아두이노에 전원 켜라고 시리얼 통신보내기
-            SendSerialOnOff(true);
+            SendSerialOnOff(state);
             //DB status 값 true로 변경하기
-            ProcessOnOffAsync(true);
+            ProcessOnOffAsync(state);
         }
         //설비 전원 끄기
-        private void btnOff_Click(object sender, EventArgs e)
+        private async void btnOff_Click(object sender, EventArgs e)
         {
+            string selectedProcess = combo_process.SelectedItem.ToString();
+            var processesStatus = await processRepository.GetSelectedProcessStatus(selectedProcess);
+            bool state = true;
+            if (processesStatus == "True")
+            {
+                state = true;
+            }
+            else
+            {
+                state = false;
+            }
             //아두이노에 전원 끄라고 시리얼 통신보내기
-            SendSerialOnOff(false);
+            SendSerialOnOff(state);
             //DB status 값 false로 변경하기
-            ProcessOnOffAsync(false);
+            ProcessOnOffAsync(state);
         }
 
         //----------------------------------------------------------------------------
