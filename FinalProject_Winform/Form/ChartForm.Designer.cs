@@ -357,12 +357,12 @@ namespace FinalProject_Winform
             chart4.Location = new Point(77, 145);
             chart4.Name = "chart4";
             series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Range;
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
             series4.Legend = "Legend1";
             series4.Name = "Series1";
             series4.YValuesPerPoint = 4;
             chart4.Series.Add(series4);
-            chart4.Size = new Size(656, 300);
+            chart4.Size = new Size(853, 417);
             chart4.TabIndex = 3;
             chart4.Text = "검사 결과";
             // 
@@ -370,9 +370,9 @@ namespace FinalProject_Winform
             // 
             cmbTestName.FormattingEnabled = true;
             cmbTestName.Items.AddRange(new object[] { "용량 검사", "온도 검사", "수량 검사 입고", "수량 검사 출고" });
-            cmbTestName.Location = new Point(612, 65);
+            cmbTestName.Location = new Point(780, 65);
             cmbTestName.Name = "cmbTestName";
-            cmbTestName.Size = new Size(121, 23);
+            cmbTestName.Size = new Size(150, 23);
             cmbTestName.TabIndex = 2;
             cmbTestName.Text = "검사 선택";
             // 
@@ -381,7 +381,7 @@ namespace FinalProject_Winform
             textBox1.Location = new Point(77, 65);
             textBox1.Name = "textBox1";
             textBox1.ReadOnly = true;
-            textBox1.Size = new Size(656, 23);
+            textBox1.Size = new Size(853, 23);
             textBox1.TabIndex = 1;
             textBox1.Text = "공정 차트 조회";
             // 

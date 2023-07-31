@@ -197,11 +197,11 @@ namespace FinalProject_Winform.Repositories
             {
                 if (state == true)
                 {
-                    process.Process_status = true;
+                    process.Process_status = false;
                 }
                 else
                 {
-                    process.Process_status = false;
+                    process.Process_status = true;
                 }
                 await db.SaveChangesAsync();
 
