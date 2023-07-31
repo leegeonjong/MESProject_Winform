@@ -112,13 +112,13 @@ namespace FinalProject_Winform
             // combo_process에서 선택한 값 가져오기
             string selectedProcess = combo_process.SelectedItem.ToString();
 
-            //전원이 켜진 상태이면
+            //전원이 켜진 상태이면 꺼짐으로 바꿈
             if (State == true)
             {
                 await processRepository.IsRunningAsync(State, selectedProcess);
                 label6.Text = "작동중";
             }
-            //전원이 꺼진 상태이면
+            //전원이 꺼진 상태이면 작동중으로 바꿈
             else
             {
                 await processRepository.IsRunningAsync(State, selectedProcess);
