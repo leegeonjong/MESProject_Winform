@@ -19,6 +19,7 @@ void SendEnd(String process, String lotid) {
               + "," + process + ","
               + lotid;
   Serial.println(sendData);
+  Lot_Count = 0;
 }
 
 void SendContinue(String process, String lotid) {

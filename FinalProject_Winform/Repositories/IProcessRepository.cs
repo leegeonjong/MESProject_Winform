@@ -28,7 +28,7 @@ namespace FinalProject_Winform.Repositories
         Task<long> GetTestToleranceValue(long processid, long data);
         Task<string> GetSelectedProcessStatus(string selectedProcessName);
 
-        Task<bool> IsRunningAsync(bool state, string selectedProcess);
+        Task IsRunningAsync(bool state, string selectedProcess);
 
         long GetProcessId(string processName);
     }

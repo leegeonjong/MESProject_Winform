@@ -4,7 +4,7 @@ int TRIG_Minus = 16;  //빼기 TRIG 핀 설정 (초음파 보내는 핀)
 int ECHO_Minus = 15;  //빼기 ECHO 핀 설정 (초음파 받는 핀)
 
 const int speedOfSound = 34300;
-int Lot_Count = 0;
+
 
 bool minusToggle = false;
 bool plusToggle = false;

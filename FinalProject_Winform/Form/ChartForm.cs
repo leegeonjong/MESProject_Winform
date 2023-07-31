@@ -55,6 +55,13 @@ namespace FinalProject_Winform
             chartStock3.ChartAreas["ChartArea1"].AxisY.Title = "수량";
             chartStock3.Series["Series1"].LegendText = "수량";
 
+            TestChart.Titles.Add("검사 결과");
+            TestChart.ChartAreas["ChartArea1"].AxisX.Title = "Lot Id";
+            TestChart.ChartAreas["ChartArea1"].AxisY.Title = "결과값";
+            TestChart.Series["Series1"].LegendText = "결과";
+
+            TestChart.ChartAreas[0].BackColor = Color.Transparent;
+
             dtp = dateTimePicker1;
 
             ChartView1();
@@ -70,13 +77,15 @@ namespace FinalProject_Winform
                     ChartView2();
                     break;
                 case 2:
-                    ChartView3();
+                    TestChart.Visible = false;
                     break;
             }
         }
 
         private async void ChartView3()
         {
+
+            TestChart.Visible = true;
             //사용자가 선택한 검사를 가져오기
             //검사 결과를 데이터 그리드뷰로 가져오는건가?
             //차트로도 가져오는건가?
@@ -87,14 +96,18 @@ namespace FinalProject_Winform
 
             //사용자가 선택한 검사를 지나간 LOT ID 가져오기
             using FinalDbContext db = new FinalDbContext();
-            var list = await db.Checks.Where(x => x.Check_item == selectedTestName).ToListAsync();
+            var result = await db.Checks.Where(x => x.Check_item == selectedTestName).ToListAsync();
             var lotList = await db.LotHistorys.Where(x => x.Process.Check.Check_item == selectedTestName).ToListAsync();
 
-            //z
-            foreach (var lotHistory in lotList)
+
+            TestChart.Series["Series1"].Points.Clear();
+            for (int i = 0; i < lotList.Count; i++)
             {
-                chart4.Series["Series1"].Points.AddXY(lotHistory.LotId);
+                TestChart.Series["Series1"].Points.AddXY(lotList[i].LotId, result[i]);
             }
+
+            // 데이터 그리드 뷰에 표시
+            TestChart.DataSource = lotList;
 
             //데이터그리드뷰에 보여주기?
 
@@ -171,6 +184,11 @@ namespace FinalProject_Winform
         {
             var dateTime = dtp.Value.Date;
             // 입력받은 날짜로 stock 에서 6개 가져와서 표시
+        }
+
+        private void cmbTestName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ChartView3();
         }
     }
 }

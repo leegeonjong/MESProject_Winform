@@ -62,7 +62,8 @@ namespace FinalProject_Winform
             dateTimePicker1 = new DateTimePicker();
             chart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             tabPage3 = new TabPage();
-            chart4 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            TestChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            textBox2 = new TextBox();
             cmbTestName = new ComboBox();
             textBox1 = new TextBox();
             panel2.SuspendLayout();
@@ -75,7 +76,7 @@ namespace FinalProject_Winform
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)chart3).BeginInit();
             tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)chart4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)TestChart).BeginInit();
             SuspendLayout();
             // 
             // panel2
@@ -338,7 +339,8 @@ namespace FinalProject_Winform
             // 
             // tabPage3
             // 
-            tabPage3.Controls.Add(chart4);
+            tabPage3.Controls.Add(TestChart);
+            tabPage3.Controls.Add(textBox2);
             tabPage3.Controls.Add(cmbTestName);
             tabPage3.Controls.Add(textBox1);
             tabPage3.Location = new Point(4, 44);
@@ -348,23 +350,31 @@ namespace FinalProject_Winform
             tabPage3.Text = "검사 차트";
             tabPage3.UseVisualStyleBackColor = true;
             // 
-            // chart4
+            // TestChart
             // 
             chartArea4.Name = "ChartArea1";
-            chart4.ChartAreas.Add(chartArea4);
+            TestChart.ChartAreas.Add(chartArea4);
             legend4.Name = "Legend1";
-            chart4.Legends.Add(legend4);
-            chart4.Location = new Point(77, 145);
-            chart4.Name = "chart4";
+            TestChart.Legends.Add(legend4);
+            TestChart.Location = new Point(96, 133);
+            TestChart.Name = "TestChart";
             series4.ChartArea = "ChartArea1";
             series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
             series4.Legend = "Legend1";
             series4.Name = "Series1";
             series4.YValuesPerPoint = 4;
-            chart4.Series.Add(series4);
-            chart4.Size = new Size(853, 417);
-            chart4.TabIndex = 3;
-            chart4.Text = "검사 결과";
+            TestChart.Series.Add(series4);
+            TestChart.Size = new Size(853, 417);
+            TestChart.TabIndex = 5;
+            TestChart.Text = "검사 결과";
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(132, 171);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(100, 23);
+            textBox2.TabIndex = 4;
+            textBox2.Text = "asdfasdfasd";
             // 
             // cmbTestName
             // 
@@ -375,6 +385,7 @@ namespace FinalProject_Winform
             cmbTestName.Size = new Size(150, 23);
             cmbTestName.TabIndex = 2;
             cmbTestName.Text = "검사 선택";
+            cmbTestName.SelectedIndexChanged += cmbTestName_SelectedIndexChanged;
             // 
             // textBox1
             // 
@@ -411,7 +422,7 @@ namespace FinalProject_Winform
             ((System.ComponentModel.ISupportInitialize)chart3).EndInit();
             tabPage3.ResumeLayout(false);
             tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)chart4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)TestChart).EndInit();
             ResumeLayout(false);
         }
 
@@ -439,6 +450,7 @@ namespace FinalProject_Winform
         private Button button2;
         private TextBox textBox1;
         private ComboBox cmbTestName;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart4;
+        private TextBox textBox2;
+        private System.Windows.Forms.DataVisualization.Charting.Chart TestChart;
     }
 }
