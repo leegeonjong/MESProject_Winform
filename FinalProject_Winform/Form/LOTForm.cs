@@ -284,5 +284,24 @@ namespace FinalProject_Winform
             else lbl_start_check.Text = "X";
 
         }
+        private async void delete_btn_Click(object sender, EventArgs e)
+        {
+            if (dgv_lot.SelectedRows.Count > 0)
+            {
+                int selectedIndex = dgv_lot.SelectedRows[0].Index;
+                long lotId = Convert.ToInt64(dgv_lot.Rows[selectedIndex].Cells["Lot_Id"].Value);
+
+                // 선택된 항목을 삭제하는 로직 (여기에서는 lotId를 사용하여 삭제)
+                await lotRepository.deleteLotAsync(lotId);
+
+                // 삭제 후 데이터그리드뷰를 다시 로드하여 업데이트합니다.
+                LoadItems("", 0);
+            }
+            else
+            {
+                MessageBox.Show("삭제할 항목을 선택해주세요.");
+            }
+            LoadItems("", 0);
+        }
     }
 }

@@ -645,5 +645,24 @@ namespace FinalProject_Winform.Repositories
             await db.Stocks.AddAsync(stock3);
             await db.Stocks.AddAsync(stock4);
         }
+
+        public async Task<Lot> deleteLotAsync(long lotpk)
+        {
+            using FinalDbContext db = new();
+            // 주어진 lotpk에 해당하는 lot를 찾습니다.
+            var lotToDelete = await db.Lots.FindAsync(lotpk);
+
+            if (lotToDelete == null)
+            {
+                throw new ArgumentException("해당 lotpk에 해당하는 lot를 찾을 수 없습니다.");
+            }
+
+            // lot를 삭제합니다.
+            db.Lots.Remove(lotToDelete);
+
+            // 변경 사항을 저장합니다.
+            await db.SaveChangesAsync();
+            return lotToDelete;
+        }
     }
 }
