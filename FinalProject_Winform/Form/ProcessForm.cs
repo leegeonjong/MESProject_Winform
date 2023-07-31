@@ -152,7 +152,7 @@ namespace FinalProject_Winform
         {
             // combo_process에서 선택한 값 가져오기
             string selectedProcess = combo_process.SelectedItem.ToString();
-            long ProcessId = processRepository.GetProcessId(selectedProcess);
+            long ProcessId =  processRepository.GetProcessId(selectedProcess);
             long RecentLotId = await lothistoryRepository.GetRecentLotAsync(ProcessId);
 
             //현재 상태에 따라 다른 메시지 작성

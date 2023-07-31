@@ -56,6 +56,9 @@ namespace FinalProject_Winform
                         break;
                     }
                 }
+                //복사하기
+                Clipboard.SetText(bartext);
+
                 lbl_barcode.Text = bartext;
                 lbl_text_item.Text = comboBox_item.Text;
                 lbl_text_count.Text = textBox_count.Text;
