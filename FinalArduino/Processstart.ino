@@ -1,12 +1,13 @@
 void Processstart(String action, String process, String lotid) {
   int processNum = ProcessName(process);
-  // 명령어가 Run 일때 작업 실행
-  if (action == "Run") {
-    startTime[processNum] = millis();
-    timerStarted[processNum] = true;
-    myArray[processNum] = { action, process, lotid, startTime[processNum] };
-    SendRecieve(myArray[processNum].process, myArray[processNum].lotid);
-    SendStart(myArray[processNum].process, myArray[processNum].lotid);
+  
+  switch (action) {
+    case "Run": // 명령어가 Run 일때 작업 실행
+      startTime[processNum] = millis();
+      timerStarted[processNum] = true;
+      myArray[processNum] = { action, process, lotid, startTime[processNum] };
+      SendRecieve(myArray[processNum].process, myArray[processNum].lotid);
+      SendStart(myArray[processNum].process, myArray[processNum].lotid);
 
     digitalWrite(LedRed[processNum], LOW);
     digitalWrite(LedGreen[processNum], LOW);
