@@ -102,6 +102,7 @@
             tbox_start_lotnum = new TextBox();
             btn_start_search = new Button();
             lbl_lot = new Label();
+            delete_btn = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             tabControl1.SuspendLayout();
@@ -536,6 +537,7 @@
             // tabPage2
             // 
             tabPage2.BackColor = Color.LightGray;
+            tabPage2.Controls.Add(delete_btn);
             tabPage2.Controls.Add(ComboSearch);
             tabPage2.Controls.Add(button3);
             tabPage2.Controls.Add(txt_text);
@@ -562,6 +564,7 @@
             button3.BackColor = Color.FromArgb(52, 152, 219);
             button3.FlatAppearance.BorderSize = 0;
             button3.FlatStyle = FlatStyle.Flat;
+            button3.Font = new Font("맑은 고딕", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             button3.Location = new Point(921, 87);
             button3.Name = "button3";
             button3.Size = new Size(128, 44);
@@ -937,6 +940,20 @@
             lbl_lot.TabIndex = 1;
             lbl_lot.Text = "LOT번호 :";
             // 
+            // delete_btn
+            // 
+            delete_btn.BackColor = Color.FromArgb(52, 152, 219);
+            delete_btn.FlatAppearance.BorderSize = 0;
+            delete_btn.FlatStyle = FlatStyle.Flat;
+            delete_btn.Font = new Font("맑은 고딕", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            delete_btn.Location = new Point(921, 554);
+            delete_btn.Name = "delete_btn";
+            delete_btn.Size = new Size(128, 44);
+            delete_btn.TabIndex = 14;
+            delete_btn.Text = "삭제";
+            delete_btn.UseVisualStyleBackColor = false;
+            delete_btn.Click += delete_btn_Click;
+            // 
             // LOTForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -1061,5 +1078,6 @@
         private Button btn_start_search;
         private TextBox tbox_start_lotnum;
         private Label lbl_start_item;
+        private Button delete_btn;
     }
 }

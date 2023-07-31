@@ -24,5 +24,7 @@ namespace FinalProject_Winform.Repositories
         bool Findstatus(string status);
 
         Task UpdateLotbreak(long lotpk, bool pass);
+
+        Task<Lot> deleteLotAsync(long lotpk);
     }
 }
