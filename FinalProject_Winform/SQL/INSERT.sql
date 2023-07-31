@@ -14,17 +14,17 @@ VALUES ( '수량 검사 출고', '50', '0')
 
 
 INSERT INTO Process(Process_name, Process_status, Process_checkRight , CheckId)
-VALUES ('Mix', 0, 1 , 3 )
+VALUES ('Mix', 1, 1 , 3 )
 INSERT INTO Process(Process_name, Process_status, Process_checkRight)
-VALUES ('Shape', 0, 1 )
+VALUES ('Shape', 1, 1 )
 INSERT INTO Process(Process_name, Process_status, Process_checkRight, CheckId)
-VALUES ('Steam', 0, 1 , 2)
+VALUES ('Steam', 1, 1 , 2)
 INSERT INTO Process(Process_name, Process_status, Process_checkRight, CheckId)
-VALUES ('Fry', 0, 1 , 1)
+VALUES ('Fry', 1, 1 , 1)
 INSERT INTO Process(Process_name, Process_status, Process_checkRight)
-VALUES ('Freeze',0, 1 )
+VALUES ('Freeze',1, 1 )
 INSERT INTO Process(Process_name, Process_status, Process_checkRight, CheckId)
-VALUES ('Pack', 0, 1 , 4)
+VALUES ('Pack', 1, 1 , 4)
 
 INSERT INTO Stock (ItemId, Stock_Amount, Stock_regDate, Stock_status)
 VALUES
