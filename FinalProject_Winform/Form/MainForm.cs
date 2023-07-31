@@ -37,8 +37,8 @@ namespace FinalProject_Winform
             processRepository = new ProcessRepository();
 
             // MainForm이 로드될 때 수행할 작업
-            //string port = $"COM8";  // 이건종
-            string port = $"COM7";
+            string port = $"COM8";  // 이건종
+            //string port = $"COM7";
             //string port = $"COM4";
 
             serialPort.PortName = port;   //시리얼 포트 설정
@@ -184,7 +184,7 @@ namespace FinalProject_Winform
             {
                 data = long.Parse(arrMessage[3]);
             }
-         
+
 
             switch (arrMessage[0]) // arrMessage[0] = 공정행동, arrMessage[1] = 공정명, arrmessage[2] = lotid
             {
@@ -268,34 +268,34 @@ namespace FinalProject_Winform
         }
 
 
-        private void ProcessOn(string process, long lotpk)
+        private async void ProcessOn(string process, long lotpk)
         {
             long processid = processRepository.GetProcessId(process);
-            lothistoryRepository.AddLotAsync(lotpk, processid, $"{process}On");
-            lotRepository.Updateasync($"{process}On", lotpk);
+            await lothistoryRepository.AddLotAsync(lotpk, processid, $"{process}On");
+            await lotRepository.Updateasync($"{process}On", lotpk);
         }
 
-        private void ProcessOff(string process, long lotpk)
+        private async void ProcessOff(string process, long lotpk)
         {
             long processid = processRepository.GetProcessId(process);
-            lothistoryRepository.AddLotAsync(lotpk, processid, $"{process}Off");
-            lotRepository.Updateasync($"{process}Off", lotpk);
+            await lothistoryRepository.AddLotAsync(lotpk, processid, $"{process}Off");
+            await lotRepository.Updateasync($"{process}Off", lotpk);
         }
 
-        private void ProcessEnd(string process, long lotpk)
+        private async void ProcessEnd(string process, long lotpk)
         {
             //lotForm.loadLot(); //여기서 오류발생
             long processid = processRepository.GetProcessId(process);
-            lothistoryRepository.AddLotAsync(lotpk, processid, $"{process}End");
-            lotRepository.Updateasync($"{process}End", lotpk);
-            lotRepository.ItemUpdateAsync(lotpk);
+            await lothistoryRepository.AddLotAsync(lotpk, processid, $"{process}End");
+            await lotRepository.Updateasync($"{process}End", lotpk);
+            await lotRepository.ItemUpdateAsync(lotpk);
         }
 
-        private void ProcessStart(string process, long lotpk)
+        private async void ProcessStart(string process, long lotpk)
         {
             long processid = processRepository.GetProcessId(process);
-            lothistoryRepository.AddLotAsync(lotpk, processid, $"{process}ing");
-            lotRepository.Updateasync($"{process}ing", lotpk);
+            await lothistoryRepository.AddLotAsync(lotpk, processid, $"{process}ing");
+            await lotRepository.Updateasync($"{process}ing", lotpk);
         }
 
         //버튼 클릭 이벤트 하나로 묶어둔 함수

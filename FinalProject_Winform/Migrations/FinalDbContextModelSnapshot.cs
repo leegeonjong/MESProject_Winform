@@ -126,7 +126,7 @@ namespace FinalProject_Winform.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
-                    b.Property<long>("CheckId")
+                    b.Property<long?>("CheckId")
                         .HasColumnType("bigint");
 
                     b.Property<string>("CheckResult")

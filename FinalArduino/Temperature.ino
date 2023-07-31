@@ -3,9 +3,10 @@
 #define DHTTYPE DHT11  // DHT시리즈중 DHT11 선택
 
 DHT dht(DHTPIN, DHTTYPE);     // DHT 객체 생성
-int prevTemperature = 0.0;  // 이전 온도 값을 저장할 변수
+int prevTemperature = 0;  // 이전 온도 값을 저장할 변수
 
 void TemperatureSensor(String process, String lotId) {
+  int prevTemperature = 0;
   dht.begin();
   int temperature = dht.readTemperature();  // 온도를 측정 (섭씨 ℃)
 

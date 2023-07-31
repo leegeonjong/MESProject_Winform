@@ -181,11 +181,11 @@ namespace FinalProject_Winform
             string message = "";
             if (status == true)
             {
-                message = $"$On,{selectedProcess},{RecentLotId}";
+                message = $"$Off,{selectedProcess},{RecentLotId}";
             }
             else
             {
-                message = $"$Off,{selectedProcess},{RecentLotId}";
+                message = $"$On,{selectedProcess},{RecentLotId}";
             }
 
             //아두이노에게 시리얼 통신 보내기
