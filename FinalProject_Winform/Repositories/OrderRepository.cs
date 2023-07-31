@@ -52,6 +52,7 @@ namespace FinalProject_Winform.Repositories
             if (existingOrder == null) return null;
 
             existingOrder.Order_status = "완료";
+            existingOrder.Order_sendDate = DateTime.Now; 
 
             await db.SaveChangesAsync();
             return existingOrder;
