@@ -19,8 +19,11 @@ namespace FinalProject_Winform.Repositories
                 .Include(x=>x.Check)
                 .FirstOrDefault(x => x.Id == processid);
 
-            long checkid = process.Check.Id;
-
+            long? checkid = process.Check.Id;
+            if (checkid == 0)
+            {
+                checkid = null;
+            }
 
             LotHistory lothistory = new()
             {
@@ -28,7 +31,7 @@ namespace FinalProject_Winform.Repositories
                 ProcessId = processid,
                 LotHistory_Date = DateTime.Now,
                 LotHistory_status = status,
-                CheckId = checkid,
+                CheckId = (long)checkid,
             };
 
             await db.LotHistorys.AddAsync(lothistory);
