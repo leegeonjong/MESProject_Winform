@@ -96,9 +96,9 @@ namespace FinalProject_Winform
             label1.Font = new Font("맑은 고딕", 27.75F, FontStyle.Bold, GraphicsUnit.Point);
             label1.Location = new Point(550, 18);
             label1.Name = "label1";
-            label1.Size = new Size(170, 50);
+            label1.Size = new Size(133, 50);
             label1.TabIndex = 0;
-            label1.Text = "아무거나";
+            label1.Text = "현황판";
             // 
             // panel1
             // 
@@ -353,35 +353,29 @@ namespace FinalProject_Winform
             // 
             // TestChart
             // 
-            chartArea4.Name = "ChartArea1";
-            TestChart.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            TestChart.Legends.Add(legend4);
-            TestChart.Location = new Point(77, 110);
+            chartArea8.Name = "ChartArea1";
+            TestChart.ChartAreas.Add(chartArea8);
+            legend8.Name = "Legend1";
+            TestChart.Legends.Add(legend8);
+            TestChart.Location = new Point(96, 133);
             TestChart.Name = "TestChart";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series4.Legend = "Legend1";
-            series4.Name = "LotID";
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series5.Legend = "Legend1";
-            series5.Name = "기준값";
-            series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series6.Legend = "Legend1";
-            series6.Name = "상한허용값";
-            series7.ChartArea = "ChartArea1";
-            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series7.Legend = "Legend1";
-            series7.Name = "하한허용값";
-            TestChart.Series.Add(series4);
-            TestChart.Series.Add(series5);
-            TestChart.Series.Add(series6);
-            TestChart.Series.Add(series7);
-            TestChart.Size = new Size(853, 405);
-            TestChart.TabIndex = 3;
-            TestChart.Text = "chart3";
+            series8.ChartArea = "ChartArea1";
+            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series8.Legend = "Legend1";
+            series8.Name = "Series1";
+            series8.YValuesPerPoint = 4;
+            TestChart.Series.Add(series8);
+            TestChart.Size = new Size(853, 417);
+            TestChart.TabIndex = 5;
+            TestChart.Text = "검사 결과";
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(132, 171);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(100, 23);
+            textBox2.TabIndex = 4;
+            textBox2.Text = "asdfasdfasd";
             // 
             // cmbTestName
             // 

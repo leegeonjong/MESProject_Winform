@@ -102,9 +102,9 @@
             label1.Font = new Font("맑은 고딕", 27.75F, FontStyle.Bold, GraphicsUnit.Point);
             label1.Location = new Point(550, 18);
             label1.Name = "label1";
-            label1.Size = new Size(170, 50);
+            label1.Size = new Size(183, 50);
             label1.TabIndex = 0;
-            label1.Text = "아무거나";
+            label1.Text = "재고 관리";
             // 
             // panel1
             // 
@@ -227,7 +227,7 @@
             // 
             // tabImport
             // 
-            tabImport.BackColor = Color.Gray;
+            tabImport.BackColor = Color.Gainsboro;
             tabImport.Controls.Add(dataGridView1);
             tabImport.Controls.Add(panel3);
             tabImport.Location = new Point(4, 44);

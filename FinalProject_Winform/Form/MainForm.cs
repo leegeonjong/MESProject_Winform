@@ -36,9 +36,9 @@ namespace FinalProject_Winform
             //lothistoryRepository = new LothistoryRepository();
             //processRepository = new ProcessRepository();
 
-            //// MainForm이 로드될 때 수행할 작업
-            //string port = $"COM8";  // 이건종
-            ////string port = $"COM7";
+            // MainForm이 로드될 때 수행할 작업
+            string port = $"COM8";  // 이건종
+            //string port = $"COM3";
             ////string port = $"COM4";
 
             //serialPort.PortName = port;   //시리얼 포트 설정

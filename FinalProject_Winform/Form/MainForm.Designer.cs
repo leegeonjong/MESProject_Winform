@@ -95,9 +95,9 @@
             label1.Font = new Font("맑은 고딕", 27.75F, FontStyle.Bold, GraphicsUnit.Point);
             label1.Location = new Point(550, 18);
             label1.Name = "label1";
-            label1.Size = new Size(170, 50);
+            label1.Size = new Size(220, 50);
             label1.TabIndex = 0;
-            label1.Text = "아무거나";
+            label1.Text = "메인 페이지";
             // 
             // panel1
             // 
@@ -206,7 +206,7 @@
             // 
             // panel3
             // 
-            panel3.BackColor = Color.Silver;
+            panel3.BackColor = Color.Gainsboro;
             panel3.Controls.Add(panel14);
             panel3.Controls.Add(panel12);
             panel3.Controls.Add(panel10);

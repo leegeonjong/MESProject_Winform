@@ -12,6 +12,9 @@ VALUES ( '수량 검사 입고', '50', '0')
 INSERT INTO [FinalDB].[dbo].[Check] ( Check_item, Check_value,Check_Tolerance)
 VALUES ( '수량 검사 출고', '50', '0')
 
+INSERT INTO LOT(ItemId,LOT_Barcode,LOT_amount,LOT_STATUS,LOT_BREAK,LOT_REGDATE)
+VALUES(1,'123456789',100,'MIXEND',1,GETDATE())
+
 
 INSERT INTO Process(Process_name, Process_status, Process_checkRight , CheckId)
 VALUES ('Mix', 1, 1 , 3 )

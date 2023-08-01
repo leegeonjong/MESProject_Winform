@@ -13,7 +13,13 @@ namespace FinalProject_Winform
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
 
-            Application.Run(new MainForm());
+            LoginForm loginForm = new LoginForm();
+            
+            Application.Run(new LoginForm());
+            if(loginForm.loginSuccessful)
+            {
+                Application.Run(new MainForm());
+            }
 
 
             // 나도 바쁘다고!
