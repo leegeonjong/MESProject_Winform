@@ -11,31 +11,45 @@ void Processstart(String action, String process, String lotid) {
     digitalWrite(LedRed[processNum], LOW);
     digitalWrite(LedGreen[processNum], LOW);
     digitalWrite(LedYellow[processNum], HIGH);
+    processState = true; //공정이 실행중임
     LEDstatus[processNum] = "Y";
-    
+
     isTemperatureSensorCalled = false;
     isWaterSenserCalled = false;
-  }  
+  }
   // 명령어가 On 일때 : 프로세스(공정) 정지-->작동
   else if (action == "On") {
-    digitalWrite(LedRed[processNum], LOW);
-    digitalWrite(LedGreen[processNum], LOW);
-    digitalWrite(LedYellow[processNum], HIGH);
+    // 공정이 실행중이였다면 yello 켜기
+    if (processState == true) {
+      digitalWrite(LedRed[processNum], LOW);
+      digitalWrite(LedGreen[processNum], LOW);
+      digitalWrite(LedYellow[processNum], HIGH);
+      processState =false;
+    }
+    //공정이 대기중이였다면 green 켜기
+    else {
+      digitalWrite(LedRed[processNum], LOW);
+      digitalWrite(LedGreen[processNum], HIGH);
+      digitalWrite(LedYellow[processNum], LOW);
+    }
+
+    LEDstatus[processNum] = "Y";
+
     startTime[processNum] = millis();
     timerStarted[processNum] = true;
-    LEDstatus[processNum] = "Y";
-    SendContinue(myArray[processNum].process, myArray[processNum].lotid);
+    // SendContinue(myArray[processNum].process, myArray[processNum].lotid);
   }
   // 명령어가 Off 일때 : 프로세스(공정) 작동-->정지
   else if (action == "Off") {
     digitalWrite(LedRed[processNum], HIGH);
     digitalWrite(LedGreen[processNum], LOW);
     digitalWrite(LedYellow[processNum], LOW);
+
     LEDstatus[processNum] = "R";
 
     timerDuration = timerDuration - (millis() - startTime[processNum]);
     timerStarted[processNum] = false;  // 타이머 상태 초기화
 
-    SendStop(myArray[processNum].process, myArray[processNum].lotid);
+    // SendStop(myArray[processNum].process, myArray[processNum].lotid);
   }
 }
