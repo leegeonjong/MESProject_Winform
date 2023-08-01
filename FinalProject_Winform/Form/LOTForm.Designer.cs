@@ -536,7 +536,7 @@
             // 
             // tabPage2
             // 
-            tabPage2.BackColor = Color.LightGray;
+            tabPage2.BackColor = Color.Gainsboro;
             tabPage2.Controls.Add(delete_btn);
             tabPage2.Controls.Add(ComboSearch);
             tabPage2.Controls.Add(button3);
@@ -598,6 +598,7 @@
             // Dgv_Lot
             // 
             Dgv_Lot.AllowUserToAddRows = false;
+            Dgv_Lot.BackgroundColor = SystemColors.ButtonFace;
             Dgv_Lot.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             Dgv_Lot.Columns.AddRange(new DataGridViewColumn[] { Lot_Id, Lot_Barcode, Lot_Itemid, Lot_amount, Lot_status, Lot_break, Lot_regdata });
             Dgv_Lot.Location = new Point(20, 148);
