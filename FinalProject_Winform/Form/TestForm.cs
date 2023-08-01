@@ -124,7 +124,7 @@ namespace FinalProject_Winform
             }
 
             // combo_process에서 선택한 값 가져오기
-            string selectedProcessName = cmbProcess1.SelectedItem.ToString();
+            string selectedProcessName = cmbProcess1.SelectedItem?.ToString();
             string selectedTestName = cmbTest.SelectedItem.ToString();
 
             // 사용자가 입력한 값 가져오기

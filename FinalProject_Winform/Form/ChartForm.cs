@@ -124,7 +124,7 @@ namespace FinalProject_Winform
             }
 
             // 점 크기 설정
-            TestChart.Series["LotID"].MarkerSize = 10; 
+            TestChart.Series["LotID"].MarkerSize = 10;
 
             // 라인 두께 설정
             TestChart.Series["기준값"].BorderWidth = 2; // 기준값 라인 두께 
