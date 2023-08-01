@@ -204,7 +204,9 @@ namespace FinalProject_Winform
                     ProcessOn(arrMessage[1], lotpk);
                     break;
                 case "Data": //검사값 받았을때
+                     //공정 id 가져오기
                     long processid = processRepository.GetProcessId(arrMessage[1]);
+                    //검사 기준값 가져오기 
                     long? checkValue = await processRepository.GetTestCheckValue(processid, data);
                     await ProcessTest(lotpk, data, processid, checkValue); //lotpk에는 검사값이 들어감
                     break;
@@ -218,10 +220,9 @@ namespace FinalProject_Winform
             {
                 return;
             }
-            //공정 id 가져오기
 
 
-            //검사 기준값 가져오기 
+
 
             //만약 검사 기준값이 설정 되어있지 않으면 기준값은 0
             if (!checkValue.HasValue)

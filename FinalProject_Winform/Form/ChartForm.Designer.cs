@@ -30,18 +30,21 @@ namespace FinalProject_Winform
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
             panel2 = new Panel();
             label1 = new Label();
             panel1 = new Panel();
@@ -63,7 +66,6 @@ namespace FinalProject_Winform
             exportchart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             tabPage3 = new TabPage();
             TestChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            textBox2 = new TextBox();
             cmbTestName = new ComboBox();
             textBox1 = new TextBox();
             panel2.SuspendLayout();
@@ -231,36 +233,36 @@ namespace FinalProject_Winform
             // 
             // chart2
             // 
-            chartArea5.Name = "ChartArea1";
-            chart2.ChartAreas.Add(chartArea5);
+            chartArea1.Name = "ChartArea1";
+            chart2.ChartAreas.Add(chartArea1);
             chart2.Dock = DockStyle.Bottom;
-            legend5.Name = "Legend1";
-            chart2.Legends.Add(legend5);
+            legend1.Name = "Legend1";
+            chart2.Legends.Add(legend1);
             chart2.Location = new Point(3, 313);
             chart2.Name = "chart2";
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn;
-            series5.Legend = "Legend1";
-            series5.Name = "Series1";
-            chart2.Series.Add(series5);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            chart2.Series.Add(series1);
             chart2.Size = new Size(1090, 307);
             chart2.TabIndex = 1;
             chart2.Text = "chart4";
             // 
             // chart1
             // 
-            chartArea6.Name = "ChartArea1";
-            chart1.ChartAreas.Add(chartArea6);
+            chartArea2.Name = "ChartArea1";
+            chart1.ChartAreas.Add(chartArea2);
             chart1.Dock = DockStyle.Top;
-            legend6.Name = "Legend1";
-            chart1.Legends.Add(legend6);
+            legend2.Name = "Legend1";
+            chart1.Legends.Add(legend2);
             chart1.Location = new Point(3, 3);
             chart1.Name = "chart1";
-            series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn;
-            series6.Legend = "Legend1";
-            series6.Name = "Series1";
-            chart1.Series.Add(series6);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn;
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            chart1.Series.Add(series2);
             chart1.Size = new Size(1090, 304);
             chart1.TabIndex = 0;
             chart1.Text = "chart1";
@@ -322,17 +324,17 @@ namespace FinalProject_Winform
             // 
             // exportchart
             // 
-            chartArea7.Name = "ChartArea1";
-            exportchart.ChartAreas.Add(chartArea7);
+            chartArea3.Name = "ChartArea1";
+            exportchart.ChartAreas.Add(chartArea3);
             exportchart.Dock = DockStyle.Bottom;
-            legend7.Name = "Legend1";
-            exportchart.Legends.Add(legend7);
+            legend3.Name = "Legend1";
+            exportchart.Legends.Add(legend3);
             exportchart.Location = new Point(3, 114);
             exportchart.Name = "exportchart";
-            series7.ChartArea = "ChartArea1";
-            series7.Legend = "Legend1";
-            series7.Name = "Series1";
-            exportchart.Series.Add(series7);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            exportchart.Series.Add(series3);
             exportchart.Size = new Size(1090, 506);
             exportchart.TabIndex = 0;
             exportchart.Text = "chart3";
@@ -340,7 +342,6 @@ namespace FinalProject_Winform
             // tabPage3
             // 
             tabPage3.Controls.Add(TestChart);
-            tabPage3.Controls.Add(textBox2);
             tabPage3.Controls.Add(cmbTestName);
             tabPage3.Controls.Add(textBox1);
             tabPage3.Location = new Point(4, 44);
@@ -352,29 +353,35 @@ namespace FinalProject_Winform
             // 
             // TestChart
             // 
-            chartArea8.Name = "ChartArea1";
-            TestChart.ChartAreas.Add(chartArea8);
-            legend8.Name = "Legend1";
-            TestChart.Legends.Add(legend8);
-            TestChart.Location = new Point(96, 133);
+            chartArea4.Name = "ChartArea1";
+            TestChart.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            TestChart.Legends.Add(legend4);
+            TestChart.Location = new Point(77, 110);
             TestChart.Name = "TestChart";
-            series8.ChartArea = "ChartArea1";
-            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series8.Legend = "Legend1";
-            series8.Name = "Series1";
-            series8.YValuesPerPoint = 4;
-            TestChart.Series.Add(series8);
-            TestChart.Size = new Size(853, 417);
-            TestChart.TabIndex = 5;
-            TestChart.Text = "검사 결과";
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(132, 171);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(100, 23);
-            textBox2.TabIndex = 4;
-            textBox2.Text = "asdfasdfasd";
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series4.Legend = "Legend1";
+            series4.Name = "LotID";
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series5.Legend = "Legend1";
+            series5.Name = "기준값";
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series6.Legend = "Legend1";
+            series6.Name = "상한허용값";
+            series7.ChartArea = "ChartArea1";
+            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series7.Legend = "Legend1";
+            series7.Name = "하한허용값";
+            TestChart.Series.Add(series4);
+            TestChart.Series.Add(series5);
+            TestChart.Series.Add(series6);
+            TestChart.Series.Add(series7);
+            TestChart.Size = new Size(853, 405);
+            TestChart.TabIndex = 3;
+            TestChart.Text = "chart3";
             // 
             // cmbTestName
             // 
