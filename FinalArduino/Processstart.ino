@@ -11,7 +11,7 @@ void Processstart(String action, String process, String lotid) {
     digitalWrite(LedRed[processNum], LOW);
     digitalWrite(LedGreen[processNum], LOW);
     digitalWrite(LedYellow[processNum], HIGH);
-    processState = true; //공정이 실행중임
+    processState = true;  //공정이 실행중임
     LEDstatus[processNum] = "Y";
 
     isTemperatureSensorCalled = false;
@@ -24,16 +24,17 @@ void Processstart(String action, String process, String lotid) {
       digitalWrite(LedRed[processNum], LOW);
       digitalWrite(LedGreen[processNum], LOW);
       digitalWrite(LedYellow[processNum], HIGH);
-      processState =false;
+      LEDstatus[processNum] = "Y";
+      processState = false;
     }
     //공정이 대기중이였다면 green 켜기
     else {
       digitalWrite(LedRed[processNum], LOW);
       digitalWrite(LedGreen[processNum], HIGH);
       digitalWrite(LedYellow[processNum], LOW);
+      LEDstatus[processNum] = "G";
     }
 
-    LEDstatus[processNum] = "Y";
 
     startTime[processNum] = millis();
     timerStarted[processNum] = true;
