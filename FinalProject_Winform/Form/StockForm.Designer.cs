@@ -351,7 +351,7 @@
             // 
             // tabExport
             // 
-            tabExport.BackColor = Color.Gray;
+            tabExport.BackColor = Color.Gainsboro;
             tabExport.Controls.Add(dataGridView2);
             tabExport.Controls.Add(panel4);
             tabExport.Location = new Point(4, 44);
@@ -453,7 +453,7 @@
             // 
             // tabStock
             // 
-            tabStock.BackColor = Color.Gray;
+            tabStock.BackColor = Color.Gainsboro;
             tabStock.Controls.Add(dataGridView3);
             tabStock.Controls.Add(panel5);
             tabStock.Location = new Point(4, 44);

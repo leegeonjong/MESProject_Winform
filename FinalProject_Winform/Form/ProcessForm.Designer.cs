@@ -267,6 +267,7 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.BackgroundColor = SystemColors.ButtonFace;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { LOT_ID, LOT_NAME, LOT_StartDate, LOT_STATUS });
             dataGridView1.Location = new Point(28, 122);
@@ -316,6 +317,7 @@
             // btnSearchProcess
             // 
             btnSearchProcess.BackColor = Color.FromArgb(52, 152, 219);
+            btnSearchProcess.Font = new Font("맑은 고딕", 18F, FontStyle.Bold, GraphicsUnit.Point);
             btnSearchProcess.Location = new Point(776, 15);
             btnSearchProcess.Name = "btnSearchProcess";
             btnSearchProcess.Size = new Size(126, 52);
@@ -356,7 +358,7 @@
             // 
             // panel5
             // 
-            panel5.BackColor = Color.Silver;
+            panel5.BackColor = Color.Gainsboro;
             panel5.Controls.Add(btnOff);
             panel5.Controls.Add(combo_process);
             panel5.Controls.Add(panel7);
@@ -371,7 +373,7 @@
             // btnOff
             // 
             btnOff.BackColor = Color.Red;
-            btnOff.Location = new Point(592, 343);
+            btnOff.Location = new Point(422, 291);
             btnOff.Name = "btnOff";
             btnOff.Size = new Size(366, 147);
             btnOff.TabIndex = 10;
@@ -422,7 +424,7 @@
             // btnOn
             // 
             btnOn.BackColor = Color.Lime;
-            btnOn.Location = new Point(82, 343);
+            btnOn.Location = new Point(28, 291);
             btnOn.Name = "btnOn";
             btnOn.Size = new Size(366, 147);
             btnOn.TabIndex = 8;
