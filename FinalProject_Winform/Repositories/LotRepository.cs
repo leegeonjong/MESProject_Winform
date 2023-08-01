@@ -664,5 +664,13 @@ namespace FinalProject_Winform.Repositories
             await db.SaveChangesAsync();
             return lotToDelete;
         }
+
+        public bool FindLotBreak(string lotBarcode)
+        {
+            using FinalDbContext db = new();
+            var lot = db.Lots.FirstOrDefault(l => l.Lot_barcode == lotBarcode);
+            bool lot_break = lot.Lot_break; 
+            return lot_break;
+        }
     }
 }

@@ -66,7 +66,7 @@ namespace FinalProject_Winform.Repositories
             }
 
         }
-        public async Task<long> GetTestCheckValue(long processid, long data)
+        public  async Task<long> GetTestCheckValue(long processid, long data)
         {
             using FinalDbContext db = new();
 

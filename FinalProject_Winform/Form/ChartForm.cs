@@ -49,7 +49,7 @@ namespace FinalProject_Winform
             chartStock2.ChartAreas["ChartArea1"].AxisY.Title = "수량";
             chartStock2.Series["Series1"].LegendText = "수량";
 
-            chartStock3 = chart3;
+            chartStock3 = exportchart;
             chartStock3.Titles.Add("출고 수량");
             chartStock3.ChartAreas["ChartArea1"].AxisX.Title = "날짜";
             chartStock3.ChartAreas["ChartArea1"].AxisY.Title = "수량";
@@ -182,8 +182,23 @@ namespace FinalProject_Winform
 
         private void button2_Click(object sender, EventArgs e)
         {
-            var dateTime = dtp.Value.Date;
+            var a = dtp.Value.Date;
             // 입력받은 날짜로 stock 에서 6개 가져와서 표시
+            string b = a.ToString("yy:MM:dd");
+            DateTime start = DateTime.ParseExact(b, "yy:MM:dd", null);
+            DateTime end;
+            int c = (int)start.DayOfWeek;
+            if (c == 1)
+            {
+                end = start.AddDays(6);
+            }
+            else
+            {
+                int d = 7 - c;
+                end = start.AddDays(d);
+                start = start.AddDays(-(7 - c - 1));
+            }
+  
         }
 
         private void cmbTestName_SelectedIndexChanged(object sender, EventArgs e)
