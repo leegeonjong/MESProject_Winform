@@ -372,10 +372,11 @@
             // 
             // btnOff
             // 
-            btnOff.BackColor = Color.Red;
-            btnOff.Location = new Point(422, 291);
+            btnOff.BackColor = Color.FromArgb(52, 152, 219);
+            btnOff.Font = new Font("맑은 고딕", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            btnOff.Location = new Point(852, 509);
             btnOff.Name = "btnOff";
-            btnOff.Size = new Size(366, 147);
+            btnOff.Size = new Size(213, 60);
             btnOff.TabIndex = 10;
             btnOff.Text = "OFF";
             btnOff.UseVisualStyleBackColor = false;
@@ -423,10 +424,11 @@
             // 
             // btnOn
             // 
-            btnOn.BackColor = Color.Lime;
-            btnOn.Location = new Point(28, 291);
+            btnOn.BackColor = Color.FromArgb(52, 152, 219);
+            btnOn.Font = new Font("맑은 고딕", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            btnOn.Location = new Point(641, 509);
             btnOn.Name = "btnOn";
-            btnOn.Size = new Size(366, 147);
+            btnOn.Size = new Size(190, 60);
             btnOn.TabIndex = 8;
             btnOn.Text = "ON";
             btnOn.UseVisualStyleBackColor = false;
