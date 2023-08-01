@@ -122,9 +122,6 @@ void loop() {
         case 0:  // 첫번째 공정이면 제공 더하기
           UltrasonicSensor(myArray[i].process, myArray[i].lotid);
           break;
-        case 5:  // 마지막 공정이면 제공 빼기
-          UltrasonicSensorMinus(myArray[i].process, myArray[i].lotid);
-          break;
         case 2:  // 찌기 공정일떄 TemperatureSensor 온도 측정
           if (!isTemperatureSensorCalled) {
             TemperatureSensor(myArray[i].process, myArray[i].lotid);
@@ -137,10 +134,12 @@ void loop() {
             isWaterSenserCalled = true;  // WaterSenser 함수가 호출되었음을 표시
           }
           break;
+        case 5:  // 마지막 공정이면 제공 빼기
+          UltrasonicSensorMinus(myArray[i].process, myArray[i].lotid);
+          break;
       }
     }
   }  //end timer for
-
 
 
 }  //end loop

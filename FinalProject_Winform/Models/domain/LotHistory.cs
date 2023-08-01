@@ -21,7 +21,7 @@ namespace FinalProject_Winform.Models.domain
         public long ProcessId { get; set; }
 
         [ForeignKey("Check")]
-        public long CheckId { get; set; }
+        public long? CheckId { get; set; }
         public Lot Lot { get; set; }
 
         public Process Process { get; set; }

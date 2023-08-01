@@ -27,33 +27,33 @@ namespace FinalProject_Winform
             InitializeComponent();
 
             // 시리얼 포트 생성
-            serialPort = new();
-            serialPort.BaudRate = 9600;
-            serialPort.DataReceived += serialPort_DataReceived;
+            //serialPort = new();
+            //serialPort.BaudRate = 9600;
+            //serialPort.DataReceived += serialPort_DataReceived;
 
-            serialPort.ReadTimeout = 0;
-            lotRepository = new LotRepository();
-            lothistoryRepository = new LothistoryRepository();
-            processRepository = new ProcessRepository();
+            //serialPort.ReadTimeout = 0;
+            //lotRepository = new LotRepository();
+            //lothistoryRepository = new LothistoryRepository();
+            //processRepository = new ProcessRepository();
 
             // MainForm이 로드될 때 수행할 작업
             string port = $"COM8";  // 이건종
             //string port = $"COM3";
             ////string port = $"COM4";
 
-            serialPort.PortName = port;   //시리얼 포트 설정
+            //serialPort.PortName = port;   //시리얼 포트 설정
 
-            // 시리얼 통신 시작
-            if (serialPort.IsOpen)
-            {
-                // 이미 COM 포트 오픈 되어 있으면. 아무것도 안함.
-                MessageBox.Show($"이미 {port}는 열려 있습니다");
-            }
-            else
-            {
-                // 연결이 안되어 있으면 연결한다.
-                serialPort.Open();
-            }
+            //// 시리얼 통신 시작
+            //if (serialPort.IsOpen)
+            //{
+            //    // 이미 COM 포트 오픈 되어 있으면. 아무것도 안함.
+            //    MessageBox.Show($"이미 {port}는 열려 있습니다");
+            //}
+            //else
+            //{
+            //    // 연결이 안되어 있으면 연결한다.
+            //    serialPort.Open();
+            //}
         }
         public SerialPort serialPort;
         private void serialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
@@ -184,7 +184,7 @@ namespace FinalProject_Winform
             {
                 data = long.Parse(arrMessage[3]);
             }
-         
+
 
             switch (arrMessage[0]) // arrMessage[0] = 공정행동, arrMessage[1] = 공정명, arrmessage[2] = lotid
             {
@@ -204,24 +204,24 @@ namespace FinalProject_Winform
                     ProcessOn(arrMessage[1], lotpk);
                     break;
                 case "Data": //검사값 받았을때
-                    await ProcessTest(arrMessage[1], lotpk, data); //lotpk에는 검사값이 들어감
+                    long processid = processRepository.GetProcessId(arrMessage[1]);
+                    long? checkValue = await processRepository.GetTestCheckValue(processid, data);
+                    await ProcessTest(lotpk, data, processid, checkValue); //lotpk에는 검사값이 들어감
                     break;
             } // end switch
 
         } // end ExecCommand()
 
-        private async Task ProcessTest(string process, long lotpk, long data)
+        private async Task ProcessTest(long lotpk, long data, long processid, long? checkValue)
         {
             if (data == 0)
             {
                 return;
             }
             //공정 id 가져오기
-            long processid = processRepository.GetProcessId(process);
 
 
             //검사 기준값 가져오기 
-            long? checkValue = await processRepository.GetTestCheckValue(processid, data);
 
             //만약 검사 기준값이 설정 되어있지 않으면 기준값은 0
             if (!checkValue.HasValue)
@@ -233,7 +233,7 @@ namespace FinalProject_Winform
 
             //-------------------검사 기준값과 data 비교하기--------------------------
             // 오차 계산
-            double errorPercentage = Math.Abs((double)(checkValue - data)) / (double)data * 100;
+            double errorPercentage = Math.Abs((double)(checkValue - data)) / (double)checkValue * 100;
 
             //오차 허용범위값 가져오기
             long? tolerance = await processRepository.GetTestToleranceValue(processid, data);
@@ -251,14 +251,14 @@ namespace FinalProject_Winform
             bool pass = true;
             if (errorPercentage <= tolerance)
             {
-                // 오차가 5% 내외인 경우
-                lotRepository.UpdateLotbreak(lotpk, pass);
+                // 오차가 허용값 안인경우
+                await lotRepository.UpdateLotbreak(lotpk, pass);
             }
             else
             {
-                // 오차가 5% 이상인 경우
+                // 오차가 헝요값 밖인 경우
                 pass = false;
-                lotRepository.UpdateLotbreak(lotpk, pass);
+                await lotRepository.UpdateLotbreak(lotpk, pass);
             }
 
             //공정 id 로 해당 검사에 검사 data 입력하기
@@ -268,34 +268,34 @@ namespace FinalProject_Winform
         }
 
 
-        private void ProcessOn(string process, long lotpk)
+        private async void ProcessOn(string process, long lotpk)
         {
             long processid = processRepository.GetProcessId(process);
-            lothistoryRepository.AddLotAsync(lotpk, processid, $"{process}On");
-            lotRepository.Updateasync($"{process}On", lotpk);
+            await lothistoryRepository.AddLotAsync(lotpk, processid, $"{process}On");
+            await lotRepository.Updateasync($"{process}On", lotpk);
         }
 
-        private void ProcessOff(string process, long lotpk)
+        private async void ProcessOff(string process, long lotpk)
         {
             long processid = processRepository.GetProcessId(process);
-            lothistoryRepository.AddLotAsync(lotpk, processid, $"{process}Off");
-            lotRepository.Updateasync($"{process}Off", lotpk);
+            await lothistoryRepository.AddLotAsync(lotpk, processid, $"{process}Off");
+            await lotRepository.Updateasync($"{process}Off", lotpk);
         }
 
-        private void ProcessEnd(string process, long lotpk)
+        private async void ProcessEnd(string process, long lotpk)
         {
             //lotForm.loadLot(); //여기서 오류발생
             long processid = processRepository.GetProcessId(process);
-            lothistoryRepository.AddLotAsync(lotpk, processid, $"{process}End");
-            lotRepository.Updateasync($"{process}End", lotpk);
-            lotRepository.ItemUpdateAsync(lotpk);
+            await lothistoryRepository.AddLotAsync(lotpk, processid, $"{process}End");
+            await lotRepository.Updateasync($"{process}End", lotpk);
+            await lotRepository.ItemUpdateAsync(lotpk);
         }
 
-        private void ProcessStart(string process, long lotpk)
+        private async void ProcessStart(string process, long lotpk)
         {
             long processid = processRepository.GetProcessId(process);
-            lothistoryRepository.AddLotAsync(lotpk, processid, $"{process}ing");
-            lotRepository.Updateasync($"{process}ing", lotpk);
+            await lothistoryRepository.AddLotAsync(lotpk, processid, $"{process}ing");
+            await lotRepository.Updateasync($"{process}ing", lotpk);
         }
 
         //버튼 클릭 이벤트 하나로 묶어둔 함수

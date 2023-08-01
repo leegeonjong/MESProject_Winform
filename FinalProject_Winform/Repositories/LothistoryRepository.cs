@@ -16,11 +16,15 @@ namespace FinalProject_Winform.Repositories
         {
             using FinalDbContext db = new();
             var process = db.Processes
-                .Include(x=>x.Check)
+                .Include(x => x.Check)
                 .FirstOrDefault(x => x.Id == processid);
 
-            long checkid = process.Check.Id;
+            long? checkid = process.Check?.Id; // Use the null-conditional operator
 
+            if (checkid == 0)
+            {
+                checkid = null;
+            }
 
             LotHistory lothistory = new()
             {
@@ -28,13 +32,14 @@ namespace FinalProject_Winform.Repositories
                 ProcessId = processid,
                 LotHistory_Date = DateTime.Now,
                 LotHistory_status = status,
-                CheckId = checkid,
+                CheckId = checkid ?? 0, 
             };
 
             await db.LotHistorys.AddAsync(lothistory);
             await db.SaveChangesAsync();
             return lothistory;
         }
+
         public async Task<LotHistory> SaveTestData(long lotid, long processid, long checkResult)
         {
             using FinalDbContext db = new();
@@ -60,9 +65,10 @@ namespace FinalProject_Winform.Repositories
             var lot = await db.LotHistorys
                 .Where(i => i.ProcessId == processid)
                 .OrderByDescending(i => i.LotHistory_Date)
+                .Select(i => i.LotId)
                 .FirstOrDefaultAsync();
 
-            return lot.LotId;
+            return lot;
         }
 
         public async Task<List<LotHistory>> GetLotId(string processName)
@@ -75,6 +81,6 @@ namespace FinalProject_Winform.Repositories
 
             return lots;
         }
-       
+
     }
 }

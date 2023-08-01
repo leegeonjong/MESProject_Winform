@@ -243,23 +243,27 @@ namespace FinalProject_Winform
         private void btn_Start_Click(object sender, EventArgs e)
         {
             string ing = cmb_process.Text + "ing";
-            if (lotRepository.Findstatus(ing))
+            if (lotRepository.FindLotBreak(lbl_start_lotnum.Text))
             {
-                string Check = lbl_start_check.Text;
-                if (Check == "O")
+                if (lotRepository.Findstatus(ing))
                 {
-                    string lotbarcode = lbl_start_lotnum.Text;
-                    string processname = cmb_process.Text;
-                    long processid = processRepository.GetProcessId(processname);
-                    long lotid = lotRepository.FindLotPkByBarcode(lotbarcode);
+                    string Check = lbl_start_check.Text;
+                    if (Check == "O")
+                    {
+                        string lotbarcode = lbl_start_lotnum.Text;
+                        string processname = cmb_process.Text;
+                        long processid = processRepository.GetProcessId(processname);
+                        long lotid = lotRepository.FindLotPkByBarcode(lotbarcode);
 
-                    mainForm.serialPort.WriteLine($"$Run,{processname},{lotid}");
-                    MessageBox.Show("LOT이 실행되었습니다");
-                    lbl_start_check.Text = "";
+                        mainForm.serialPort.WriteLine($"$Run,{processname},{lotid}");
+                        MessageBox.Show("LOT이 실행되었습니다");
+                        lbl_start_check.Text = "";
+                    }
+                    else MessageBox.Show("이 Lot은 실행할 수 없습니다");
                 }
-                else MessageBox.Show("이 Lot은 실행할 수 없습니다");
+                else MessageBox.Show("이 공정에는 이미 다른 lot이 실행중입니다");
             }
-            else MessageBox.Show("이 공정에는 이미 다른 lot이 실행중입니다");
+            else MessageBox.Show("이 LOT은 검사를 통과하지 못했습니다!");
 
         }
 

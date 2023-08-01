@@ -31,7 +31,8 @@ VALUES ('Pack', 1, 1 , 4)
 
 INSERT INTO Stock (ItemId, Stock_Amount, Stock_regDate, Stock_status)
 VALUES
-(1,300,GETDATE(),'입고')
+(1,300,GETDATE(),'출고')
+
 
 INSERT INTO Item (Item_name, Item_unit, Item_barcode, Item_type,Item_amount,Item_baseLine)
 VALUES

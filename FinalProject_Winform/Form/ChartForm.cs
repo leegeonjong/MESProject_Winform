@@ -49,7 +49,7 @@ namespace FinalProject_Winform
             chartStock2.ChartAreas["ChartArea1"].AxisY.Title = "수량";
             chartStock2.Series["Series1"].LegendText = "수량";
 
-            chartStock3 = chart3;
+            chartStock3 = exportchart;
             chartStock3.Titles.Add("출고 수량");
             chartStock3.ChartAreas["ChartArea1"].AxisX.Title = "날짜";
             chartStock3.ChartAreas["ChartArea1"].AxisY.Title = "수량";
@@ -84,7 +84,6 @@ namespace FinalProject_Winform
 
         private async void ChartView3()
         {
-
             TestChart.Visible = true;
             //사용자가 선택한 검사를 가져오기
             //검사 결과를 데이터 그리드뷰로 가져오는건가?
@@ -96,18 +95,37 @@ namespace FinalProject_Winform
 
             //사용자가 선택한 검사를 지나간 LOT ID 가져오기
             using FinalDbContext db = new FinalDbContext();
-            var result = await db.Checks.Where(x => x.Check_item == selectedTestName).ToListAsync();
-            var lotList = await db.LotHistorys.Where(x => x.Process.Check.Check_item == selectedTestName).ToListAsync();
+
+            //사용자가 선택한 공정에서 CheckResult 값 가져오기
+            var lotList = await db.LotHistorys
+            .Where(x => x.Process.Check.Check_item == selectedTestName && !string.IsNullOrEmpty(x.CheckResult)).ToListAsync();
+
+            //검사값이 존재하는 데이터들에서 최근 데이터 10개만 가져오기
+            var result = lotList
+            .Where(x => !string.IsNullOrEmpty(x.CheckResult))
+            .Select(x => (LotId: x.LotId, CheckResult: long.Parse(x.CheckResult), LotHistory_Date: x.LotHistory_Date))
+            .OrderByDescending(x => x.LotHistory_Date)
+            .Take(10)
+            .ToList();
 
 
-            TestChart.Series["Series1"].Points.Clear();
-            for (int i = 0; i < lotList.Count; i++)
+            // X축 설정
+            TestChart.ChartAreas.Add(new ChartArea("ChartArea"));
+            TestChart.Series.Add(new Series("LotIdSeries"));
+            TestChart.Series["LotIdSeries"].ChartArea = "ChartArea";
+
+            // Y축 설정
+            TestChart.ChartAreas["ChartArea"].AxisY.Title = "CheckResult";
+            TestChart.Series["LotIdSeries"].YAxisType = AxisType.Primary;
+
+            // 차트 유형을 포인트로 설정
+            TestChart.Series["LotIdSeries"].ChartType = SeriesChartType.Point;
+
+            // 데이터 바인딩
+            foreach (var item in result)
             {
-                TestChart.Series["Series1"].Points.AddXY(lotList[i].LotId, result[i]);
+                TestChart.Series["LotIdSeries"].Points.AddXY(item.LotId, item.CheckResult);
             }
-
-            // 데이터 그리드 뷰에 표시
-            TestChart.DataSource = lotList;
 
             //데이터그리드뷰에 보여주기?
 
@@ -182,8 +200,23 @@ namespace FinalProject_Winform
 
         private void button2_Click(object sender, EventArgs e)
         {
-            var dateTime = dtp.Value.Date;
+            var a = dtp.Value.Date;
             // 입력받은 날짜로 stock 에서 6개 가져와서 표시
+            string b = a.ToString("yy:MM:dd");
+            DateTime start = DateTime.ParseExact(b, "yy:MM:dd", null);
+            DateTime end;
+            int c = (int)start.DayOfWeek;
+            if (c == 1)
+            {
+                end = start.AddDays(6);
+            }
+            else
+            {
+                int d = 7 - c;
+                end = start.AddDays(d);
+                start = start.AddDays(-(7 - c - 1));
+            }
+  
         }
 
         private void cmbTestName_SelectedIndexChanged(object sender, EventArgs e)

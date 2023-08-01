@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FinalProject_Winform.Migrations
 {
     [DbContext(typeof(FinalDbContext))]
-    [Migration("20230731023255_init")]
+    [Migration("20230731055409_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -129,7 +129,7 @@ namespace FinalProject_Winform.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
-                    b.Property<long>("CheckId")
+                    b.Property<long?>("CheckId")
                         .HasColumnType("bigint");
 
                     b.Property<string>("CheckResult")

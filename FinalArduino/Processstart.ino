@@ -12,6 +12,9 @@ void Processstart(String action, String process, String lotid) {
     digitalWrite(LedGreen[processNum], LOW);
     digitalWrite(LedYellow[processNum], HIGH);
     LEDstatus[processNum] = "Y";
+    
+    isTemperatureSensorCalled = false;
+    isWaterSenserCalled = false;
   }  
   // 명령어가 On 일때 : 프로세스(공정) 정지-->작동
   else if (action == "On") {
