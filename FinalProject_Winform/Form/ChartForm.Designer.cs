@@ -62,10 +62,9 @@ namespace FinalProject_Winform
             dateTimePicker1 = new DateTimePicker();
             exportchart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             tabPage3 = new TabPage();
-            TestChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            textBox2 = new TextBox();
             cmbTestName = new ComboBox();
             textBox1 = new TextBox();
+            TestChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             tabControl1.SuspendLayout();
@@ -340,7 +339,6 @@ namespace FinalProject_Winform
             // tabPage3
             // 
             tabPage3.Controls.Add(TestChart);
-            tabPage3.Controls.Add(textBox2);
             tabPage3.Controls.Add(cmbTestName);
             tabPage3.Controls.Add(textBox1);
             tabPage3.Location = new Point(4, 44);
@@ -349,32 +347,6 @@ namespace FinalProject_Winform
             tabPage3.TabIndex = 2;
             tabPage3.Text = "검사 차트";
             tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // TestChart
-            // 
-            chartArea4.Name = "ChartArea1";
-            TestChart.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            TestChart.Legends.Add(legend4);
-            TestChart.Location = new Point(96, 133);
-            TestChart.Name = "TestChart";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            series4.YValuesPerPoint = 4;
-            TestChart.Series.Add(series4);
-            TestChart.Size = new Size(853, 417);
-            TestChart.TabIndex = 5;
-            TestChart.Text = "검사 결과";
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(132, 171);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(100, 23);
-            textBox2.TabIndex = 4;
-            textBox2.Text = "asdfasdfasd";
             // 
             // cmbTestName
             // 
@@ -395,6 +367,22 @@ namespace FinalProject_Winform
             textBox1.Size = new Size(853, 23);
             textBox1.TabIndex = 1;
             textBox1.Text = "공정 차트 조회";
+            // 
+            // TestChart
+            // 
+            chartArea4.Name = "ChartArea1";
+            TestChart.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            TestChart.Legends.Add(legend4);
+            TestChart.Location = new Point(77, 106);
+            TestChart.Name = "TestChart";
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            TestChart.Series.Add(series4);
+            TestChart.Size = new Size(853, 374);
+            TestChart.TabIndex = 3;
+            TestChart.Text = "chart3";
             // 
             // ChartForm
             // 
