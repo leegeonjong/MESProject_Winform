@@ -38,7 +38,7 @@ namespace FinalProject_Winform.Repositories
                     Lot_amount = amount,
                     Lot_regDate = DateTime.Now,
                     Lot_status = "created",
-                    Lot_break = false
+                    Lot_break = true,
 
                 };
 

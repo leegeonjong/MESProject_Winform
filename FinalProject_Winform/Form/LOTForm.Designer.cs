@@ -62,6 +62,7 @@
             label2 = new Label();
             comboBox_item = new ComboBox();
             tabPage2 = new TabPage();
+            delete_btn = new Button();
             ComboSearch = new ComboBox();
             button3 = new Button();
             txt_text = new TextBox();
@@ -102,7 +103,6 @@
             tbox_start_lotnum = new TextBox();
             btn_start_search = new Button();
             lbl_lot = new Label();
-            delete_btn = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             tabControl1.SuspendLayout();
@@ -246,7 +246,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("맑은 고딕", 27.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(629, 18);
+            label1.Location = new Point(550, 18);
             label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
             label1.Size = new Size(92, 50);
@@ -548,6 +548,20 @@
             tabPage2.Size = new Size(1096, 626);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "LOT 검색";
+            // 
+            // delete_btn
+            // 
+            delete_btn.BackColor = Color.FromArgb(52, 152, 219);
+            delete_btn.FlatAppearance.BorderSize = 0;
+            delete_btn.FlatStyle = FlatStyle.Flat;
+            delete_btn.Font = new Font("맑은 고딕", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            delete_btn.Location = new Point(921, 554);
+            delete_btn.Name = "delete_btn";
+            delete_btn.Size = new Size(128, 44);
+            delete_btn.TabIndex = 14;
+            delete_btn.Text = "삭제";
+            delete_btn.UseVisualStyleBackColor = false;
+            delete_btn.Click += delete_btn_Click;
             // 
             // ComboSearch
             // 
@@ -939,20 +953,6 @@
             lbl_lot.Size = new Size(159, 45);
             lbl_lot.TabIndex = 1;
             lbl_lot.Text = "LOT번호 :";
-            // 
-            // delete_btn
-            // 
-            delete_btn.BackColor = Color.FromArgb(52, 152, 219);
-            delete_btn.FlatAppearance.BorderSize = 0;
-            delete_btn.FlatStyle = FlatStyle.Flat;
-            delete_btn.Font = new Font("맑은 고딕", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            delete_btn.Location = new Point(921, 554);
-            delete_btn.Name = "delete_btn";
-            delete_btn.Size = new Size(128, 44);
-            delete_btn.TabIndex = 14;
-            delete_btn.Text = "삭제";
-            delete_btn.UseVisualStyleBackColor = false;
-            delete_btn.Click += delete_btn_Click;
             // 
             // LOTForm
             // 

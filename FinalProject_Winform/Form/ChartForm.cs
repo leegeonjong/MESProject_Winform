@@ -198,7 +198,7 @@ namespace FinalProject_Winform
                 end = start.AddDays(d);
                 start = start.AddDays(-(7 - c - 1));
             }
-  
+
         }
 
         private void cmbTestName_SelectedIndexChanged(object sender, EventArgs e)

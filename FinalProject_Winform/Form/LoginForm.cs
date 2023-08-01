@@ -5,6 +5,7 @@ namespace FinalProject_Winform
 {
     public partial class LoginForm : Form
     {
+        public bool loginSuccessful;
         private readonly FinalDbContext db;
         TextBox idbox;
         TextBox pwbox;
@@ -23,6 +24,7 @@ namespace FinalProject_Winform
             {
                 MainForm mainForm = new MainForm();
                 mainForm.Show();
+                loginSuccessful = true;
                 this.Hide();
             }
             else
@@ -65,4 +67,3 @@ namespace FinalProject_Winform
         }
     }
 }
-    
