@@ -126,7 +126,7 @@ namespace FinalProject_Winform
             }
             else
             {
-               
+
                 switch (status)
                 {
                     case "Start":
@@ -150,13 +150,13 @@ namespace FinalProject_Winform
                     case "Continue":
                         if (isProcessOn == true)
                         {
-                            panel.BackColor = Color.Green;
-                            label.Text = "상태 : 가동중 /" + " LOT번호 : " + lotid;
+                            panel.BackColor = Color.Yellow;
+                            label.Text = "상태 : 대기중 / " + " LOT번호 : " + lotid;
                         }
                         else
                         {
-                            panel.BackColor = Color.Yellow;
-                            label.Text = "상태 : 대기중 / " + " LOT번호 : " + lotid;
+                            panel.BackColor = Color.Green;
+                            label.Text = "상태 : 가동중 /" + " LOT번호 : " + lotid;
                             isProcessOn = false;
                         }
                         break;
@@ -244,9 +244,6 @@ namespace FinalProject_Winform
                 return;
             }
 
-
-
-
             //만약 검사 기준값이 설정 되어있지 않으면 기준값은 0
             if (!checkValue.HasValue)
             {
@@ -296,16 +293,22 @@ namespace FinalProject_Winform
         {
             long processid = processRepository.GetProcessId(process);
             await processRepository.IsRunningAsync(false, process);
-            await lothistoryRepository.AddLotAsync(lotpk, processid, $"{process}On");
-            await lotRepository.Updateasync($"{process}On", lotpk);
+            if (lotpk != 0) //아두이노에서 lot이 없을때 정지 버튼 에러 처리
+            {
+                await lothistoryRepository.AddLotAsync(lotpk, processid, $"{process}On");
+                await lotRepository.Updateasync($"{process}On", lotpk);
+            }
         }
 
         private async void ProcessOff(string process, long lotpk)
         {
             long processid = processRepository.GetProcessId(process);
-            await processRepository.IsRunningAsync(true,process);
-            await lothistoryRepository.AddLotAsync(lotpk, processid, $"{process}Off");
-            await lotRepository.Updateasync($"{process}Off", lotpk);
+            await processRepository.IsRunningAsync(true, process);
+            if (lotpk != 0)
+            {
+                await lothistoryRepository.AddLotAsync(lotpk, processid, $"{process}Off");
+                await lotRepository.Updateasync($"{process}Off", lotpk);
+            }
         }
 
         private async void ProcessEnd(string process, long lotpk)

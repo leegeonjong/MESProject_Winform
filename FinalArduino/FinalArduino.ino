@@ -76,54 +76,28 @@ void loop() {
   // 버튼을 눌렀을 때
   for (int i = 0; i < numProcesses; i++) {
     buttonState[i] = digitalRead(ProcessSw[i]);
+
     // 버튼의 눌림 상태 변화를 감지하여 한 번만 실행
     if (buttonState[i] != prevButtonState[i]) {
       if (buttonState[i] == LOW && prevButtonState[i] == HIGH) {  // Falling Edge
-        if (processState == false) {
-          //공정이 실행중이 아니였다면
-          if (RedState == false) {  // Falling Edge
-            digitalWrite(LedRed[i], HIGH);
-            digitalWrite(LedGreen[i], LOW);
-            digitalWrite(LedYellow[i], LOW);
-            LEDstatus[i] = "R";
-            RedState = true;
-            SendStop(Process[i], String(i));
-          } else {
-            digitalWrite(LedRed[i], LOW);
-            digitalWrite(LedGreen[i], HIGH);
-            digitalWrite(LedYellow[i], LOW);
-            LEDstatus[i] = "G";
-            RedState = false;
-            SendContinue(Process[i], String(i));
-          }
-        } else {
-          //공정이 실행중이였다면
-          if (timerStarted[i] == true) {
-            digitalWrite(LedRed[i], HIGH);
-            digitalWrite(LedGreen[i], LOW);
-            digitalWrite(LedYellow[i], LOW);
-            LEDstatus[i] = "R";
 
-            SendStop(myArray[i].process, myArray[i].lotid);
-            timerDuration = timerDuration - (millis() - startTime[i]);
-            timerStarted[i] = false;  // 타이머 상태 초기화
-          } else {
-            if (processState == true) {
-              digitalWrite(LedRed[i], LOW);
-              digitalWrite(LedGreen[i], LOW);
-              digitalWrite(LedYellow[i], HIGH);
-              LEDstatus[i] = "Y";
-              processState = false;
-            } else {
-              digitalWrite(LedRed[i], LOW);
-              digitalWrite(LedGreen[i], HIGH);
-              digitalWrite(LedYellow[i], LOW);
-              LEDstatus[i] = "G";
-            }
-            SendContinue(myArray[i].process, myArray[i].lotid);
-            startTime[i] = millis();
-            timerStarted[i] = true;
-          }
+        if (timerStarted[i]) {
+          digitalWrite(LedRed[i], HIGH);
+          digitalWrite(LedGreen[i], LOW);
+          digitalWrite(LedYellow[i], LOW);
+          LEDstatus[i] = "R";
+
+          SendStop(myArray[i].process, myArray[i].lotid);
+          timerDuration = timerDuration - (millis() - startTime[i]);
+          timerStarted[i] = false;  // 타이머 상태 초기화
+        } else {
+          digitalWrite(LedRed[i], LOW);
+          digitalWrite(LedGreen[i], LOW);
+          digitalWrite(LedYellow[i], HIGH);
+          LEDstatus[i] = "Y";
+          SendContinue(myArray[i].process, myArray[i].lotid);
+          startTime[i] = millis();
+          timerStarted[i] = true;
         }
       }
       prevButtonState[i] = buttonState[i];
