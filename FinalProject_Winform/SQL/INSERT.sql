@@ -15,6 +15,8 @@ VALUES ( '수량 검사 출고', '50', '0')
 INSERT INTO LOT(ItemId,LOT_Barcode,LOT_amount,LOT_STATUS,LOT_BREAK,LOT_REGDATE)
 VALUES(1,'123456789',100,'MIXEND',1,GETDATE())
 
+INSERT INTO LOT(ItemId,LOT_Barcode,LOT_amount,LOT_STATUS,LOT_BREAK,LOT_REGDATE)
+VALUES(1,'123456789',1000,'SteamEnd',1,GETDATE())
 
 INSERT INTO Process(Process_name, Process_status, Process_checkRight , CheckId)
 VALUES ('Mix', 1, 1 , 3 )
