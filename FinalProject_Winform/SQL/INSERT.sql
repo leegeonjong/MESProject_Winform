@@ -35,6 +35,17 @@ INSERT INTO Stock (ItemId, Stock_Amount, Stock_regDate, Stock_status)
 VALUES
 (1,300,GETDATE(),'출고')
 
+INSERT INTO Stock (ItemId, Stock_Amount, Stock_regAmount, Stock_regDate, Stock_status)
+VALUES
+(11,-100,300,GETDATE()-2,'출고')
+,(11,-15,300,GETDATE()-1,'출고')
+,(11,-50,300,GETDATE()+1,'출고')
+,(11,-70,300,GETDATE(),'출고')
+,(11,-30,300,GETDATE()+2,'출고')
+,(11,-30,300,GETDATE()+3,'출고')
+,(11,-30,300,GETDATE()+4,'출고')
+
+
 
 INSERT INTO Item (Item_name, Item_unit, Item_barcode, Item_type,Item_amount,Item_baseLine)
 VALUES
