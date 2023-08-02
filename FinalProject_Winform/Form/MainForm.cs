@@ -253,7 +253,6 @@ namespace FinalProject_Winform
 
             //오차 허용범위값 가져오기
             long? tolerance = await processRepository.GetTestToleranceValue(processid, data);
-
             //만약 허용범위값이 설정 되어있지 않으면 5%
             if (!tolerance.HasValue)
             {
