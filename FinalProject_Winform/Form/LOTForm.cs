@@ -206,17 +206,22 @@ namespace FinalProject_Winform
                 //DataGridvIEW 저체 클리어
                 dgv_lot.Rows.Clear();
                 dgv_lot.Refresh();
-
                 int i = 0;
                 foreach (var Lot in Lots)
                 {
+                string lot_break;
+                    if (Lot.Lot_break == false)
+                    {
+                        lot_break = "불량";
+                    }
+                    else { lot_break = "정상";}
                     dgv_lot.Rows.Add();  // 새로운 row 추가
                     dgv_lot.Rows[i].Cells["Lot_Id"].Value = Lot.Id;
                     dgv_lot.Rows[i].Cells["Lot_Barcode"].Value = Lot.Lot_barcode;
                     dgv_lot.Rows[i].Cells["Lot_Itemid"].Value = Lot.Item.Item_name;
                     dgv_lot.Rows[i].Cells["Lot_amount"].Value = Lot.Lot_amount;
                     dgv_lot.Rows[i].Cells["Lot_status"].Value = Lot.Lot_status;
-                    dgv_lot.Rows[i].Cells["Lot_break"].Value = Lot.Lot_break;
+                    dgv_lot.Rows[i].Cells["Lot_break"].Value = lot_break;
                     dgv_lot.Rows[i].Cells["Lot_regdata"].Value = Lot.Lot_regDate;
                     i++;
                 }
