@@ -153,19 +153,30 @@ namespace FinalProject_Winform
 
             long orderId = long.Parse(txtOrder.Text);
             var count = await orderRepository.GetByIdAsync(orderId);
+            var status = await orderRepository.GetStatusByIdAsync(orderId);
 
-            var stock = await stockRepository.MinusAsync(orderId);
-            if (stock != null)
+            if (status == "완료")
             {
-                var existingItem = await itemRepository.ExportUpdateAsync(stock.Item.Id, count);
-                await orderRepository.OrderUpdateAsync(orderId);
-
-                if (existingItem != null)
-                {
-                    MessageBox.Show("성공");
-                }
+                MessageBox.Show("이 주문은 이미 완료되었습니다. 출고할 수 없습니다.");
+                return;
             }
-            LoadExport();
+
+            else
+            {
+
+                var stock = await stockRepository.MinusAsync(orderId);
+                if (stock != null)
+                {
+                    var existingItem = await itemRepository.ExportUpdateAsync(stock.Item.Id, count);
+                    await orderRepository.OrderUpdateAsync(orderId);
+
+                    if (existingItem != null)
+                    {
+                        MessageBox.Show("성공");
+                    }
+                }
+                LoadExport();
+            }
 
         }
 
