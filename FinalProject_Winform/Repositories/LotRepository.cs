@@ -519,6 +519,13 @@ namespace FinalProject_Winform.Repositories
 
             lot.Item = item11;
 
+            if (item6.Item_amount < lot.Lot_amount || item7.Item_amount < lot.Lot_amount ||
+                 item8.Item_amount < lot.Lot_amount || item9.Item_amount < lot.Lot_amount)
+            {
+                MessageBox.Show("가진 아이템의 수량이 라면포장에 필요한 아이템 수량보다 적습니다", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             item11.Item_amount += lot.Lot_amount;
             item6.Item_amount -= lot.Lot_amount;
             item7.Item_amount -= lot.Lot_amount;

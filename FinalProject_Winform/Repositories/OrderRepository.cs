@@ -11,10 +11,19 @@ namespace FinalProject_Winform.Repositories
             using FinalDbContext db = new();
             var order = await db.Orders
                 .Include(x=>x.Item)
-                .Where(i => i.Id == id)
-                
+                .Where(i => i.Id == id)  
                 .FirstAsync();
             return order.Order_count;
+        }
+
+        public async Task<string> GetStatusByIdAsync(long id)
+        {
+            using FinalDbContext db = new();
+            var order = await db.Orders
+                .Include(x => x.Item)
+                .Where(i => i.Id == id)
+                .FirstAsync();
+            return order.Order_status;
         }
 
         public async Task<Order> AddAsync

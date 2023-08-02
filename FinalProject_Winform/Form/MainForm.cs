@@ -26,22 +26,22 @@ namespace FinalProject_Winform
         {
             InitializeComponent();
 
-            // 시리얼 포트 생성
-            //serialPort = new();
-            //serialPort.BaudRate = 9600;
-            //serialPort.DataReceived += serialPort_DataReceived;
+            //시리얼 포트 생성
+           serialPort = new();
+            serialPort.BaudRate = 9600;
+            serialPort.DataReceived += serialPort_DataReceived;
 
-            //serialPort.ReadTimeout = 0;
-            //lotRepository = new LotRepository();
-            //lothistoryRepository = new LothistoryRepository();
-            //processRepository = new ProcessRepository();
+            serialPort.ReadTimeout = 0;
+            lotRepository = new LotRepository();
+            lothistoryRepository = new LothistoryRepository();
+            processRepository = new ProcessRepository();
 
             // MainForm이 로드될 때 수행할 작업
             string port = $"COM8";  // 이건종
             //string port = $"COM3";
             ////string port = $"COM4";
 
-            //serialPort.PortName = port;   //시리얼 포트 설정
+            serialPort.PortName = port;   //시리얼 포트 설정
 
             //// 시리얼 통신 시작
             //if (serialPort.IsOpen)

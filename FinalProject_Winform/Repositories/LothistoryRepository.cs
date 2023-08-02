@@ -36,7 +36,7 @@ namespace FinalProject_Winform.Repositories
             };
 
             await db.LotHistorys.AddAsync(lothistory);
-            await db.SaveChangesAsync();
+           await db.SaveChangesAsync();
             return lothistory;
         }
 
