@@ -32,11 +32,11 @@ namespace FinalProject_Winform.Repositories
                 ProcessId = processid,
                 LotHistory_Date = DateTime.Now,
                 LotHistory_status = status,
-                CheckId = checkid ?? 0, 
+                CheckId = checkid ?? 0,
             };
 
             await db.LotHistorys.AddAsync(lothistory);
-           await db.SaveChangesAsync();
+            await db.SaveChangesAsync();
             return lothistory;
         }
 

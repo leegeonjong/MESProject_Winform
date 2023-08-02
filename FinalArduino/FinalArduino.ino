@@ -28,9 +28,17 @@ MyStruct myArray[] = {
   { "", "", "", 0 }
 };
 
+String Process[] = { "Mix", "Shape", "Steam", "Fry", "Freeze", "Pack" };
 const int numProcesses = 6;  //공정 개수
-bool buttonState[numProcesses] = { false, false, false, false, false, false };
-bool prevButtonState[numProcesses] = { false, false, false, false, false, false };
+bool buttonState[numProcesses] = {
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+};                                                                                  //버튼의 상태
+bool prevButtonState[numProcesses] = { false, false, false, false, false, false };  //버튼의 이전 상태
 bool timerStarted[numProcesses] = { false, false, false, false, false, false };
 unsigned long startTime[numProcesses] = { 0, 0, 0, 0, 0, 0 };
 unsigned long timerDuration = 10000;     // 10 seconds
@@ -39,6 +47,8 @@ bool isTemperatureSensorCalled = false;  // TemperatureSensor 함수가 한 번 
 
 //공정이 실행중이였는지 판단
 bool processState = false;
+//Red led가 켜져있는지
+bool RedState = false;
 
 void setup() {
   Serial.begin(9600);  // Serial monitor 구동 전원입력
@@ -66,36 +76,54 @@ void loop() {
   // 버튼을 눌렀을 때
   for (int i = 0; i < numProcesses; i++) {
     buttonState[i] = digitalRead(ProcessSw[i]);
-
     // 버튼의 눌림 상태 변화를 감지하여 한 번만 실행
     if (buttonState[i] != prevButtonState[i]) {
       if (buttonState[i] == LOW && prevButtonState[i] == HIGH) {  // Falling Edge
-
-        if (timerStarted[i]) {
-          digitalWrite(LedRed[i], HIGH);
-          digitalWrite(LedGreen[i], LOW);
-          digitalWrite(LedYellow[i], LOW);
-          LEDstatus[i] = "R";
-
-          SendStop(myArray[i].process, myArray[i].lotid);
-          timerDuration = timerDuration - (millis() - startTime[i]);
-          timerStarted[i] = false;  // 타이머 상태 초기화
-        } else {
-          if (processState == true) {
-            digitalWrite(LedRed[i], LOW);
+        if (processState == false) {
+          //공정이 실행중이 아니였다면
+          if (RedState == false) {  // Falling Edge
+            digitalWrite(LedRed[i], HIGH);
             digitalWrite(LedGreen[i], LOW);
-            digitalWrite(LedYellow[i], HIGH);
-            LEDstatus[i] = "Y";
-            processState = false;
+            digitalWrite(LedYellow[i], LOW);
+            LEDstatus[i] = "R";
+            RedState = true;
+            SendStop(Process[i], String(i));
           } else {
             digitalWrite(LedRed[i], LOW);
             digitalWrite(LedGreen[i], HIGH);
             digitalWrite(LedYellow[i], LOW);
             LEDstatus[i] = "G";
+            RedState = false;
+            SendContinue(Process[i], String(i));
           }
-          SendContinue(myArray[i].process, myArray[i].lotid);
-          startTime[i] = millis();
-          timerStarted[i] = true;
+        } else {
+          //공정이 실행중이였다면
+          if (timerStarted[i] == true) {
+            digitalWrite(LedRed[i], HIGH);
+            digitalWrite(LedGreen[i], LOW);
+            digitalWrite(LedYellow[i], LOW);
+            LEDstatus[i] = "R";
+
+            SendStop(myArray[i].process, myArray[i].lotid);
+            timerDuration = timerDuration - (millis() - startTime[i]);
+            timerStarted[i] = false;  // 타이머 상태 초기화
+          } else {
+            if (processState == true) {
+              digitalWrite(LedRed[i], LOW);
+              digitalWrite(LedGreen[i], LOW);
+              digitalWrite(LedYellow[i], HIGH);
+              LEDstatus[i] = "Y";
+              processState = false;
+            } else {
+              digitalWrite(LedRed[i], LOW);
+              digitalWrite(LedGreen[i], HIGH);
+              digitalWrite(LedYellow[i], LOW);
+              LEDstatus[i] = "G";
+            }
+            SendContinue(myArray[i].process, myArray[i].lotid);
+            startTime[i] = millis();
+            timerStarted[i] = true;
+          }
         }
       }
       prevButtonState[i] = buttonState[i];

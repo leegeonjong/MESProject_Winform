@@ -116,11 +116,9 @@ namespace FinalProject_Winform
                 }
             }
         }
-
+        private bool isProcessOn = false;
         private void SetLabelBackColor(Panel panel, Label label, string status, string lotid)
         {
-
-
             if (panel.InvokeRequired)
             {
                 // 다른 스레드에서 호출한 경우, 메인 UI 스레드로 인보크하여 작업을 수행합니다.
@@ -128,19 +126,39 @@ namespace FinalProject_Winform
             }
             else
             {
+               
                 switch (status)
                 {
                     case "Start":
                         panel.BackColor = Color.Green;
                         label.Text = "상태 : 가동중 /" + " LOT번호 : " + lotid;
+                        isProcessOn = true;
+                        break;
+                    case "Data":
+                        panel.BackColor = Color.Green;
+                        label.Text = "상태 : 가동중 /" + " LOT번호 : " + lotid;
                         break;
                     case "End":
-                        panel.BackColor = Color.Red;
-                        label.Text = "상태 : 종료 / " + " LOT번호 : " + lotid;
+                        panel.BackColor = Color.Yellow;
+                        label.Text = "상태 : 대기중 / " + " LOT번호 : " + lotid;
+                        isProcessOn = false;
                         break;
                     case "Stop":
-                        panel.BackColor = Color.Yellow;
+                        panel.BackColor = Color.Red;
                         label.Text = "상태 : 정지 / " + " LOT번호 : " + lotid;
+                        break;
+                    case "Continue":
+                        if (isProcessOn == true)
+                        {
+                            panel.BackColor = Color.Green;
+                            label.Text = "상태 : 가동중 /" + " LOT번호 : " + lotid;
+                        }
+                        else
+                        {
+                            panel.BackColor = Color.Yellow;
+                            label.Text = "상태 : 대기중 / " + " LOT번호 : " + lotid;
+                            isProcessOn = false;
+                        }
                         break;
                     default:
                         panel.BackColor = SystemColors.Control;
@@ -277,6 +295,7 @@ namespace FinalProject_Winform
         private async void ProcessOn(string process, long lotpk)
         {
             long processid = processRepository.GetProcessId(process);
+            await processRepository.IsRunningAsync(false, process);
             await lothistoryRepository.AddLotAsync(lotpk, processid, $"{process}On");
             await lotRepository.Updateasync($"{process}On", lotpk);
         }
@@ -284,6 +303,7 @@ namespace FinalProject_Winform
         private async void ProcessOff(string process, long lotpk)
         {
             long processid = processRepository.GetProcessId(process);
+            await processRepository.IsRunningAsync(true,process);
             await lothistoryRepository.AddLotAsync(lotpk, processid, $"{process}Off");
             await lotRepository.Updateasync($"{process}Off", lotpk);
         }
