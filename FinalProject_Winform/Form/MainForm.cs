@@ -28,7 +28,7 @@ namespace FinalProject_Winform
             InitializeComponent();
 
             //시리얼 포트 생성
-           serialPort = new();
+            serialPort = new();
             serialPort.BaudRate = 9600;
             serialPort.DataReceived += serialPort_DataReceived;
 
@@ -178,7 +178,8 @@ namespace FinalProject_Winform
             if (recvData.Length == 0 || recvData[0] != '$') return;
 
             string[] arrMessage = recvData[1..].Split(",", StringSplitOptions.RemoveEmptyEntries);
-            if (arrMessage[2].IsNullOrEmpty()|| arrMessage[1].IsNullOrEmpty()) {
+            if (arrMessage[2].IsNullOrEmpty() || arrMessage[1].IsNullOrEmpty())
+            {
                 return;
             }
             long lotpk = long.Parse(arrMessage[2]);
@@ -208,7 +209,7 @@ namespace FinalProject_Winform
                     ProcessOn(arrMessage[1], lotpk);
                     break;
                 case "Data": //검사값 받았을때
-                     //공정 id 가져오기
+                             //공정 id 가져오기
                     long processid = processRepository.GetProcessId(arrMessage[1]);
                     //검사 기준값 가져오기 
                     long? checkValue = await processRepository.GetTestCheckValue(processid, data);

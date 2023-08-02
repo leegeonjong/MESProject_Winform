@@ -69,6 +69,12 @@
             listBox1 = new ListBox();
             label3 = new Label();
             label2 = new Label();
+            panel16 = new Panel();
+            panel17 = new Panel();
+            panel18 = new Panel();
+            panel19 = new Panel();
+            panel20 = new Panel();
+            panel21 = new Panel();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
@@ -78,6 +84,12 @@
             panel8.SuspendLayout();
             panel6.SuspendLayout();
             panel4.SuspendLayout();
+            panel16.SuspendLayout();
+            panel17.SuspendLayout();
+            panel18.SuspendLayout();
+            panel19.SuspendLayout();
+            panel20.SuspendLayout();
+            panel21.SuspendLayout();
             SuspendLayout();
             // 
             // panel2
@@ -207,6 +219,9 @@
             // panel3
             // 
             panel3.BackColor = Color.Gainsboro;
+            panel3.Controls.Add(panel20);
+            panel3.Controls.Add(panel18);
+            panel3.Controls.Add(panel17);
             panel3.Controls.Add(panel14);
             panel3.Controls.Add(panel12);
             panel3.Controls.Add(panel10);
@@ -222,10 +237,9 @@
             // panel14
             // 
             panel14.BackColor = Color.White;
-            panel14.Controls.Add(panel15);
+            panel14.Controls.Add(panel21);
             panel14.Controls.Add(PackStatus);
             panel14.Controls.Add(listBox6);
-            panel14.Controls.Add(label13);
             panel14.Location = new Point(790, 404);
             panel14.Name = "panel14";
             panel14.Size = new Size(282, 255);
@@ -233,7 +247,7 @@
             // 
             // panel15
             // 
-            panel15.Location = new Point(237, 14);
+            panel15.Location = new Point(237, 8);
             panel15.Name = "panel15";
             panel15.Size = new Size(25, 25);
             panel15.TabIndex = 8;
@@ -259,7 +273,7 @@
             // 
             label13.AutoSize = true;
             label13.Font = new Font("맑은 고딕", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label13.Location = new Point(16, 14);
+            label13.Location = new Point(16, 8);
             label13.Name = "label13";
             label13.Size = new Size(46, 21);
             label13.TabIndex = 0;
@@ -268,10 +282,8 @@
             // panel12
             // 
             panel12.BackColor = Color.White;
-            panel12.Controls.Add(panel13);
             panel12.Controls.Add(FreezeStatus);
             panel12.Controls.Add(listBox5);
-            panel12.Controls.Add(label11);
             panel12.Location = new Point(404, 404);
             panel12.Name = "panel12";
             panel12.Size = new Size(282, 255);
@@ -279,7 +291,7 @@
             // 
             // panel13
             // 
-            panel13.Location = new Point(237, 14);
+            panel13.Location = new Point(237, 8);
             panel13.Name = "panel13";
             panel13.Size = new Size(25, 25);
             panel13.TabIndex = 8;
@@ -305,7 +317,7 @@
             // 
             label11.AutoSize = true;
             label11.Font = new Font("맑은 고딕", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label11.Location = new Point(16, 14);
+            label11.Location = new Point(14, 9);
             label11.Name = "label11";
             label11.Size = new Size(59, 21);
             label11.TabIndex = 0;
@@ -314,10 +326,9 @@
             // panel10
             // 
             panel10.BackColor = Color.White;
-            panel10.Controls.Add(panel11);
+            panel10.Controls.Add(panel19);
             panel10.Controls.Add(FryStatus);
             panel10.Controls.Add(listBox4);
-            panel10.Controls.Add(label9);
             panel10.Location = new Point(23, 404);
             panel10.Name = "panel10";
             panel10.Size = new Size(282, 255);
@@ -325,7 +336,7 @@
             // 
             // panel11
             // 
-            panel11.Location = new Point(237, 14);
+            panel11.Location = new Point(237, 9);
             panel11.Name = "panel11";
             panel11.Size = new Size(25, 25);
             panel11.TabIndex = 8;
@@ -351,7 +362,7 @@
             // 
             label9.AutoSize = true;
             label9.Font = new Font("맑은 고딕", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label9.Location = new Point(16, 14);
+            label9.Location = new Point(15, 9);
             label9.Name = "label9";
             label9.Size = new Size(33, 21);
             label9.TabIndex = 0;
@@ -360,10 +371,8 @@
             // panel8
             // 
             panel8.BackColor = Color.White;
-            panel8.Controls.Add(panel9);
             panel8.Controls.Add(SteamStatus);
             panel8.Controls.Add(listBox3);
-            panel8.Controls.Add(label7);
             panel8.Location = new Point(790, 88);
             panel8.Name = "panel8";
             panel8.Size = new Size(282, 255);
@@ -371,7 +380,7 @@
             // 
             // panel9
             // 
-            panel9.Location = new Point(237, 14);
+            panel9.Location = new Point(237, 9);
             panel9.Name = "panel9";
             panel9.Size = new Size(25, 25);
             panel9.TabIndex = 8;
@@ -397,7 +406,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("맑은 고딕", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label7.Location = new Point(16, 14);
+            label7.Location = new Point(16, 9);
             label7.Name = "label7";
             label7.Size = new Size(58, 21);
             label7.TabIndex = 0;
@@ -406,10 +415,8 @@
             // panel6
             // 
             panel6.BackColor = Color.White;
-            panel6.Controls.Add(panel7);
             panel6.Controls.Add(ShapeStatus);
             panel6.Controls.Add(listBox2);
-            panel6.Controls.Add(label5);
             panel6.Location = new Point(404, 88);
             panel6.Name = "panel6";
             panel6.Size = new Size(282, 255);
@@ -417,7 +424,7 @@
             // 
             // panel7
             // 
-            panel7.Location = new Point(237, 14);
+            panel7.Location = new Point(237, 6);
             panel7.Name = "panel7";
             panel7.Size = new Size(25, 25);
             panel7.TabIndex = 8;
@@ -443,7 +450,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("맑은 고딕", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.Location = new Point(16, 14);
+            label5.Location = new Point(16, 10);
             label5.Name = "label5";
             label5.Size = new Size(57, 21);
             label5.TabIndex = 0;
@@ -452,10 +459,9 @@
             // panel4
             // 
             panel4.BackColor = Color.White;
-            panel4.Controls.Add(panel5);
+            panel4.Controls.Add(panel16);
             panel4.Controls.Add(MixStatus);
             panel4.Controls.Add(listBox1);
-            panel4.Controls.Add(label3);
             panel4.Location = new Point(23, 88);
             panel4.Name = "panel4";
             panel4.Size = new Size(282, 255);
@@ -463,7 +469,7 @@
             // 
             // panel5
             // 
-            panel5.Location = new Point(237, 14);
+            panel5.Location = new Point(237, 6);
             panel5.Name = "panel5";
             panel5.Size = new Size(25, 25);
             panel5.TabIndex = 8;
@@ -489,7 +495,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("맑은 고딕", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(16, 14);
+            label3.Location = new Point(11, 10);
             label3.Name = "label3";
             label3.Size = new Size(38, 21);
             label3.TabIndex = 0;
@@ -504,6 +510,66 @@
             label2.Size = new Size(399, 50);
             label2.TabIndex = 1;
             label2.Text = "아두이노 <-> PC 통신";
+            // 
+            // panel16
+            // 
+            panel16.BackColor = Color.FromArgb(52, 152, 219);
+            panel16.Controls.Add(panel5);
+            panel16.Controls.Add(label3);
+            panel16.Location = new Point(0, 0);
+            panel16.Name = "panel16";
+            panel16.Size = new Size(282, 39);
+            panel16.TabIndex = 10;
+            // 
+            // panel17
+            // 
+            panel17.BackColor = Color.FromArgb(52, 152, 219);
+            panel17.Controls.Add(panel7);
+            panel17.Controls.Add(label5);
+            panel17.Location = new Point(404, 88);
+            panel17.Name = "panel17";
+            panel17.Size = new Size(282, 39);
+            panel17.TabIndex = 11;
+            // 
+            // panel18
+            // 
+            panel18.BackColor = Color.FromArgb(52, 152, 219);
+            panel18.Controls.Add(label7);
+            panel18.Controls.Add(panel9);
+            panel18.Location = new Point(790, 88);
+            panel18.Name = "panel18";
+            panel18.Size = new Size(282, 39);
+            panel18.TabIndex = 12;
+            // 
+            // panel19
+            // 
+            panel19.BackColor = Color.FromArgb(52, 152, 219);
+            panel19.Controls.Add(label9);
+            panel19.Controls.Add(panel11);
+            panel19.Location = new Point(0, 0);
+            panel19.Name = "panel19";
+            panel19.Size = new Size(282, 39);
+            panel19.TabIndex = 12;
+            // 
+            // panel20
+            // 
+            panel20.BackColor = Color.FromArgb(52, 152, 219);
+            panel20.Controls.Add(panel13);
+            panel20.Controls.Add(label11);
+            panel20.Location = new Point(404, 404);
+            panel20.Name = "panel20";
+            panel20.Size = new Size(282, 39);
+            panel20.TabIndex = 13;
+            // 
+            // panel21
+            // 
+            panel21.BackColor = Color.FromArgb(52, 152, 219);
+            panel21.Controls.Add(label13);
+            panel21.Controls.Add(panel15);
+            panel21.Location = new Point(0, 0);
+            panel21.Name = "panel21";
+            panel21.Size = new Size(282, 39);
+            panel21.TabIndex = 14;
             // 
             // MainForm
             // 
@@ -534,6 +600,18 @@
             panel6.PerformLayout();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
+            panel16.ResumeLayout(false);
+            panel16.PerformLayout();
+            panel17.ResumeLayout(false);
+            panel17.PerformLayout();
+            panel18.ResumeLayout(false);
+            panel18.PerformLayout();
+            panel19.ResumeLayout(false);
+            panel19.PerformLayout();
+            panel20.ResumeLayout(false);
+            panel20.PerformLayout();
+            panel21.ResumeLayout(false);
+            panel21.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -580,5 +658,11 @@
         private Panel panel5;
         private Label MixStatus;
         private ListBox listBox1;
+        private Panel panel20;
+        private Panel panel18;
+        private Panel panel17;
+        private Panel panel21;
+        private Panel panel19;
+        private Panel panel16;
     }
 }
