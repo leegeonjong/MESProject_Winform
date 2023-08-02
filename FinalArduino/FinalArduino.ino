@@ -37,6 +37,9 @@ unsigned long timerDuration = 10000;     // 10 seconds
 bool isWaterSenserCalled = false;        // WaterSenser 함수가 한 번 호출되었는지 여부를 저장하는 변수
 bool isTemperatureSensorCalled = false;  // TemperatureSensor 함수가 한 번 호출되었는지 여부를 저장하는 변수
 
+//공정이 실행중이였는지 판단
+bool processState = false;
+
 void setup() {
   Serial.begin(9600);  // Serial monitor 구동 전원입력
   pinMode(WaterSensor, INPUT);
@@ -78,10 +81,18 @@ void loop() {
           timerDuration = timerDuration - (millis() - startTime[i]);
           timerStarted[i] = false;  // 타이머 상태 초기화
         } else {
-          digitalWrite(LedRed[i], LOW);
-          digitalWrite(LedGreen[i], LOW);
-          digitalWrite(LedYellow[i], HIGH);
-          LEDstatus[i] = "Y";
+          if (processState == true) {
+            digitalWrite(LedRed[i], LOW);
+            digitalWrite(LedGreen[i], LOW);
+            digitalWrite(LedYellow[i], HIGH);
+            LEDstatus[i] = "Y";
+            processState = false;
+          } else {
+            digitalWrite(LedRed[i], LOW);
+            digitalWrite(LedGreen[i], HIGH);
+            digitalWrite(LedYellow[i], LOW);
+            LEDstatus[i] = "G";
+          }
           SendContinue(myArray[i].process, myArray[i].lotid);
           startTime[i] = millis();
           timerStarted[i] = true;

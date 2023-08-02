@@ -123,8 +123,11 @@ namespace FinalProject_Winform
                 return;
             }
 
-            // combo_process에서 선택한 값 가져오기
-            string selectedProcessName = cmbProcess1.SelectedItem.ToString();
+            // combo_process에서 선택한 값 가져오
+            //---------------일단 돌아는감
+            string selectedProcessName = cmbProcess1.SelectedItem?.ToString();
+
+            //---------------
             string selectedTestName = cmbTest.SelectedItem.ToString();
 
             // 사용자가 입력한 값 가져오기

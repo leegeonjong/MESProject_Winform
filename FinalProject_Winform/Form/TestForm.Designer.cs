@@ -44,7 +44,6 @@
             textBox3 = new TextBox();
             cmbProcess2 = new ComboBox();
             cmbProcess3 = new ComboBox();
-            SetThreshold = new Button();
             label2 = new Label();
             label3 = new Label();
             txtHiding = new TextBox();
@@ -52,8 +51,11 @@
             txtSetTolerance = new TextBox();
             label5 = new Label();
             txtNowTolerance = new TextBox();
+            button4 = new Button();
+            panel3 = new Panel();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
+            panel3.SuspendLayout();
             SuspendLayout();
             // 
             // panel2
@@ -182,165 +184,198 @@
             // 
             // cmbTest
             // 
+            cmbTest.Font = new Font("맑은 고딕", 18F, FontStyle.Regular, GraphicsUnit.Point);
             cmbTest.FormattingEnabled = true;
             cmbTest.Items.AddRange(new object[] { "수량 검사", "온도 검사", "용량 검사" });
-            cmbTest.Location = new Point(232, 187);
+            cmbTest.Location = new Point(58, 80);
             cmbTest.Name = "cmbTest";
-            cmbTest.Size = new Size(224, 23);
+            cmbTest.Size = new Size(267, 40);
             cmbTest.TabIndex = 6;
             cmbTest.Text = "검사 선택";
             cmbTest.SelectedIndexChanged += cmbTest_SelectedIndexChanged;
             // 
             // cmbProcess1
             // 
+            cmbProcess1.Font = new Font("맑은 고딕", 18F, FontStyle.Regular, GraphicsUnit.Point);
             cmbProcess1.FormattingEnabled = true;
             cmbProcess1.Items.AddRange(new object[] { "Mix", "Pack" });
-            cmbProcess1.Location = new Point(541, 187);
+            cmbProcess1.Location = new Point(364, 81);
             cmbProcess1.Name = "cmbProcess1";
-            cmbProcess1.Size = new Size(121, 23);
+            cmbProcess1.Size = new Size(240, 40);
             cmbProcess1.TabIndex = 7;
             cmbProcess1.Text = "공정 선택";
             cmbProcess1.SelectedIndexChanged += cmbProcess1_SelectedIndexChanged;
             // 
             // txtNowValue
             // 
-            txtNowValue.Location = new Point(280, 279);
+            txtNowValue.Font = new Font("맑은 고딕", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            txtNowValue.Location = new Point(337, 169);
             txtNowValue.Name = "txtNowValue";
             txtNowValue.ReadOnly = true;
-            txtNowValue.Size = new Size(382, 23);
+            txtNowValue.Size = new Size(267, 39);
             txtNowValue.TabIndex = 8;
             // 
             // txtSetValue
             // 
-            txtSetValue.Location = new Point(280, 372);
+            txtSetValue.BackColor = SystemColors.Control;
+            txtSetValue.Font = new Font("맑은 고딕", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            txtSetValue.Location = new Point(337, 304);
             txtSetValue.Name = "txtSetValue";
-            txtSetValue.Size = new Size(382, 23);
+            txtSetValue.Size = new Size(267, 39);
             txtSetValue.TabIndex = 9;
             // 
             // textBox3
             // 
-            textBox3.Font = new Font("맑은 고딕", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox3.Location = new Point(232, 104);
+            textBox3.Font = new Font("맑은 고딕", 24F, FontStyle.Regular, GraphicsUnit.Point);
+            textBox3.Location = new Point(58, 15);
             textBox3.Name = "textBox3";
             textBox3.ReadOnly = true;
-            textBox3.Size = new Size(430, 39);
+            textBox3.Size = new Size(267, 50);
             textBox3.TabIndex = 10;
             textBox3.Text = "검사 기준값 설정";
             // 
             // cmbProcess2
             // 
+            cmbProcess2.Font = new Font("맑은 고딕", 18F, FontStyle.Regular, GraphicsUnit.Point);
             cmbProcess2.FormattingEnabled = true;
             cmbProcess2.Items.AddRange(new object[] { "Steam" });
-            cmbProcess2.Location = new Point(541, 187);
+            cmbProcess2.Location = new Point(364, 81);
             cmbProcess2.Name = "cmbProcess2";
-            cmbProcess2.Size = new Size(121, 23);
+            cmbProcess2.Size = new Size(240, 40);
             cmbProcess2.TabIndex = 11;
             cmbProcess2.Text = "공정 선택";
             cmbProcess2.SelectedIndexChanged += cmbProcess2_SelectedIndexChanged;
             // 
             // cmbProcess3
             // 
+            cmbProcess3.Font = new Font("맑은 고딕", 18F, FontStyle.Regular, GraphicsUnit.Point);
             cmbProcess3.FormattingEnabled = true;
             cmbProcess3.Items.AddRange(new object[] { "Fry" });
-            cmbProcess3.Location = new Point(541, 187);
+            cmbProcess3.Location = new Point(364, 81);
             cmbProcess3.Name = "cmbProcess3";
-            cmbProcess3.Size = new Size(121, 23);
+            cmbProcess3.Size = new Size(240, 40);
             cmbProcess3.TabIndex = 12;
             cmbProcess3.Text = "공정 선택";
             cmbProcess3.SelectedIndexChanged += cmbProcess3_SelectedIndexChanged;
             // 
-            // SetThreshold
-            // 
-            SetThreshold.Location = new Point(587, 461);
-            SetThreshold.Name = "SetThreshold";
-            SetThreshold.Size = new Size(75, 23);
-            SetThreshold.TabIndex = 13;
-            SetThreshold.Text = "설정완료";
-            SetThreshold.UseVisualStyleBackColor = true;
-            SetThreshold.Click += SetThreshold_Click;
-            // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(187, 287);
+            label2.BackColor = Color.LightGray;
+            label2.Font = new Font("맑은 고딕", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Location = new Point(104, 172);
             label2.Name = "label2";
-            label2.Size = new Size(71, 15);
+            label2.Size = new Size(142, 32);
             label2.TabIndex = 14;
             label2.Text = "현재 기준값";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(187, 380);
+            label3.BackColor = Color.LightGray;
+            label3.Font = new Font("맑은 고딕", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Location = new Point(104, 304);
             label3.Name = "label3";
-            label3.Size = new Size(71, 15);
+            label3.Size = new Size(142, 32);
             label3.TabIndex = 15;
             label3.Text = "기준값 입력";
             // 
             // txtHiding
             // 
-            txtHiding.Location = new Point(541, 187);
+            txtHiding.Font = new Font("맑은 고딕", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            txtHiding.Location = new Point(364, 81);
             txtHiding.Name = "txtHiding";
             txtHiding.ReadOnly = true;
-            txtHiding.Size = new Size(121, 23);
+            txtHiding.Size = new Size(240, 39);
             txtHiding.TabIndex = 16;
             txtHiding.Text = "검사를 선택해 주세요";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(187, 435);
+            label4.BackColor = Color.LightGray;
+            label4.Font = new Font("맑은 고딕", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.Location = new Point(80, 369);
             label4.Name = "label4";
-            label4.Size = new Size(83, 15);
+            label4.Size = new Size(166, 32);
             label4.TabIndex = 17;
             label4.Text = "허용범위 입력";
             // 
             // txtSetTolerance
             // 
-            txtSetTolerance.Location = new Point(280, 427);
+            txtSetTolerance.BackColor = SystemColors.Control;
+            txtSetTolerance.Font = new Font("맑은 고딕", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            txtSetTolerance.Location = new Point(337, 366);
             txtSetTolerance.Name = "txtSetTolerance";
-            txtSetTolerance.Size = new Size(382, 23);
+            txtSetTolerance.Size = new Size(267, 39);
             txtSetTolerance.TabIndex = 18;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(187, 334);
+            label5.BackColor = Color.LightGray;
+            label5.Font = new Font("맑은 고딕", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.Location = new Point(80, 230);
             label5.Name = "label5";
-            label5.Size = new Size(83, 15);
+            label5.Size = new Size(166, 32);
             label5.TabIndex = 20;
             label5.Text = "현재 허용범위";
             // 
             // txtNowTolerance
             // 
-            txtNowTolerance.Location = new Point(280, 331);
+            txtNowTolerance.Font = new Font("맑은 고딕", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            txtNowTolerance.Location = new Point(337, 227);
             txtNowTolerance.Name = "txtNowTolerance";
             txtNowTolerance.ReadOnly = true;
-            txtNowTolerance.Size = new Size(382, 23);
+            txtNowTolerance.Size = new Size(267, 39);
             txtNowTolerance.TabIndex = 19;
+            // 
+            // button4
+            // 
+            button4.BackColor = Color.FromArgb(52, 152, 219);
+            button4.FlatAppearance.BorderColor = Color.White;
+            button4.FlatStyle = FlatStyle.Flat;
+            button4.Font = new Font("맑은 고딕", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            button4.Location = new Point(420, 456);
+            button4.Name = "button4";
+            button4.Size = new Size(184, 46);
+            button4.TabIndex = 21;
+            button4.Text = "설정 완료";
+            button4.UseVisualStyleBackColor = false;
+            button4.Click += SetThreshold_Click;
+            // 
+            // panel3
+            // 
+            panel3.BackColor = Color.Gainsboro;
+            panel3.Controls.Add(label3);
+            panel3.Controls.Add(label5);
+            panel3.Controls.Add(button4);
+            panel3.Controls.Add(label4);
+            panel3.Controls.Add(txtNowTolerance);
+            panel3.Controls.Add(textBox3);
+            panel3.Controls.Add(txtNowValue);
+            panel3.Controls.Add(txtSetTolerance);
+            panel3.Controls.Add(cmbTest);
+            panel3.Controls.Add(txtHiding);
+            panel3.Controls.Add(cmbProcess3);
+            panel3.Controls.Add(txtSetValue);
+            panel3.Controls.Add(cmbProcess2);
+            panel3.Controls.Add(label2);
+            panel3.Controls.Add(cmbProcess1);
+            panel3.Location = new Point(174, 104);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(1074, 635);
+            panel3.TabIndex = 22;
             // 
             // TestForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             ClientSize = new Size(1260, 761);
-            Controls.Add(label5);
-            Controls.Add(txtNowTolerance);
-            Controls.Add(txtSetTolerance);
-            Controls.Add(label4);
-            Controls.Add(txtHiding);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(SetThreshold);
-            Controls.Add(cmbProcess3);
-            Controls.Add(cmbProcess2);
-            Controls.Add(textBox3);
-            Controls.Add(txtSetValue);
-            Controls.Add(txtNowValue);
-            Controls.Add(cmbProcess1);
-            Controls.Add(cmbTest);
             Controls.Add(panel2);
             Controls.Add(panel1);
+            Controls.Add(panel3);
             Name = "TestForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "TestForm";
@@ -349,8 +384,9 @@
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel1.ResumeLayout(false);
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -371,7 +407,6 @@
         private TextBox textBox3;
         private ComboBox cmbProcess2;
         private ComboBox cmbProcess3;
-        private Button SetThreshold;
         private Label label2;
         private Label label3;
         private TextBox txtHiding;
@@ -379,5 +414,7 @@
         private TextBox txtSetTolerance;
         private Label label5;
         private TextBox txtNowTolerance;
+        private Button button4;
+        private Panel panel3;
     }
 }

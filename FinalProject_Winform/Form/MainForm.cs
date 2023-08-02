@@ -1,5 +1,6 @@
 ﻿using FinalProject_Winform.Models.domain;
 using FinalProject_Winform.Repositories;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -36,24 +37,24 @@ namespace FinalProject_Winform
             lothistoryRepository = new LothistoryRepository();
             processRepository = new ProcessRepository();
 
-            // MainForm이 로드될 때 수행할 작업
+            //MainForm이 로드될 때 수행할 작업
             string port = $"COM8";  // 이건종
             //string port = $"COM3";
-            ////string port = $"COM4";
+            //string port = $"COM4";
 
             serialPort.PortName = port;   //시리얼 포트 설정
 
-            //// 시리얼 통신 시작
-            //if (serialPort.IsOpen)
-            //{
-            //    // 이미 COM 포트 오픈 되어 있으면. 아무것도 안함.
-            //    MessageBox.Show($"이미 {port}는 열려 있습니다");
-            //}
-            //else
-            //{
-            //    // 연결이 안되어 있으면 연결한다.
-            //    serialPort.Open();
-            //}
+            // 시리얼 통신 시작
+            if (serialPort.IsOpen)
+            {
+                // 이미 COM 포트 오픈 되어 있으면. 아무것도 안함.
+                MessageBox.Show($"이미 {port}는 열려 있습니다");
+            }
+            else
+            {
+                // 연결이 안되어 있으면 연결한다.
+                serialPort.Open();
+            }
         }
         public SerialPort serialPort;
         private void serialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
@@ -177,6 +178,9 @@ namespace FinalProject_Winform
             if (recvData.Length == 0 || recvData[0] != '$') return;
 
             string[] arrMessage = recvData[1..].Split(",", StringSplitOptions.RemoveEmptyEntries);
+            if (arrMessage[2].IsNullOrEmpty()|| arrMessage[1].IsNullOrEmpty()) {
+                return;
+            }
             long lotpk = long.Parse(arrMessage[2]);
             long data = 0;
 
@@ -204,7 +208,9 @@ namespace FinalProject_Winform
                     ProcessOn(arrMessage[1], lotpk);
                     break;
                 case "Data": //검사값 받았을때
+                     //공정 id 가져오기
                     long processid = processRepository.GetProcessId(arrMessage[1]);
+                    //검사 기준값 가져오기 
                     long? checkValue = await processRepository.GetTestCheckValue(processid, data);
                     await ProcessTest(lotpk, data, processid, checkValue); //lotpk에는 검사값이 들어감
                     break;
@@ -218,10 +224,9 @@ namespace FinalProject_Winform
             {
                 return;
             }
-            //공정 id 가져오기
 
 
-            //검사 기준값 가져오기 
+
 
             //만약 검사 기준값이 설정 되어있지 않으면 기준값은 0
             if (!checkValue.HasValue)

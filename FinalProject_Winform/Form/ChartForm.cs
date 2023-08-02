@@ -2,6 +2,7 @@
 using FinalProject_Winform.Models.domain;
 using FinalProject_Winform.Repositories;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -55,12 +56,7 @@ namespace FinalProject_Winform
             chartStock3.ChartAreas["ChartArea1"].AxisY.Title = "수량";
             chartStock3.Series["Series1"].LegendText = "수량";
 
-            TestChart.Titles.Add("검사 결과");
-            TestChart.ChartAreas["ChartArea1"].AxisX.Title = "Lot Id";
-            TestChart.ChartAreas["ChartArea1"].AxisY.Title = "결과값";
-            TestChart.Series["Series1"].LegendText = "결과";
 
-            TestChart.ChartAreas[0].BackColor = Color.Transparent;
 
             dtp = dateTimePicker1;
 
@@ -77,24 +73,34 @@ namespace FinalProject_Winform
                     ChartView2();
                     break;
                 case 2:
-                    TestChart.Visible = false;
                     break;
             }
         }
 
         private async void ChartView3()
         {
-            TestChart.Visible = true;
-            //사용자가 선택한 검사를 가져오기
-            //검사 결과를 데이터 그리드뷰로 가져오는건가?
-            //차트로도 가져오는건가?
-            //둘다 가져오나?
-
+            InitializeChart();
             //사용자가 선택한 콤보박스 검사값 가져오기
             string selectedTestName = cmbTestName.Text.ToString();
 
             //사용자가 선택한 검사를 지나간 LOT ID 가져오기
             using FinalDbContext db = new FinalDbContext();
+
+            //검사 기준값 가져오기
+            var checkValue = db.Checks
+           .Where(x => x.Check_item == selectedTestName)
+           .Select(x => x.Check_value)
+           .FirstOrDefault();
+
+            //검사 오차 가져오기
+            var checkTolerance = db.Checks
+           .Where(x => x.Check_item == selectedTestName)
+           .Select(x => x.Check_Tolerance)
+           .FirstOrDefault();
+
+            double limit = (double)checkValue * (double)checkTolerance / 100;
+            var Upper_limit = checkValue + limit;
+            var Lower_limit = checkValue - limit;
 
             //사용자가 선택한 공정에서 CheckResult 값 가져오기
             var lotList = await db.LotHistorys
@@ -108,30 +114,27 @@ namespace FinalProject_Winform
             .Take(10)
             .ToList();
 
-
-            // X축 설정
-            TestChart.ChartAreas.Add(new ChartArea("ChartArea"));
-            TestChart.Series.Add(new Series("LotIdSeries"));
-            TestChart.Series["LotIdSeries"].ChartArea = "ChartArea";
-
-            // Y축 설정
-            TestChart.ChartAreas["ChartArea"].AxisY.Title = "CheckResult";
-            TestChart.Series["LotIdSeries"].YAxisType = AxisType.Primary;
-
-            // 차트 유형을 포인트로 설정
-            TestChart.Series["LotIdSeries"].ChartType = SeriesChartType.Point;
-
             // 데이터 바인딩
             foreach (var item in result)
             {
-                TestChart.Series["LotIdSeries"].Points.AddXY(item.LotId, item.CheckResult);
+                TestChart.Series["LotID"].Points.AddXY(item.LotId, item.CheckResult);
+                TestChart.Series["기준값"].Points.AddXY(item.LotId, checkValue);
+                TestChart.Series["상한허용값"].Points.AddXY(item.LotId, Upper_limit);
+                TestChart.Series["하한허용값"].Points.AddXY(item.LotId, Lower_limit);
             }
 
-            //데이터그리드뷰에 보여주기?
+            // 점 크기 설정
+            TestChart.Series["LotID"].MarkerSize = 10;
 
-            //검사 오차율 구하기/ 불량 구하기
+            // 라인 두께 설정
+            TestChart.Series["기준값"].BorderWidth = 2; // 기준값 라인 두께 
+            TestChart.Series["상한허용값"].BorderWidth = 2; // 상한 허용 범위 라인 두께 
+            TestChart.Series["하한허용값"].BorderWidth = 2; // 하한 허용 범위 라인 두께 
 
-            //차트로 표시하기 
+            //색상 설정
+            TestChart.Series["기준값"].Color = Color.Red; // 기준값 라인 색상
+            TestChart.Series["상한허용값"].Color = Color.Orange;
+            TestChart.Series["하한허용값"].Color = Color.Orange;
         }
 
         private async void ChartView2()
@@ -223,5 +226,42 @@ namespace FinalProject_Winform
         {
             ChartView3();
         }
+        private void InitializeChart()
+        {
+            TestChart.Series.Clear();
+            TestChart.ChartAreas.Clear();
+
+            // Add ChartArea and configure it
+            ChartArea chartArea = new ChartArea("ChartArea");
+            TestChart.ChartAreas.Add(chartArea);
+
+            // Other chart settings and configurations
+            // ...
+
+            // Add Series for the chart
+            TestChart.Series.Add(new Series("LotID"));
+            TestChart.Series["LotID"].ChartArea = "ChartArea";
+            TestChart.Series["LotID"].ChartType = SeriesChartType.Point;
+            TestChart.Series["LotID"].MarkerSize = 10;
+
+            TestChart.Series.Add(new Series("기준값"));
+            TestChart.Series["기준값"].ChartArea = "ChartArea";
+            TestChart.Series["기준값"].ChartType = SeriesChartType.Line;
+            TestChart.Series["기준값"].BorderWidth = 2;
+            TestChart.Series["기준값"].Color = Color.Red;
+
+            TestChart.Series.Add(new Series("상한허용값"));
+            TestChart.Series["상한허용값"].ChartArea = "ChartArea";
+            TestChart.Series["상한허용값"].ChartType = SeriesChartType.Line;
+            TestChart.Series["상한허용값"].BorderWidth = 2;
+            TestChart.Series["상한허용값"].Color = Color.Orange;
+
+            TestChart.Series.Add(new Series("하한허용값"));
+            TestChart.Series["하한허용값"].ChartArea = "ChartArea";
+            TestChart.Series["하한허용값"].ChartType = SeriesChartType.Line;
+            TestChart.Series["하한허용값"].BorderWidth = 2;
+            TestChart.Series["하한허용값"].Color = Color.Orange;
+        }
+
     }
 }
