@@ -23,6 +23,9 @@ namespace FinalProject_Winform.Repositories
 
             if (item.Item_amount < amount)
             {
+                //바코드로 lotpk 찾아서 lot_status 값 변경하기
+                long lotpk = FindLotPkByBarcode(barcode);
+                UpdateLotbreak(lotpk, false);
                 MessageBox.Show("가진 아이템의 수량이 LOT 생성에 필요한 아이템 수량보다 적습니다", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
@@ -132,7 +135,7 @@ namespace FinalProject_Winform.Repositories
             return lot.Lot_barcode;
         }
 
-        public async Task UpdateLotbreak(long lotpk , bool pass)
+        public async Task UpdateLotbreak(long lotpk, bool pass)
         {
             using FinalDbContext db = new();
             var lot = db.Lots.FirstOrDefault(l => l.Id == lotpk);
@@ -211,7 +214,7 @@ namespace FinalProject_Winform.Repositories
             }
         }
 
-     
+
 
         private async Task UpdateLotItem1Async(FinalDbContext db, Lot lot)
         {
@@ -618,7 +621,7 @@ namespace FinalProject_Winform.Repositories
 
             if (lastStock2 != null)
             {
-                stock2.Stock_regAmount = lastStock2.Stock_regAmount -lot.Lot_amount;
+                stock2.Stock_regAmount = lastStock2.Stock_regAmount - lot.Lot_amount;
             }
 
             else
@@ -628,7 +631,7 @@ namespace FinalProject_Winform.Repositories
 
             if (lastStock3 != null)
             {
-                stock3.Stock_regAmount = lastStock3.Stock_regAmount -lot.Lot_amount;
+                stock3.Stock_regAmount = lastStock3.Stock_regAmount - lot.Lot_amount;
             }
 
             else
@@ -676,7 +679,7 @@ namespace FinalProject_Winform.Repositories
         {
             using FinalDbContext db = new();
             var lot = db.Lots.FirstOrDefault(l => l.Lot_barcode == lotBarcode);
-            bool lot_break = lot.Lot_break; 
+            bool lot_break = lot.Lot_break;
             return lot_break;
         }
     }

@@ -53,6 +53,7 @@
             txtNowTolerance = new TextBox();
             button4 = new Button();
             panel3 = new Panel();
+            textBox1 = new TextBox();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
@@ -198,7 +199,7 @@
             // 
             cmbProcess1.Font = new Font("맑은 고딕", 18F, FontStyle.Regular, GraphicsUnit.Point);
             cmbProcess1.FormattingEnabled = true;
-            cmbProcess1.Items.AddRange(new object[] { "Mix", "Pack" });
+            cmbProcess1.Items.AddRange(new object[] { "Mix" });
             cmbProcess1.Location = new Point(364, 81);
             cmbProcess1.Name = "cmbProcess1";
             cmbProcess1.Size = new Size(240, 40);
@@ -239,7 +240,7 @@
             cmbProcess2.Font = new Font("맑은 고딕", 18F, FontStyle.Regular, GraphicsUnit.Point);
             cmbProcess2.FormattingEnabled = true;
             cmbProcess2.Items.AddRange(new object[] { "Steam" });
-            cmbProcess2.Location = new Point(364, 81);
+            cmbProcess2.Location = new Point(364, 83);
             cmbProcess2.Name = "cmbProcess2";
             cmbProcess2.Size = new Size(240, 40);
             cmbProcess2.TabIndex = 11;
@@ -251,7 +252,7 @@
             cmbProcess3.Font = new Font("맑은 고딕", 18F, FontStyle.Regular, GraphicsUnit.Point);
             cmbProcess3.FormattingEnabled = true;
             cmbProcess3.Items.AddRange(new object[] { "Fry" });
-            cmbProcess3.Location = new Point(364, 81);
+            cmbProcess3.Location = new Point(364, 83);
             cmbProcess3.Name = "cmbProcess3";
             cmbProcess3.Size = new Size(240, 40);
             cmbProcess3.TabIndex = 12;
@@ -283,12 +284,12 @@
             // txtHiding
             // 
             txtHiding.Font = new Font("맑은 고딕", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            txtHiding.Location = new Point(364, 81);
+            txtHiding.Location = new Point(364, 82);
             txtHiding.Name = "txtHiding";
             txtHiding.ReadOnly = true;
             txtHiding.Size = new Size(240, 39);
             txtHiding.TabIndex = 16;
-            txtHiding.Text = "검사를 선택해 주세요";
+            txtHiding.Text = "공정을 선택해 주세요";
             // 
             // label4
             // 
@@ -347,6 +348,7 @@
             // panel3
             // 
             panel3.BackColor = Color.Gainsboro;
+            panel3.Controls.Add(textBox1);
             panel3.Controls.Add(label3);
             panel3.Controls.Add(label5);
             panel3.Controls.Add(button4);
@@ -366,6 +368,16 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(1074, 635);
             panel3.TabIndex = 22;
+            // 
+            // textBox1
+            // 
+            textBox1.Font = new Font("맑은 고딕", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            textBox1.Location = new Point(364, 38);
+            textBox1.Name = "textBox1";
+            textBox1.ReadOnly = true;
+            textBox1.Size = new Size(240, 39);
+            textBox1.TabIndex = 22;
+            textBox1.Text = "공정을 선택해 주세요";
             // 
             // TestForm
             // 
@@ -416,5 +428,6 @@
         private TextBox txtNowTolerance;
         private Button button4;
         private Panel panel3;
+        private TextBox textBox1;
     }
 }

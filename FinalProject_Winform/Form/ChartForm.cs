@@ -49,17 +49,6 @@ namespace FinalProject_Winform
             chartStock2.ChartAreas["ChartArea1"].AxisX.Title = "물품명";
             chartStock2.ChartAreas["ChartArea1"].AxisY.Title = "수량";
             chartStock2.Series["Series1"].LegendText = "수량";
-
-            chartStock3 = exportchart;
-            chartStock3.Titles.Add("출고 수량");
-            chartStock3.ChartAreas["ChartArea1"].AxisX.Title = "날짜";
-            chartStock3.ChartAreas["ChartArea1"].AxisY.Title = "수량";
-            chartStock3.Series["Series1"].LegendText = "수량";
-
-
-
-            dtp = dateTimePicker1;
-
             ChartView1();
         }
         private void tabControl1_Selected(object sender, TabControlEventArgs e)
@@ -68,11 +57,6 @@ namespace FinalProject_Winform
             {
                 case 0:
                     ChartView1();
-                    break;
-                case 1:
-                    ChartView2();
-                    break;
-                case 2:
                     break;
             }
         }
@@ -137,30 +121,6 @@ namespace FinalProject_Winform
             TestChart.Series["하한허용값"].Color = Color.Orange;
         }
 
-        private async void ChartView2()
-        {
-            // 6개만 가져와서 표시한다
-            // 오늘날짜 - 6일치 가져와서 표시 (db에 데이터 주입)
-            // amount를 가져오는데 한개만 가져오는건가? 다 가져와서 날짜에따라 다 더하는건가?
-            // 검색 기능 구현
-            // order에서 senddate 업데이트
-            // lot 이력조회 lothistory 조회해서 구현
-            using FinalDbContext db = new FinalDbContext();
-            var list = await db.Stocks.Where(x => x.Stock_status == "출고").ToListAsync();
-            chartStock3.Series["Series1"].Points.Clear();
-            int i = 0;
-            foreach (var item in list)
-            {
-                if (i < 7)
-                {
-                    chartStock3.Series["Series1"].Points.AddXY(item.Stock_regDate.ToString("yyyy-MM-dd"), Math.Abs(item.Stock_amount));
-                    i++;
-                }
-            }
-
-
-        }
-
         private async void ChartView1()
         {
             using FinalDbContext db = new FinalDbContext();
@@ -179,6 +139,7 @@ namespace FinalProject_Winform
                 {
                     chartStock2.Series["Series1"].Points.AddXY(item.Item_name, item.Item_amount);
                 }
+                if (i == 9) { break; }
             }
         }
 

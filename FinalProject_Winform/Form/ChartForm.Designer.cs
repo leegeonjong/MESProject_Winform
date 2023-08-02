@@ -39,9 +39,6 @@ namespace FinalProject_Winform
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             panel2 = new Panel();
             label1 = new Label();
             panel1 = new Panel();
@@ -55,25 +52,16 @@ namespace FinalProject_Winform
             tabPage1 = new TabPage();
             chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            tabPage2 = new TabPage();
-            panel3 = new Panel();
-            button2 = new Button();
-            label2 = new Label();
-            dateTimePicker1 = new DateTimePicker();
-            exportchart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             tabPage3 = new TabPage();
+            TestChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             cmbTestName = new ComboBox();
             textBox1 = new TextBox();
-            TestChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)chart2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)chart1).BeginInit();
-            tabPage2.SuspendLayout();
-            panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)exportchart).BeginInit();
             tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)TestChart).BeginInit();
             SuspendLayout();
@@ -205,7 +193,6 @@ namespace FinalProject_Winform
             // tabControl1
             // 
             tabControl1.Controls.Add(tabPage1);
-            tabControl1.Controls.Add(tabPage2);
             tabControl1.Controls.Add(tabPage3);
             tabControl1.Dock = DockStyle.Bottom;
             tabControl1.ItemSize = new Size(200, 40);
@@ -264,78 +251,6 @@ namespace FinalProject_Winform
             chart1.TabIndex = 0;
             chart1.Text = "chart1";
             // 
-            // tabPage2
-            // 
-            tabPage2.BackColor = Color.Gray;
-            tabPage2.Controls.Add(panel3);
-            tabPage2.Controls.Add(exportchart);
-            tabPage2.Location = new Point(4, 44);
-            tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1096, 623);
-            tabPage2.TabIndex = 1;
-            tabPage2.Text = "출하 차트";
-            // 
-            // panel3
-            // 
-            panel3.BackColor = Color.White;
-            panel3.Controls.Add(button2);
-            panel3.Controls.Add(label2);
-            panel3.Controls.Add(dateTimePicker1);
-            panel3.Dock = DockStyle.Top;
-            panel3.Location = new Point(3, 3);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(1090, 118);
-            panel3.TabIndex = 1;
-            // 
-            // button2
-            // 
-            button2.BackColor = Color.FromArgb(52, 152, 219);
-            button2.FlatAppearance.BorderColor = Color.White;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("맑은 고딕", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            button2.Location = new Point(622, 26);
-            button2.Name = "button2";
-            button2.Size = new Size(132, 46);
-            button2.TabIndex = 6;
-            button2.Text = "검색";
-            button2.UseVisualStyleBackColor = false;
-            button2.Click += button2_Click;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("맑은 고딕", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(274, 35);
-            label2.Name = "label2";
-            label2.Size = new Size(125, 37);
-            label2.TabIndex = 1;
-            label2.Text = "시작날짜";
-            // 
-            // dateTimePicker1
-            // 
-            dateTimePicker1.Location = new Point(405, 41);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(200, 23);
-            dateTimePicker1.TabIndex = 0;
-            // 
-            // exportchart
-            // 
-            chartArea3.Name = "ChartArea1";
-            exportchart.ChartAreas.Add(chartArea3);
-            exportchart.Dock = DockStyle.Bottom;
-            legend3.Name = "Legend1";
-            exportchart.Legends.Add(legend3);
-            exportchart.Location = new Point(3, 114);
-            exportchart.Name = "exportchart";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            exportchart.Series.Add(series3);
-            exportchart.Size = new Size(1090, 506);
-            exportchart.TabIndex = 0;
-            exportchart.Text = "chart3";
-            // 
             // tabPage3
             // 
             tabPage3.Controls.Add(TestChart);
@@ -348,10 +263,26 @@ namespace FinalProject_Winform
             tabPage3.Text = "검사 차트";
             tabPage3.UseVisualStyleBackColor = true;
             // 
+            // TestChart
+            // 
+            chartArea3.Name = "ChartArea1";
+            TestChart.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            TestChart.Legends.Add(legend3);
+            TestChart.Location = new Point(77, 106);
+            TestChart.Name = "TestChart";
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            TestChart.Series.Add(series3);
+            TestChart.Size = new Size(853, 374);
+            TestChart.TabIndex = 3;
+            TestChart.Text = "chart3";
+            // 
             // cmbTestName
             // 
             cmbTestName.FormattingEnabled = true;
-            cmbTestName.Items.AddRange(new object[] { "용량 검사", "온도 검사", "수량 검사 입고", "수량 검사 출고" });
+            cmbTestName.Items.AddRange(new object[] { "용량 검사", "온도 검사", "수량 검사 입고" });
             cmbTestName.Location = new Point(780, 65);
             cmbTestName.Name = "cmbTestName";
             cmbTestName.Size = new Size(150, 23);
@@ -367,22 +298,6 @@ namespace FinalProject_Winform
             textBox1.Size = new Size(853, 23);
             textBox1.TabIndex = 1;
             textBox1.Text = "공정 차트 조회";
-            // 
-            // TestChart
-            // 
-            chartArea4.Name = "ChartArea1";
-            TestChart.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            TestChart.Legends.Add(legend4);
-            TestChart.Location = new Point(77, 106);
-            TestChart.Name = "TestChart";
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            TestChart.Series.Add(series4);
-            TestChart.Size = new Size(853, 374);
-            TestChart.TabIndex = 3;
-            TestChart.Text = "chart3";
             // 
             // ChartForm
             // 
@@ -404,10 +319,6 @@ namespace FinalProject_Winform
             tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)chart2).EndInit();
             ((System.ComponentModel.ISupportInitialize)chart1).EndInit();
-            tabPage2.ResumeLayout(false);
-            panel3.ResumeLayout(false);
-            panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)exportchart).EndInit();
             tabPage3.ResumeLayout(false);
             tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)TestChart).EndInit();
@@ -421,7 +332,6 @@ namespace FinalProject_Winform
         private Panel panel1;
         private TabControl tabControl1;
         private TabPage tabPage1;
-        private TabPage tabPage2;
         private TabPage tabPage3;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private Button btn_ChartForm;
@@ -431,11 +341,6 @@ namespace FinalProject_Winform
         private Button btn_ProcessForm;
         private Button btn_LOTForm;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
-        private Panel panel3;
-        private Label label2;
-        private DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DataVisualization.Charting.Chart exportchart;
-        private Button button2;
         private TextBox textBox1;
         private ComboBox cmbTestName;
         private TextBox textBox2;
