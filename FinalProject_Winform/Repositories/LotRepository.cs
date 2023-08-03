@@ -514,13 +514,13 @@ namespace FinalProject_Winform.Repositories
 
         private async Task UpdateLotItem6Async(FinalDbContext db, Lot lot)
         {
-            var item11 = await db.Items.FirstOrDefaultAsync(x => x.Id == 11);
-            var item6 = await db.Items.FirstOrDefaultAsync(x => x.Id == 6);
-            var item7 = await db.Items.FirstOrDefaultAsync(x => x.Id == 7);
-            var item8 = await db.Items.FirstOrDefaultAsync(x => x.Id == 8);
-            var item9 = await db.Items.FirstOrDefaultAsync(x => x.Id == 9);
+            var item11 = await db.Items.FirstOrDefaultAsync(x => x.Id == 11); // 라면
+            var item6 = await db.Items.FirstOrDefaultAsync(x => x.Id == 6); // 튀긴 면
+            var item7 = await db.Items.FirstOrDefaultAsync(x => x.Id == 7); // 스프
+            var item8 = await db.Items.FirstOrDefaultAsync(x => x.Id == 8); // 후레이크 
+            var item9 = await db.Items.FirstOrDefaultAsync(x => x.Id == 9); // 포장지
 
-            lot.Item = item11;
+            lot.Item = item11; // 현 Lot의 Item은 튀긴 면
 
             if (item6.Item_amount < lot.Lot_amount || item7.Item_amount < lot.Lot_amount ||
                  item8.Item_amount < lot.Lot_amount || item9.Item_amount < lot.Lot_amount)
@@ -529,11 +529,11 @@ namespace FinalProject_Winform.Repositories
                 return;
             }
 
-            item11.Item_amount += lot.Lot_amount;
-            item6.Item_amount -= lot.Lot_amount;
-            item7.Item_amount -= lot.Lot_amount;
-            item8.Item_amount -= lot.Lot_amount;
-            item9.Item_amount -= lot.Lot_amount;
+            item11.Item_amount += lot.Lot_amount; //완제품 라면ㄴ
+            item6.Item_amount -= lot.Lot_amount; // 튀긴 면
+            item7.Item_amount -= lot.Lot_amount; // 스프
+            item8.Item_amount -= lot.Lot_amount; // 후레이크
+            item9.Item_amount -= lot.Lot_amount; // 포장지
 
             Stock stock = new Stock()
             {
@@ -579,7 +579,8 @@ namespace FinalProject_Winform.Repositories
             var lastStock = await db.Stocks
                 .Where(x => x.Item.Id == item11.Id)
                 .OrderByDescending(x => x.Stock_regDate)
-                .FirstOrDefaultAsync();
+                .FirstOrDefaultAsync(); 
+            // 가장 최근의 Stock 데이터 끌고옴
 
             var lastStock1 = await db.Stocks
                 .Where(x => x.Item.Id == item6.Id)
@@ -604,10 +605,12 @@ namespace FinalProject_Winform.Repositories
             if (lastStock != null)
             {
                 stock.Stock_regAmount = lastStock.Stock_regAmount + lot.Lot_amount;
+                // 가장 최근에 변화했을 당시에 재고량에 더함
             }
             else
             {
                 stock.Stock_regAmount = lot.Lot_amount;
+                // 아니라면 지금 수량을 재고량에 씀 
             }
 
             if (lastStock1 != null)

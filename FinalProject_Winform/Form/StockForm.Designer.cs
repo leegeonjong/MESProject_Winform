@@ -333,7 +333,7 @@
 			// 
 			comboBox1.Font = new Font("맑은 고딕", 18F, FontStyle.Bold, GraphicsUnit.Point);
 			comboBox1.FormattingEnabled = true;
-			comboBox1.Items.AddRange(new object[] { "밀가루", "팜유", "후레이크 ", "스프", "포장지" });
+			comboBox1.Items.AddRange(new object[] { "밀가루", "팜유", "후레이크 ", "스프", "포장지", "라면" });
 			comboBox1.Location = new Point(122, 22);
 			comboBox1.Name = "comboBox1";
 			comboBox1.Size = new Size(197, 40);

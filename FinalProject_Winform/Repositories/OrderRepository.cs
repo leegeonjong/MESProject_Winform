@@ -46,8 +46,15 @@ namespace FinalProject_Winform.Repositories
             var item = await db.Items.Where(x => x.Item_name == itemname).FirstAsync();
             if (item == null) return null;
 
+			bool orderExists = await db.Orders.AnyAsync(x => x.Order_name == ordername);
+			if (orderExists)
+			{
+				MessageBox.Show("주문명이 중복됩니다. 다른 주문명을 사용해주세요");
+				return null;
+			}
 
-            Order order = new()
+
+			Order order = new()
             {
                 Item = item,
                 Order_startDate = startDate,

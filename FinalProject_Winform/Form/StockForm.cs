@@ -117,7 +117,7 @@ namespace FinalProject_Winform
 					dgvWarehousing.Rows.Add();  // 새로운 row 추가
 					dgvWarehousing.Rows[i].Cells["item_name3"].Value = stock.Item.Item_name;
 					dgvWarehousing.Rows[i].Cells["item_warehousing3"].Value = stock.Stock_status;
-					if (stock.Stock_status == "입고")
+					if (stock.Stock_amount >= 0)
 					{
 						dgvWarehousing.Rows[i].Cells["item_count3"].Value = "+" + stock.Stock_amount + stock.Item.Item_unit;
 					}

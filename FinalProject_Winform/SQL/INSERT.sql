@@ -37,8 +37,8 @@ VALUES
 
 INSERT INTO Stock (ItemId, Stock_Amount, Stock_regAmount, Stock_regDate, Stock_status)
 VALUES
-(11,-100,300,GETDATE()-2,'출고')
-,(11,-15,300,GETDATE()-1,'출고')
+(11,+100,3400,GETDATE(),'라면 포장')
+,(9,-100,200,GETDATE(),'라면 포장')
 ,(11,-50,300,GETDATE()+1,'출고')
 ,(11,-70,300,GETDATE(),'출고')
 ,(11,-30,300,GETDATE()+2,'출고')
