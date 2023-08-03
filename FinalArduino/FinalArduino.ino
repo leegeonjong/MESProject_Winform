@@ -76,7 +76,6 @@ void loop() {
   // 버튼을 눌렀을 때
   for (int i = 0; i < numProcesses; i++) {
     buttonState[i] = digitalRead(ProcessSw[i]);
-
     // 버튼의 눌림 상태 변화를 감지하여 한 번만 실행
     if (buttonState[i] != prevButtonState[i]) {
       if (buttonState[i] == LOW && prevButtonState[i] == HIGH) {  // Falling Edge
@@ -104,7 +103,6 @@ void loop() {
     }
   }
 
-
   // 윈폼에서 통신을 받는 곳
   if (Serial.available() > 0) {
     String line = Serial.readStringUntil('\n');
@@ -129,7 +127,6 @@ void loop() {
       digitalWrite(LedYellow[i], LOW);
       LEDstatus[i] = "G";
     }
-
     if (timerStarted[i]) {
       switch (i) {
         case 0:  // 첫번째 공정이면 제공 더하기
