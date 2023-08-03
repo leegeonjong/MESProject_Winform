@@ -34,23 +34,18 @@ void Processstart(String action, String process, String lotid) {
       digitalWrite(LedYellow[processNum], LOW);
       LEDstatus[processNum] = "G";
     }
-
-
     startTime[processNum] = millis();
     timerStarted[processNum] = true;
-    // SendContinue(myArray[processNum].process, myArray[processNum].lotid);
   }
   // 명령어가 Off 일때 : 프로세스(공정) 작동-->정지
   else if (action == "Off") {
     digitalWrite(LedRed[processNum], HIGH);
     digitalWrite(LedGreen[processNum], LOW);
     digitalWrite(LedYellow[processNum], LOW);
-
     LEDstatus[processNum] = "R";
 
     timerDuration = timerDuration - (millis() - startTime[processNum]);
     timerStarted[processNum] = false;  // 타이머 상태 초기화
 
-    // SendStop(myArray[processNum].process, myArray[processNum].lotid);
   }
 }

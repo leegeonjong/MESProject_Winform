@@ -25,36 +25,36 @@ namespace FinalProject_Winform
 
         public MainForm()
         {
-            InitializeComponent();
+           InitializeComponent();
 
             //시리얼 포트 생성
             serialPort = new();
             serialPort.BaudRate = 9600;
             serialPort.DataReceived += serialPort_DataReceived;
 
-            serialPort.ReadTimeout = 0;
-            lotRepository = new LotRepository();
-            lothistoryRepository = new LothistoryRepository();
-            processRepository = new ProcessRepository();
+           // serialPort.ReadTimeout = 0;
+           // lotRepository = new LotRepository();
+           // lothistoryRepository = new LothistoryRepository();
+           // processRepository = new ProcessRepository();
 
             //MainForm이 로드될 때 수행할 작업
             string port = $"COM7";  // 이건종
             //string port = $"COM3";
             //string port = $"COM4";
 
-            serialPort.PortName = port;   //시리얼 포트 설정
+           // serialPort.PortName = port;   //시리얼 포트 설정
 
-            // 시리얼 통신 시작
-            if (serialPort.IsOpen)
-            {
-                // 이미 COM 포트 오픈 되어 있으면. 아무것도 안함.
-                MessageBox.Show($"이미 {port}는 열려 있습니다");
-            }
-            else
-            {
-                // 연결이 안되어 있으면 연결한다.
-                serialPort.Open();
-            }
+           // // 시리얼 통신 시작
+           // if (serialPort.IsOpen)
+           // {
+           //     // 이미 COM 포트 오픈 되어 있으면. 아무것도 안함.
+           //     MessageBox.Show($"이미 {port}는 열려 있습니다");
+           // }
+           // else
+           // {
+           //     // 연결이 안되어 있으면 연결한다.
+           //     serialPort.Open();
+           // }
         }
         public SerialPort serialPort;
         private void serialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
@@ -208,7 +208,6 @@ namespace FinalProject_Winform
                 data = long.Parse(arrMessage[3]);
             }
 
-
             switch (arrMessage[0]) // arrMessage[0] = 공정행동, arrMessage[1] = 공정명, arrmessage[2] = lotid
             {
                 case "Recieve": //명령 받음
@@ -227,7 +226,7 @@ namespace FinalProject_Winform
                     ProcessOn(arrMessage[1], lotpk);
                     break;
                 case "Data": //검사값 받았을때
-                             //공정 id 가져오기
+                    //공정 id 가져오기
                     long processid = processRepository.GetProcessId(arrMessage[1]);
                     //검사 기준값 가져오기 
                     long? checkValue = await processRepository.GetTestCheckValue(processid, data);
@@ -252,16 +251,8 @@ namespace FinalProject_Winform
                 MessageBox.Show("검사 기준값이 없습니다.");
             }
 
-            //-------------------검사 기준값과 data 비교하기--------------------------
-            // 오차 계산
-            double errorPercentage = Math.Abs((double)(checkValue - data)) / (double)checkValue * 100;
-
             //오차 허용범위값 가져오기
             long? tolerance = await processRepository.GetTestToleranceValue(processid, data);
-
-            //검사결과 checkresult 저장
-            await lothistoryRepository.SaveTestData(lotpk, processid, data);
-
             //만약 허용범위값이 설정 되어있지 않으면 5%
             if (!tolerance.HasValue)
             {
@@ -269,19 +260,28 @@ namespace FinalProject_Winform
                 //메시지 표시
                 MessageBox.Show("검사 기준값이 없습니다.");
             }
+
+            //-------------------검사 기준값과 data 비교하기--------------------------
+            // 오차 계산
+            double errorPercentage = Math.Abs((double)(checkValue - data)) / (double)checkValue * 100;
+
             bool pass = true;
             if (errorPercentage <= tolerance)
             {
-                // 오차가 허용값 안인경우
+                // 오차가 허용값 이내인 경우
                 await lotRepository.UpdateLotbreak(lotpk, pass);
             }
             else
             {
-                // 오차가 헝요값 밖인 경우
+                // 오차가 허용값 밖인 경우
                 pass = false;
                 await lotRepository.UpdateLotbreak(lotpk, pass);
             }
+            //bool pass = errorPercentage <= tolerance;
+            //await lotRepository.UpdateLotbreak(lotpk, pass);
 
+            //검사결과 checkresult 저장
+            await lothistoryRepository.SaveTestData(lotpk, processid, data);
             //공정 id 로 해당 검사에 검사 data 입력하기
             await processRepository.SaveTestData(processid, data);
             //lotHistory에 저장

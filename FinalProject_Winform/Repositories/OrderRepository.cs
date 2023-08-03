@@ -16,7 +16,18 @@ namespace FinalProject_Winform.Repositories
             return order.Order_count;
         }
 
-        public async Task<string> GetStatusByIdAsync(long id)
+		public async Task<Order> GetByNameAsync(string name)
+		{
+			using FinalDbContext db = new();
+			var order = await db.Orders
+								.Include(x => x.Item)
+								.Where(i => i.Order_name == name)
+								.FirstOrDefaultAsync();
+			return order;
+		}
+
+
+		public async Task<string> GetStatusByIdAsync(long id)
         {
             using FinalDbContext db = new();
             var order = await db.Orders
