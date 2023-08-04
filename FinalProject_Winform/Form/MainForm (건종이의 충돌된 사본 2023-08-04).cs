@@ -37,17 +37,17 @@ namespace FinalProject_Winform
             lothistoryRepository = new LothistoryRepository();
             processRepository = new ProcessRepository();
 
-          //  mainform이 로드될 때 수행할 작업
-          // string port = $"com7";  // 이건종
-            string port = $"com7";
-          //  string port = $"com4";
+            //MainForm이 로드될 때 수행할 작업
+            string port = $"COM7";  // 이건종
+           // string port = $"COM3";
+           // string port = $"COM4";
 
             serialPort.PortName = port;   //시리얼 포트 설정
 
             // 시리얼 통신 시작
             if (serialPort.IsOpen)
             {
-                // 이미 com 포트 오픈 되어 있으면. 아무것도 안함.
+                // 이미 COM 포트 오픈 되어 있으면. 아무것도 안함.
                 MessageBox.Show($"이미 {port}는 열려 있습니다");
             }
             else
@@ -130,16 +130,16 @@ namespace FinalProject_Winform
                 switch (status)
                 {
                     case "Start":
-                        panel.BackColor = Color.Green;
+                        panel.BackColor = Color.Yellow;
                         label.Text = "상태 : 가동중 /" + " LOT번호 : " + lotid;
                         isProcessOn = true;
                         break;
                     case "Data":
-                        panel.BackColor = Color.Green;
+                        panel.BackColor = Color.Yellow;
                         label.Text = "상태 : 가동중 /" + " LOT번호 : " + lotid;
                         break;
                     case "End":
-                        panel.BackColor = Color.Yellow;
+                        panel.BackColor = Color.Green;
                         label.Text = "상태 : 대기중 / " + " LOT번호 : " + lotid;
                         isProcessOn = false;
                         break;
@@ -150,12 +150,12 @@ namespace FinalProject_Winform
                     case "Continue":
                         if (isProcessOn == true)
                         {
-                            panel.BackColor = Color.Yellow;
+                            panel.BackColor = Color.Green;
                             label.Text = "상태 : 대기중 / " + " LOT번호 : " + lotid;
                         }
                         else
                         {
-                            panel.BackColor = Color.Green;
+                            panel.BackColor = Color.Yellow;
                             label.Text = "상태 : 가동중 /" + " LOT번호 : " + lotid;
                             isProcessOn = false;
                         }
