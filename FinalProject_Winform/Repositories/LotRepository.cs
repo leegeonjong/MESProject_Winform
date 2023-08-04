@@ -515,12 +515,12 @@ namespace FinalProject_Winform.Repositories
         private async Task UpdateLotItem6Async(FinalDbContext db, Lot lot)
         {
             var item11 = await db.Items.FirstOrDefaultAsync(x => x.Id == 11); // 라면
-            var item6 = await db.Items.FirstOrDefaultAsync(x => x.Id == 6); // 튀긴 면
+            var item6 = await db.Items.FirstOrDefaultAsync(x => x.Id == 6); // 냉동 면
             var item7 = await db.Items.FirstOrDefaultAsync(x => x.Id == 7); // 스프
             var item8 = await db.Items.FirstOrDefaultAsync(x => x.Id == 8); // 후레이크 
             var item9 = await db.Items.FirstOrDefaultAsync(x => x.Id == 9); // 포장지
 
-            lot.Item = item11; // 현 Lot의 Item은 튀긴 면
+            lot.Item = item11; // 현 Lot의 Item은 냉동 면
 
             if (item6.Item_amount < lot.Lot_amount || item7.Item_amount < lot.Lot_amount ||
                  item8.Item_amount < lot.Lot_amount || item9.Item_amount < lot.Lot_amount)
@@ -529,8 +529,8 @@ namespace FinalProject_Winform.Repositories
                 return;
             }
 
-            item11.Item_amount += lot.Lot_amount; //완제품 라면ㄴ
-            item6.Item_amount -= lot.Lot_amount; // 튀긴 면
+            item11.Item_amount += lot.Lot_amount; //완제품 라면
+            item6.Item_amount -= lot.Lot_amount; // 냉동 면
             item7.Item_amount -= lot.Lot_amount; // 스프
             item8.Item_amount -= lot.Lot_amount; // 후레이크
             item9.Item_amount -= lot.Lot_amount; // 포장지
