@@ -14,5 +14,9 @@ namespace FinalProject_Winform.Repositories
         Task<LotHistory> AddLotAsync(long lotid, long processid, string status);
 
         Task<LotHistory> SaveTestData(long lotid, long processid, long checkResult);
+
+        Task<List<LotHistory>> GetByBarcode(string Barcode);
+
+
     }
 }

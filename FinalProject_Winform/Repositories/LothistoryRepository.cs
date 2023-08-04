@@ -81,6 +81,17 @@ namespace FinalProject_Winform.Repositories
 
             return lots;
         }
+        
+        public async Task<List<LotHistory>> GetByBarcode(string Barcode)
+        {
+            using FinalDbContext db = new();
+            var lothistory = await db.LotHistorys
+                .Include(x => x.Process) 
+                .Where(i => i.Lot.Lot_barcode == Barcode)
+                .OrderByDescending(i => i.LotHistory_Date)
+                .ToListAsync();
 
+            return lothistory;
+        }
     }
 }

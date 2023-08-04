@@ -1,4 +1,5 @@
 ﻿using BarcodeStandard;
+using FinalProject_Winform.Models.domain;
 using FinalProject_Winform.Repositories;
 using Microsoft.IdentityModel.Tokens;
 using SkiaSharp;
@@ -33,10 +34,12 @@ namespace FinalProject_Winform
         }
         //
         DataGridView dgv_lot;
+        DataGridView dgv_history;
 
         private void LOTForm_Load(object sender, EventArgs e)
         {
             dgv_lot = Dgv_Lot;
+            dgv_history = dgv_history1;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -87,9 +90,9 @@ namespace FinalProject_Winform
 
         private string makebarcode()
         {
-            const int length = 12;
-            const string chars = "0123456789";
-            StringBuilder sb = new StringBuilder(length);
+            const int length = 12;             //바코드의 길이
+            const string chars = "0123456789"; //바코드에 사용할 문자
+            StringBuilder sb = new StringBuilder(length); //문자가 저장될 문자열
             Random random = new Random();
 
             for (int i = 0; i < length; i++)
@@ -221,12 +224,12 @@ namespace FinalProject_Winform
                 int i = 0;
                 foreach (var Lot in Lots)
                 {
-                string lot_break;
+                    string lot_break;
                     if (Lot.Lot_break == false)
                     {
                         lot_break = "불량";
                     }
-                    else { lot_break = "정상";}
+                    else { lot_break = "정상"; }
                     dgv_lot.Rows.Add();  // 새로운 row 추가
                     dgv_lot.Rows[i].Cells["Lot_Id"].Value = Lot.Id;
                     dgv_lot.Rows[i].Cells["Lot_Barcode"].Value = Lot.Lot_barcode;
@@ -323,6 +326,31 @@ namespace FinalProject_Winform
                 MessageBox.Show("삭제할 항목을 선택해주세요.");
             }
             LoadItems("", 0);
+        }
+
+        private async void btnhistory_Click(object sender, EventArgs e)
+        {
+            string lot_barcode;
+            lot_barcode = tbox_history.Text;
+            var lothistoy = await lothistoryRepository.GetByBarcode(lot_barcode);
+            dgv_history1.Rows.Clear();
+            dgv_history1.Refresh();
+            int i = 0;
+            foreach (var Lot in lothistoy)
+            {
+                dgv_history1.Rows.Add();  // 새로운 row 추가
+                string CheckName = "";
+                if (Lot.CheckId == 1) { CheckName = "용량검사"; }
+                else if (Lot.CheckId == 2) { CheckName = "온도검사"; }
+                else if (Lot.CheckId == 3) { CheckName = "출입검사"; }
+                dgv_history1.Rows[i].Cells["process_id"].Value = Lot.Process.Process_name;
+                dgv_history1.Rows[i].Cells["history_check"].Value = CheckName;
+                dgv_history1.Rows[i].Cells["Check_result"].Value = Lot.CheckResult;
+                dgv_history1.Rows[i].Cells["Lotdate"].Value = Lot.LotHistory_Date;
+                dgv_history1.Rows[i].Cells["lothistory_status"].Value = Lot.LotHistory_status;
+                i++;
+            }
+
         }
     }
 }
