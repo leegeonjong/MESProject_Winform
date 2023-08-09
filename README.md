@@ -72,3 +72,7 @@ C#, ASP.NET, Winform, Arduino, Entity FrameWork
 ### **검사 데이터 시각화**
 
 ![검사 데이터 시각화](./Images/5.png)
+
+
+
+[제작 시연 영상]: https://www.youtube.com/watch?v=EIa28L82daU&list=PLedGoSru794-VINQHqtNmjeTm0uuZJ1Ck&index=1&ab_channel=MasterCode
