@@ -67,15 +67,15 @@ C#, ASP.NET, Winform, Arduino, Entity FrameWork
 
 ### **LOT 생성**
 
-![LOT 생성](./image/image4.png)
+![LOT 생성](./Image/image4.png)
 
 ### **프로토콜 EX**
 
-![프로토콜 EX](./image/image5.png)
+![프로토콜 EX](./Image/image5.png)
 
 ### **공정 진행**
 
-![공정 진행](./image/image6.png)
+![공정 진행](./Image/image6.png)
 
 
 [제작 시연 영상]: https://www.youtube.com/watch?v=EIa28L82daU&list=PLedGoSru794-VINQHqtNmjeTm0uuZJ1Ck&index=1&ab_channel=MasterCode
