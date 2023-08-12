@@ -54,16 +54,16 @@ C#, ASP.NET, Winform, Arduino, Entity FrameWork
 
 ### **시스템 구성도**
 
-![시스템 구성도](./image/image1.png)
+![시스템 구성도](./Image/image1.png)
 
 ### **프로토콜**
 
-![프로토콜](./image/image2.png)
+![프로토콜](./Image/image2.png)
 
 
 ### **공정 구성도**
 
-![공정 구성도](./image/image3.png)
+![공정 구성도](./Image/image3.png)
 
 ### **LOT 생성**
 
