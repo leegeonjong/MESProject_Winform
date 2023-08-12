@@ -52,27 +52,30 @@ C#, ASP.NET, Winform, Arduino, Entity FrameWork
 |LED_GREEN 초록색|6|공정 대기시 점등
 |LED_YELLOW 노란색|6|공정 진행시 점등
 
-### **시스템 설계도**
+### **시스템 구성도**
 
-![시스템 설계도](./Images/2.png)
+![시스템 구성도](./image/image1.png)
 
-### **공정**
+### **프로토콜**
 
-![공정 설명](./Images/1.png)
+![프로토콜](./image/image2.png)
 
 
-### **Serial Protocol**
+### **공정 구성도**
 
-![Serial Protocol](./Images/3.png)
+![공정 구성도](./image/image3.png)
 
-### **공정 상태 확인**
+### **LOT 생성**
 
-![공정 상태 확인](./Images/4.png)
+![LOT 생성](./image/image4.png)
 
-### **검사 데이터 시각화**
+### **프로토콜 EX**
 
-![검사 데이터 시각화](./Images/5.png)
+![프로토콜 EX](./image/image5.png)
 
+### **공정 진행**
+
+![공정 진행](./image/image6.png)
 
 
 [제작 시연 영상]: https://www.youtube.com/watch?v=EIa28L82daU&list=PLedGoSru794-VINQHqtNmjeTm0uuZJ1Ck&index=1&ab_channel=MasterCode
